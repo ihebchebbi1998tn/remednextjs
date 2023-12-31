@@ -28,6 +28,7 @@ export interface ShowcaseProject {
 }
 
 export interface ShowcasePost {
+  _type: string
   _id: PostPayload['_id']
   coverImage?: PostPayload['coverImage']
   excerpt?: PostPayload['excerpt']

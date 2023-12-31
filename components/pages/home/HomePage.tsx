@@ -52,22 +52,13 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
       {showcaseProjects && showcaseProjects.length > 0 && (
         <div className="grid grid-cols-1 gap-5 mx-auto max-w-[100rem] md:grid-cols-2 lg:grid-cols-3">
           {showcaseProjects.map((project, key) => {
-            const href = resolveHref(project._type, project.slug)
-            if (!href) {
-              return null
-            }
             return (
-              <Link
-                key={key}
-                href={href}
-                data-sanity={encodeDataAttribute?.([
-                  'showcaseProjects',
-                  key,
-                  'slug',
-                ])}
-              >
-                <ProjectListItem project={project} odd={key % 2} width={width} height={height} />
-              </Link>
+                <ProjectListItem
+                  project={project}
+                  odd={key % 2}
+                  width={width}
+                  height={height}
+                />
             )
           })}
         </div>
@@ -77,19 +68,13 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
       {showcasePosts && showcasePosts.length > 0 && (
         <div className="grid grid-cols-1 gap-5 mx-auto max-w-[100rem] md:grid-cols-2 lg:grid-cols-3">
           {showcasePosts.map((post, key) => {
-            const href = resolveHref(post._type, post.slug)
             return (
-              <Link
-                key={key}
-                href={href ?? `/posts/${post.slug}`}
-                data-sanity={encodeDataAttribute?.([
-                  'showcasePosts',
-                  key,
-                  'slug',
-                ])}
-              >
-                <PostListItem post={post} odd={key % 2} width={width} height={height} />
-              </Link>
+              <PostListItem
+                post={post}
+                odd={key % 2}
+                width={width}
+                height={height}
+              />
             )
           })}
         </div>

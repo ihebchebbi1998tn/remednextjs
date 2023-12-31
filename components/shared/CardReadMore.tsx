@@ -10,6 +10,7 @@ import {
   CardTitle,
 } from '../ui/card'
 import Image from 'next/image'
+import Link from 'next/link'
 
 interface CardReadMoreProps {
   image: string
@@ -32,7 +33,7 @@ export function CardReadMore({
   description,
   tags,
   readMoreLabel,
-  
+
   ...props
 }: CardReadMoreProps) {
   return (
@@ -68,7 +69,12 @@ export function CardReadMore({
             ))}
           </div>
         )}
-        <Button variant="link">{readMoreLabel}</Button>
+        <Link
+          href={props.readMoreLink}
+          className="text-sm font-medium lowercase md:text-lg"
+        >
+          <Button variant="link">{readMoreLabel}</Button>
+        </Link>
       </CardFooter>
     </Card>
   )
