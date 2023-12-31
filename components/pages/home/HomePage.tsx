@@ -69,7 +69,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
       <div className="relative w-full"></div>
       {/* Showcase projects */}
       {showcaseProjects && showcaseProjects.length > 0 && (
-        <div className="mx-auto max-w-[100rem] rounded-md border">
+        <div className="grid grid-cols-1 gap-5 mx-auto max-w-[100rem] md:grid-cols-2 lg:grid-cols-3">
           {showcaseProjects.map((project, key) => {
             const href = resolveHref(project._type, project.slug)
             if (!href) {
@@ -94,55 +94,21 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
 
       {/* Showcase posts */}
       {showcasePosts && showcasePosts.length > 0 && (
-        <div className="mx-auto max-w-[100rem] grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-5 mx-auto max-w-[100rem] md:grid-cols-2 lg:grid-cols-3">
           {showcasePosts.map((post, key) => {
             const href = resolveHref(post._type, post.slug)
             return (
-              <Card key={key} className="flex flex-col justify-between h-full">
-                <Link
-                  key={key}
-                  href={href ?? `/posts/${post.slug}`}
-                  data-sanity={encodeDataAttribute?.([
-                    'showcasePosts',
-                    key,
-                    'slug',
-                  ])}
-                >
-                  <CardHeader>
-                    <CardTitle>{post.title}</CardTitle>
-                    <Image
-                      src={
-                        urlForImage(post?.coverImage)
-                          ?.height(height)
-                          .width(width)
-                          .fit('crop')
-                          .url() as string
-                      }
-                      alt={post.title ?? 'Cover image'}
-                      width={width}
-                      height={height}
-                    />
-                  </CardHeader>
-                </Link>
-                <CardContent>
-                  <CardDescription>
-                    {post.excerpt?.map(toPlainText)}
-                  </CardDescription>
-                </CardContent>
-                <CardFooter>
-                  <Link
-                    key={key}
-                    href={href ?? `/posts/${post.slug}`}
-                    data-sanity={encodeDataAttribute?.([
-                      'showcasePosts',
-                      key,
-                      'slug',
-                    ])}
-                  >
-                    <span className="text-green-600">Read more</span>
-                  </Link>
-                </CardFooter>
-              </Card>
+              <Link
+                key={key}
+                href={href ?? `/posts/${post.slug}`}
+                data-sanity={encodeDataAttribute?.([
+                  'showcasePosts',
+                  key,
+                  'slug',
+                ])}
+              >
+                <PostListItem post={post} odd={key % 2} />
+              </Link>
             )
           })}
         </div>

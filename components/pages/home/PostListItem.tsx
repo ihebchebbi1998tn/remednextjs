@@ -1,8 +1,17 @@
 import type { PortableTextBlock } from '@portabletext/types'
 
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
-import ImageBox from '@/components/shared/ImageBox'
 import type { ShowcasePost } from '@/types'
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardContent,
+  CardDescription,
+  CardFooter,
+} from '@/components/ui/card'
+import { urlForImage } from '@/sanity/lib/utils'
+import Image from 'next/image'
 
 interface PostProps {
   post: ShowcasePost
@@ -13,38 +22,39 @@ export function PostListItem(props: PostProps) {
   const { post, odd } = props
 
   return (
-    <div
-      className={`flex flex-col gap-x-5 p-2 transition hover:bg-gray-50/50 xl:flex-row ${
+    <Card
+      className={`w-[350px] flex flex-col gap-x-5 p-2 transition hover:bg-gray-50/50 xl:flex-row ${
         odd && 'border-b border-t xl:flex-row-reverse'
       }`}
     >
-      <div className="w-full xl:w-9/12">
-        <ImageBox
-          image={post.coverImage}
-          alt={`Cover image from ${post.title}`}
-          classesWrapper="relative aspect-[16/9]"
+      <CardHeader>
+        <CardTitle>{post.title}</CardTitle>
+        <CardDescription>{post.slug}</CardDescription>
+        <Image
+          src={
+            urlForImage(post.coverImage)
+              ?.height(350)
+              .width(350)
+              .fit('crop')
+              .url() as string
+          }
+          width={350}
+          height={350}
+          alt={post.title ?? 'Cover image'}
         />
-      </div>
-      <div className="flex xl:w-1/4">
-        <TextBox post={post} />
-      </div>
-    </div>
-  )
-}
-
-function TextBox({ post }: { post: ShowcasePost }) {
-  return (
-    <div className="relative flex flex-col justify-between w-full p-3 mt-2 xl:mt-0">
-      <div>
-        {/* Title */}
-        <div className="mb-2 text-xl font-extrabold tracking-tight md:text-2xl">
-          {post.title}
-        </div>
-        {/* Overview  */}
-        <div className="font-serif text-gray-500">
+      </CardHeader>
+      <CardContent>
+        <CardDescription>
           <CustomPortableText value={post.excerpt as PortableTextBlock[]} />
-        </div>
-      </div>
-    </div>
+        </CardDescription>
+      </CardContent>
+      <CardFooter className="flex justify-end gap-x-2">
+        {post.tags?.map((tag, key) => (
+          <div className="text-sm font-medium lowercase md:text-lg" key={key}>
+            #{tag}
+          </div>
+        ))}
+      </CardFooter>
+    </Card>
   )
 }

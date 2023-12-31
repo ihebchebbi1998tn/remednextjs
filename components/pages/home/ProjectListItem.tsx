@@ -1,8 +1,17 @@
 import type { PortableTextBlock } from '@portabletext/types'
 
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
-import ImageBox from '@/components/shared/ImageBox'
 import type { ShowcaseProject } from '@/types'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card'
+import Image from 'next/image'
+import { urlForImage } from '@/sanity/lib/utils'
 
 interface ProjectProps {
   project: ShowcaseProject
@@ -13,46 +22,39 @@ export function ProjectListItem(props: ProjectProps) {
   const { project, odd } = props
 
   return (
-    <div
-      className={`flex flex-col gap-x-5 p-2 transition hover:bg-gray-50/50 xl:flex-row ${
+    <Card
+      className={`w-[350px] flex flex-col gap-x-5 p-2 transition hover:bg-gray-50/50 xl:flex-row ${
         odd && 'border-b border-t xl:flex-row-reverse'
       }`}
     >
-      <div className="w-full xl:w-9/12">
-        <ImageBox
-          image={project.coverImage}
-          alt={`Cover image from ${project.title}`}
-          classesWrapper="relative aspect-[16/9]"
+      <CardHeader>
+        <CardTitle>{project.title}</CardTitle>
+        <CardDescription>{project.slug}</CardDescription>
+        <Image
+          src={
+            urlForImage(project.coverImage)
+              ?.height(350)
+              .width(350)
+              .fit('crop')
+              .url() as string
+          }
+          width={350}
+          height={350}
+          alt={project.title ?? 'Cover image'}
         />
-      </div>
-      <div className="flex xl:w-1/4">
-        <TextBox project={project} />
-      </div>
-    </div>
-  )
-}
-
-function TextBox({ project }: { project: ShowcaseProject }) {
-  return (
-    <div className="relative mt-2 flex w-full flex-col justify-between p-3 xl:mt-0">
-      <div>
-        {/* Title */}
-        <div className="mb-2 text-xl font-extrabold tracking-tight md:text-2xl">
-          {project.title}
-        </div>
-        {/* Overview  */}
-        <div className="font-serif text-gray-500">
+      </CardHeader>
+      <CardContent>
+        <CardDescription>
           <CustomPortableText value={project.overview as PortableTextBlock[]} />
-        </div>
-      </div>
-      {/* Tags */}
-      <div className="mt-4 flex flex-row gap-x-2">
+        </CardDescription>
+      </CardContent>
+      <CardFooter className="flex justify-end gap-x-2">
         {project.tags?.map((tag, key) => (
           <div className="text-sm font-medium lowercase md:text-lg" key={key}>
             #{tag}
           </div>
         ))}
-      </div>
-    </div>
+      </CardFooter>
+    </Card>
   )
 }
