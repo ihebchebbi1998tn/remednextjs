@@ -17,8 +17,28 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
 
   return (
     <div className="space-y-20">
-      {/* Header */}
-      {title && <Header centered title={title} description={overview} />}
+      <header className="relative flex items-center justify-center h-screen mb-12 overflow-hidden">
+        {/* Header */}
+        {title && (
+          <Header
+            centered
+            title={title}
+            description={overview}
+            className="relative z-10 w-1/2 p-5 text-white bg-green-600 bg-opacity-70 backdrop-blur-2px"
+          />
+        )}
+
+        {/* Video */}
+        <video
+          autoPlay
+          loop
+          muted
+          className="absolute w-auto min-w-full min-h-full max-w-none filter brightness-50"
+        >
+          <source src="/videos/omp.mp4" type="video/mp4" />
+        </video>
+      </header>
+      <div className="relative w-full"></div>
       {/* Showcase projects */}
       {showcaseProjects && showcaseProjects.length > 0 && (
         <div className="mx-auto max-w-[100rem] rounded-md border">
