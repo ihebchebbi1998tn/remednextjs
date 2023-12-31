@@ -14,7 +14,6 @@ export default function Navbar(props: NavbarProps) {
     <div className="sticky top-0 z-20 flex flex-wrap items-center px-4 py-4 gap-x-5 bg-white/80 backdrop-blur md:px-16 md:py-5 lg:px-32">
       {menuItems &&
         menuItems.map((menuItem, key) => {
-          console.log('menuItem: ', menuItem)
           const href = resolveHref(menuItem?._type, menuItem?.slug)
           if (!href) {
             return null

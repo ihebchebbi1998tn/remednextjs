@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "@portabletext/react": "3.0.11",
+    "@radix-ui/react-slot": "1.0.2",
     "@sanity/demo": "1.0.2",
     "@sanity/image-url": "1.0.2",
     "@sanity/overlays": "2.2.0",
@@ -26,8 +27,11 @@
     "@sanity/vision": "3.21.3",
     "@tailwindcss/typography": "0.5.10",
     "@vercel/speed-insights": "1.0.2",
+    "class-variance-authority": "0.7.0",
     "classnames": "2.3.2",
+    "clsx": "2.1.0",
     "date-fns": "2.30.0",
+    "lucide-react": "0.303.0",
     "next": "14.0.4",
     "next-sanity": "7.0.4",
     "react": "18.2.0",
@@ -35,7 +39,9 @@
     "sanity": "3.21.3",
     "sanity-plugin-asset-source-unsplash": "1.1.2",
     "server-only": "0.0.1",
-    "styled-components": "6.1.1"
+    "styled-components": "6.1.1",
+    "tailwind-merge": "2.2.0",
+    "tailwindcss-animate": "1.0.7"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "7.6.6",

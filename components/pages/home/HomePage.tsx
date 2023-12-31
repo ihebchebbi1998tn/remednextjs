@@ -21,7 +21,6 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
     title = '',
   } = data ?? {}
 
-  console.log('showcasePosts: ', showcasePosts)
   return (
     <div className="space-y-20">
       <header className="relative flex items-center justify-center h-screen mb-12 overflow-hidden">
