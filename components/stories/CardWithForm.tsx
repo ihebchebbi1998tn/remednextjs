@@ -21,7 +21,7 @@ import {
 
 export function CardWithForm() {
   return (
-    <Card className="w-[350px]">
+    <Card className="w-[350px] bg-green-50 bg-opacity-50 bg-blur bg-blur-sm">
       <CardHeader>
         <CardTitle>Create project</CardTitle>
         <CardDescription>Deploy your new project in one-click.</CardDescription>

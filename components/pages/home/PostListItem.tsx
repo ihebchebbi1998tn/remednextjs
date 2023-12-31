@@ -12,49 +12,37 @@ import {
 } from '@/components/ui/card'
 import { urlForImage } from '@/sanity/lib/utils'
 import Image from 'next/image'
+import { CardReadMore } from '@/components/shared/CardReadMore'
+import { toPlainText } from '@portabletext/react'
 
 interface PostProps {
   post: ShowcasePost
   odd: number
+  width: number
+  height: number
 }
 
 export function PostListItem(props: PostProps) {
-  const { post, odd } = props
+  const { post, odd, width, height } = props
 
   return (
-    <Card
-      className={`flex flex-col gap-x-5 p-2 transition hover:bg-gray-50/50 xl:flex-row ${
-        odd && 'border-b border-t xl:flex-row-reverse'
-      }`}
-    >
-      <CardHeader>
-        <CardTitle>{post.title}</CardTitle>
-        <CardDescription>{post.slug}</CardDescription>
-        <Image
-          src={
-            urlForImage(post.coverImage)
-              ?.height(350)
-              .width(350)
-              .fit('crop')
-              .url() as string
-          }
-          width={350}
-          height={350}
-          alt={post.title ?? 'Cover image'}
-        />
-      </CardHeader>
-      <CardContent>
-        <CardDescription>
-          <CustomPortableText value={post.excerpt as PortableTextBlock[]} />
-        </CardDescription>
-      </CardContent>
-      <CardFooter className="flex justify-end gap-x-2">
-        {post.tags?.map((tag, key) => (
-          <div className="text-sm font-medium lowercase md:text-lg" key={key}>
-            #{tag}
-          </div>
-        ))}
-      </CardFooter>
-    </Card>
+    <CardReadMore
+      image={
+        urlForImage(post.coverImage)
+          ?.height(height)
+          .width(width)
+          .fit('crop')
+          .url() as string
+      }
+      title={post.title}
+      description={
+        post?.excerpt ? toPlainText(post.excerpt as PortableTextBlock[]) : ''
+      }
+      tags={post.tags}
+      readMoreLabel="Read more"
+      readMoreLink={`/posts/${post.slug}`}
+      width={width}
+      height={height}
+    />
   )
 }

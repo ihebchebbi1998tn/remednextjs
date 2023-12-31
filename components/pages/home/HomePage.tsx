@@ -4,30 +4,11 @@ import Link from 'next/link'
 import { PostListItem } from '@/components/pages/home/PostListItem'
 import { ProjectListItem } from '@/components/pages/home/ProjectListItem'
 import { Header } from '@/components/shared/Header'
-import { resolveHref, urlForImage } from '@/sanity/lib/utils'
+import { resolveHref } from '@/sanity/lib/utils'
 import type { HomePagePayload } from '@/types'
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card'
-import Image from 'next/image'
 
-const width = 3500
-const height = 2000
-
-const toPlainText = (blocks: any) =>
-  blocks
-    .map((block: any) => {
-      if (block._type !== 'block' || !block.children) {
-        return ''
-      }
-      return block.children.map((child: any) => child.text).join('')
-    })
-    .join('\n\n')
+const width = 550
+const height = 280
 
 export interface HomePageProps {
   data: HomePagePayload | null
@@ -85,7 +66,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
                   'slug',
                 ])}
               >
-                <ProjectListItem project={project} odd={key % 2} />
+                <ProjectListItem project={project} odd={key % 2} width={width} height={height} />
               </Link>
             )
           })}
@@ -107,7 +88,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
                   'slug',
                 ])}
               >
-                <PostListItem post={post} odd={key % 2} />
+                <PostListItem post={post} odd={key % 2} width={width} height={height} />
               </Link>
             )
           })}
