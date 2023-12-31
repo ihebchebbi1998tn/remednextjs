@@ -48,17 +48,16 @@ export default async function IndexRoute({
 }) {
   return (
     <>
-      <div className="flex min-h-screen flex-col bg-white text-black">
+      <div className="flex flex-col min-h-screen text-black bg-white">
         <Suspense>
           <Navbar />
         </Suspense>
-        <div className="mt-20 flex-grow px-4 md:px-16 lg:px-32">
+        <div className="flex-grow px-4 mt-20 md:px-16 lg:px-32">
           <Suspense>{children}</Suspense>
         </div>
         <Suspense>
           <Footer />
         </Suspense>
-        <IntroTemplate />
       </div>
       {draftMode().isEnabled && <VisualEditing />}
     </>
