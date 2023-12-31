@@ -1,6 +1,7 @@
 import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
 import Link from 'next/link'
 
+import { PostListItem } from '@/components/pages/home/PostListItem'
 import { ProjectListItem } from '@/components/pages/home/ProjectListItem'
 import { Header } from '@/components/shared/Header'
 import { resolveHref } from '@/sanity/lib/utils'
@@ -13,8 +14,14 @@ export interface HomePageProps {
 
 export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
   // Default to an empty object to allow previews on non-existent documents
-  const { overview = [], showcaseProjects = [], title = '' } = data ?? {}
+  const {
+    overview = [],
+    showcaseProjects = [],
+    showcasePosts,
+    title = '',
+  } = data ?? {}
 
+  console.log('showcasePosts: ', showcasePosts)
   return (
     <div className="space-y-20">
       <header className="relative flex items-center justify-center h-screen mb-12 overflow-hidden">
@@ -58,6 +65,28 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
                 ])}
               >
                 <ProjectListItem project={project} odd={key % 2} />
+              </Link>
+            )
+          })}
+        </div>
+      )}
+
+      {/* Showcase posts */}
+      {showcasePosts && showcasePosts.length > 0 && (
+        <div className="mx-auto max-w-[100rem] rounded-md border">
+          {showcasePosts.map((post, key) => {
+            const href = resolveHref(post._type, post.slug)
+            return (
+              <Link
+                key={key}
+                href={href ?? `/posts/${post.slug}`}
+                data-sanity={encodeDataAttribute?.([
+                  'showcasePosts',
+                  key,
+                  'slug',
+                ])}
+              >
+                <PostListItem post={post} odd={key % 2} />
               </Link>
             )
           })}

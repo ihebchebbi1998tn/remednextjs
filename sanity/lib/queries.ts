@@ -12,6 +12,14 @@ export const homePageQuery = groq`
       tags,
       title,
     },
+    showcasePosts[]->{
+      _id,
+      coverImage,
+      excerpt,
+      "slug": slug.current,
+      tags,
+      title,
+    },
     title,
   }
 `
@@ -35,6 +43,19 @@ export const projectBySlugQuery = groq`
     duration,
     overview,
     site,
+    "slug": slug.current,
+    tags,
+    title,
+  }
+`
+
+export const postBySlugQuery = groq`
+  *[_type == "post" && slug.current == $slug][0] {
+    _id,
+    client,
+    coverImage,
+    content,
+    excerpt,
     "slug": slug.current,
     tags,
     title,

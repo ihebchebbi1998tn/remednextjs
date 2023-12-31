@@ -70,6 +70,7 @@ export interface ProjectPayload {
 }
 
 export interface PostPayload {
+  _type: string
   _id: string
   date?: string
   _updatedAt?: string
@@ -77,7 +78,6 @@ export interface PostPayload {
   coverImage?: Image
   content?: PortableTextBlock[]
   excerpt?: PortableTextBlock[]
-  site?: string
   slug: string
   tags?: string[]
   title?: string
