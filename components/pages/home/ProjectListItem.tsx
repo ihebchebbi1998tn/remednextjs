@@ -23,7 +23,7 @@ export function ProjectListItem(props: ProjectProps) {
 
   return (
     <Card
-      className={`w-[350px] flex flex-col gap-x-5 p-2 transition hover:bg-gray-50/50 xl:flex-row ${
+      className={`flex flex-col gap-x-5 p-2 transition hover:bg-gray-50/50 xl:flex-row ${
         odd && 'border-b border-t xl:flex-row-reverse'
       }`}
     >
