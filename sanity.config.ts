@@ -11,7 +11,9 @@ import { unsplashImageAsset } from 'sanity-plugin-asset-source-unsplash'
 import { apiVersion, dataset, projectId, studioUrl } from '@/sanity/lib/api'
 import { locate } from '@/sanity/plugins/locate'
 import { pageStructure, singletonPlugin } from '@/sanity/plugins/settings'
+import author from '@/sanity/schemas/documents/author'
 import page from '@/sanity/schemas/documents/page'
+import post from '@/sanity/schemas/documents/post'
 import project from '@/sanity/schemas/documents/project'
 import duration from '@/sanity/schemas/objects/duration'
 import milestone from '@/sanity/schemas/objects/milestone'
@@ -38,6 +40,8 @@ export default defineConfig({
       duration,
       page,
       project,
+      post,
+      author,
       // Objects
       milestone,
       timeline,

@@ -27,12 +27,22 @@ export interface ShowcaseProject {
   title?: string
 }
 
+export interface ShowcasePost {
+  _id: PostPayload['_id']
+  coverImage?: PostPayload['coverImage']
+  excerpt?: PostPayload['excerpt']
+  slug?: PostPayload['slug']
+  tags?: PostPayload['tags']
+  title?: PostPayload['title']
+}
+
 // Page payloads
 
 export interface HomePagePayload {
   footer?: PortableTextBlock[]
   overview?: PortableTextBlock[]
   showcaseProjects?: ShowcaseProject[]
+  showcasePosts?: PostPayload[]
   title?: string
 }
 
@@ -59,8 +69,32 @@ export interface ProjectPayload {
   title?: string
 }
 
+export interface PostPayload {
+  _id: string
+  date?: string
+  _updatedAt?: string
+  author?: Author
+  coverImage?: Image
+  content?: PortableTextBlock[]
+  excerpt?: PortableTextBlock[]
+  site?: string
+  slug: string
+  tags?: string[]
+  title?: string
+}
+
 export interface SettingsPayload {
   footer?: PortableTextBlock[]
   menuItems?: MenuItem[]
   ogImage?: Image
+}
+
+export interface Author {
+  name?: string
+  picture?: any
+}
+
+export type SocialProfile = {
+  name: string
+  link: string
 }
