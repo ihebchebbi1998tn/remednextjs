@@ -1,4 +1,5 @@
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
+import { FrTextStagger } from './FrTextStagger'
 
 interface HeaderProps {
   centered?: boolean
@@ -20,7 +21,7 @@ export function Header(props: HeaderProps) {
       {/* Title */}
       {title && (
         <div className="text-3xl font-extrabold tracking-tight md:text-5xl">
-          {title}
+          <FrTextStagger text={title} />
         </div>
       )}
       {/* Description */}
