@@ -14,6 +14,7 @@ const config: StorybookConfig = {
         '@/': path.resolve(__dirname, '../'),
         '@/lib': path.resolve(__dirname, '../lib'),
         '@/components': path.resolve(__dirname, '../components'),
+        '@/sanity': path.resolve(__dirname, '../sanity'),
       }
     }
     return config

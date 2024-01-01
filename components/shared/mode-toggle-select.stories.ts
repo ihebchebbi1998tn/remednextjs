@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { CarouselReadMore } from './CarouselReadMore'
+import { ModeToggleSelect } from './mode-toggle-select'
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: 'shared/CarouselReadMore',
-  component: CarouselReadMore,
+  title: 'shared/ModeToggleSelect',
+  component: ModeToggleSelect,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
     layout: 'centered',
@@ -14,7 +14,7 @@ const meta = {
   tags: ['autodocs'],
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {},
-} satisfies Meta<typeof CarouselReadMore>
+} satisfies Meta<typeof ModeToggleSelect>
 
 export default meta
 type Story = StoryObj<typeof meta>
