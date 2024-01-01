@@ -6,6 +6,7 @@ import { ProjectListItem } from '@/components/pages/home/ProjectListItem'
 import { Header } from '@/components/shared/Header'
 import { resolveHref } from '@/sanity/lib/utils'
 import type { HomePagePayload } from '@/types'
+import { CarouselReadMore } from '@/components/shared/CarouselReadMore'
 
 const width = 550
 const height = 280
@@ -24,6 +25,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
     title = '',
   } = data ?? {}
 
+  console.log('showcaseProjects: ', showcaseProjects)
   return (
     <div className="space-y-20">
       <header className="relative flex items-center justify-center h-screen mb-12 overflow-hidden">
@@ -49,20 +51,24 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
       </header>
       <div className="relative w-full"></div>
       {/* Showcase projects */}
-      {showcaseProjects && showcaseProjects.length > 0 && (
-        <div className="grid grid-cols-1 gap-5 mx-auto max-w-[100rem] md:grid-cols-2 lg:grid-cols-3">
-          {showcaseProjects.map((project, key) => {
-            return (
+      <div className="container">
+        {showcaseProjects && showcaseProjects.length > 0 && (
+          <CarouselReadMore title="Showcase projects">
+            {showcaseProjects.map((project, key) => {
+              return (
                 <ProjectListItem
                   project={project}
                   odd={key % 2}
                   width={width}
                   height={height}
+                  key={key}
+                  className="max-w-xs"
                 />
-            )
-          })}
-        </div>
-      )}
+              )
+            })}
+          </CarouselReadMore>
+        )}
+      </div>
 
       {/* Showcase posts */}
       {showcasePosts && showcasePosts.length > 0 && (

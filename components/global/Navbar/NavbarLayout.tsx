@@ -18,7 +18,7 @@ export default function Navbar(props: NavbarProps) {
   const menuItems = data?.menuItems || ([] as MenuItem[])
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex items-center h-14 max-w-screen-2xl">
+      <div className="container flex items-center h-16 max-w-screen-2xl">
         <MainNav menuItems={menuItems} />
         {/* <MobileNav /> */}
         <div className="flex items-center justify-between flex-1 space-x-2 md:justify-end">

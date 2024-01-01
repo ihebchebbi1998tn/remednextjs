@@ -13,10 +13,11 @@ interface ProjectProps {
   width: number
   height: number
   readMoreLabel?: string
+  className?: string
 }
 
 export function ProjectListItem(props: ProjectProps) {
-  const { project, odd, width, height, readMoreLabel } = props
+  const { project, odd, width, height, readMoreLabel, className } = props
   const href = resolveHref(project._type, project.slug)
 
   return (
@@ -39,6 +40,7 @@ export function ProjectListItem(props: ProjectProps) {
       readMoreLink={href ?? `/posts/${project.slug}`}
       width={width}
       height={height}
+      className={className}
     />
   )
 }
