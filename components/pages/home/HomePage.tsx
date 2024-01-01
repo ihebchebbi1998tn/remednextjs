@@ -1,12 +1,12 @@
 import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
 
-import { PostListItem } from '@/components/pages/home/PostListItem'
 import { ProjectListItem } from '@/components/pages/home/ProjectListItem'
-import { Header } from '@/components/shared/Header'
-import type { HomePagePayload } from '@/types'
 import { CarouselReadMore } from '@/components/shared/CarouselReadMore'
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
-import FramerButton from '@/components/shared/FramerButton'
+import { FrButton } from '@/components/shared/FrButton'
+import { Header } from '@/components/shared/Header'
+import type { HomePagePayload } from '@/types'
+
 import { HomePageFramer } from './HomePageFramer'
 
 const width = 550
@@ -46,7 +46,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
           {passion && (
             <div className="max-w-sm p-5 text-white bg-green-600 bg-opacity-70 backdrop-blur-2px">
               <CustomPortableText value={passion} />
-              <FramerButton />
+              <FrButton />
             </div>
           )}
           {/* Identity */}
