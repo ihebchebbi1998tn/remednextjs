@@ -1,13 +1,13 @@
 import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
-import Link from 'next/link'
 
 import { PostListItem } from '@/components/pages/home/PostListItem'
 import { ProjectListItem } from '@/components/pages/home/ProjectListItem'
 import { Header } from '@/components/shared/Header'
-import { resolveHref } from '@/sanity/lib/utils'
 import type { HomePagePayload } from '@/types'
 import { CarouselReadMore } from '@/components/shared/CarouselReadMore'
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
+import FramerButton from '@/components/shared/FramerButton'
+import { HomePageFramer } from './HomePageFramer'
 
 const width = 550
 const height = 280
@@ -46,6 +46,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
           {passion && (
             <div className="max-w-sm p-5 text-white bg-green-600 bg-opacity-70 backdrop-blur-2px">
               <CustomPortableText value={passion} />
+              <FramerButton />
             </div>
           )}
           {/* Identity */}
@@ -94,24 +95,12 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
       </div>
 
       {/* Showcase posts */}
-      <div className="container">
-        {showcasePosts && showcasePosts.length > 0 && (
-          <CarouselReadMore title="Showcase posts">
-            {showcasePosts.map((post, key) => {
-              return (
-                <PostListItem
-                  post={post}
-                  odd={key % 2}
-                  width={width}
-                  height={height}
-                  key={key}
-                  className="max-w-xs"
-                />
-              )
-            })}
-          </CarouselReadMore>
-        )}
-      </div>
+
+      <HomePageFramer
+        showcasePosts={showcasePosts}
+        width={width}
+        height={height}
+      />
     </div>
   )
 }
