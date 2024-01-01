@@ -1,4 +1,3 @@
-
 import { toPlainText } from '@portabletext/react'
 import { Metadata, Viewport } from 'next'
 import dynamic from 'next/dynamic'
@@ -9,6 +8,7 @@ import { Footer } from '@/components/global/Footer'
 import { Navbar } from '@/components/global/Navbar'
 import { urlForOpenGraphImage } from '@/sanity/lib/utils'
 import { loadHomePage, loadSettings } from '@/sanity/loader/loadQuery'
+import { ThemeProvider } from '@/components/global/theme-provider'
 
 const VisualEditing = dynamic(() => import('@/sanity/loader/VisualEditing'))
 
@@ -45,8 +45,13 @@ export default async function IndexRoute({
   children: React.ReactNode
 }) {
   return (
-    <>
-      <div className="flex flex-col min-h-screen text-black bg-white">
+    <ThemeProvider
+      attribute="class"
+      defaultTheme="system"
+      enableSystem
+      disableTransitionOnChange
+    >
+      <div className="flex flex-col min-h-screen">
         <Suspense>
           <Navbar />
         </Suspense>
@@ -58,6 +63,6 @@ export default async function IndexRoute({
         </Suspense>
       </div>
       {draftMode().isEnabled && <VisualEditing />}
-    </>
+    </ThemeProvider>
   )
 }

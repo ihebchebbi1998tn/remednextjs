@@ -37,9 +37,7 @@ export function CardReadMore({
   ...props
 }: CardReadMoreProps) {
   return (
-    <Card
-      className={`${className} text-white bg-green-600 bg-opacity-70 backdrop-blur-2px w-${width}px`}
-    >
+    <Card className={`${className} w-${width}px overflow-hidden`}>
       <Image
         src={image}
         width={width}
@@ -73,7 +71,7 @@ export function CardReadMore({
           href={props.readMoreLink}
           className="text-sm font-medium lowercase md:text-lg"
         >
-          <Button variant="link">{readMoreLabel}</Button>
+          <Button>{readMoreLabel}</Button>
         </Link>
       </CardFooter>
     </Card>
