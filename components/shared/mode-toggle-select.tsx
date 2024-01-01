@@ -27,7 +27,7 @@ export function ModeToggleSelect() {
     return null
   }
   return (
-    <Select onValueChange={(value) => setTheme(value)}>
+    <Select onValueChange={(value) => setTheme(value)} value={theme}>
       <SelectTrigger className="bg-transparent rounded-md focus:ring-0 focus:ring-offset-0 focus:ring-offset-transparent focus:ring-accent">
         <SelectValue>
           {theme !== 'dark' ? (

@@ -4,6 +4,9 @@ export const homePageQuery = groq`
   *[_type == "home"][0]{
     _id,
     overview,
+    passion,
+    identity,
+    worldwide,
     showcaseProjects[]->{
       _type,
       coverImage,

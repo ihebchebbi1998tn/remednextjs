@@ -42,6 +42,9 @@ export interface ShowcasePost {
 export interface HomePagePayload {
   footer?: PortableTextBlock[]
   overview?: PortableTextBlock[]
+  identity?: PortableTextBlock[]
+  passion?: PortableTextBlock[]
+  worldwide?: PortableTextBlock[]
   showcaseProjects?: ShowcaseProject[]
   showcasePosts?: PostPayload[]
   title?: string
