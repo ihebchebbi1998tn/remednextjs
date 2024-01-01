@@ -67,7 +67,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
           autoPlay
           loop
           muted
-          className="absolute w-auto min-w-full min-h-full max-w-none filter brightness-50"
+          className="absolute top-0 left-0 object-cover w-full h-full filter brightness-50"
         >
           <source src="/videos/omp.mp4" type="video/mp4" />
         </video>
