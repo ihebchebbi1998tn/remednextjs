@@ -17,8 +17,8 @@ export default function Footer(props: FooterProps) {
   const footer = data?.footer || ([] as PortableTextBlock[])
   const menuItems = data?.menuItems || ([] as MenuItem[])
   return (
-    <footer className="bottom-0 w-full mt-8 text-center">
-      <div className="container py-4 text-white bg-green-600 md:py-8">
+    <footer className="bottom-0 w-full mt-8 text-center text-white bg-green-600">
+      <div className="container py-4 md:py-8">
         <div className="flex flex-col items-center justify-between md:flex-row">
           <MainNav menuItems={menuItems} className="text-white" />
           {footer && (
