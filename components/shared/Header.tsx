@@ -1,5 +1,6 @@
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
 import { FrTextStagger } from './FrTextStagger'
+import { FrCounter } from './FrCounter'
 
 interface HeaderProps {
   centered?: boolean
@@ -28,6 +29,7 @@ export function Header(props: HeaderProps) {
       {description && (
         <div className="mt-4 font-serif text-xl md:text-2xl">
           <CustomPortableText value={description} />
+          <FrCounter />
         </div>
       )}
     </div>
