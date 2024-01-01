@@ -2,10 +2,11 @@
 
 > This project is developed using Sanity.io and Next.js.
 
+[Website](https://reg-website.vercel.app/) | [Studio](https://reg-website.vercel.app/studio)
 
 ## Project Overview
 
-| [Personal Website](https://template-nextjs-personal-website.sanity.build/)                                                | [Studio](https://template-nextjs-personal-website.sanity.build/studio)                                                 |
+| [Personal Website](https://reg-website.vercel.app/)                                                | [Studio](https://reg-website.vercel.app/studio)                                                 |
 | ------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
 | ![Personal Website](https://user-images.githubusercontent.com/6951139/206395107-e58a796d-13a9-400a-94b6-31cb5df054ab.png) | ![Sanity Studio](https://user-images.githubusercontent.com/6951139/206395521-8a5f103d-4a0c-4da8-aff5-d2a1961fb2c0.png) |
 
