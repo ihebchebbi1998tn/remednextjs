@@ -71,20 +71,24 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
       </div>
 
       {/* Showcase posts */}
-      {showcasePosts && showcasePosts.length > 0 && (
-        <div className="grid grid-cols-1 gap-5 mx-auto max-w-[100rem] md:grid-cols-2 lg:grid-cols-3">
-          {showcasePosts.map((post, key) => {
-            return (
-              <PostListItem
-                post={post}
-                odd={key % 2}
-                width={width}
-                height={height}
-              />
-            )
-          })}
-        </div>
-      )}
+      <div className="container">
+        {showcasePosts && showcasePosts.length > 0 && (
+          <CarouselReadMore title="Showcase posts">
+            {showcasePosts.map((post, key) => {
+              return (
+                <PostListItem
+                  post={post}
+                  odd={key % 2}
+                  width={width}
+                  height={height}
+                  key={key}
+                  className="max-w-xs"
+                />
+              )
+            })}
+          </CarouselReadMore>
+        )}
+      </div>
     </div>
   )
 }

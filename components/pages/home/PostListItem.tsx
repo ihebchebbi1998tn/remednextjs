@@ -11,10 +11,11 @@ interface PostProps {
   width: number
   height: number
   readMoreLabel?: string
+  className?: string
 }
 
 export function PostListItem(props: PostProps) {
-  const { post, odd, width, height, readMoreLabel } = props
+  const { className, post, odd, width, height, readMoreLabel } = props
 
   const href = resolveHref(post._type, post.slug)
 
@@ -36,6 +37,7 @@ export function PostListItem(props: PostProps) {
       readMoreLink={href ?? `/posts/${post.slug}`}
       width={width}
       height={height}
+      className={className}
     />
   )
 }
