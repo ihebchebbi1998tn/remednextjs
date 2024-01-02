@@ -46,7 +46,7 @@ export function CardReadMore({
       />
       {title && (
         <CardHeader>
-          <CardTitle>{title}</CardTitle>
+          <CardTitle className='font-normal text-md'>{title}</CardTitle>
         </CardHeader>
       )}
       {description && (
@@ -54,7 +54,7 @@ export function CardReadMore({
           <CardDescription>{description}</CardDescription>
         </CardContent>
       )}
-      <CardFooter className="flex justify-between gap-x-2">
+      <CardFooter className="bottom-0 flex justify-between gap-x-2">
         {tags && tags.length > 0 && (
           <div className="flex flex-row gap-x-2">
             {tags?.map((tag, key) => (

@@ -99,7 +99,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
                   width={width}
                   height={height}
                   key={key}
-                  className="max-w-xs"
+                  className="h-full max-w-xs"
                 />
               )
             })}
