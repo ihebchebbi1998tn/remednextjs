@@ -42,7 +42,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
             className="relative z-10 p-5 text-white mb-11"
           />
         )}
-        <div className="z-10 flex flex-col items-stretch justify-between w-auto md:w-full md:flex-row md:px-8 ">
+        <div className="z-10 flex flex-col items-stretch justify-between w-auto px-0 md:w-full md:flex-row md:px-52">
           {/* Passion */}
           <CardNavigation
             className="p-5 md:max-w-sm bg-opacity-70 backdrop-blur-2px md:py-0"
