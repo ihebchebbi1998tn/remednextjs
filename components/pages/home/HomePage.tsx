@@ -1,6 +1,6 @@
 import { toPlainText } from '@portabletext/react'
 import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
-import { Globe,Heart,User } from 'lucide-react'
+import { Globe, Heart, User } from 'lucide-react'
 
 import { ProjectListItem } from '@/components/pages/home/ProjectListItem'
 import { CardNavigation } from '@/components/shared/CardNavigation'
@@ -8,7 +8,7 @@ import { CarouselReadMore } from '@/components/shared/CarouselReadMore'
 import { Header } from '@/components/shared/Header'
 import type { HomePagePayload } from '@/types'
 
-import { HomePageFramer } from './HomePageFramer'
+import { HomePageProjects } from './HomePageProjects'
 
 const width = 550
 const height = 280
@@ -86,30 +86,29 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
         </video>
       </header>
       <div className="relative w-full"></div>
-      {/* Showcase projects */}
+
+      {/* Showcase posts */}
       <div className="container">
-        {showcaseProjects && showcaseProjects.length > 0 && (
-          <CarouselReadMore title="Showcase projects">
-            {showcaseProjects.map((project, key) => {
+        {showcasePosts && showcasePosts.length > 0 && (
+          <CarouselReadMore title="Showcase posts">
+            {showcasePosts.map((post, key) => {
               return (
                 <ProjectListItem
-                  project={project}
+                  project={post}
                   odd={key % 2}
                   width={width}
                   height={height}
                   key={key}
-                  className="max-w-xs "
+                  className="max-w-xs"
                 />
               )
             })}
           </CarouselReadMore>
         )}
       </div>
-
-      {/* Showcase posts */}
-
-      <HomePageFramer
-        showcasePosts={showcasePosts}
+      {/* Showcase projects */}
+      <HomePageProjects
+        showcaseProjects={showcaseProjects}
         width={width}
         height={height}
       />

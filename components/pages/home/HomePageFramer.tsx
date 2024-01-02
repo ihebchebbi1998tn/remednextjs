@@ -1,24 +1,25 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { PostListItem } from './PostListItem'
-import { PostPayload } from '@/types'
+
+import { ShowcaseProject } from '@/types'
+
+import { ProjectListItem } from './ProjectListItem'
 
 interface HomePageFramerProps {
-  showcasePosts?: PostPayload[]
+  showcaseProjects?: ShowcaseProject[]
   width: number
   height: number
 }
 
 export function HomePageFramer({
-  showcasePosts,
+  showcaseProjects,
   width,
   height,
 }: HomePageFramerProps) {
-
   return (
     <div className="container">
-      {showcasePosts?.map((post, i) => (
+      {showcaseProjects?.map((project, i) => (
         <motion.div
           initial={{
             opacity: 0,
@@ -33,9 +34,10 @@ export function HomePageFramer({
             },
           }}
           viewport={{ once: true }}
+          key={i}
         >
-          <PostListItem
-            post={post}
+          <ProjectListItem
+            project={project}
             odd={i % 2}
             width={width}
             height={height}

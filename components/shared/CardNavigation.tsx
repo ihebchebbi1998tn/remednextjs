@@ -25,7 +25,6 @@ interface CardNavigationProps {
   subtitleClassName?: string
   descriptionClassName?: string
   buttonClassName?: string
-  
 }
 
 export function CardNavigation({
@@ -37,13 +36,17 @@ export function CardNavigation({
   active = false,
   icon,
   className = '',
+  titleClassName = '',
+  subtitleClassName = '',
+  descriptionClassName = '',
+  buttonClassName = '',
 }: CardNavigationProps) {
-  const Icon = icon 
+  const Icon = icon
   return (
     <Card
-      className={`flex md:flex-col border-none rounded-none ${className} ${
-        active ? 'bg-green-500' : ''
-      }`}
+      className={`flex md:flex-col border-none rounded-none  ${
+        active ? 'bg-green-500' : 'bg-white'
+      } ${className}`}
     >
       {Icon && (
         <CardHeader>
@@ -55,21 +58,35 @@ export function CardNavigation({
       )}
 
       <CardContent className="pb-3 md:p-6">
-        {subtitle && <TitleWithLine text={subtitle} active={active} className="pb-3" />}
+        {subtitle && (
+          <TitleWithLine
+            text={subtitle}
+            active={active}
+            className={`${subtitleClassName} pb-3`}
+          />
+        )}
         {title && (
-          <CardTitle className={`pb-3 ${active ? 'text-white' : ''}`}>
+          <CardTitle
+            className={`pb-3 ${titleClassName} ${active ? 'text-white' : ''}`}
+          >
             {title}
           </CardTitle>
         )}
         {description && (
-          <CardDescription className={`text-md ${active ? 'text-white' : ''}`}>
+          <CardDescription
+            className={`text-md ${descriptionClassName} ${
+              active ? 'text-white' : ''
+            }`}
+          >
             {description}
           </CardDescription>
         )}
         {buttonText && (
           <Button
             variant="link"
-            className={`p-0 font-bold ${active ? 'text-yellow-400' : ''}`}
+            className={`p-0 font-bold ${buttonClassName} ${
+              active ? 'text-yellow-400' : ''
+            }`}
           >
             <Link href={buttonLink || '#'}>{buttonText}</Link>
           </Button>

@@ -1,11 +1,9 @@
+import { toPlainText } from '@portabletext/react'
 import type { PortableTextBlock } from '@portabletext/types'
 
-import type { ShowcaseProject } from '@/types'
-
-import Image from 'next/image'
-import { resolveHref, urlForImage } from '@/sanity/lib/utils'
 import { CardReadMore } from '@/components/shared/CardReadMore'
-import { toPlainText } from '@portabletext/react'
+import { resolveHref, urlForImage } from '@/sanity/lib/utils'
+import type { ShowcaseProject } from '@/types'
 
 interface ProjectProps {
   project: ShowcaseProject

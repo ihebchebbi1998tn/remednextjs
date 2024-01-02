@@ -1,3 +1,5 @@
+import Image from 'next/image'
+import Link from 'next/link'
 import * as React from 'react'
 
 import { Button } from '../ui/button'
@@ -9,8 +11,6 @@ import {
   CardHeader,
   CardTitle,
 } from '../ui/card'
-import Image from 'next/image'
-import Link from 'next/link'
 
 interface CardReadMoreProps {
   image: string
@@ -37,7 +37,7 @@ export function CardReadMore({
   ...props
 }: CardReadMoreProps) {
   return (
-    <Card className={`${className} w-${width}px overflow-hidden`}>
+    <Card className={`${className} overflow-hidden`}>
       <Image
         src={image}
         width={width}
