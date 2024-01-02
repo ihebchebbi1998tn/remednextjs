@@ -56,7 +56,7 @@ export function CarouselReadMore({
         onMouseEnter={plugin.current.stop}
         onMouseLeave={plugin.current.reset}
         opts={{
-          align: 'start',
+          align: 'center',
           loop: true,
         }}
       >
@@ -75,7 +75,7 @@ export function CarouselReadMore({
         </div>
         <CarouselContent>
           {React.Children.map(children, (child, index) => (
-            <CarouselItem className="basis-1/4" key={index}>
+            <CarouselItem className="md:basis-1/4 basis-1/2" key={index}>
               {child}
             </CarouselItem>
           ))}

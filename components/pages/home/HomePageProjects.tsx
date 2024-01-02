@@ -18,8 +18,8 @@ export function HomePageProjects({
   height,
 }: HomePageProjectsProps) {
   return (
-    <div className="w-full bg-reg-dark bg-[url('/images/background_01.jpg')] bg-center">
-      <div className="container flex flex-row items-center justify-center gap-5">
+    <div className="w-full bg-reg-dark bg-[url('/images/background_01.jpg')] md:bg-center">
+      <div className="container flex flex-col items-center justify-center gap-5 py-8 md:flex-row">
         <CardNavigation
           title="Providing Sustainable Energy Solutions"
           subtitle="Read more about my latest projects"
@@ -28,10 +28,10 @@ export function HomePageProjects({
           buttonLink="/"
           active={true}
           titleClassName="text-4xl font-bold"
-          className="w-1/2 bg-transparent"
+          className="bg-transparent shadow-none md:w-1/2"
         />
 
-        <div className="grid grid-cols-1 gap-4 my-10 md:grid-cols-2">
+        <div className="grid grid-cols-1 gap-1 md:grid-cols-2">
           {showcaseProjects?.map((project, i) => (
             <motion.div
               initial={{
