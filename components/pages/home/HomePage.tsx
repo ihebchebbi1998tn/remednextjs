@@ -44,20 +44,20 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
         <div className="z-10 flex flex-row items-stretch justify-between w-full px-8">
           {/* Passion */}
           {passion && (
-            <div className="max-w-sm p-5 text-white bg-green-600 bg-opacity-70 backdrop-blur-2px">
+            <div className="max-w-sm p-5 text-white bg-green-500 bg-opacity-70 backdrop-blur-2px">
               <CustomPortableText value={passion} />
               <FrButton />
             </div>
           )}
           {/* Identity */}
           {identity && (
-            <div className="max-w-sm p-5 text-white bg-green-600 bg-opacity-70 backdrop-blur-2px">
+            <div className="max-w-sm p-5 text-white bg-green-500 bg-opacity-70 backdrop-blur-2px">
               <CustomPortableText value={identity} />
             </div>
           )}
           {/* Worldwide */}
           {worldwide && (
-            <div className="max-w-sm p-5 text-white bg-green-600 bg-opacity-70 backdrop-blur-2px">
+            <div className="max-w-sm p-5 text-white bg-green-500 bg-opacity-70 backdrop-blur-2px">
               <CustomPortableText value={worldwide} />
             </div>
           )}

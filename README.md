@@ -16,7 +16,9 @@
 
 ### Step 1. Set up the project locally
 
-[Clone the repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) that was created for you on your GitHub account. Once cloned, run the following command from the project's root directory:
+[Clone the repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
+
+Once cloned, run the following command from the project's root directory:
 
 ```bash
 npx vercel link
@@ -36,4 +38,6 @@ npm install && npm run dev
 
 When you run this development server, the changes you make in your frontend and studio configuration will be applied live using hot reloading.
 
-The website should be up and running on [http://localhost:3000](http://localhost:3000) You can create and edit content on [http://localhost:3000/studio](http://localhost:3000/studio).
+The website should be up and running on [http://localhost:3000](http://localhost:3000) 
+
+You can create and edit content on [http://localhost:3000/studio](http://localhost:3000/studio).

@@ -1,13 +1,14 @@
 import type { PortableTextBlock } from '@portabletext/types'
+import Link from 'next/link'
 
 import { CustomPortableText } from '@/components//shared/CustomPortableText'
-import type { MenuItem, SettingsPayload } from '@/types'
 import { Icons } from '@/components/shared/icons'
+import { ModeToggleSelect } from '@/components/shared/mode-toggle-select'
 import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
-import Link from 'next/link'
+import type { MenuItem, SettingsPayload } from '@/types'
+
 import { MainNav } from '../Navbar/main-nav'
-import { ModeToggleSelect } from '@/components/shared/mode-toggle-select'
 
 interface FooterProps {
   data: SettingsPayload
@@ -17,7 +18,7 @@ export default function Footer(props: FooterProps) {
   const footer = data?.footer || ([] as PortableTextBlock[])
   const menuItems = data?.menuItems || ([] as MenuItem[])
   return (
-    <footer className="bottom-0 w-full mt-8 text-center text-white bg-green-600">
+    <footer className="bottom-0 w-full mt-8 text-center text-white bg-green-500">
       <div className="container py-4 md:py-8">
         <div className="flex flex-col items-center justify-between md:flex-row">
           <MainNav menuItems={menuItems} className="text-white" />

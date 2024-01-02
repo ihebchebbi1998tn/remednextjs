@@ -4,6 +4,11 @@
  
 @layer base {
   :root {
+    --reg-main: 134 34% 47%;
+    --reg-danger: 357 96% 33%;
+    --reg-warning: 356 20% 32%;
+    --reg-dark: 134 37% 13%;
+
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
 
