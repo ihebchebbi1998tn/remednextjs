@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { FrButtonLink } from './FrButtonLink'
+import { CardNavigation } from './CardNavigation'
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: 'shared/framer/FrButtonLink',
-  component: FrButtonLink,
+  title: 'shared/CardNavigation',
+  component: CardNavigation,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
     layout: 'centered',
@@ -14,7 +14,7 @@ const meta = {
   tags: ['autodocs'],
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {},
-} satisfies Meta<typeof FrButtonLink>
+} satisfies Meta<typeof CardNavigation>
 
 export default meta
 type Story = StoryObj<typeof meta>
@@ -22,6 +22,10 @@ type Story = StoryObj<typeof meta>
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Primary: Story = {
   args: {
-    text: 'My awesome text',
+    title: 'Products',
+    description:
+      'Iterative approaches to corporate strategy foster collaborative thinking to further the overall.',
+    buttonText: 'Read more',
+    buttonLink: 'https://www.google.com',
   },
 }

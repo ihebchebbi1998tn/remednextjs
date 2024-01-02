@@ -1,14 +1,15 @@
-import Image from 'next/image'
 import Link from 'next/link'
 
-import type { MenuItem, SettingsPayload } from '@/types'
-import { ModeToggle } from '@/components/shared/mode-toggle'
-
-import { cn } from '@/lib/utils'
+import { FrButton } from '@/components/shared/FrButton'
+import { FrCounter } from '@/components/shared/FrCounter'
 /* import { CommandMenu } from '@/components/command-menu' */
 import { Icons } from '@/components/shared/icons'
-import { MainNav } from './main-nav'
+import { ModeToggle } from '@/components/shared/mode-toggle'
 import { buttonVariants } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
+import type { MenuItem, SettingsPayload } from '@/types'
+
+import { MainNav } from './main-nav'
 
 interface NavbarProps {
   data: SettingsPayload
@@ -26,6 +27,8 @@ export default function Navbar(props: NavbarProps) {
             <CommandMenu />
           </div> */}
           <nav className="flex items-center">
+            <FrCounter />
+            <FrButton />
             <Link href="#" target="_blank" rel="noreferrer">
               <div
                 className={cn(

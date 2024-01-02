@@ -1,8 +1,5 @@
 import { toPlainText } from '@portabletext/react'
 
-import { CustomPortableText } from '@/components/shared/CustomPortableText'
-
-import { FrCounter } from './FrCounter'
 import { FrTextStagger } from './FrTextStagger'
 
 interface HeaderProps {
@@ -32,7 +29,6 @@ export function Header(props: HeaderProps) {
       {description && (
         <div className="mt-4 font-serif text-xl md:text-2xl">
           {toPlainText(description)}
-          <FrCounter />
         </div>
       )}
     </div>

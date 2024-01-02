@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 'use client'
-import { animate,motion, useMotionValue, useTransform } from 'framer-motion'
+import { animate, motion, useMotionValue, useTransform } from 'framer-motion'
 import { useEffect } from 'react'
 
 export function FrCounter() {
@@ -13,5 +13,9 @@ export function FrCounter() {
     return animation.stop
   }, [])
 
-  return <motion.h1>{rounded}</motion.h1>
+  return (
+    <motion.h1 className="px-4 py-2 font-bold text-green-500 rounded w-18">
+      {rounded}
+    </motion.h1>
+  )
 }

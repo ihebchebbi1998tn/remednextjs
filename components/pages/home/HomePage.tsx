@@ -1,9 +1,10 @@
+import { toPlainText } from '@portabletext/react'
 import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
+import { Globe,Heart,User } from 'lucide-react'
 
 import { ProjectListItem } from '@/components/pages/home/ProjectListItem'
+import { CardNavigation } from '@/components/shared/CardNavigation'
 import { CarouselReadMore } from '@/components/shared/CarouselReadMore'
-import { CustomPortableText } from '@/components/shared/CustomPortableText'
-import { FrButton } from '@/components/shared/FrButton'
 import { Header } from '@/components/shared/Header'
 import type { HomePagePayload } from '@/types'
 
@@ -41,26 +42,37 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
             className="relative z-10 p-5 text-white mb-11"
           />
         )}
-        <div className="z-10 flex flex-row items-stretch justify-between w-full px-8">
+        <div className="z-10 flex flex-col items-stretch justify-between w-auto md:w-full md:flex-row md:px-8 ">
           {/* Passion */}
-          {passion && (
-            <div className="max-w-sm p-5 text-white bg-green-500 bg-opacity-70 backdrop-blur-2px">
-              <CustomPortableText value={passion} />
-              <FrButton />
-            </div>
-          )}
+          <CardNavigation
+            className="p-5 md:max-w-sm bg-opacity-70 backdrop-blur-2px md:py-0"
+            title="Passion"
+            description={passion ? toPlainText(passion) : ''}
+            buttonText="Read more"
+            buttonLink="/"
+            active={true}
+            icon={Heart}
+          />
           {/* Identity */}
-          {identity && (
-            <div className="max-w-sm p-5 text-white bg-green-500 bg-opacity-70 backdrop-blur-2px">
-              <CustomPortableText value={identity} />
-            </div>
-          )}
+          <CardNavigation
+            className="p-5 md:max-w-sm bg-opacity-70 backdrop-blur-2px"
+            title="Identity"
+            description={identity ? toPlainText(identity) : ''}
+            buttonText="Read more"
+            buttonLink="/"
+            active={true}
+            icon={User}
+          />
           {/* Worldwide */}
-          {worldwide && (
-            <div className="max-w-sm p-5 text-white bg-green-500 bg-opacity-70 backdrop-blur-2px">
-              <CustomPortableText value={worldwide} />
-            </div>
-          )}
+          <CardNavigation
+            className="p-5 md:max-w-sm bg-opacity-70 backdrop-blur-2px"
+            title="Worldwide"
+            description={worldwide ? toPlainText(worldwide) : ''}
+            buttonText="Read more"
+            buttonLink="/"
+            active={true}
+            icon={Globe}
+          />
         </div>
 
         {/* Video */}
