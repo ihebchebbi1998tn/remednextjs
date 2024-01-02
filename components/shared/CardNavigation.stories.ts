@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { CardNavigation } from './CardNavigation'
+import { Instagram } from 'lucide-react'
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -20,11 +21,23 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const Primary: Story = {
+export const WithIcon: Story = {
   args: {
     title: 'Products',
     description:
       'Iterative approaches to corporate strategy foster collaborative thinking to further the overall.',
+    buttonText: 'Read more',
+    buttonLink: 'https://www.google.com',
+    icon: Instagram,
+  },
+}
+
+export const WithSubtitle: Story = {
+  args: {
+    title: 'Harnessing Power of the Elements',
+    description:
+      'Mauris pellentesque viverra ipsum id bibendum. Nullam id tincidunt ipsum. Integer venenatis auctor nibh id sagittis. Phasellus et tincidunt leo, eu rutrum ante iaculis porttitor bibendum.',
+    subtitle: 'Take the most of what nature offers',
     buttonText: 'Read more',
     buttonLink: 'https://www.google.com',
   },
