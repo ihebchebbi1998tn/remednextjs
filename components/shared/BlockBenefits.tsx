@@ -8,40 +8,33 @@ interface BlockBenefitsProps {
     src: string
     alt: string
   }
+  secondaryNode?: React.ReactNode
   imgPos: 'left' | 'right'
   children?: React.ReactNode
 }
 
 export const BlockBenefits = (props: BlockBenefitsProps) => {
-  const { title, desc, image, imgPos, children } = props
+  const { title, desc, image, imgPos, children, secondaryNode } = props
   return (
     <div className="flex flex-wrap mb-20 lg:gap-10 lg:flex-nowrap ">
-      <div
-        className={`flex items-center justify-center w-full lg:w-1/2 ${
-          props.imgPos === 'right' ? 'lg:order-1' : ''
-        }`}
-      >
-        <div>
-          <Image
-            src={image.src}
-            width="521"
-            height="521"
-            alt={image.alt}
-            className={'object-cover'}
-            placeholder="blur"
-            blurDataURL={image.src}
-          />
+      {secondaryNode && (
+        <div
+          className={`flex items-start mt-7 w-full lg:w-1/2 ${
+            props.imgPos === 'right' ? 'justify-end' : 'justify-start'
+          } ${props.imgPos === 'right' ? 'lg:order-1' : ''}`}
+        >
+          <div>{secondaryNode}</div>
         </div>
-      </div>
+      )}
 
       <div
-        className={`flex flex-wrap items-center w-full lg:w-1/2 ${
+        className={`flex flex-wrap items-start w-full lg:w-1/2 ${
           imgPos === 'right' ? 'lg:justify-end' : ''
         }`}
       >
-        <div>
+        <>
           <div className="flex flex-col w-full mt-4">
-            <h3 className="max-w-2xl mt-3 text-3xl font-bold leading-snug tracking-tight text-gray-800 lg:leading-tight lg:text-4xl dark:text-white">
+            <h3 className="max-w-2xl text-3xl font-bold leading-snug tracking-tight text-gray-800 lg:leading-tight lg:text-4xl dark:text-white">
               {title}
             </h3>
 
@@ -51,7 +44,7 @@ export const BlockBenefits = (props: BlockBenefitsProps) => {
           </div>
 
           {children}
-        </div>
+        </>
       </div>
     </div>
   )
