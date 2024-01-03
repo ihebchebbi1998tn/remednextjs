@@ -2,24 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 
 import { BlockBenefits } from './BlockBenefits'
 import Bullet from './Bullet'
-
-const bullets = [
-  {
-    icon: null,
-    title: 'Bullets',
-    desc: 'Iterative approaches to corporate strategy foster collaborative thinking to further the overall.',
-  },
-  {
-    icon: null,
-    title: 'Bullets',
-    desc: 'Iterative approaches to corporate strategy foster collaborative thinking to further the overall.',
-  },
-  {
-    icon: null,
-    title: 'Bullets',
-    desc: 'Iterative approaches to corporate strategy foster collaborative thinking to further the overall.',
-  },
-]
+import { bullets } from '@/lib/data'
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {

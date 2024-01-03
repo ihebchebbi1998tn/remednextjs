@@ -9,6 +9,9 @@ import { Header } from '@/components/shared/Header'
 import type { HomePagePayload } from '@/types'
 
 import { HomePageProjects } from './HomePageProjects'
+import BlockBenefits from '@/components/shared/BlockBenefits'
+import Bullet from '@/components/shared/Bullet'
+import { bullets } from '@/lib/data'
 
 const width = 550
 const height = 280
@@ -112,6 +115,42 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
         width={width}
         height={height}
       />
+      <div className="container">
+        <BlockBenefits
+          title="Providing Sustainable Energy Solutions"
+          desc="Nam vitae tortor quis est tempus egestas. Suspendisse non erat non mi imperdiet fringilla at vel ipsum. Proin rutrum, diam vel scelerisque luctus, leo dui sodales massa, et mattis urna felis quis mi turpis egestas."
+          image={{
+            src: '/images/background_01.jpg',
+            alt: 'background',
+          }}
+          imgPos="left"
+        >
+          <div className="w-full mt-5">
+            {bullets.map((item, index) => (
+              <Bullet key={index} title={item.title} icon={item.icon}>
+                {item.desc}
+              </Bullet>
+            ))}
+          </div>
+        </BlockBenefits>
+        <BlockBenefits
+          title="Providing Sustainable Energy Solutions"
+          desc="Nam vitae tortor quis est tempus egestas. Suspendisse non erat non mi imperdiet fringilla at vel ipsum. Proin rutrum, diam vel scelerisque luctus, leo dui sodales massa, et mattis urna felis quis mi turpis egestas."
+          image={{
+            src: '/images/background_01.jpg',
+            alt: 'background',
+          }}
+          imgPos="right"
+        >
+          <div className="w-full mt-5">
+            {bullets.map((item, index) => (
+              <Bullet key={index} title={item.title} icon={item.icon}>
+                {item.desc}
+              </Bullet>
+            ))}
+          </div>
+        </BlockBenefits>
+      </div>
     </div>
   )
 }
