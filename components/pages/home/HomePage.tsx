@@ -2,16 +2,22 @@ import { toPlainText } from '@portabletext/react'
 import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
 import { Globe, Heart, User } from 'lucide-react'
 
+import { AccordionDemo } from '@/components/demos/AccordionDemo'
 import { ProjectListItem } from '@/components/pages/home/ProjectListItem'
+import BlockBenefits from '@/components/shared/BlockBenefits'
+import Bullet from '@/components/shared/Bullet'
 import { CardNavigation } from '@/components/shared/CardNavigation'
 import { CarouselReadMore } from '@/components/shared/CarouselReadMore'
 import { Header } from '@/components/shared/Header'
+import { bullets } from '@/lib/data'
 import type { HomePagePayload } from '@/types'
 
 import { HomePageProjects } from './HomePageProjects'
-import BlockBenefits from '@/components/shared/BlockBenefits'
-import Bullet from '@/components/shared/Bullet'
-import { bullets } from '@/lib/data'
+import Image from 'next/image'
+import { MasonryDemo } from '@/components/demos/MasonryDemo'
+import { MasonryDemo2 } from '@/components/demos/MasonryDemo2'
+import { MasonryDemo3 } from '@/components/demos/MasonryDemo3'
+import SectionDemo from '@/components/demos/SectionDemo'
 
 const width = 550
 const height = 280
@@ -124,6 +130,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
             alt: 'background',
           }}
           imgPos="left"
+          secondaryNode={<MasonryDemo />}
         >
           <div className="w-full mt-5">
             {bullets.map((item, index) => (
@@ -133,6 +140,10 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
             ))}
           </div>
         </BlockBenefits>
+      </div>
+      <SectionDemo />
+      <div className="container">
+        {/* AccordionDemo */}
         <BlockBenefits
           title="Providing Sustainable Energy Solutions"
           desc="Nam vitae tortor quis est tempus egestas. Suspendisse non erat non mi imperdiet fringilla at vel ipsum. Proin rutrum, diam vel scelerisque luctus, leo dui sodales massa, et mattis urna felis quis mi turpis egestas."
@@ -141,14 +152,9 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
             alt: 'background',
           }}
           imgPos="right"
+          secondaryNode={<MasonryDemo2 />}
         >
-          <div className="w-full mt-5">
-            {bullets.map((item, index) => (
-              <Bullet key={index} title={item.title} icon={item.icon}>
-                {item.desc}
-              </Bullet>
-            ))}
-          </div>
+          <AccordionDemo />
         </BlockBenefits>
       </div>
     </div>
