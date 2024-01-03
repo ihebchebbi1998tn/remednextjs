@@ -35,7 +35,7 @@ export default function SectionDemo() {
             />
             <defs>
               <radialGradient id="827591b1-ce8c-4110-b064-7cb85a0b1217">
-                <stop stopColor="#50a066" className="bg-green-500" />
+                <stop stopColor="#7775D6" />
                 <stop offset={1} stopColor="#50a066" className="bg-green-500" />
               </radialGradient>
             </defs>

@@ -18,6 +18,9 @@ import { MasonryDemo } from '@/components/demos/MasonryDemo'
 import { MasonryDemo2 } from '@/components/demos/MasonryDemo2'
 import { MasonryDemo3 } from '@/components/demos/MasonryDemo3'
 import SectionDemo from '@/components/demos/SectionDemo'
+import HeaderDemo from '@/components/demos/HeaderDemo'
+import StatsDemo from '@/components/demos/StatsDemo'
+import TestimonialsDemo from '@/components/demos/TestimonialsDemo'
 
 const width = 550
 const height = 280
@@ -41,59 +44,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
 
   return (
     <div className="space-y-20">
-      <header className="relative flex flex-col items-center justify-center w-full h-screen">
-        {/* Header */}
-        {title && (
-          <Header
-            centered
-            title={title}
-            description={overview}
-            className="relative z-10 p-5 text-white mb-11"
-          />
-        )}
-        <div className="z-10 flex flex-col items-stretch justify-between w-auto px-0 md:w-full md:flex-row md:px-52">
-          {/* Passion */}
-          <CardNavigation
-            className="p-5 md:max-w-sm bg-opacity-70 backdrop-blur-2px md:py-0"
-            title="Passion"
-            description={passion ? toPlainText(passion) : ''}
-            buttonText="Read more"
-            buttonLink="/"
-            active={true}
-            icon={Heart}
-          />
-          {/* Identity */}
-          <CardNavigation
-            className="p-5 md:max-w-sm bg-opacity-70 backdrop-blur-2px"
-            title="Identity"
-            description={identity ? toPlainText(identity) : ''}
-            buttonText="Read more"
-            buttonLink="/"
-            active={true}
-            icon={User}
-          />
-          {/* Worldwide */}
-          <CardNavigation
-            className="p-5 md:max-w-sm bg-opacity-70 backdrop-blur-2px"
-            title="Worldwide"
-            description={worldwide ? toPlainText(worldwide) : ''}
-            buttonText="Read more"
-            buttonLink="/"
-            active={true}
-            icon={Globe}
-          />
-        </div>
-
-        {/* Video */}
-        <video
-          autoPlay
-          loop
-          muted
-          className="absolute top-0 left-0 object-cover w-full h-full filter brightness-50"
-        >
-          <source src="/videos/omp.mp4" type="video/mp4" />
-        </video>
-      </header>
+      <HeaderDemo />
       <div className="relative w-full"></div>
 
       {/* Showcase posts */}
@@ -142,6 +93,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
         </BlockBenefits>
       </div>
       <SectionDemo />
+      <StatsDemo />
       <div className="container">
         {/* AccordionDemo */}
         <BlockBenefits
@@ -156,6 +108,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
         >
           <AccordionDemo />
         </BlockBenefits>
+        <TestimonialsDemo />
       </div>
     </div>
   )
