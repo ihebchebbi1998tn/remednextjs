@@ -1,6 +1,25 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { BlockBenefits } from './BlockBenefits'
+import Bullet from './Bullet'
+
+const bullets = [
+  {
+    icon: null,
+    title: 'Bullets',
+    desc: 'Iterative approaches to corporate strategy foster collaborative thinking to further the overall.',
+  },
+  {
+    icon: null,
+    title: 'Bullets',
+    desc: 'Iterative approaches to corporate strategy foster collaborative thinking to further the overall.',
+  },
+  {
+    icon: null,
+    title: 'Bullets',
+    desc: 'Iterative approaches to corporate strategy foster collaborative thinking to further the overall.',
+  },
+]
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -24,27 +43,23 @@ export const Default: Story = {
   args: {
     title: 'Products',
     desc: 'Iterative approaches to corporate strategy foster collaborative thinking to further the overall.',
-    bullets: [
-      {
-        icon: null,
-        title: 'Bullets',
-        desc: 'Iterative approaches to corporate strategy foster collaborative thinking to further the overall.',
-      },
-      {
-        icon: null,
-        title: 'Bullets',
-        desc: 'Iterative approaches to corporate strategy foster collaborative thinking to further the overall.',
-      },
-      {
-        icon: null,
-        title: 'Bullets',
-        desc: 'Iterative approaches to corporate strategy foster collaborative thinking to further the overall.',
-      },
-    ],
     image: {
       src: 'https://via.placeholder.com/600x600',
       alt: 'Placeholder image',
     },
     imgPos: 'right',
+  },
+  render: (args) => {
+    return (
+      <BlockBenefits {...args}>
+        <div className="w-full mt-5">
+          {bullets.map((item, index) => (
+            <Bullet key={index} title={item.title} icon={item.icon}>
+              {item.desc}
+            </Bullet>
+          ))}
+        </div>
+      </BlockBenefits>
+    )
   },
 }

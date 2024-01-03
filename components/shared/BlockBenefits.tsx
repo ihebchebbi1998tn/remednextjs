@@ -1,8 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
 
-import Bullet from './Bullet'
-
 interface BlockBenefitsProps {
   title: string
   desc: string
@@ -11,15 +9,11 @@ interface BlockBenefitsProps {
     alt: string
   }
   imgPos: 'left' | 'right'
-  bullets: {
-    title: string
-    desc: string
-    icon: React.ReactNode
-  }[]
+  children?: React.ReactNode
 }
 
 export const BlockBenefits = (props: BlockBenefitsProps) => {
-  const { title, desc, image, imgPos, bullets } = props
+  const { title, desc, image, imgPos, children } = props
   return (
     <div className="flex flex-wrap mb-20 lg:gap-10 lg:flex-nowrap ">
       <div
@@ -32,7 +26,7 @@ export const BlockBenefits = (props: BlockBenefitsProps) => {
             src={image.src}
             width="521"
             height="521"
-            alt="Benefits"
+            alt={image.alt}
             className={'object-cover'}
             placeholder="blur"
             blurDataURL={image.src}
@@ -56,13 +50,7 @@ export const BlockBenefits = (props: BlockBenefitsProps) => {
             </p>
           </div>
 
-          <div className="w-full mt-5">
-            {bullets.map((item, index) => (
-              <Bullet key={index} title={item.title} icon={item.icon}>
-                {item.desc}
-              </Bullet>
-            ))}
-          </div>
+          {children}
         </div>
       </div>
     </div>
