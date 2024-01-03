@@ -1,7 +1,6 @@
 import Link from 'next/link'
 
 import { FrButton } from '@/components/shared/FrButton'
-import { FrCounter } from '@/components/shared/FrCounter'
 /* import { CommandMenu } from '@/components/command-menu' */
 import { Icons } from '@/components/shared/icons'
 import { ModeToggle } from '@/components/shared/mode-toggle'
@@ -27,7 +26,6 @@ export default function Navbar(props: NavbarProps) {
             <CommandMenu />
           </div> */}
           <nav className="flex items-center">
-            <FrCounter />
             <FrButton />
             <Link href="#" target="_blank" rel="noreferrer">
               <div
