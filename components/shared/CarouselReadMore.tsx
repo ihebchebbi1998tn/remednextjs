@@ -48,7 +48,7 @@ export function CarouselReadMore({
   }, [api])
 
   return (
-    <section className="w-full ">
+    <section className="w-full">
       <Carousel
         setApi={setApi}
         plugins={[plugin.current]}
@@ -75,7 +75,7 @@ export function CarouselReadMore({
         </div>
         <CarouselContent>
           {React.Children.map(children, (child, index) => (
-            <CarouselItem className="md:basis-1/4 basis-1/2" key={index}>
+            <CarouselItem className="md:basis-1/4 basis-1/2 sm:basis-1/3">
               {child}
             </CarouselItem>
           ))}
