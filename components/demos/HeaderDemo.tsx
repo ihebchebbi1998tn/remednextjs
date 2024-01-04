@@ -23,7 +23,7 @@ const cards = [
   },
 ]
 
-export default function HeaderDemo() {
+export function HeaderDemo() {
   return (
     <div className="relative py-24 overflow-hidden bg-gray-900 isolate sm:py-32">
       <video

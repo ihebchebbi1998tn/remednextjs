@@ -1,4 +1,4 @@
-export default function SectionDemo() {
+export function SectionDemo() {
   return (
     <div className="bg-white">
       <div className="py-24 mx-auto max-w-7xl sm:px-6 sm:py-32 lg:px-8">

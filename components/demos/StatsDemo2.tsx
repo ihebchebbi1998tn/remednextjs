@@ -7,7 +7,7 @@ const stats = [
   { name: 'Success rate', value: '98.5%' },
 ]
 
-export default function StatsDemo2() {
+export function StatsDemo2() {
   return (
     <div className="bg-gray-900">
       <div className="mx-auto max-w-7xl">

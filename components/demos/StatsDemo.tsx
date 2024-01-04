@@ -6,7 +6,7 @@ const stats = [
   { id: 4, name: 'Paid out to creators', value: '$70M' },
 ]
 
-export default function StatsDemo() {
+export function StatsDemo() {
   return (
     <div className="container">
       <div className="relative">

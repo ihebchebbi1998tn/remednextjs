@@ -68,7 +68,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Testimonials() {
+export function TestimonialsDemo() {
   return (
     <div className="relative pt-24 pb-32 isolate sm:pt-32">
       <div

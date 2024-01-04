@@ -42,7 +42,7 @@ const posts = [
   },
 ]
 
-export default function PostsDemo() {
+export function PostsDemo() {
   return (
     <div className="py-24 bg-white sm:py-32">
       <div className="px-6 mx-auto max-w-7xl lg:px-8">
