@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { CarouselReadMore } from './CarouselReadMore'
+import { Card } from '../ui/card'
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -21,6 +22,17 @@ type Story = StoryObj<typeof meta>
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Primary: Story = {
-  args: {
-  },
+  args: {},
+  render: (args) => (
+    <CarouselReadMore {...args} className="w-full h-full">
+      {Array.from({ length: 10 }).map((_, i) => (
+        <Card
+          key={i}
+          className="flex items-center justify-center bg-gray-200 rounded-lg h-44 w-44"
+        >
+          {`Card ${i}`}
+        </Card>
+      ))}
+    </CarouselReadMore>
+  ),
 }
