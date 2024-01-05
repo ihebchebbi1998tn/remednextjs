@@ -39,20 +39,12 @@ export default defineType({
       type: 'array',
       of: [
         {
-          title: 'Internal Link',
-          type: 'object',
-          fields: [
-            defineField({
-              name: 'title',
-              title: 'Title',
-              type: 'string',
-            }),
-            defineField({
-              name: 'slug',
-              title: 'Slug',
-              type: 'string',
-              validation: (rule) => rule.required(),
-            }),
+          title: 'Reference',
+          type: 'reference',
+          to: [
+            {
+              type: 'internalLink',
+            },
           ],
         },
       ],
@@ -88,39 +80,16 @@ export default defineType({
     defineField({
       name: 'socialNetworks',
       title: 'Social Networks',
-      description: 'Links to your social networks.',
+      description: 'Links to your social media profiles.',
       type: 'array',
       of: [
         {
-          title: 'Social Network',
-          type: 'object',
-          fields: [
-            defineField({
-              name: 'name',
-              title: 'Name',
-              type: 'string',
-              options: {
-                list: [
-                  { title: 'Facebook', value: 'facebook' },
-                  { title: 'Instagram', value: 'instagram' },
-                  { title: 'Twitter', value: 'twitter' },
-                  { title: 'YouTube', value: 'youtube' },
-                  { title: 'LinkedIn', value: 'linkedin' },
-                  { title: 'Pinterest', value: 'pinterest' },
-                  { title: 'Snapchat', value: 'snapchat' },
-                  { title: 'TikTok', value: 'tiktok' },
-                  { title: 'Twitch', value: 'twitch' },
-                  { title: 'Vimeo', value: 'vimeo' },
-                  { title: 'WhatsApp', value: 'whatsapp' },
-                ],
-              },
-            }),
-            defineField({
-              name: 'link',
-              title: 'Link',
-              type: 'string',
-              validation: (rule) => rule.required(),
-            }),
+          title: 'Reference',
+          type: 'reference',
+          to: [
+            {
+              type: 'socialNetwork',
+            },
           ],
         },
       ],

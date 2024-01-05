@@ -6,9 +6,9 @@ import { Suspense } from 'react'
 
 import { Footer } from '@/components/global/Footer'
 import { Navbar } from '@/components/global/Navbar'
+import { ThemeProvider } from '@/components/global/theme-provider'
 import { urlForOpenGraphImage } from '@/sanity/lib/utils'
 import { loadHomePage, loadSettings } from '@/sanity/loader/loadQuery'
-import { ThemeProvider } from '@/components/global/theme-provider'
 
 const VisualEditing = dynamic(() => import('@/sanity/loader/VisualEditing'))
 
@@ -17,7 +17,6 @@ export async function generateMetadata(): Promise<Metadata> {
     loadSettings(),
     loadHomePage(),
   ])
-  console.log('settings: ', settings);
 
   const ogImage = urlForOpenGraphImage(settings?.ogImage)
   return {
