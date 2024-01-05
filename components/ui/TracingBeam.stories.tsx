@@ -24,9 +24,9 @@ type Story = StoryObj<typeof meta>
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Default: Story = {
-  args: {},
-  render: ({ children, ...rest }) => (
-    <TracingBeam {...rest}>
+  args: {
+    className: 'w-screen h-screen',
+    children: (
       <div className="relative max-w-2xl pt-4 mx-auto antialiased">
         {dummyContent.map((item, index) => (
           <div key={`content-${index}`} className="mb-10">
@@ -51,6 +51,6 @@ export const Default: Story = {
           </div>
         ))}
       </div>
-    </TracingBeam>
-  ),
+    ),
+  },
 }
