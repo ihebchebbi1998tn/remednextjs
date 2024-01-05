@@ -1,5 +1,3 @@
-import author from "@/sanity/schemas/documents/author"
-
 /* eslint-disable @next/next/no-img-element */
 const posts = [
   {
