@@ -104,3 +104,10 @@ export type SocialProfile = {
   name: string
   link: string
 }
+
+export interface LinkItem {
+  _type: string
+  label?: string
+  value?: string
+  icon?: string
+}
