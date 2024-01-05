@@ -90,6 +90,8 @@ export interface PostPayload {
 export interface SettingsPayload {
   footer?: PortableTextBlock[]
   menuItems?: MenuItem[]
+  socialNetworks?: SocialProfile[]
+  internalLinks?: MenuItem[]
   ogImage?: Image
 }
 

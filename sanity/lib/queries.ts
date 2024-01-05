@@ -71,8 +71,10 @@ export const settingsQuery = groq`
     menuItems[]->{
       _type,
       "slug": slug.current,
-      title
+      title,
     },
+    internalLinks[],
+    socialNetworks[],
     ogImage,
   }
 `

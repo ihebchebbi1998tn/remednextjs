@@ -17,6 +17,7 @@ export async function generateMetadata(): Promise<Metadata> {
     loadSettings(),
     loadHomePage(),
   ])
+  console.log('settings: ', settings);
 
   const ogImage = urlForOpenGraphImage(settings?.ogImage)
   return {

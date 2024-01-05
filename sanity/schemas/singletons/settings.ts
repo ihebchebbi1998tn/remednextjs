@@ -33,6 +33,31 @@ export default defineType({
       ],
     }),
     defineField({
+      name: 'internalLinks',
+      title: 'Internal Links',
+      description: 'Internal Links displayed on the header of your site.',
+      type: 'array',
+      of: [
+        {
+          title: 'Internal Link',
+          type: 'object',
+          fields: [
+            defineField({
+              name: 'title',
+              title: 'Title',
+              type: 'string',
+            }),
+            defineField({
+              name: 'slug',
+              title: 'Slug',
+              type: 'string',
+              validation: (rule) => rule.required(),
+            }),
+          ],
+        },
+      ],
+    }),
+    defineField({
       name: 'footer',
       description:
         'This is a block of text that will be displayed at the bottom of the page.',
@@ -58,6 +83,46 @@ export default defineType({
             ],
           },
         }),
+      ],
+    }),
+    defineField({
+      name: 'socialNetworks',
+      title: 'Social Networks',
+      description: 'Links to your social networks.',
+      type: 'array',
+      of: [
+        {
+          title: 'Social Network',
+          type: 'object',
+          fields: [
+            defineField({
+              name: 'name',
+              title: 'Name',
+              type: 'string',
+              options: {
+                list: [
+                  { title: 'Facebook', value: 'facebook' },
+                  { title: 'Instagram', value: 'instagram' },
+                  { title: 'Twitter', value: 'twitter' },
+                  { title: 'YouTube', value: 'youtube' },
+                  { title: 'LinkedIn', value: 'linkedin' },
+                  { title: 'Pinterest', value: 'pinterest' },
+                  { title: 'Snapchat', value: 'snapchat' },
+                  { title: 'TikTok', value: 'tiktok' },
+                  { title: 'Twitch', value: 'twitch' },
+                  { title: 'Vimeo', value: 'vimeo' },
+                  { title: 'WhatsApp', value: 'whatsapp' },
+                ],
+              },
+            }),
+            defineField({
+              name: 'link',
+              title: 'Link',
+              type: 'string',
+              validation: (rule) => rule.required(),
+            }),
+          ],
+        },
       ],
     }),
     defineField({
