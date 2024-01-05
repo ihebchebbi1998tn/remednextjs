@@ -72,44 +72,6 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
         width={width}
         height={height}
       />
-      <div className="container">
-        <BlockBenefits
-          title="Providing Sustainable Energy Solutions"
-          desc="Nam vitae tortor quis est tempus egestas. Suspendisse non erat non mi imperdiet fringilla at vel ipsum. Proin rutrum, diam vel scelerisque luctus, leo dui sodales massa, et mattis urna felis quis mi turpis egestas."
-          image={{
-            src: '/images/background_01.jpg',
-            alt: 'background',
-          }}
-          imgPos="left"
-          secondaryNode={<MasonryDemo />}
-        >
-          <div className="w-full mt-5">
-            {bullets.map((item, index) => (
-              <Bullet key={index} title={item.title} icon={item.icon}>
-                {item.desc}
-              </Bullet>
-            ))}
-          </div>
-        </BlockBenefits>
-      </div>
-      <SectionDemo />
-      <StatsDemo />
-      <div className="container">
-        {/* AccordionDemo */}
-        <BlockBenefits
-          title="Providing Sustainable Energy Solutions"
-          desc="Nam vitae tortor quis est tempus egestas. Suspendisse non erat non mi imperdiet fringilla at vel ipsum. Proin rutrum, diam vel scelerisque luctus, leo dui sodales massa, et mattis urna felis quis mi turpis egestas."
-          image={{
-            src: '/images/background_01.jpg',
-            alt: 'background',
-          }}
-          imgPos="right"
-          secondaryNode={<MasonryDemo2 />}
-        >
-          <AccordionDemo />
-        </BlockBenefits>
-        <TestimonialsDemo />
-      </div>
     </div>
   )
 }
