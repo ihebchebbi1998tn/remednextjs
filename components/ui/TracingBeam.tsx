@@ -36,6 +36,7 @@ export const TracingBeam = ({
     return scrollYProgressVelocity.onChange((latestVelocity) => {
       setVelocity(latestVelocity)
     })
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const y1 = useSpring(

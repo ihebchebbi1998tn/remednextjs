@@ -1,15 +1,15 @@
 'use client'
 
-import * as React from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import * as React from 'react'
 
+import { Icons } from '@/components/shared/icons'
 /* import { siteConfig } from '@/config/site' */
 import { cn } from '@/lib/utils'
 import { resolveHref } from '@/sanity/lib/utils'
 import type { MenuItem } from '@/types'
-import { Icons } from '@/components/shared/icons'
-import Image from 'next/image'
 
 interface Props {
   className?: string
