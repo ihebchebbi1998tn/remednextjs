@@ -28,18 +28,22 @@ export default function Navbar(props: NavbarProps) {
           {/* <div className="flex-1 w-full md:w-auto md:flex-none">
             <CommandMenu />
           </div> */}
-          <nav className="flex items-center">
+          <nav className="flex items-center gap-2">
             <FrButton />
             {socialNetworks.map((item) => {
               const Icon = Icons[item.name]
               return (
-                <Button key={item.name} variant="link" className="ml-2">
+                <Button
+                  key={item.name}
+                  variant="link"
+                  className="items-center justify-center hidden w-6 h-6 border rounded-md group text-muted-foreground hover:bg-accent hover:text-accent-foreground sm:flex"
+                >
                   <Link
                     href={item.link.current}
                     target="_blank"
                     rel="noreferrer"
                   >
-                    <Icon className="w-4 h-4" />
+                    <Icon className="h-4 w-4 duration-300 group-hover:rotate-[360deg]" />
                     <span className="sr-only">{item.name}</span>
                   </Link>
                 </Button>
