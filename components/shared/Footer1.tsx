@@ -5,7 +5,7 @@ import { FooterBrand } from './FooterBrand'
 import { ListLineWithIcon } from './ListLineWithIcon'
 import { SocialNetworksList } from './SocialNetworksList'
 
-interface FooterProps {
+interface Footer1Props {
   socialNetworks?: SocialProfile[]
   socialNetworksTitle?: string
   usefulLinksTitle?: string
@@ -20,7 +20,7 @@ interface FooterProps {
   slogan?: string
 }
 
-export function Footer({
+export function Footer1({
   socialNetworks = [],
   socialNetworksTitle,
   usefulLinksTitle,
@@ -33,7 +33,7 @@ export function Footer({
   logo,
   slogan,
   className,
-}: FooterProps) {
+}: Footer1Props) {
   return (
     <footer
       className={`text-center text-green-600 bg-green-100 dark:bg-green-600 dark:text-green-200 lg:text-left ${className}`}
@@ -42,7 +42,7 @@ export function Footer({
       <SocialNetworksList
         title={socialNetworksTitle}
         socialNetworks={socialNetworks}
-        className="mb-4"
+        className="border-b-2 border-green-200 dark:border-green-500"
       />
 
       {/** Main container div: holds the entire content of the footer. */}
@@ -78,7 +78,7 @@ export function Footer({
       </div>
 
       {/**Copyright section*/}
-      <Copyright />
+      <Copyright brand={brand} />
     </footer>
   )
 }

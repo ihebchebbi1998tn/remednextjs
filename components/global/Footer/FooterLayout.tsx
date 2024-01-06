@@ -1,8 +1,8 @@
 import { toPlainText } from '@portabletext/react'
 import type { PortableTextBlock } from '@portabletext/types'
 
-import { Footer2 } from '@/components/shared/Footer2'
-import type { MenuItem, SettingsPayload } from '@/types'
+import { Footer1 } from '@/components/shared/Footer1'
+import type { SettingsPayload } from '@/types'
 
 interface FooterProps {
   data: SettingsPayload
@@ -10,15 +10,32 @@ interface FooterProps {
 export default function Footer(props: FooterProps) {
   const { data } = props
   const footer = data?.footer || ([] as PortableTextBlock[])
-  const menuItems = data?.menuItems || ([] as MenuItem[])
-  const main = menuItems.map((item) => ({
-    label: item.title,
-    value: item.slug,
-  }))
-  const social = data?.socialNetworks?.map((item) => ({
-    label: item.name,
-    value: item.link,
-  })) || []
+  const menuItems = data?.menuItems || []
+  const internalLinks = data?.internalLinks || []
 
-  return <Footer2 social={social} main={main} copyright={toPlainText(footer)} />
+  return (
+    <Footer1
+      socialNetworks={data?.socialNetworks}
+      socialNetworksTitle="Get connected with us on social networks:"
+      usefulLinks={[...menuItems, ...internalLinks]}
+      products={[
+        {
+          _type: 'menuItem',
+          title: 'Product 1',
+          slug: '/product-1',
+        },
+        {
+          _type: 'menuItem',
+          title: 'Product 2',
+          slug: '/product-2',
+        },
+        {
+          _type: 'menuItem',
+          title: 'Product 3',
+          slug: '/product-3',
+        },
+      ]}
+      brand={toPlainText(footer)}
+    />
+  )
 }

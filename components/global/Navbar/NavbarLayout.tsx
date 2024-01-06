@@ -8,15 +8,16 @@ import { Button } from '@/components/ui/button'
 import type { MenuItem, SettingsPayload } from '@/types'
 
 import { MainNav } from './main-nav'
+import { SocialNetworksList } from '@/components/shared/SocialNetworksList'
 
 interface NavbarProps {
   data: SettingsPayload
 }
 export default function Navbar(props: NavbarProps) {
   const { data } = props
-  const menuItems = data?.menuItems || ([] as MenuItem[])
-  const internalLinks = data?.internalLinks || ([] as MenuItem[])
-  const socialNetworks = data?.socialNetworks || ([] as MenuItem[])
+  const menuItems = data?.menuItems || [];
+  const internalLinks = data?.internalLinks || [];
+  const socialNetworks = data?.socialNetworks;
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -30,25 +31,7 @@ export default function Navbar(props: NavbarProps) {
           </div> */}
           <nav className="flex items-center gap-2">
             <FrButton />
-            {socialNetworks.map((item) => {
-              const Icon = Icons[item.name]
-              return (
-                <Button
-                  key={item.name}
-                  variant="link"
-                  className="items-center justify-center hidden w-6 h-6 border rounded-md group text-muted-foreground hover:bg-accent hover:text-accent-foreground sm:flex"
-                >
-                  <Link
-                    href={item.link.current}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <Icon className="h-4 w-4 duration-300 group-hover:rotate-[360deg]" />
-                    <span className="sr-only">{item.name}</span>
-                  </Link>
-                </Button>
-              )
-            })}
+            <SocialNetworksList socialNetworks={socialNetworks} />
             <ModeToggle />
           </nav>
         </div>

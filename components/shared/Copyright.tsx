@@ -6,7 +6,7 @@ interface CopyrightProps {
 }
 
 export function Copyright({
-  brand = 'Respect Environment Group',
+  brand,
   className = '',
 }: CopyrightProps) {
   return (

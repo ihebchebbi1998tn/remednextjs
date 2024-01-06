@@ -15,6 +15,7 @@ export function Footer2({
   social = [],
   copyright = '',
 }: Footer2Props) {
+  console.log('social: ', social);
   return (
     <footer className={`bg-green-500 ${className}`}>
       <div className="px-6 py-20 mx-auto overflow-hidden max-w-7xl sm:py-24 lg:px-8">
@@ -34,7 +35,7 @@ export function Footer2({
           ))}
         </nav>
         <div className="flex justify-center mt-10 space-x-10">
-          {social.map((item) => {
+          {social && social.map((item) => {
             const Icon = item.icon ? Icons[item.icon] : null
 
             return (
