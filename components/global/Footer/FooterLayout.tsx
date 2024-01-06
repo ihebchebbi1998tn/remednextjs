@@ -55,7 +55,8 @@ export default function Footer(props: FooterProps) {
         },
       ]}
       contactTitle="Contact"
-      brand={toPlainText(footer)}
+      brand={'Respect Environnement Group'}
+      copyright={toPlainText(footer)}
     />
   )
 }

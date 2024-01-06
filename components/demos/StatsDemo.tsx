@@ -18,10 +18,10 @@ export function StatsDemo() {
         <div className="grid mx-auto max-w-7xl lg:grid-cols-2">
           <div className="px-6 pt-16 pb-24 sm:pb-32 sm:pt-20 lg:col-start-2 lg:px-8 lg:pt-32">
             <div className="max-w-2xl mx-auto lg:mr-0 lg:max-w-lg">
-              <h2 className="text-base font-semibold leading-8 text-indigo-600">
+              <h2 className="text-base font-semibold leading-8 text-green-600">
                 Our track record
               </h2>
-              <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+              <p className="mt-2 text-3xl font-bold tracking-tight text-gray-800 sm:text-4xl dark:text-gray-300">
                 Trusted by thousands of creators&nbsp;worldwide
               </p>
               <p className="mt-6 text-lg leading-8 text-gray-600">
@@ -33,12 +33,12 @@ export function StatsDemo() {
                 {stats.map((stat) => (
                   <div
                     key={stat.id}
-                    className="flex flex-col pl-6 border-l gap-y-3 border-gray-900/10"
+                    className="flex flex-col pl-6 border-l gap-y-3 border-gray-900/20 dark:border-gray-700"
                   >
                     <dt className="text-sm leading-6 text-gray-600">
                       {stat.name}
                     </dt>
-                    <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900">
+                    <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900 dark:text-gray-300">
                       {stat.value}
                     </dd>
                   </div>

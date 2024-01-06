@@ -8,7 +8,7 @@ interface FooterBrandProps {
 }
 
 export function FooterBrand({
-  brand = 'Respect Environment Group',
+  brand,
   logo = '',
   slogan = 'Making the world a better place through constructing elegant hierarchies.',
   className = '',

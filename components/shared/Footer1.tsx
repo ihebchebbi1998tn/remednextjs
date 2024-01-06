@@ -18,6 +18,7 @@ interface Footer1Props {
   logo?: string
   brand?: string
   slogan?: string
+  copyright?: string
 }
 
 export function Footer1({
@@ -32,6 +33,7 @@ export function Footer1({
   brand,
   logo,
   slogan,
+  copyright,
   className,
 }: Footer1Props) {
   return (
@@ -48,7 +50,7 @@ export function Footer1({
       {/** Main container div: holds the entire content of the footer. */}
       <div className="py-10 mx-6 text-center md:text-left">
         <div className="grid gap-8 grid-1 md:grid-cols-2 lg:grid-cols-4">
-          {/** TW elements section */}
+          {/** Brand section */}
           <FooterBrand brand={brand} slogan={slogan} logo={logo} />
           {/** Products section */}
           <ListLineWithIcon
@@ -78,7 +80,7 @@ export function Footer1({
       </div>
 
       {/**Copyright section*/}
-      <Copyright brand={brand} />
+      <Copyright brand={brand} copyright={copyright} />
     </footer>
   )
 }
