@@ -1,7 +1,7 @@
 import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
 import Image from 'next/image'
 
-import {Breadcrumb} from '@/components/demos/Breadcrumb'
+import { Breadcrumb } from '@/components/demos/Breadcrumb'
 import { posts } from '@/lib/data'
 import type { HomePagePayload } from '@/types'
 
