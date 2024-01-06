@@ -14,12 +14,12 @@ export function PostListPage({ data, encodeDataAttribute }: PostListPageProps) {
   // Default to an empty object to allow previews on non-existent documents
 
   return (
-    <div className="py-24 sm:py-32">
+    <div className="py-14 sm:py-22">
       <div className="px-6 mx-auto max-w-7xl lg:px-8">
         <div className="max-w-2xl mx-auto lg:max-w-4xl">
           <Breadcrumb />
           <h2 className="mt-8 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl dark:text-gray-300">
-            From the blog
+            Blog
           </h2>
           <p className="mt-2 text-lg leading-8 text-gray-600">
             Learn how to grow your business with our expert advice.
