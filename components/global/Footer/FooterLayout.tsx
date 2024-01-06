@@ -18,6 +18,7 @@ export default function Footer(props: FooterProps) {
       socialNetworks={data?.socialNetworks}
       socialNetworksTitle="Get connected with us on social networks:"
       usefulLinks={[...menuItems, ...internalLinks]}
+      usefulLinksTitle="Useful links"
       products={[
         {
           _type: 'menuItem',
@@ -35,6 +36,25 @@ export default function Footer(props: FooterProps) {
           slug: '/product-3',
         },
       ]}
+      productsTitle="Products"
+      contact={[
+        {
+          label: 'Ezzahra Plage Lotisement Afh a Ben Arous Ezzahra',
+          value: 'https://google.com',
+          icon: 'home',
+        },
+        {
+          label: '+216 55 123 657 / +216 51 440 222',
+          value: 'https://google.com',
+          icon: 'phoneCall',
+        },
+        {
+          label: 'respectenvironnementg@gmail.com',
+          value: 'respectenvironnementg@gmail.com',
+          icon: 'mail',
+        },
+      ]}
+      contactTitle="Contact"
       brand={toPlainText(footer)}
     />
   )
