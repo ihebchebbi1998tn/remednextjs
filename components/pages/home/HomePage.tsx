@@ -69,7 +69,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
         width={width}
         height={height}
       />
-      <div className="container">
+      <div className="container overflow-hidden">
         <BlockBenefits
           title="Providing Sustainable Energy Solutions"
           desc="Nam vitae tortor quis est tempus egestas. Suspendisse non erat non mi imperdiet fringilla at vel ipsum. Proin rutrum, diam vel scelerisque luctus, leo dui sodales massa, et mattis urna felis quis mi turpis egestas."

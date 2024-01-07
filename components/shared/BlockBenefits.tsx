@@ -16,7 +16,7 @@ interface BlockBenefitsProps {
 export const BlockBenefits = (props: BlockBenefitsProps) => {
   const { title, desc, image, imgPos, children, secondaryNode } = props
   return (
-    <div className="flex flex-wrap mb-20 lg:gap-10 lg:flex-nowrap ">
+    <div className="flex flex-wrap mb-20 lg:gap-10 lg:flex-nowrap">
       {secondaryNode && (
         <div
           className={`flex items-start mt-7 w-full lg:w-1/2 ${

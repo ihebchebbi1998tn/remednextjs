@@ -3,7 +3,7 @@
 
 export function MasonryDemo() {
   return (
-    <div className="flex justify-end gap-8 mt-14 sm:-mt-44 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0">
+    <div className="flex justify-end gap-8 -ml-28 mt-14 sm:-mt-44 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0 md:ml-0">
       <div className="flex-none pt-32 ml-auto space-y-8 w-44 sm:ml-0 sm:pt-80 lg:order-last lg:pt-36 xl:order-none xl:pt-80">
         <div className="relative">
           <img
