@@ -1,17 +1,15 @@
 'use client'
 
-import * as React from 'react'
-
 import Autoplay from 'embla-carousel-autoplay'
+import * as React from 'react'
 
 import {
   Carousel,
-  CarouselContent,
-  CarouselNext,
-  CarouselPrevious,
   type CarouselApi,
+  CarouselContent,
   CarouselItem,
 } from '@/components/ui/carousel'
+
 import { AvailabilityBadge } from './AvailabilityBadge'
 
 interface CarouselReadMoreProps {
@@ -32,7 +30,6 @@ export function CarouselReadMore({
   const [api, setApi] = React.useState<CarouselApi>()
   const [current, setCurrent] = React.useState(0)
   const [count, setCount] = React.useState(0)
-  console.log('count: ', count)
 
   React.useEffect(() => {
     if (!api) {

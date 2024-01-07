@@ -8,7 +8,9 @@ import {
   homePageQuery,
   pagesBySlugQuery,
   postBySlugQuery,
+  postsQuery,
   projectBySlugQuery,
+  projectsQuery,
   settingsQuery,
 } from '@/sanity/lib/queries'
 import { token } from '@/sanity/lib/token'
@@ -90,11 +92,27 @@ export function loadProject(slug: string) {
   )
 }
 
+export function loadProjects() {
+  return loadQuery<ProjectPayload[]>(
+    projectsQuery,
+    {},
+    { next: { tags: ['project'] } },
+  )
+}
+
 export function loadPost(slug: string) {
   return loadQuery<PostPayload | null>(
     postBySlugQuery,
     { slug },
     { next: { tags: [`project:${slug}`] } },
+  )
+}
+
+export function loadPosts() {
+  return loadQuery<PostPayload[]>(
+    postsQuery,
+    {},
+    { next: { tags: ['post'] } },
   )
 }
 

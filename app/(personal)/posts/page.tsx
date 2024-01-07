@@ -5,7 +5,7 @@ import Link from 'next/link'
 import PostListPage from '@/components/pages/post/PostListPage'
 import { studioUrl } from '@/sanity/lib/api'
 import { homePageQuery } from '@/sanity/lib/queries'
-import { loadHomePage } from '@/sanity/loader/loadQuery'
+import { loadPosts } from '@/sanity/loader/loadQuery'
 import { useQuery } from '@/sanity/loader/useQuery'
 
 const PostListPagePreview = dynamic(
@@ -13,7 +13,7 @@ const PostListPagePreview = dynamic(
 )
 
 export default async function IndexRoute() {
-  const initial = await loadHomePage()
+  const initial = await loadPosts()
 
   if (draftMode().isEnabled) {
     return <PostListPagePreview initial={initial} />
@@ -22,8 +22,8 @@ export default async function IndexRoute() {
   if (!initial.data) {
     return (
       <div className="text-center">
-        You don&rsquo;t have a homepage yet,{' '}
-        <Link href={`${studioUrl}/desk/home`} className="underline">
+        You don&rsquo;t have posts yet,{' '}
+        <Link href={`${studioUrl}/desk/post`} className="underline">
           create one now
         </Link>
         !
@@ -31,5 +31,5 @@ export default async function IndexRoute() {
     )
   }
 
-  return <PostListPage data={null} />
+  return <PostListPage data={initial.data} />
 }

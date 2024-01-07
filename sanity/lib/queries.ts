@@ -52,6 +52,21 @@ export const projectBySlugQuery = groq`
   }
 `
 
+export const projectsQuery = groq`
+  *[_type == "project"]{
+    _id,
+    client,
+    coverImage,
+    description,
+    duration,
+    overview,
+    site,
+    "slug": slug.current,
+    tags,
+    title,
+  }
+`
+
 export const postBySlugQuery = groq`
   *[_type == "post" && slug.current == $slug][0] {
     _id,
@@ -62,6 +77,22 @@ export const postBySlugQuery = groq`
     "slug": slug.current,
     tags,
     title,
+  }
+`
+
+export const postsQuery = groq`
+  *[_type == "post"] {
+    _id,
+    coverImage,
+    excerpt,
+    "slug": slug.current,
+    tags,
+    title,
+    author->{
+      name,
+      picture,
+    },
+    date
   }
 `
 
