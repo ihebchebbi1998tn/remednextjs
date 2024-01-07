@@ -19,12 +19,12 @@ interface Props {
 export function MainNav(props: Props) {
   const pathname = usePathname()
 
-  const { menuItems } = props
+  const { menuItems, className } = props
 
   const restItems = menuItems.filter((item) => item?._type !== 'home')
 
   return (
-    <div className="hidden md:flex">
+    <div className="hidden lg:flex">
       <nav className="flex items-center gap-8 text-sm">
         {restItems.map((item, key) => {
           const href = resolveHref(item?._type, item?.slug)

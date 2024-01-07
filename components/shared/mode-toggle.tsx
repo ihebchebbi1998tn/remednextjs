@@ -4,7 +4,13 @@ import { Moon, Sun } from 'lucide-react'
 import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
 
-export function ModeToggle() {
+import { Button } from '../ui/button'
+
+interface Props {
+  className?: string
+}
+
+export function ModeToggle(props: Props) {
   const [mounted, setMounted] = useState(false)
   const { setTheme, theme } = useTheme()
 
@@ -18,16 +24,18 @@ export function ModeToggle() {
   }
 
   return (
-    <button
+    <Button
       onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
-      className="items-center justify-center hidden w-6 h-6 border rounded-md group text-muted-foreground hover:bg-accent hover:text-accent-foreground sm:flex"
+      className={props.className}
+      variant={'ghost'}
+      size={'icon'}
     >
       <span className="sr-only">Toggle dark/light mode</span>
       {theme !== 'dark' ? (
-        <Moon className="h-4 w-4 duration-300 group-hover:rotate-[360deg]" />
+        <Moon className="duration-300 group-hover:rotate-[360deg]" />
       ) : (
-        <Sun className="w-4 h-4 duration-300 group-hover:rotate-180" />
+        <Sun className="duration-300 group-hover:rotate-180" />
       )}
-    </button>
+    </Button>
   )
 }
