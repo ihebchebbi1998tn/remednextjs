@@ -30,7 +30,7 @@ export function PostListItem(props: PostProps) {
       }
       title={post.title}
       description={
-        post?.excerpt ? toPlainText(post.excerpt as PortableTextBlock[]) : ''
+        post?.overview ? toPlainText(post.overview as PortableTextBlock[]) : ''
       }
       tags={post.tags}
       readMoreLabel={readMoreLabel ?? 'Read more'}

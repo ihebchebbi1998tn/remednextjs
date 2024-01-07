@@ -70,7 +70,7 @@ export function PostListPage({ data, encodeDataAttribute }: PostListPageProps) {
                         </Link>
                       </h3>
                       <p className="mt-5 text-sm leading-6 text-gray-600">
-                        {post?.excerpt ? toPlainText(post?.excerpt) : ''}
+                        {post?.overview ? toPlainText(post?.overview) : ''}
                       </p>
                     </div>
                     <div className="flex pt-6 mt-6 border-t border-gray-900/5">

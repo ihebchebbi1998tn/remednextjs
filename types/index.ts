@@ -31,7 +31,7 @@ export interface ShowcasePost {
   _type: string
   _id: PostPayload['_id']
   coverImage?: PostPayload['coverImage']
-  excerpt?: PostPayload['excerpt']
+  overview?: PostPayload['overview']
   slug?: PostPayload['slug']
   tags?: PostPayload['tags']
   title?: PostPayload['title']
@@ -80,8 +80,8 @@ export interface PostPayload {
   _updatedAt?: string
   author?: Author
   coverImage?: Image
-  content?: PortableTextBlock[]
-  excerpt?: PortableTextBlock[]
+  description?: PortableTextBlock[]
+  overview?: PortableTextBlock[]
   slug: string
   tags?: string[]
   title?: string
@@ -110,4 +110,3 @@ export interface LinkItem {
   value?: string
   icon?: string
 }
-

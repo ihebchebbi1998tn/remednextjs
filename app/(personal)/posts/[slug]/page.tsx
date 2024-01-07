@@ -23,8 +23,8 @@ export async function generateMetadata(
 
   return {
     title: post?.title,
-    description: post?.excerpt
-      ? toPlainText(post.excerpt)
+    description: post?.overview
+      ? toPlainText(post.overview)
       : (await parent).description,
     openGraph: ogImage
       ? {

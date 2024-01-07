@@ -18,7 +18,7 @@ export const homePageQuery = groq`
     showcasePosts[]->{
       _id,
       coverImage,
-      excerpt,
+      overview,
       "slug": slug.current,
       tags,
       title,
@@ -70,11 +70,16 @@ export const postBySlugQuery = groq`
     _id,
     client,
     coverImage,
-    content,
-    excerpt,
+    description,
+    overview,
     "slug": slug.current,
     tags,
     title,
+    author->{
+      name,
+      picture,
+    },
+    date
   }
 `
 
@@ -82,7 +87,7 @@ export const postsQuery = groq`
   *[_type == "post"] {
     _id,
     coverImage,
-    excerpt,
+    overview,
     "slug": slug.current,
     tags,
     title,
