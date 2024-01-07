@@ -70,6 +70,7 @@ export function CardReadMore({
         <Link
           href={props.readMoreLink}
           className="text-sm font-medium lowercase md:text-lg"
+          aria-label='Read more'
         >
           <Button>{readMoreLabel}</Button>
         </Link>

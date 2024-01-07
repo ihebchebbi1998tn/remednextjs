@@ -20,7 +20,7 @@ export function SocialNetwork({
       variant="link"
       className={`${className} items-center justify-center w-6 h-6 border rounded-md group text-green-600 dark:text-green-200 hover:bg-accent hover:text-accent-foreground sm:flex border-green-500 `}
     >
-      <Link href={link} target="_blank">
+      <Link href={link} target="_blank" rel="noopener noreferrer">
         {Icon && (
           <Icon className="h-4 w-4 duration-300 group-hover:rotate-[360deg]" />
         )}
