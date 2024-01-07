@@ -34,9 +34,9 @@ export default function Navbar(props: NavbarProps) {
           </span>
         </Link>
         <MainNav menuItems={[...internalLinks, ...menuItems]} />
-         <MobileNav data={data} />
+        <MobileNav data={data} />
         <div className="items-center justify-between flex-1 hidden none sm:flex gap-x-2 md:justify-end">
-          <nav className="items-center gap-2 md:gap-8">
+          <nav className="flex items-center w-auto gap-2 md:gap-8">
             <SocialNetworksList socialNetworks={socialNetworks} />
             <ModeToggle className="w-8 h-8" />
           </nav>
