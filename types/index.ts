@@ -110,3 +110,9 @@ export interface LinkItem {
   value?: string
   icon?: string
 }
+
+// TODO: isolate sanity types and remove this
+export interface SanityLink {
+  _type: string
+  current: string
+}

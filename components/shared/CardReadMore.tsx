@@ -46,7 +46,7 @@ export function CardReadMore({
       />
       {title && (
         <CardHeader>
-          <CardTitle className='font-normal text-md'>{title}</CardTitle>
+          <CardTitle className="font-normal text-md">{title}</CardTitle>
         </CardHeader>
       )}
       {description && (
@@ -70,7 +70,7 @@ export function CardReadMore({
         <Link
           href={props.readMoreLink}
           className="text-sm font-medium lowercase md:text-lg"
-          aria-label='Read more'
+          aria-label="Read more"
         >
           <Button>{readMoreLabel}</Button>
         </Link>
