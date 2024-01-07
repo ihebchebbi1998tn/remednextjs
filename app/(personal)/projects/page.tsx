@@ -4,16 +4,14 @@ import Link from 'next/link'
 
 import ProjectListPage from '@/components/pages/project/ProjectListPage'
 import { studioUrl } from '@/sanity/lib/api'
-import { homePageQuery } from '@/sanity/lib/queries'
-import { loadHomePage } from '@/sanity/loader/loadQuery'
-import { useQuery } from '@/sanity/loader/useQuery'
+import { loadProjects } from '@/sanity/loader/loadQuery'
 
 const ProjectListPagePreview = dynamic(
   () => import('@/components/pages/project/ProjectListPagePreview'),
 )
 
 export default async function IndexRoute() {
-  const initial = await loadHomePage()
+  const initial = await loadProjects()
 
   if (draftMode().isEnabled) {
     return <ProjectListPagePreview initial={initial} />
@@ -22,8 +20,8 @@ export default async function IndexRoute() {
   if (!initial.data) {
     return (
       <div className="text-center">
-        You don&rsquo;t have a homepage yet,{' '}
-        <Link href={`${studioUrl}/desk/home`} className="underline">
+        You don&rsquo;t have a project yet,{' '}
+        <Link href={`${studioUrl}/desk/project`} className="underline">
           create one now
         </Link>
         !
@@ -31,5 +29,5 @@ export default async function IndexRoute() {
     )
   }
 
-  return <ProjectListPage data={null} />
+  return <ProjectListPage data={initial.data} />
 }
