@@ -85,8 +85,8 @@ export default function Navbar(props: NavbarProps) {
             </DrawerFooter>
           </DrawerContent>
         </Drawer>
-        <div className="flex items-center justify-between flex-1 gap-x-2 md:justify-end">
-          <nav className="items-center hidden gap-2 sm:flex md:gap-8">
+        <div className="items-center justify-between flex-1 hidden none sm:flex gap-x-2 md:justify-end">
+          <nav className="items-center gap-2 md:gap-8">
             <SocialNetworksList socialNetworks={socialNetworks} />
             <ModeToggle className="w-8 h-8" />
           </nav>

@@ -31,8 +31,9 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
     <div className="py-14 sm:py-22">
       <div className="mx-auto md:px-6 max-w-7xl lg:px-8">
         <div className="max-w-2xl mx-auto lg:max-w-4xl">
-          <Breadcrumb />
-
+          <div className="container">
+            <Breadcrumb />
+          </div>
           <div
             className="relative w-full mx-auto mt-8 mb-4 max-w-screen md:mb-0"
             style={{ height: '24em' }}
