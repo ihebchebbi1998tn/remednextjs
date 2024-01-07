@@ -1,20 +1,9 @@
-import { Menu } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-/* import { CommandMenu } from '@/components/command-menu' */
+import MobileNav from '@/components/shared/MobileNav'
 import { ModeToggle } from '@/components/shared/mode-toggle'
 import { SocialNetworksList } from '@/components/shared/SocialNetworksList'
-import { Button } from '@/components/ui/button'
-import {
-  Drawer,
-  DrawerClose,
-  DrawerContent,
-  DrawerDescription,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerTrigger,
-} from '@/components/ui/drawer'
 import type { SettingsPayload } from '@/types'
 
 import { MainNav } from './main-nav'
@@ -45,46 +34,7 @@ export default function Navbar(props: NavbarProps) {
           </span>
         </Link>
         <MainNav menuItems={[...internalLinks, ...menuItems]} />
-        {/* <MobileNav /> */}
-        <Drawer>
-          <DrawerTrigger>
-            <Button
-              className="p-2 rounded-full sm:hidden"
-              aria-label="Open menu"
-              variant="ghost"
-            >
-              <Menu className="text-foreground" />
-            </Button>
-          </DrawerTrigger>
-          <DrawerContent>
-            <DrawerHeader>
-              <DrawerClose aria-label="Close menu" />
-            </DrawerHeader>
-            <DrawerDescription className="container flex flex-col justify-center">
-              {[
-                ...internalLinks,
-                ...menuItems.filter((item) => item?._type !== 'home'),
-              ].map((item, key) => {
-                const href = item?._type === 'home' ? '/' : `/${item?.slug}`
-                return (
-                  <Link
-                    key={key}
-                    href={href}
-                    className="py-2 text-lg font-bold text-center transition-colors hover:text-foreground"
-                  >
-                    {item.title}
-                  </Link>
-                )
-              })}
-            </DrawerDescription>
-            <DrawerFooter>
-              <div className="flex flex-col gap-y-2">
-                <SocialNetworksList socialNetworks={socialNetworks} />
-                <ModeToggle className="self-start" />
-              </div>
-            </DrawerFooter>
-          </DrawerContent>
-        </Drawer>
+         <MobileNav data={data} />
         <div className="items-center justify-between flex-1 hidden none sm:flex gap-x-2 md:justify-end">
           <nav className="items-center gap-2 md:gap-8">
             <SocialNetworksList socialNetworks={socialNetworks} />
