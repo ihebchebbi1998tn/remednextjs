@@ -1,9 +1,12 @@
 import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
+import { format, parseISO } from 'date-fns'
+import Image from 'next/image'
 import Link from 'next/link'
 
+import { Breadcrumb } from '@/components/demos/Breadcrumb'
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
-import { Header } from '@/components/shared/Header'
-import ImageBox from '@/components/shared/ImageBox'
+import { urlForImage } from '@/sanity/lib/utils'
+import author from '@/sanity/schemas/documents/author'
 import type { ProjectPayload } from '@/types'
 
 export interface ProjectPageProps {
@@ -24,89 +27,82 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
     title,
   } = data ?? {}
 
-  const startYear = new Date(duration?.start!).getFullYear()
-  const endYear = duration?.end ? new Date(duration?.end).getFullYear() : 'Now'
-
   return (
-    <div>
-      <div className="mb-20 space-y-6">
-        {/* Header */}
-        <Header title={title} description={overview} />
+    <div className="py-14 sm:py-22">
+      <div className="mx-auto md:px-6 max-w-7xl lg:px-8">
+        <div className="max-w-2xl mx-auto lg:max-w-4xl">
+          <Breadcrumb />
 
-        <div className="border rounded-md">
-          {/* Image  */}
-          <ImageBox
-            data-sanity={encodeDataAttribute?.('coverImage')}
-            image={coverImage}
-            // @TODO add alt field in schema
-            alt=""
-            classesWrapper="relative aspect-[16/9]"
-          />
-
-          <div className="grid grid-cols-1 divide-y divide-inherit lg:grid-cols-4 lg:divide-x lg:divide-y-0">
-            {/* Duration */}
-            {!!(startYear && endYear) && (
-              <div className="p-3 lg:p-4">
-                <div className="text-xs md:text-sm">Duration</div>
-                <div className="text-md md:text-lg">
-                  <span data-sanity={encodeDataAttribute?.('duration.start')}>
-                    {startYear}
-                  </span>
-                  {' - '}
-                  <span data-sanity={encodeDataAttribute?.('duration.end')}>
-                    {endYear}
-                  </span>
-                </div>
-              </div>
-            )}
-
-            {/* Client */}
-            {client && (
-              <div className="p-3 lg:p-4">
-                <div className="text-xs md:text-sm">Client</div>
-                <div className="text-md md:text-lg">{client}</div>
-              </div>
-            )}
-
-            {/* Site */}
-            {site && (
-              <div className="p-3 lg:p-4">
-                <div className="text-xs md:text-sm">Site</div>
-                {site && (
+          <div
+            className="relative w-full mx-auto mt-8 mb-4 max-w-screen md:mb-0"
+            style={{ height: '24em' }}
+          >
+            <div
+              className="absolute bottom-0 left-0 z-10 w-full h-full"
+              style={{
+                backgroundImage:
+                  'linear-gradient(180deg,transparent,rgba(0,0,0,.7))',
+              }}
+            />
+            <Image
+              src={urlForImage(coverImage)?.url() || ''}
+              alt=""
+              className="absolute inset-0 object-cover w-full h-full"
+              layout="fill"
+            />
+            <div className="absolute bottom-0 left-0 z-20 p-4 ">
+              {tags &&
+                tags.map((tag) => (
                   <Link
-                    target="_blank"
-                    className="break-words text-md md:text-lg"
-                    href={site}
+                    href="#"
+                    className="inline-flex items-center justify-center px-4 py-1 mb-2 mr-2 text-gray-200 bg-green-500 rounded-full dark:bg-green-500 dark:text-gray-200"
+                    key={tag}
                   >
-                    {site}
+                    {tag}
                   </Link>
-                )}
-              </div>
-            )}
-
-            {/* Tags */}
-            <div className="p-3 lg:p-4">
-              <div className="text-xs md:text-sm">Tags</div>
-              <div className="flex flex-row flex-wrap text-md md:text-lg">
-                {tags?.map((tag, key) => (
-                  <div key={key} className="mr-1 break-words ">
-                    #{tag}
-                  </div>
                 ))}
+              <h1 className="text-2xl font-semibold leading-tight text-gray-100 md:text-4xl">
+                {title}
+              </h1>
+              <div className="flex mt-3">
+                <div>
+                  <p className="text-sm font-semibold text-gray-200">
+                    {author?.name}
+                  </p>
+                  {duration && (
+                    <p className="text-sm font-semibold text-gray-200">
+                      {format(parseISO(duration.start || ''), 'MMMM yyyy')} -{' '}
+                      {format(parseISO(duration.end || ''), 'MMMM yyyy')}
+                    </p>
+                  )}
+                  {site && (
+                    <p className="text-sm font-semibold text-gray-200">
+                      {site}
+                    </p>
+                  )}
+                </div>
               </div>
             </div>
           </div>
+          <div className="container">
+            <div className="pb-6 mt-4 font-semibold text-gray-400 border-b-2 border-gray-200">
+              {overview && <CustomPortableText value={overview} />}
+            </div>
+            <div className="pb-6 mt-4 border-b-2 border-gray-200 dark:text-gray-400">
+              {description && <CustomPortableText value={description} />}
+            </div>
+            {/* updated at */}
+            {duration && (
+              <div className="pb-6 mt-4 dark:text-gray-400">
+                <p className="text-sm font-semibold text-gray-400">
+                  {format(parseISO(duration.start || ''), 'MMMM yyyy')} -{' '}
+                  {format(parseISO(duration.end || ''), 'MMMM yyyy')}
+                </p>
+              </div>
+            )}
+          </div>
         </div>
-
-        {/* Description */}
-        {description && (
-          <CustomPortableText
-            paragraphClasses="font-serif max-w-3xl text-xl text-gray-600"
-            value={description}
-          />
-        )}
       </div>
-      <div className="absolute left-0 w-screen border-t" />
     </div>
   )
 }
