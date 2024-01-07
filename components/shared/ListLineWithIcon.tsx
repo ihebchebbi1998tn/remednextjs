@@ -29,7 +29,7 @@ export function ListLineWithIcon({
           const Icon = item.icon ? Icons[item.icon] : null
           return (
             <LineWithIcon
-              className="mb-4 "
+              className="mb-2"
               label={item.label}
               icon={Icon ? <Icon /> : null}
               key={index}
