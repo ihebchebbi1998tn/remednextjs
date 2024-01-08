@@ -12,12 +12,11 @@ import { apiVersion, dataset, projectId, studioUrl } from '@/sanity/lib/api'
 import { locate } from '@/sanity/plugins/locate'
 import { pageStructure, singletonPlugin } from '@/sanity/plugins/settings'
 import author from '@/sanity/schemas/documents/author'
-import internalLink from '@/sanity/schemas/objects/internalLink'
 import page from '@/sanity/schemas/documents/page'
 import post from '@/sanity/schemas/documents/post'
 import project from '@/sanity/schemas/documents/project'
-import socialNetworks from '@/sanity/schemas/objects/socialNetworks'
 import duration from '@/sanity/schemas/objects/duration'
+import internalLink from '@/sanity/schemas/objects/internalLink'
 import milestone from '@/sanity/schemas/objects/milestone'
 import socialNetwork from '@/sanity/schemas/objects/socialNetwork'
 import timeline from '@/sanity/schemas/objects/timeline'
@@ -47,7 +46,6 @@ export default defineConfig({
       author,
       internalLink,
       socialNetwork,
-      socialNetworks,
       // Objects
       milestone,
       timeline,

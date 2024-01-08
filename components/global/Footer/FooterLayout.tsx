@@ -9,14 +9,16 @@ interface FooterProps {
 }
 export default function Footer(props: FooterProps) {
   const { data } = props
+  console.log('data: ', data)
   const footer = data?.footer || ([] as PortableTextBlock[])
   const menuItems = data?.menuItems || []
   const internalLinks = data?.internalLinks || []
 
+  console.log('data?.socialNetworks: ', data?.socialNetworks)
   return (
     <Footer1
-      socialNetworks={data?.socialNetworks}
-      socialNetworksTitle="Get connected with us on social networks:"
+      socialNetworks={data?.socialNetworks?.fields}
+      socialNetworksTitle={data?.socialNetworks?.title}
       usefulLinks={[...menuItems, ...internalLinks]}
       usefulLinksTitle="Useful links"
       products={[

@@ -77,10 +77,36 @@ export default defineType({
         }),
       ],
     }),
-    // Custom blocks
     defineField({
       name: 'socialNetworks',
-      type: 'socialNetworks',
+      title: 'Social Networks',
+      description: 'Links to your social media profiles.',
+      type: 'object',
+      fields: [
+        defineField({
+          name: 'title',
+          description: 'This field is the title of your social network.',
+          title: 'Title',
+          type: 'string',
+          validation: (rule) => rule.required(),
+        }),
+        defineField({
+          name: 'fields',
+          title: 'Fields',
+          type: 'array',
+          of: [
+            {
+              title: 'Reference',
+              type: 'reference',
+              to: [
+                {
+                  type: 'socialNetwork',
+                },
+              ],
+            },
+          ],
+        }),
+      ],
     }),
     defineField({
       name: 'ogImage',

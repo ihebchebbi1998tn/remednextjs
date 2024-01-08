@@ -37,7 +37,7 @@ export default function Navbar(props: NavbarProps) {
         <MobileNav data={data} />
         <div className="items-center justify-between flex-1 hidden none sm:flex gap-x-2 md:justify-end">
           <nav className="flex items-center w-auto gap-2 md:gap-8">
-            <SocialNetworksList socialNetworks={socialNetworks} />
+            <SocialNetworksList socialNetworks={socialNetworks?.fields} title={socialNetworks?.title} />
             <ModeToggle className="w-8 h-8" />
           </nav>
         </div>
