@@ -5,7 +5,7 @@ export default defineType({
   name: 'socialNetwork',
   title: 'Social Network',
   icon: ActivityIcon,
-  type: 'document',
+  type: 'object',
   fields: [
     defineField({
       name: 'name',

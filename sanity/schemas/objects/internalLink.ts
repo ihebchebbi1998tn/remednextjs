@@ -5,7 +5,7 @@ export default defineType({
   name: 'internalLink',
   title: 'Internal Link',
   icon: LinkIcon,
-  type: 'document',
+  type: 'object',
   fields: [
     defineField({
       name: 'title',
