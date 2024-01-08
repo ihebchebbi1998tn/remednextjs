@@ -28,7 +28,7 @@ export default function MobileNav(props: NavbarProps) {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
   const menuItems = data?.menuItems || []
   const internalLinks = data?.internalLinks || []
-  const socialNetworks = data?.socialNetworks
+  const socialNetworks = data?.socialNetworks?.fields || []
 
   return (
     <Drawer open={isDrawerOpen} onOpenChange={setIsDrawerOpen}>
