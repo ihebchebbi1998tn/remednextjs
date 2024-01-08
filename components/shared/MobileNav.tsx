@@ -27,7 +27,6 @@ export default function MobileNav(props: NavbarProps) {
   const pathname = usePathname()
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
   const menuItems = data?.menuItems || []
-  const internalLinks = data?.internalLinks || []
   const socialNetworks = data?.socialNetworks?.fields || []
 
   return (
@@ -47,25 +46,26 @@ export default function MobileNav(props: NavbarProps) {
           <DrawerClose aria-label="Close menu" />
         </DrawerHeader>
         <DrawerDescription className="container flex flex-col justify-center">
-          {[
-            ...internalLinks,
-            ...menuItems.filter((item) => item?._type !== 'home'),
-          ].map((item, key) => {
-            const href = item?._type === 'home' ? '/' : `/${item?.slug}`
-            return (
-              <Link
-                key={key}
-                href={href}
-                className={cn(
-                  'py-2 text-lg font-bold text-center transition-colors hover:text-foreground',
-                  pathname === href ? 'text-foreground' : 'text-foreground/60',
-                )}
-                onClick={() => setIsDrawerOpen(false)}
-              >
-                {item.title}
-              </Link>
-            )
-          })}
+          {menuItems.filter((item) => item?._type !== 'home').map(
+            (item, key) => {
+              const href = item?._type === 'home' ? '/' : `/${item?.slug}`
+              return (
+                <Link
+                  key={key}
+                  href={href}
+                  className={cn(
+                    'py-2 text-lg font-bold text-center transition-colors hover:text-foreground',
+                    pathname === href
+                      ? 'text-foreground'
+                      : 'text-foreground/60',
+                  )}
+                  onClick={() => setIsDrawerOpen(false)}
+                >
+                  {item.title}
+                </Link>
+              )
+            },
+          )}
         </DrawerDescription>
         <DrawerFooter>
           <div className="flex flex-col gap-y-2">

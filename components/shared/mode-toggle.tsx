@@ -32,9 +32,9 @@ export function ModeToggle(props: Props) {
     >
       <span className="sr-only">Toggle dark/light mode</span>
       {theme !== 'dark' ? (
-        <Moon className="duration-300 group-hover:rotate-[360deg]" />
+        <Moon className="duration-300 w-4 h-4 group-hover:rotate-[360deg]" />
       ) : (
-        <Sun className="duration-300 group-hover:rotate-180" />
+        <Sun className="w-4 h-4 duration-300 group-hover:rotate-180" />
       )}
     </Button>
   )

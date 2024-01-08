@@ -28,20 +28,6 @@ export default defineType({
             {
               type: 'project',
             },
-          ],
-        },
-      ],
-    }),
-    defineField({
-      name: 'internalLinks',
-      title: 'Internal Links',
-      description: 'Internal Links displayed on the header of your site.',
-      type: 'array',
-      of: [
-        {
-          title: 'Reference',
-          type: 'reference',
-          to: [
             {
               type: 'internalLink',
             },

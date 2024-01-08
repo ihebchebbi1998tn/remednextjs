@@ -14,7 +14,6 @@ interface NavbarProps {
 export default function Navbar(props: NavbarProps) {
   const { data } = props
   const menuItems = data?.menuItems || []
-  const internalLinks = data?.internalLinks || []
   const socialNetworks = data?.socialNetworks
   const homeItem = menuItems.find((item) => item?._type === 'home')
 
@@ -33,7 +32,7 @@ export default function Navbar(props: NavbarProps) {
             {homeItem?.title}
           </span>
         </Link>
-        <MainNav menuItems={[...internalLinks, ...menuItems]} />
+        <MainNav menuItems={menuItems} />
         <MobileNav data={data} />
         <div className="items-center justify-between flex-1 hidden none sm:flex gap-x-2 md:justify-end">
           <nav className="flex items-center w-auto gap-2 md:gap-8">

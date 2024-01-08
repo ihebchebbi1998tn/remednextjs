@@ -94,7 +94,6 @@ export interface SettingsPayload {
     title?: string
     fields?: SocialProfile[]
   }
-  internalLinks?: MenuItem[]
   ogImage?: Image
 }
 
