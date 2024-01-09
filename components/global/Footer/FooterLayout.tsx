@@ -15,6 +15,8 @@ export default function Footer(props: FooterProps) {
 
   return (
     <Footer1
+      brand={data?.brand}
+      slogan={data?.slogan}
       socialNetworks={data?.socialNetworks?.fields}
       socialNetworksTitle={data?.socialNetworks?.title}
       usefulLinks={menuItems.filter((item) => item?._type !== 'home')}
@@ -39,7 +41,6 @@ export default function Footer(props: FooterProps) {
       productsTitle="Products"
       contact={data?.contacts?.fields}
       contactTitle={data?.contacts?.title}
-      brand={'Respect Environnement Group'}
       copyright={toPlainText(footer)}
     />
   )

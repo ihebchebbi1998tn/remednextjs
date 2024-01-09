@@ -9,6 +9,22 @@ export default defineType({
   // Uncomment below to have edits publish automatically as you type
   // liveEdit: true,
   fields: [
+    // brand as string
+    defineField({
+      name: 'brand',
+      title: 'Brand',
+      description: 'Your brand name.',
+      type: 'string',
+      validation: (rule) => rule.required(),
+    }),
+    // slogan as string
+    defineField({
+      name: 'slogan',
+      title: 'Slogan',
+      description: 'Your slogan.',
+      type: 'string',
+      validation: (rule) => rule.required(),
+    }),
     defineField({
       name: 'menuItems',
       title: 'Menu Item list',

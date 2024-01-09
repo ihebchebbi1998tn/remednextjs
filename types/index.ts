@@ -88,6 +88,8 @@ export interface PostPayload {
 }
 
 export interface SettingsPayload {
+  brand?: string
+  slogan?: string
   footer?: PortableTextBlock[]
   menuItems?: MenuItem[]
   socialNetworks?: {

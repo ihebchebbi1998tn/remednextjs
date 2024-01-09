@@ -101,6 +101,8 @@ export const postsQuery = groq`
 
 export const settingsQuery = groq`
   *[_type == "settings"][0]{
+    brand,
+    slogan,
     footer,
     menuItems[]->{
       _type,
