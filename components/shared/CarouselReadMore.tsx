@@ -15,11 +15,13 @@ import { AvailabilityBadge } from './AvailabilityBadge'
 interface CarouselReadMoreProps {
   title?: string
   className?: string
+  titleClassName?: string
   children?: React.ReactNode
 }
 
 export function CarouselReadMore({
   className,
+  titleClassName,
   children,
   title,
 }: CarouselReadMoreProps) {
@@ -58,7 +60,7 @@ export function CarouselReadMore({
         }}
       >
         <div className="flex justify-between w-full py-10 ">
-          <h1 className="text-5xl font-bold">{title}</h1>
+          <h1 className={`text-5xl font-bold ${titleClassName}`}>{title}</h1>
           <span className="flex items-end mr-8 space-x-2">
             {Array.from({ length: React.Children.count(children) }).map(
               (_, index) => (

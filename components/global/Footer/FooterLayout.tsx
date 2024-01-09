@@ -9,7 +9,6 @@ interface FooterProps {
 }
 export default function Footer(props: FooterProps) {
   const { data } = props
-  console.log('data: ', data.contacts)
   const footer = data?.footer || ([] as PortableTextBlock[])
   const menuItems = data?.menuItems || []
 

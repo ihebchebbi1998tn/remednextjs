@@ -45,9 +45,9 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
       <div className="relative w-full"></div>
 
       {/* Showcase posts */}
-      <div className="md:container">
+      <div>
         {showcasePosts && showcasePosts.length > 0 && (
-          <CarouselReadMore title="Showcase posts">
+          <CarouselReadMore title="Showcase posts" titleClassName="ml-8">
             {showcasePosts.map((post, key) => {
               return (
                 <ProjectListItem
