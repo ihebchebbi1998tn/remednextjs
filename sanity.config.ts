@@ -15,6 +15,7 @@ import author from '@/sanity/schemas/documents/author'
 import page from '@/sanity/schemas/documents/page'
 import post from '@/sanity/schemas/documents/post'
 import project from '@/sanity/schemas/documents/project'
+import contact from '@/sanity/schemas/objects/contact'
 import duration from '@/sanity/schemas/objects/duration'
 import internalLink from '@/sanity/schemas/objects/internalLink'
 import milestone from '@/sanity/schemas/objects/milestone'
@@ -45,10 +46,11 @@ export default defineConfig({
       post,
       author,
       internalLink,
-      socialNetwork,
       // Objects
+      contact,
       milestone,
       timeline,
+      socialNetwork,
     ],
   },
   plugins: [

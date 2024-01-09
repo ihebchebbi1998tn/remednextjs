@@ -94,6 +94,10 @@ export interface SettingsPayload {
     title?: string
     fields?: SocialProfile[]
   }
+  contacts?: {
+    title?: string
+    fields?: LinkItem[]
+  }
   ogImage?: Image
 }
 
@@ -111,6 +115,7 @@ export interface LinkItem {
   label?: string
   value?: string
   icon?: string
+  type?: string
 }
 
 // TODO: isolate sanity types and remove this

@@ -9,6 +9,7 @@ interface FooterProps {
 }
 export default function Footer(props: FooterProps) {
   const { data } = props
+  console.log('data: ', data.contacts)
   const footer = data?.footer || ([] as PortableTextBlock[])
   const menuItems = data?.menuItems || []
 
@@ -36,24 +37,8 @@ export default function Footer(props: FooterProps) {
         },
       ]}
       productsTitle="Products"
-      contact={[
-        {
-          label: 'Ezzahra Plage Lotisement Afh a Ben Arous Ezzahra',
-          value: 'https://google.com',
-          icon: 'home',
-        },
-        {
-          label: '+216 55 123 657 / +216 51 440 222',
-          value: 'https://google.com',
-          icon: 'phoneCall',
-        },
-        {
-          label: 'respectenvironnementg@gmail.com',
-          value: 'respectenvironnementg@gmail.com',
-          icon: 'mail',
-        },
-      ]}
-      contactTitle="Contact"
+      contact={data?.contacts?.fields}
+      contactTitle={data?.contacts?.title}
       brand={'Respect Environnement Group'}
       copyright={toPlainText(footer)}
     />

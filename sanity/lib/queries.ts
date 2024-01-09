@@ -114,6 +114,15 @@ export const settingsQuery = groq`
         link
       }
     },
+    contacts{
+      title,
+      fields[]->{
+        label,
+        value,
+        icon,
+        type,
+      }
+    },
     ogImage,
   }
 `

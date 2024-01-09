@@ -8,6 +8,7 @@ const FooterPreview = dynamic(() => import('./FooterPreview'))
 
 export async function Footer() {
   const initial = await loadSettings()
+  console.log('initial: ', initial.data.contacts);
 
   if (draftMode().isEnabled) {
     return <FooterPreview initial={initial} />

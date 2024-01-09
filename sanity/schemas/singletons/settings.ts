@@ -95,6 +95,37 @@ export default defineType({
       ],
     }),
     defineField({
+      name: 'contacts',
+      title: 'Contacts',
+      description: 'Contact information.',
+      type: 'object',
+      fields: [
+        defineField({
+          name: 'title',
+          description: 'This field is the title of contact section.',
+          title: 'Title',
+          type: 'string',
+          validation: (rule) => rule.required(),
+        }),
+        defineField({
+          name: 'fields',
+          title: 'Fields',
+          type: 'array',
+          of: [
+            {
+              title: 'Reference',
+              type: 'reference',
+              to: [
+                {
+                  type: 'contact',
+                },
+              ],
+            },
+          ],
+        }),
+      ],
+    }),
+    defineField({
       name: 'ogImage',
       title: 'Open Graph Image',
       type: 'image',
