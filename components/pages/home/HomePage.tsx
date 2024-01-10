@@ -15,6 +15,7 @@ import BlockBenefits from '@/components/shared/BlockBenefits'
 import Bullet from '@/components/shared/Bullet'
 import { CarouselReadMore } from '@/components/shared/CarouselReadMore'
 import { bullets } from '@/lib/data'
+import { urlForImage } from '@/sanity/lib/utils'
 import type { HomePagePayload } from '@/types'
 
 import { HomePageProjects } from './HomePageProjects'
@@ -32,7 +33,10 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
   const {
     sections = [],
   } = data ?? {}
-  console.log('sections[1].showcaseProjects: ', sections[1].showcaseProjects)
+  console.log(
+    'urlForImage(sections[2]?.coverImage)?.url() : ',
+    urlForImage(sections[2]?.coverImage)?.url(),
+  )
 
   return (
     <div className="space-y-20">
@@ -72,13 +76,16 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
           })}
         </CarouselReadMore>
       )}
-      
+
       {/* Showcase projects */}
       <HomePageProjects
         showcaseProjects={sections[2]?.showcaseProjects}
         title={sections[2]?.title}
         subtitle={sections[2]?.subtitle}
         description={toPlainText(sections[2]?.description || []) || ''}
+        coverImage={
+          urlForImage(sections[2]?.coverImage)?.url() ?? ''
+        }
         width={width}
         height={height}
       />

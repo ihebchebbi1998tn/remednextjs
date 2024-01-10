@@ -8,6 +8,7 @@ export const homePageQuery = groq`
       title,
       subtitle,
       description,
+      coverImage,
       cta,
       ctaLink,
       icon,

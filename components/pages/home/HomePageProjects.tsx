@@ -10,6 +10,7 @@ interface HomePageProjectsProps {
   title?: string
   subtitle?: string
   description?: string
+  coverImage?: string
   showcaseProjects?: ShowcaseProject[]
   width: number
   height: number
@@ -20,17 +21,22 @@ export function HomePageProjects({
   title,
   subtitle,
   description,
+  coverImage,
   width,
   height,
 }: HomePageProjectsProps) {
   return (
-    <div className="w-full bg-reg-dark bg-[url('/images/background_01.jpg')] md:bg-center">
+    <div
+      className={`w-full bg-reg-dark md:bg-center`}
+      style={{
+        backgroundImage: `url(${coverImage})`,
+      }}
+    >
       <div className="container flex flex-col items-center justify-center gap-5 py-8 md:flex-row">
         <CardNavigation
           title={title}
-          subtitle="Read more about my latest projects"
-          description="Nam vitae tortor quis est tempus egestas. Suspendisse non erat non mi imperdiet fringilla at vel ipsum. Proin rutrum, diam vel scelerisque luctus, leo dui sodales massa, et mattis urna felis quis mi turpis egestas."
-          buttonText="Read more"
+          subtitle={subtitle}
+          description={description}
           buttonLink="/"
           active={true}
           titleClassName="text-4xl font-bold"
