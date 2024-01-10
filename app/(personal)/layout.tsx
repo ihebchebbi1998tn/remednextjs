@@ -7,6 +7,7 @@ import { Suspense } from 'react'
 import { Footer } from '@/components/global/Footer'
 import { Navbar } from '@/components/global/Navbar'
 import { ThemeProvider } from '@/components/global/theme-provider'
+import { ScrollToTop } from '@/components/shared/ScrollToTop'
 import { urlForOpenGraphImage } from '@/sanity/lib/utils'
 import { loadHomePage, loadSettings } from '@/sanity/loader/loadQuery'
 
@@ -61,6 +62,7 @@ export default async function IndexRoute({
         <Suspense>
           <Footer />
         </Suspense>
+        <ScrollToTop />
       </div>
       {draftMode().isEnabled && <VisualEditing />}
     </ThemeProvider>

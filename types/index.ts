@@ -62,6 +62,7 @@ export interface CustomBlock {
 export interface HomePagePayload {
   footer?: PortableTextBlock[]
   title?: string
+  overview?: PortableTextBlock[]
   sections?: CustomBlock[]
 }
 
