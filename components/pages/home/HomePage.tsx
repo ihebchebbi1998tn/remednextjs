@@ -2,11 +2,11 @@ import { toPlainText } from '@portabletext/react'
 import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
 
 import { AccordionDemo } from '@/components/demos/AccordionDemo'
-import { HeaderDemo } from '@/components/demos/HeaderDemo'
 import { MasonryDemo } from '@/components/demos/MasonryDemo'
 import { MasonryDemo2 } from '@/components/demos/MasonryDemo2'
 import { PostsDemo } from '@/components/demos/PostsDemo'
 import { SectionDemo } from '@/components/demos/SectionDemo'
+import { SectionHero } from '@/components/demos/SectionHero'
 import { StatsDemo } from '@/components/demos/StatsDemo'
 import { StatsDemo2 } from '@/components/demos/StatsDemo2'
 import { TestimonialsDemo } from '@/components/demos/TestimonialsDemo'
@@ -30,42 +30,55 @@ export interface HomePageProps {
 export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
   // Default to an empty object to allow previews on non-existent documents
   const {
-    overview = [],
-    showcaseProjects = [],
-    showcasePosts,
-    title = '',
-    passion = '',
-    worldwide = '',
-    identity = '',
+    sections = [],
   } = data ?? {}
+  console.log('sections[1].showcaseProjects: ', sections[1].showcaseProjects)
 
   return (
     <div className="space-y-20">
-      <HeaderDemo />
+      <SectionHero
+        title={sections[0]?.title}
+        description={toPlainText(sections[0]?.description || []) || ''}
+        blocks={
+          sections[0]?.blocks
+            ? sections[0]?.blocks.map(
+                (block) =>
+                  ({
+                    icon: block.icon,
+                    title: block.title,
+                    description: toPlainText(block.description || []) || '',
+                  }) as any,
+              )
+            : []
+        }
+        video={sections[0]?.videoURL}
+      />
       <div className="relative w-full"></div>
 
       {/* Showcase posts */}
-      <div>
-        {showcasePosts && showcasePosts.length > 0 && (
-          <CarouselReadMore title="Showcase posts" titleClassName="ml-8">
-            {showcasePosts.map((post, key) => {
-              return (
-                <ProjectListItem
-                  project={post}
-                  odd={key % 2}
-                  width={width}
-                  height={height}
-                  key={key}
-                  className="h-full max-w-xs"
-                />
-              )
-            })}
-          </CarouselReadMore>
-        )}
-      </div>
+      {sections[1] && (
+        <CarouselReadMore title="Showcase posts" titleClassName="ml-8">
+          {sections[1]?.showcasePosts?.map((post, key) => {
+            return (
+              <ProjectListItem
+                project={post}
+                odd={key % 2}
+                width={width}
+                height={height}
+                key={key}
+                className="h-full max-w-xs"
+              />
+            )
+          })}
+        </CarouselReadMore>
+      )}
+      
       {/* Showcase projects */}
       <HomePageProjects
-        showcaseProjects={showcaseProjects}
+        showcaseProjects={sections[2]?.showcaseProjects}
+        title={sections[2]?.title}
+        subtitle={sections[2]?.subtitle}
+        description={toPlainText(sections[2]?.description || []) || ''}
         width={width}
         height={height}
       />

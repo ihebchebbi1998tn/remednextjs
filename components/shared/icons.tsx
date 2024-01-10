@@ -1,4 +1,17 @@
-import { Twitter, Instagram, Youtube, Facebook, LucideProps, Home, Mail, PhoneCall, Printer } from 'lucide-react'
+import {
+  Facebook,
+  Home,
+  Instagram,
+  LifeBuoyIcon,
+  LucideProps,
+  Mail,
+  NewspaperIcon,
+  PhoneCall,
+  PhoneIcon,
+  Printer,
+  Twitter,
+  Youtube,
+} from 'lucide-react'
 
 
 export const Icons = {
@@ -10,6 +23,9 @@ export const Icons = {
   mail: (props: LucideProps) => <Mail {...props} />,
   phoneCall: (props: LucideProps) => <PhoneCall {...props} />,
   printer: (props: LucideProps) => <Printer {...props} />,
+  lifeBuoy: (props: LucideProps) => <LifeBuoyIcon {...props} />,
+  newspaper: (props: LucideProps) => <NewspaperIcon {...props} />,
+  phone: (props: LucideProps) => <PhoneIcon {...props} />,
   spinner: (props: LucideProps) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"

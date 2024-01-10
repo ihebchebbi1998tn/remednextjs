@@ -15,6 +15,7 @@ import author from '@/sanity/schemas/documents/author'
 import page from '@/sanity/schemas/documents/page'
 import post from '@/sanity/schemas/documents/post'
 import project from '@/sanity/schemas/documents/project'
+import block from '@/sanity/schemas/objects/block'
 import contact from '@/sanity/schemas/objects/contact'
 import duration from '@/sanity/schemas/objects/duration'
 import internalLink from '@/sanity/schemas/objects/internalLink'
@@ -47,6 +48,7 @@ export default defineConfig({
       author,
       internalLink,
       // Objects
+      block,
       contact,
       milestone,
       timeline,

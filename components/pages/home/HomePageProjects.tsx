@@ -7,6 +7,9 @@ import { CardNavigation } from '@/components/shared/CardNavigation'
 import { ShowcaseProject } from '@/types'
 
 interface HomePageProjectsProps {
+  title?: string
+  subtitle?: string
+  description?: string
   showcaseProjects?: ShowcaseProject[]
   width: number
   height: number
@@ -14,6 +17,9 @@ interface HomePageProjectsProps {
 
 export function HomePageProjects({
   showcaseProjects,
+  title,
+  subtitle,
+  description,
   width,
   height,
 }: HomePageProjectsProps) {
@@ -21,7 +27,7 @@ export function HomePageProjects({
     <div className="w-full bg-reg-dark bg-[url('/images/background_01.jpg')] md:bg-center">
       <div className="container flex flex-col items-center justify-center gap-5 py-8 md:flex-row">
         <CardNavigation
-          title="Providing Sustainable Energy Solutions"
+          title={title}
           subtitle="Read more about my latest projects"
           description="Nam vitae tortor quis est tempus egestas. Suspendisse non erat non mi imperdiet fringilla at vel ipsum. Proin rutrum, diam vel scelerisque luctus, leo dui sodales massa, et mattis urna felis quis mi turpis egestas."
           buttonText="Read more"

@@ -37,17 +37,31 @@ export interface ShowcasePost {
   title?: PostPayload['title']
 }
 
+export interface CustomBlock {
+  _type: string
+  _id: string
+  title?: string
+  subtitle?: string
+  description?: PortableTextBlock[]
+  cta?: string
+  ctaLink?: string
+  icon?: string
+  link?: MenuItem
+  tags?: string[]
+  images?: Image[]
+  videoURL?: string
+  coverImage?: Image
+  showcaseProjects?: ShowcaseProject[]
+  showcasePosts?: PostPayload[]
+  blocks?: CustomBlock[]
+}
+
 // Page payloads
 
 export interface HomePagePayload {
   footer?: PortableTextBlock[]
-  overview?: PortableTextBlock[]
-  identity?: PortableTextBlock[]
-  passion?: PortableTextBlock[]
-  worldwide?: PortableTextBlock[]
-  showcaseProjects?: ShowcaseProject[]
-  showcasePosts?: PostPayload[]
   title?: string
+  sections?: CustomBlock[]
 }
 
 export interface PagePayload {
