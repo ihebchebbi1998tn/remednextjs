@@ -7,6 +7,10 @@ export const homePageQuery = groq`
       _type,
       title,
       subtitle,
+      author->{
+        name,
+        picture,
+      },
       description,
       coverImage,
       cta,
@@ -43,7 +47,15 @@ export const homePageQuery = groq`
         caption,
       },
       'videoURL': video.asset->url,
-      blocks,
+      blocks[]{
+        ...,
+        title,
+        description,
+        author->{
+          name,
+          picture,
+        },
+      },
     },
   }
 `

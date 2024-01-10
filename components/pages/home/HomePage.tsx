@@ -4,7 +4,7 @@ import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
 import { AccordionDemo } from '@/components/demos/AccordionDemo'
 import { MasonryDemo } from '@/components/demos/MasonryDemo'
 import { MasonryDemo2 } from '@/components/demos/MasonryDemo2'
-import { TestimonialsDemo } from '@/components/demos/TestimonialsDemo'
+import { Testimonials } from '@/components/demos/Testimonials'
 import { ProjectListItem } from '@/components/pages/home/ProjectListItem'
 import BlockBenefits from '@/components/shared/BlockBenefits'
 import Bullet from '@/components/shared/Bullet'
@@ -29,7 +29,18 @@ export interface HomePageProps {
 export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
   // Default to an empty object to allow previews on non-existent documents
   const { sections = [] } = data ?? {}
-  console.log('sections[3] : ', sections[3])
+  console.log('sections[8] : ', sections[8])
+  const testimonials =
+    sections[8]?.blocks?.map((item) => {
+      return {
+        body: toPlainText(item.description || []),
+        author: {
+          name: item.author?.name,
+          handle: item.author?.name,
+          imageUrl: urlForImage(item.author?.picture)?.url() || '',
+        },
+      }
+    }) ?? []
 
   return (
     <div className="space-y-20">
@@ -152,9 +163,17 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
         </BlockBenefits>
       </div>
 
-      {/* TestimonialsDemo */}
+      {/* Testimonials */}
       <div className="container">
-        <TestimonialsDemo />
+        <Testimonials
+          title={sections[8]?.title}
+          description={sections[8]?.subtitle}
+          testimonials={[
+            [[testimonials[1]], [testimonials[2]]],
+            [[testimonials[3]], [testimonials[4]]],
+          ]}
+          featuredTestimonial={testimonials[0]}
+        />
       </div>
     </div>
   )

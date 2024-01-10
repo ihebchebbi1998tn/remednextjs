@@ -1,6 +1,8 @@
 import { LinkIcon } from '@sanity/icons'
 import { defineArrayMember, defineField, defineType } from 'sanity'
 
+import authorType from '../documents/author'
+
 export default defineType({
   name: 'customBlock',
   title: 'Custom Block',
@@ -16,6 +18,12 @@ export default defineType({
       name: 'subtitle',
       title: 'Subtitle',
       type: 'string',
+    }),
+    defineField({
+      name: 'author',
+      title: 'Author',
+      type: 'reference',
+      to: [{ type: authorType.name }],
     }),
     defineField({
       name: 'description',

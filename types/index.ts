@@ -43,6 +43,7 @@ export interface CustomBlock {
   title?: string
   subtitle?: string
   description?: PortableTextBlock[]
+  author?: Author
   cta?: string
   ctaLink?: string
   icon?: string
