@@ -1,8 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
+import { bullets } from '@/lib/data'
+
 import { BlockBenefits } from './BlockBenefits'
 import Bullet from './Bullet'
-import { bullets } from '@/lib/data'
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -26,10 +27,6 @@ export const Default: Story = {
   args: {
     title: 'Products',
     desc: 'Iterative approaches to corporate strategy foster collaborative thinking to further the overall.',
-    image: {
-      src: 'https://via.placeholder.com/600x600',
-      alt: 'Placeholder image',
-    },
     imgPos: 'right',
   },
   render: (args) => {

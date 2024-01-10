@@ -4,7 +4,6 @@ import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
 import { AccordionDemo } from '@/components/demos/AccordionDemo'
 import { MasonryDemo } from '@/components/demos/MasonryDemo'
 import { MasonryDemo2 } from '@/components/demos/MasonryDemo2'
-import { PostsDemo } from '@/components/demos/PostsDemo'
 import { SectionBoost } from '@/components/demos/SectionBoost'
 import { SectionHero } from '@/components/demos/SectionHero'
 import { Stats } from '@/components/demos/Stats'
@@ -14,7 +13,6 @@ import { ProjectListItem } from '@/components/pages/home/ProjectListItem'
 import BlockBenefits from '@/components/shared/BlockBenefits'
 import Bullet from '@/components/shared/Bullet'
 import { CarouselReadMore } from '@/components/shared/CarouselReadMore'
-import { bullets } from '@/lib/data'
 import { urlForImage } from '@/sanity/lib/utils'
 import type { HomePagePayload } from '@/types'
 
@@ -152,8 +150,10 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
             })}
           />
         </BlockBenefits>
+      </div>
 
-        {/* TestimonialsDemo */}
+      {/* TestimonialsDemo */}
+      <div className="container">
         <TestimonialsDemo />
       </div>
     </div>
