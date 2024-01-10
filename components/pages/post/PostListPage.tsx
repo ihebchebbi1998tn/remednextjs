@@ -4,7 +4,7 @@ import { format, parseISO } from 'date-fns'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { Breadcrumb } from '@/components/demos/Breadcrumb'
+import { AppBreadcrumb } from '@/components/demos/NextBreadcrumb'
 import { urlForImage } from '@/sanity/lib/utils'
 import type { PostPayload } from '@/types'
 
@@ -20,7 +20,7 @@ export function PostListPage({ data, encodeDataAttribute }: PostListPageProps) {
     <div className="py-14 sm:py-22">
       <div className="px-6 mx-auto max-w-7xl lg:px-8">
         <div className="max-w-2xl mx-auto lg:max-w-4xl">
-          <Breadcrumb />
+          <AppBreadcrumb />
           <h2 className="mt-8 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl dark:text-gray-300">
             Blog
           </h2>
