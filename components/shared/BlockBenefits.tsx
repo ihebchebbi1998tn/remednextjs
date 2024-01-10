@@ -2,19 +2,15 @@ import Image from 'next/image'
 import React from 'react'
 
 interface BlockBenefitsProps {
-  title: string
-  desc: string
-  image: {
-    src: string
-    alt: string
-  }
+  title?: string
+  desc?: string
   secondaryNode?: React.ReactNode
-  imgPos: 'left' | 'right'
+  imgPos?: 'left' | 'right'
   children?: React.ReactNode
 }
 
 export const BlockBenefits = (props: BlockBenefitsProps) => {
-  const { title, desc, image, imgPos, children, secondaryNode } = props
+  const { title, desc, imgPos, children, secondaryNode } = props
   return (
     <div className="flex flex-wrap mb-20 lg:gap-10 lg:flex-nowrap">
       {secondaryNode && (

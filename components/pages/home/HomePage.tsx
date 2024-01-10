@@ -5,10 +5,10 @@ import { AccordionDemo } from '@/components/demos/AccordionDemo'
 import { MasonryDemo } from '@/components/demos/MasonryDemo'
 import { MasonryDemo2 } from '@/components/demos/MasonryDemo2'
 import { PostsDemo } from '@/components/demos/PostsDemo'
-import { SectionDemo } from '@/components/demos/SectionDemo'
+import { SectionBoost } from '@/components/demos/SectionBoost'
 import { SectionHero } from '@/components/demos/SectionHero'
+import { Stats } from '@/components/demos/Stats'
 import { StatsDemo } from '@/components/demos/StatsDemo'
-import { StatsDemo2 } from '@/components/demos/StatsDemo2'
 import { TestimonialsDemo } from '@/components/demos/TestimonialsDemo'
 import { ProjectListItem } from '@/components/pages/home/ProjectListItem'
 import BlockBenefits from '@/components/shared/BlockBenefits'
@@ -30,13 +30,8 @@ export interface HomePageProps {
 
 export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
   // Default to an empty object to allow previews on non-existent documents
-  const {
-    sections = [],
-  } = data ?? {}
-  console.log(
-    'urlForImage(sections[2]?.coverImage)?.url() : ',
-    urlForImage(sections[2]?.coverImage)?.url(),
-  )
+  const { sections = [] } = data ?? {}
+  console.log('sections[3] : ', sections[3])
 
   return (
     <div className="space-y-20">
@@ -83,34 +78,45 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
         title={sections[2]?.title}
         subtitle={sections[2]?.subtitle}
         description={toPlainText(sections[2]?.description || []) || ''}
-        coverImage={
-          urlForImage(sections[2]?.coverImage)?.url() ?? ''
-        }
+        coverImage={urlForImage(sections[2]?.coverImage)?.url() ?? ''}
         width={width}
         height={height}
       />
+
+      {/* Benefits */}
       <div className="container overflow-hidden">
         <BlockBenefits
-          title="Providing Sustainable Energy Solutions"
-          desc="Nam vitae tortor quis est tempus egestas. Suspendisse non erat non mi imperdiet fringilla at vel ipsum. Proin rutrum, diam vel scelerisque luctus, leo dui sodales massa, et mattis urna felis quis mi turpis egestas."
-          image={{
-            src: '/images/background_01.jpg',
-            alt: 'background',
-          }}
+          title={sections[3]?.title}
+          desc={toPlainText(sections[3]?.description || []) || ''}
           imgPos="left"
           secondaryNode={<MasonryDemo />}
         >
           <div className="w-full mt-5">
-            {bullets.map((item, index) => (
+            {sections[3]?.blocks?.map((item, index) => (
               <Bullet key={index} title={item.title} icon={item.icon}>
-                {item.desc}
+                {toPlainText(item.description || [])}
               </Bullet>
             ))}
           </div>
         </BlockBenefits>
       </div>
-      <StatsDemo2 />
-      <SectionDemo />
+
+      {/* Stats */}
+      <Stats
+        stats={
+          sections[4]?.blocks?.map((item) => ({
+            value: item.title,
+            name: toPlainText(item.description || []),
+            unit: item.subtitle,
+          })) ?? []
+        }
+      />
+
+      <SectionBoost
+        title={sections[5]?.title}
+        description={toPlainText(sections[5]?.description || []) || ''}
+      />
+
       <StatsDemo />
       <PostsDemo />
       <div className="container">
@@ -118,10 +124,6 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
         <BlockBenefits
           title="Providing Sustainable Energy Solutions"
           desc="Nam vitae tortor quis est tempus egestas. Suspendisse non erat non mi imperdiet fringilla at vel ipsum. Proin rutrum, diam vel scelerisque luctus, leo dui sodales massa, et mattis urna felis quis mi turpis egestas."
-          image={{
-            src: '/images/background_01.jpg',
-            alt: 'background',
-          }}
           imgPos="right"
           secondaryNode={<MasonryDemo2 />}
         >

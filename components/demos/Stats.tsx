@@ -1,13 +1,14 @@
-import { FrCounter } from "../shared/FrCounter"
+interface Stat {
+  name?: string
+  value?: string
+  unit?: string
+}
 
-const stats = [
-  { name: 'Number of deploys', value: '405' },
-  { name: 'Average deploy time', value: '3.65', unit: 'mins' },
-  { name: 'Number of servers', value: '3' },
-  { name: 'Success rate', value: '98.5%' },
-]
+interface StatProps {
+  stats: Stat[]
+}
 
-export function StatsDemo2() {
+export function Stats({ stats }: StatProps) {
   return (
     <div className="bg-gray-900">
       <div className="mx-auto max-w-7xl">
