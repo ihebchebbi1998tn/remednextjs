@@ -42,7 +42,7 @@ const posts = [
 
 export function PostsDemo() {
   return (
-    <div className="py-24 bg-white sm:py-32">
+    <div className=" bg-white sm:py-32">
       <div className="px-6 mx-auto max-w-7xl lg:px-8">
         <div className="max-w-2xl mx-auto lg:max-w-4xl">
           <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">

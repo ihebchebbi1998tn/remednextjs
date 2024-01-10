@@ -2,8 +2,8 @@ import { toPlainText } from '@portabletext/react'
 import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
 
 import { AccordionDemo } from '@/components/demos/AccordionDemo'
+import { FormContact } from '@/components/demos/FormContact'
 import { MasonryDemo } from '@/components/demos/MasonryDemo'
-import { MasonryDemo2 } from '@/components/demos/MasonryDemo2'
 import { Testimonials } from '@/components/demos/Testimonials'
 import { ProjectListItem } from '@/components/pages/home/ProjectListItem'
 import BlockBenefits from '@/components/shared/BlockBenefits'
@@ -149,7 +149,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
           title={sections[7]?.title}
           desc={toPlainText(sections[7]?.description || []) || ''}
           imgPos="right"
-          secondaryNode={<MasonryDemo2 />}
+          secondaryNode={<FormContact className='mb-12 md:mb-0'  />}
         >
           <AccordionDemo
             data={sections[7]?.blocks?.map((item) => {

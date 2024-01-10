@@ -19,7 +19,7 @@ export function SectionHero({
   video,
 }: SectionHeroProps) {
   return (
-    <div className="relative py-24 overflow-hidden bg-gray-900 isolate sm:py-32">
+    <div className="relative  overflow-hidden bg-gray-900 isolate sm:py-32">
       <video
         autoPlay
         loop

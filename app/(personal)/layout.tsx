@@ -8,6 +8,7 @@ import { Footer } from '@/components/global/Footer'
 import { Navbar } from '@/components/global/Navbar'
 import { ThemeProvider } from '@/components/global/theme-provider'
 import { ScrollToTop } from '@/components/shared/ScrollToTop'
+import { Toaster } from '@/components/ui/toaster'
 import { urlForOpenGraphImage } from '@/sanity/lib/utils'
 import { loadHomePage, loadSettings } from '@/sanity/loader/loadQuery'
 
@@ -62,6 +63,7 @@ export default async function IndexRoute({
         <Suspense>
           <Footer />
         </Suspense>
+        <Toaster />
         <ScrollToTop />
       </div>
       {draftMode().isEnabled && <VisualEditing />}

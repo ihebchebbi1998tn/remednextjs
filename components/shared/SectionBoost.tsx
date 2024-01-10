@@ -8,7 +8,7 @@ interface SectionBoostProps {
 export function SectionBoost({ title, description }: SectionBoostProps) {
   return (
     <div className="bg-white">
-      <div className="py-24 mx-auto max-w-7xl sm:px-6 sm:py-32 lg:px-8">
+      <div className="mx-auto max-w-7xl sm:px-6 sm:py-32 lg:px-8">
         <div className="relative px-6 py-24 overflow-hidden text-center bg-gray-900 shadow-2xl isolate sm:rounded-3xl sm:px-16">
           <h2 className="max-w-2xl mx-auto text-3xl font-bold tracking-tight text-white sm:text-4xl">
             {title}
