@@ -33,10 +33,9 @@ export const NextBreadcrumb = ({
         </li>
         {pathNames && pathNames.length > 0 && separator}
         {pathNames?.map((link, index) => {
-          let href =
-            index !== pathNames.length - 1
-              ? `/${pathNames?.slice(0, index + 1).join('/')}`
-              : null
+          let href = `/${pathNames?.slice(0, index + 1).join('/')}`
+          console.log('href: ', href);
+              
           let itemClasses =
             paths === href ? `${listClasses} ${activeClasses}` : listClasses
           let itemLink = capitalizeLinks
@@ -45,7 +44,7 @@ export const NextBreadcrumb = ({
           return (
             <React.Fragment key={index}>
               <li className={itemClasses}>
-                {href ? <Link href={href}>{itemLink}</Link> : itemLink}
+                {index < pathNames.length - 1 ?  <Link href={href}>{itemLink}</Link> : itemLink}
               </li>
               {pathNames?.length !== index + 1 && separator}
             </React.Fragment>
@@ -68,7 +67,7 @@ export const AppBreadcrumb = () => {
       separator="/"
       containerClasses="flex items-center gap-x-2 text-sm text-gray-500"
       listClasses="flex items-center gap-x-2"
-      activeClasses="font-bold"
+      activeClasses="font-bold text-gray-900 dark:text-gray-300"
       capitalizeLinks={true}
     />
   )
