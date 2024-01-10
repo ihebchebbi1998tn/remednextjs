@@ -65,8 +65,8 @@ export const AppBreadcrumb = () => {
         </span>
       }
       separator="/"
-      containerClasses="flex items-center gap-x-2 text-sm text-gray-500"
-      listClasses="flex items-center gap-x-2"
+      containerClasses="flex items-center gap-x-2 text-sm text-gray-400"
+      listClasses="flex items center gap-x-2 hover:text-gray-500"
       activeClasses="font-bold text-gray-900 dark:text-gray-300"
       capitalizeLinks={true}
     />
