@@ -22,11 +22,11 @@ export default function Navbar(props: NavbarProps) {
       <div className="container flex items-center justify-between h-16 gap-x-8 max-w-screen-2xl">
         <Link href="/" className="flex items-center gap-x-2">
           <Image
-            className="w-10 h-10 bg-green-500 rounded-full"
+            className="w-12 bg-green-200 rounded-full h-1w-12"
             src="/images/logo.svg"
             alt={`Logo for ${homeItem?.title}`}
-            width="40"
-            height="40"
+            width={48}
+            height={48}
           />
           <span className="inline-block font-bold min-w-fit">
             {homeItem?.title}
