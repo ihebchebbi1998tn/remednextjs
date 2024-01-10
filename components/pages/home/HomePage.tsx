@@ -8,7 +8,7 @@ import { PostsDemo } from '@/components/demos/PostsDemo'
 import { SectionBoost } from '@/components/demos/SectionBoost'
 import { SectionHero } from '@/components/demos/SectionHero'
 import { Stats } from '@/components/demos/Stats'
-import { StatsDemo } from '@/components/demos/StatsDemo'
+import { StatsBlock } from '@/components/demos/StatsBlock'
 import { TestimonialsDemo } from '@/components/demos/TestimonialsDemo'
 import { ProjectListItem } from '@/components/pages/home/ProjectListItem'
 import BlockBenefits from '@/components/shared/BlockBenefits'
@@ -112,23 +112,48 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
         }
       />
 
+      {/* StatsBlock */}
+      <StatsBlock
+        title={sections[6]?.title}
+        subtitle={sections[6]?.subtitle}
+        description={toPlainText(sections[6]?.description || []) || ''}
+        stats={
+          sections[6]?.blocks?.map((item) => ({
+            value: item.title,
+            name: toPlainText(item.description || []),
+            unit: item.subtitle,
+          })) ?? []
+        }
+      />
+
+      {/* Boost */}
       <SectionBoost
         title={sections[5]?.title}
         description={toPlainText(sections[5]?.description || []) || ''}
       />
 
-      <StatsDemo />
-      <PostsDemo />
+      {/* PostsDemo */}
+      {/* <PostsDemo /> */}
+
+      {/* AccordionDemo */}
       <div className="container">
-        {/* AccordionDemo */}
         <BlockBenefits
-          title="Providing Sustainable Energy Solutions"
-          desc="Nam vitae tortor quis est tempus egestas. Suspendisse non erat non mi imperdiet fringilla at vel ipsum. Proin rutrum, diam vel scelerisque luctus, leo dui sodales massa, et mattis urna felis quis mi turpis egestas."
+          title={sections[7]?.title}
+          desc={toPlainText(sections[7]?.description || []) || ''}
           imgPos="right"
           secondaryNode={<MasonryDemo2 />}
         >
-          <AccordionDemo />
+          <AccordionDemo
+            data={sections[7]?.blocks?.map((item) => {
+              return {
+                title: item.title,
+                description: toPlainText(item.description || []),
+              }
+            })}
+          />
         </BlockBenefits>
+
+        {/* TestimonialsDemo */}
         <TestimonialsDemo />
       </div>
     </div>
