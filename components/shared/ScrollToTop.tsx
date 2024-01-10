@@ -1,21 +1,48 @@
 'use client'
+import {
+  motion,
+  useAnimationControls,
+  useScroll,
+  Variants,
+} from 'framer-motion'
 import { ChevronUp } from 'lucide-react'
 import { useEffect, useState } from 'react'
 
 import { cn } from '@/lib/utils'
+
 import { Button } from '../ui/button'
 
+const ScrollToTopContainerVariants: Variants = {
+  show: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.1,
+    },
+  },
+  hide: {
+    y: 100,
+    opacity: 0,
+    transition: {
+      duration: 0.3,
+    },
+  },
+}
 
 export const ScrollToTop = () => {
-  const [isVisible, setIsVisible] = useState(false)
+  const { scrollYProgress } = useScroll()
 
-  const toggleVisibility = () => {
-    if (window.pageYOffset > 300) {
-      setIsVisible(true)
-    } else {
-      setIsVisible(false)
-    }
-  }
+  const controls = useAnimationControls()
+
+  useEffect(() => {
+    return scrollYProgress.on('change', (latestValue) => {
+      if (latestValue > 0.1) {
+        controls.start('show')
+      } else {
+        controls.start('hide')
+      }
+    })
+  })
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -24,26 +51,23 @@ export const ScrollToTop = () => {
     })
   }
 
-  useEffect(() => {
-    window.addEventListener('scroll', toggleVisibility)
-
-    return () => {
-      window.removeEventListener('scroll', toggleVisibility)
-    }
-  }, [])
-
   return (
-    <div className="fixed bottom-2 right-2">
+    <motion.div
+      className={cn(
+        'fixed bottom-0 right-0 z-50 flex items-center justify-center mb-3 mr-3 rounded-full bg-green-500',
+        'md:mr-4 md:mb-4',
+        'lg:mr-8 lg:mb-8',
+      )}
+      variants={ScrollToTopContainerVariants}
+      initial="hide"
+      animate={controls}
+    >
       <Button
-        type="button"
+        className="flex items-center justify-center p-2 bg-green-500 rounded-full shadow-sm focus:ring-green-500 hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2"
         onClick={scrollToTop}
-        className={cn(
-          isVisible ? 'opacity-100' : 'opacity-0',
-          'bg-green-600 hover:bg-green-700 focus:ring-green-500 inline-flex items-center rounded-full p-1 text-white shadow-sm transition-opacity focus:outline-none focus:ring-2 focus:ring-offset-2 ',
-        )}
       >
-        <ChevronUp className="w-8 h-8" aria-hidden="true" />
+        <ChevronUp className="text-white " />
       </Button>
-    </div>
+    </motion.div>
   )
 }
