@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import { Icons } from '../shared/icons'
+import { Icons } from './icons'
 
 interface SectionHeroProps {
   title?: string
@@ -12,7 +12,12 @@ interface SectionHeroProps {
   }[]
 }
 
-export function SectionHero({ title, description, blocks, video }: SectionHeroProps) {
+export function SectionHero({
+  title,
+  description,
+  blocks,
+  video,
+}: SectionHeroProps) {
   return (
     <div className="relative py-24 overflow-hidden bg-gray-900 isolate sm:py-32">
       <video
@@ -28,9 +33,11 @@ export function SectionHero({ title, description, blocks, video }: SectionHeroPr
           <h2 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
             {title}
           </h2>
-          {description && <p className="mt-6 text-lg leading-8 text-gray-300">
-            {description}
-          </p>}
+          {description && (
+            <p className="mt-6 text-lg leading-8 text-gray-300">
+              {description}
+            </p>
+          )}
         </div>
         <div className="grid max-w-2xl grid-cols-1 gap-6 mx-auto mt-16 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8">
           {blocks?.map((card) => {
