@@ -29,7 +29,6 @@ export interface HomePageProps {
 export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
   // Default to an empty object to allow previews on non-existent documents
   const { sections = [] } = data ?? {}
-  console.log('sections[8] : ', sections[8])
   const testimonials =
     sections[8]?.blocks?.map((item) => {
       return {
