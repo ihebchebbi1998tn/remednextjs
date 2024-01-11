@@ -31,6 +31,7 @@ export function ListLineWithIcon({
             <LineWithIcon
               className="mb-2"
               label={item.label}
+              link={item.value}
               icon={Icon ? <Icon /> : null}
               key={index}
             />

@@ -24,17 +24,17 @@ export default function Footer(props: FooterProps) {
         {
           _type: 'menuItem',
           title: 'Product 1',
-          slug: '/product-1',
+          slug: 'project-1',
         },
         {
           _type: 'menuItem',
           title: 'Product 2',
-          slug: '/product-2',
+          slug: 'project-2',
         },
         {
           _type: 'menuItem',
           title: 'Product 3',
-          slug: '/product-3',
+          slug: 'project-3',
         },
       ]}
       productsTitle="Products"

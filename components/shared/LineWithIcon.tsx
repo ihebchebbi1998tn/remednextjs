@@ -16,7 +16,8 @@ export function LineWithIcon({
   iconClassName = 'text-green-50',
   className = '',
 }: LineWithIconProps) {
-  
+  const externalLink = link?.startsWith('http')
+
   return (
     <p
       className={`${className} flex items-center justify-center md:justify-start`}
@@ -26,8 +27,14 @@ export function LineWithIcon({
           className: `w-5 h-5 ${iconClassName} mr-3 text-green-600 dark:text-green-200`,
         })}
       {link ? (
-        <Link href={link}>
-          <a className="text-green-600 dark:text-green-200">{label}</a>
+        <Link
+          href={link}
+          target={externalLink ? '_blank' : '_self'}
+          rel={externalLink ? 'noopener noreferrer' : ''}
+        >
+          <span className="text-green-600 dark:text-green-200 hover:underline">
+            {label}
+          </span>
         </Link>
       ) : (
         <span className="text-green-600 dark:text-green-200">{label}</span>
