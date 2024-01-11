@@ -72,7 +72,6 @@ export function Footer1({
           <ListLineWithIcon
             title={contactTitle}
             items={contact}
-            className="mb-4"
           />
         </div>
       </div>

@@ -24,15 +24,16 @@ export function LineWithIcon({
     >
       {icon &&
         React.cloneElement(icon as React.ReactElement, {
-          className: `w-5 h-5 ${iconClassName} mr-3 text-green-600 dark:text-green-200`,
+          className: `w-4 h-4 ${iconClassName} mr-3 text-green-600 dark:text-green-200`,
         })}
       {link ? (
         <Link
           href={link}
           target={externalLink ? '_blank' : '_self'}
           rel={externalLink ? 'noopener noreferrer' : ''}
+          className="text-green-600 truncate dark:text-green-200 hover:underline"
         >
-          <span className="text-green-600 dark:text-green-200 hover:underline">
+          <span className="text-green-600 dark:text-green-200">
             {label}
           </span>
         </Link>
