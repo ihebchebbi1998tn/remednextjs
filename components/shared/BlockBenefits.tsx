@@ -15,7 +15,7 @@ export const BlockBenefits = (props: BlockBenefitsProps) => {
     <div className="flex flex-wrap mb-20 lg:gap-10 lg:flex-nowrap">
       {secondaryNode && (
         <div
-          className={`flex items-start mt-7 w-full justify-center lg:w-1/2  ${
+          className={`flex items-start w-full justify-center lg:w-1/2  ${
             props.imgPos === 'right' ? 'justify-end' : 'justify-start'
           } ${props.imgPos === 'right' ? 'lg:order-1' : ''}`}
         >

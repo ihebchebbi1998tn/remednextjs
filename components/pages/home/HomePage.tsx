@@ -149,7 +149,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
           title={sections[7]?.title}
           desc={toPlainText(sections[7]?.description || []) || ''}
           imgPos="right"
-          secondaryNode={<FormContact className='mb-12 md:mb-0'  />}
+          secondaryNode={<FormContact className='mb-14'  />}
         >
           <AccordionDemo
             data={sections[7]?.blocks?.map((item) => {

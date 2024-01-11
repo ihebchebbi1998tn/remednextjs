@@ -68,11 +68,12 @@ export const FloatingNav = ({
           >
             <span className="block sm:hidden">{navItem.icon}</span>
             <span className="hidden text-sm sm:block">{navItem.name}</span>
+            <span className="absolute inset-x-0 h-px mx-auto -bottom-px bg-gradient-to-r from-transparent via-green-500 to-transparent" />
           </Link>
         ))}
         <button className="border text-sm font-medium relative border-neutral-200 dark:border-white/[0.2] text-black dark:text-white px-4 py-2 rounded-full">
           <span>Login</span>
-          <span className="absolute inset-x-0 w-1/2 h-px mx-auto -bottom-px bg-gradient-to-r from-transparent via-blue-500 to-transparent" />
+          <span className="absolute inset-x-0 w-1/2 h-px mx-auto -bottom-px bg-gradient-to-r from-transparent via-green-500 to-transparent" />
         </button>
       </motion.div>
     </AnimatePresence>

@@ -34,7 +34,6 @@ export const NextBreadcrumb = ({
         {pathNames && pathNames.length > 0 && separator}
         {pathNames?.map((link, index) => {
           let href = `/${pathNames?.slice(0, index + 1).join('/')}`
-          console.log('href: ', href);
               
           let itemClasses =
             paths === href ? `${listClasses} ${activeClasses}` : listClasses

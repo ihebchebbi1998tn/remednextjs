@@ -59,7 +59,7 @@ export function FormContact({ className, formClassName }: FormContactProps) {
   }
 
   return (
-    <div className={`${className} space-y-8 `}>
+    <div className={`${className} space-y-8 sm:min-w-[340px] md:min-w-[400px]`}>
       <div>
         <h3 className="text-lg font-medium text-muted-foreground">
           Contact us
