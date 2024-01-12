@@ -17,25 +17,10 @@ import {
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { toast } from '@/components/ui/use-toast'
+import { sendEmail } from '@/lib/send-email'
+import { ContactFormSchema } from '@/types/zod'
 
 import { Separator } from '../ui/separator'
-
-const FormSchema = z.object({
-  message: z
-    .string()
-    .min(10, {
-      message: 'Bio must be at least 10 characters.',
-    })
-    .max(160, {
-      message: 'Bio must not be longer than 30 characters.',
-    }),
-  fullname: z.string().nonempty({
-    message: 'Please enter your full name.',
-  }),
-  email: z.string().email({
-    message: 'Please enter a valid email.',
-  }),
-})
 
 interface FormContactProps {
   className?: string
@@ -43,23 +28,41 @@ interface FormContactProps {
 }
 
 export function FormContact({ className, formClassName }: FormContactProps) {
-  const form = useForm<z.infer<typeof FormSchema>>({
-    resolver: zodResolver(FormSchema),
+  const form = useForm<z.infer<typeof ContactFormSchema>>({
+    resolver: zodResolver(ContactFormSchema),
   })
 
-  function onSubmit(data: z.infer<typeof FormSchema>) {
-    toast({
-      title: 'You submitted the following values:',
-      description: (
-        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-          <code className="text-white">{JSON.stringify(data, null, 2)}</code>
-        </pre>
-      ),
-    })
+  function onSubmit(data: z.infer<typeof ContactFormSchema>) {
+    sendEmail(data)
+      .then(() => {
+        toast({
+          title: 'We received your message',
+          description: (
+            <p>
+              We will get back to you as soon as possible. You can also reach
+              out to us at{' '}
+              <a
+                href="mailto:contact@s-reg.tn"
+                className="text-blue-500 hover:underline"
+              >
+                contact@s-reg.tn
+              </a>
+            </p>
+          ),
+        })
+      })
+      .catch((error) => {
+        toast({
+          title: 'Something went wrong',
+          description: error.message,
+        })
+      })
   }
 
   return (
-    <div className={`${className} space-y-8 sm:min-w-[340px] md:min-w-[400px] lg:min-w-[500px]`}>
+    <div
+      className={`${className} space-y-8 sm:min-w-[340px] md:min-w-[400px] lg:min-w-[500px]`}
+    >
       <div>
         <h3 className="text-lg font-medium text-muted-foreground">
           Contact us
@@ -76,7 +79,7 @@ export function FormContact({ className, formClassName }: FormContactProps) {
         >
           <FormField
             control={form.control}
-            name="fullname"
+            name="fullName"
             render={({ field }) => (
               <FormItem>
                 <FormLabel>Full name</FormLabel>
