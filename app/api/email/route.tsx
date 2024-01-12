@@ -31,7 +31,7 @@ export async function POST(request: NextRequest) {
     from: process.env.NODEMAILER_EMAIL,
     to: process.env.NODEMAILER_EMAIL,
     // cc: email, (uncomment this line if you want to send a copy to the sender)
-    subject: `[contact form] ${fullName}`,
+    subject: `[contact] ${fullName}`,
     html: render(<ContactEmail fullName={fullName} email={email} message={message} />),
   }
 

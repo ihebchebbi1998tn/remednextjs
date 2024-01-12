@@ -50,7 +50,7 @@ export const ContactEmail = ({
                 className="mx-auto my-0"
               />
             </Section>
-            <Heading className="text-black text-[24px] font-normal text-center p-0 mt-0 mb-[30px] mx-0">
+            <Heading className="text-black text-[20px] font-normal text-center p-0 mt-0 mb-[30px] mx-0">
               Respect Environnement Group
             </Heading>
             <Text className="text-black text-[12px] leading-[24px]">
