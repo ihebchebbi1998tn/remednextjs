@@ -38,7 +38,7 @@ export function ProjectListItem(props: ProjectProps) {
       readMoreLink={href ?? `/posts/${project.slug}`}
       width={width}
       height={height}
-      className={className}
+      className={`${odd ? 'text-white' : 'text-black'} ${className ?? ''}`}
     />
   )
 }
