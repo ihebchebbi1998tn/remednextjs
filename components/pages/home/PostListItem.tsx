@@ -37,7 +37,7 @@ export function PostListItem(props: PostProps) {
       readMoreLink={href ?? `/posts/${post.slug}`}
       width={width}
       height={height}
-      className={className}
+      className={`${odd ? 'text-white' : 'text-black'} ${className ?? ''}`}
     />
   )
 }

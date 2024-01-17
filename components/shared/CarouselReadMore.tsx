@@ -74,7 +74,7 @@ export function CarouselReadMore({
         </div>
         <CarouselContent>
           {React.Children.map(children, (child, index) => (
-            <CarouselItem className="md:basis-1/4 basis-1/2 sm:basis-1/3">
+            <CarouselItem className="md:basis-1/4 basis-1/2 sm:basis-1/3 lg:basis-1/4 xl:basis-1/5">
               {child}
             </CarouselItem>
           ))}

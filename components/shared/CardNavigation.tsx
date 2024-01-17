@@ -67,7 +67,7 @@ export function CardNavigation({
         )}
         {title && (
           <CardTitle
-            className={`pb-3 ${titleClassName} ${active ? 'text-white' : ''}`}
+            className={`pb-3 ${titleClassName} ${active ? 'text-white' : 'text-black'}`}
           >
             {title}
           </CardTitle>

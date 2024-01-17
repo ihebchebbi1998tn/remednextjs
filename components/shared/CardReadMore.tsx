@@ -37,7 +37,7 @@ export function CardReadMore({
   ...props
 }: CardReadMoreProps) {
   return (
-    <Card className={`${className} overflow-hidden`}>
+    <Card className={`${className} overflow-hidden flex flex-col`}>
       <Image
         src={image}
         width={width}
@@ -54,8 +54,8 @@ export function CardReadMore({
           <CardDescription>{description}</CardDescription>
         </CardContent>
       )}
-      <CardFooter className="bottom-0 flex justify-between gap-x-2">
-        {tags && tags.length > 0 && (
+      <CardFooter className="flex justify-end mt-auto">
+        {/* {tags && tags.length > 0 && (
           <div className="flex flex-row gap-x-2">
             {tags?.map((tag, key) => (
               <div
@@ -66,7 +66,7 @@ export function CardReadMore({
               </div>
             ))}
           </div>
-        )}
+        )} */}
         <Link
           href={props.readMoreLink}
           className="text-sm font-medium lowercase md:text-lg"
