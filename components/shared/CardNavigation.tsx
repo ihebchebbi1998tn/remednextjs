@@ -67,7 +67,9 @@ export function CardNavigation({
         )}
         {title && (
           <CardTitle
-            className={`pb-3 ${titleClassName} ${active ? 'text-white' : 'text-black'}`}
+            className={`pb-3 ${titleClassName} ${
+              active ? 'text-white' : 'text-green-500'
+            }`}
           >
             {title}
           </CardTitle>
@@ -85,7 +87,7 @@ export function CardNavigation({
           <Button
             variant="link"
             className={`p-0 font-bold ${buttonClassName} ${
-              active ? 'text-yellow-400' : ''
+              active ? 'text-yellow-400' : 'text-green-500'
             }`}
           >
             <Link href={buttonLink || '#'}>{buttonText}</Link>
