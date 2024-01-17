@@ -3,7 +3,7 @@ import { type NextRequest, NextResponse } from 'next/server'
 import nodemailer from 'nodemailer'
 import Mail from 'nodemailer/lib/mailer'
 
-import { ContactEmail } from '@/components/shared/ContactForm';
+import { ContactEmail } from '@/components/shared/ContactEmail';
 
 export async function POST(request: NextRequest) {
   const { email, fullName, message } = await request.json()

@@ -1,6 +1,7 @@
 'use client'
 
 import { zodResolver } from '@hookform/resolvers/zod'
+import { RefreshCw } from 'lucide-react'
 import { useForm } from 'react-hook-form'
 import * as z from 'zod'
 
@@ -8,7 +9,6 @@ import { Button } from '@/components/ui/button'
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -31,6 +31,7 @@ export function FormContact({ className, formClassName }: FormContactProps) {
   const form = useForm<z.infer<typeof ContactFormSchema>>({
     resolver: zodResolver(ContactFormSchema),
   })
+  console.log('form: ', form.formState.isSubmitting);
 
   function onSubmit(data: z.infer<typeof ContactFormSchema>) {
     sendEmail(data)
@@ -116,9 +117,6 @@ export function FormContact({ className, formClassName }: FormContactProps) {
                     {...field}
                   />
                 </FormControl>
-                <FormDescription>
-                  You can <span>@mention</span> other users and organizations.
-                </FormDescription>
                 <FormMessage />
               </FormItem>
             )}
@@ -128,7 +126,14 @@ export function FormContact({ className, formClassName }: FormContactProps) {
             type="submit"
             className="mt-4 bg-green-500 hover:bg-green-600"
           >
-            Submit
+            {form.formState.isSubmitting ? (
+              <>
+                <RefreshCw className="w-4 h-4 mr-2 animate-spin" />
+                Please wait...
+              </>
+            ) : (
+              'Send message'
+            )}
           </Button>
         </form>
       </Form>
