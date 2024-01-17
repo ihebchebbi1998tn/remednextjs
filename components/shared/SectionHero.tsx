@@ -48,7 +48,7 @@ export function SectionHero({
                 className="flex p-6 bg-green-500 gap-x-4 rounded-xl ring-1 ring-inset ring-white/10 bg-opacity-80 backdrop-blur-2px"
               >
                 <Icon
-                  className="flex-none w-5 text-yellow-400 h-7"
+                  className="flex-none w-8 h-8 text-yellow-400"
                   aria-hidden="true"
                 />
                 <div className="text-base leading-7">
