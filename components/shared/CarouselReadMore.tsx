@@ -67,6 +67,11 @@ export function CarouselReadMore({
                 <AvailabilityBadge
                   key={index}
                   available={index === current - 1}
+                  onClick={() => {
+                    setCurrent(index + 1)
+                    api?.scrollTo(index)
+                    
+                  }}
                 />
               ),
             )}
@@ -74,7 +79,7 @@ export function CarouselReadMore({
         </div>
         <CarouselContent>
           {React.Children.map(children, (child, index) => (
-            <CarouselItem className="md:basis-1/4 basis-1/2 sm:basis-1/3 lg:basis-1/4 xl:basis-1/5">
+            <CarouselItem className="md:basis-1/4 basis-1/2 sm:basis-1/3 lg:basis-1/5 xl:basis-1/6">
               {child}
             </CarouselItem>
           ))}
