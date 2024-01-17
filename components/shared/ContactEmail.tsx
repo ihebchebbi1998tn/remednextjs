@@ -1,7 +1,5 @@
 import {
   Body,
-  Button,
-  Column,
   Container,
   Head,
   Heading,
@@ -10,12 +8,10 @@ import {
   Img,
   Link,
   Preview,
-  Row,
   Section,
   Tailwind,
   Text,
 } from '@react-email/components'
-import Image from 'next/image'
 
 interface ContactEmailProps {
   fullName?: string
@@ -24,8 +20,6 @@ interface ContactEmailProps {
 }
 
 const baseUrl = process.env.VERCEL_URL
-  ? `https://${process.env.VERCEL_URL}`
-  : ''
 
 export const ContactEmail = ({
   fullName = '',
