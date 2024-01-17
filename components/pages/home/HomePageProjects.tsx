@@ -65,7 +65,7 @@ export function HomePageProjects({
                 title={project.title}
                 description={toPlainText(project.overview as any)}
                 buttonText="Read more"
-                buttonLink="/"
+                buttonLink={`/projects/${project.slug}`}
                 active={[0, 3].includes(i)}
                 className="max-w-sm bg-opacity-90 backdrop-blur-2px"
                 titleClassName="text-4xl font-bold"
