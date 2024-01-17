@@ -16,7 +16,7 @@ export function ContactMap({
   longitude = 10.2780854,
   zoom = 14,
 }: ContactMapProps) {
-    const [showPopup, setShowPopup] = useState<boolean>(true)
+  const [showPopup, setShowPopup] = useState<boolean>(true)
 
   return (
     <Map
@@ -36,7 +36,6 @@ export function ContactMap({
         longitude={longitude}
         onClick={() => setShowPopup((showPopup) => !showPopup)}
         color="hsl(var(--reg-main))"
-        
       />
       {showPopup && (
         <Popup
@@ -47,11 +46,11 @@ export function ContactMap({
           onClose={() => setShowPopup(false)}
           anchor="top"
         >
-          <div className="text-center text-black">
-            <h3 className="text-lg font-semibold">
+          <div className="text-black">
+            <h3 className="text-sm font-semibold">
               Respect Environnement Group
             </h3>
-            <p className="text-sm">Rue de la République, Sfax, Tunisie</p>
+            <p className="text-xs">Rue de la République, Sfax, Tunisie</p>
           </div>
         </Popup>
       )}
