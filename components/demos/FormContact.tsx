@@ -27,7 +27,10 @@ interface FormContactProps {
   formClassName?: string
 }
 
-export function FormContact({ className, formClassName }: FormContactProps) {
+export function FormContact({
+  className = '',
+  formClassName = '',
+}: FormContactProps) {
   const form = useForm<z.infer<typeof ContactFormSchema>>({
     resolver: zodResolver(ContactFormSchema),
   })
@@ -126,19 +129,21 @@ export function FormContact({ className, formClassName }: FormContactProps) {
             )}
           />
 
-          <Button
-            type="submit"
-            className="mt-4 bg-green-500 hover:bg-green-600"
-          >
-            {form.formState.isSubmitting ? (
-              <>
-                <RefreshCw className="w-4 h-4 mr-2 animate-spin" />
-                Please wait...
-              </>
-            ) : (
-              'Send message'
-            )}
-          </Button>
+          <div className="flex justify-end">
+            <Button
+              type="submit"
+              className="bg-green-500 hover:bg-green-600"
+            >
+              {form.formState.isSubmitting ? (
+                <>
+                  <RefreshCw className="w-4 h-4 mr-2 animate-spin" />
+                  Please wait...
+                </>
+              ) : (
+                'Send message'
+              )}
+            </Button>
+          </div>
         </form>
       </Form>
     </div>

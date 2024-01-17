@@ -1,7 +1,6 @@
 import { toPlainText } from '@portabletext/react'
 import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
 
-import { AccordionDemo } from '@/components/demos/AccordionDemo'
 import { FormContact } from '@/components/demos/FormContact'
 import { MasonryDemo } from '@/components/demos/MasonryDemo'
 import { Testimonials } from '@/components/demos/Testimonials'
@@ -16,6 +15,7 @@ import { StatsBlock } from '@/components/shared/StatsBlock'
 import { urlForImage } from '@/sanity/lib/utils'
 import type { HomePagePayload } from '@/types'
 
+import ContactMap from './ContactMap'
 import { HomePageProjects } from './HomePageProjects'
 
 const width = 550
@@ -145,21 +145,10 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
 
       {/* AccordionDemo */}
       <div className="container">
-        <BlockBenefits
-          title={sections[7]?.title}
-          desc={toPlainText(sections[7]?.description || []) || ''}
-          imgPos="right"
-          secondaryNode={<FormContact className='mb-14'  />}
-        >
-          <AccordionDemo
-            data={sections[7]?.blocks?.map((item) => {
-              return {
-                title: item.title,
-                description: toPlainText(item.description || []),
-              }
-            })}
-          />
-        </BlockBenefits>
+        <div className="flex flex-col justify-between gap-8 md:flex-row">
+          <ContactMap />
+          <FormContact className="w-full" />
+        </div>
       </div>
 
       {/* Testimonials */}
