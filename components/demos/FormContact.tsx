@@ -31,33 +31,37 @@ export function FormContact({ className, formClassName }: FormContactProps) {
   const form = useForm<z.infer<typeof ContactFormSchema>>({
     resolver: zodResolver(ContactFormSchema),
   })
-  console.log('form: ', form.formState.isSubmitting);
 
-  function onSubmit(data: z.infer<typeof ContactFormSchema>) {
-    sendEmail(data)
-      .then(() => {
-        toast({
-          title: 'We received your message',
-          description: (
-            <p>
-              We will get back to you as soon as possible. You can also reach
-              out to us at{' '}
-              <a
-                href="mailto:contact@s-reg.tn"
-                className="text-blue-500 hover:underline"
-              >
-                contact@s-reg.tn
-              </a>
-            </p>
-          ),
-        })
+  async function onSubmit(data: z.infer<typeof ContactFormSchema>) {
+    try {
+      await sendEmail(data)
+      toast({
+        title: 'We received your message',
+        description: (
+          <p>
+            We will get back to you as soon as possible. You can also reach out
+            to us at{' '}
+            <a
+              href="mailto:contact@s-reg.tn"
+              className="text-blue-500 hover:underline"
+            >
+              contact@s-reg.tn
+            </a>
+          </p>
+        ),
       })
-      .catch((error) => {
-        toast({
-          title: 'Something went wrong',
-          description: error.message,
-        })
+    } catch (error) {
+      toast({
+        title: 'Something went wrong',
+        description: error.message,
       })
+    } finally {
+      form.reset({
+        fullName: '',
+        email: '',
+        message: '',
+      })
+    }
   }
 
   return (
