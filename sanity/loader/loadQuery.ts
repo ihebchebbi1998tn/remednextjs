@@ -5,6 +5,8 @@ import { draftMode } from 'next/headers'
 
 import { client } from '@/sanity/lib/client'
 import {
+  certificationBySlugQuery,
+  certificationsQuery,
   homePageQuery,
   pagesBySlugQuery,
   postBySlugQuery,
@@ -15,6 +17,7 @@ import {
 } from '@/sanity/lib/queries'
 import { token } from '@/sanity/lib/token'
 import {
+  CertificationPayload,
   HomePagePayload,
   PagePayload,
   PostPayload,
@@ -97,6 +100,22 @@ export function loadProjects() {
     projectsQuery,
     {},
     { next: { tags: ['project'] } },
+  )
+}
+
+export function loadCertifications() {
+  return loadQuery<CertificationPayload[]>(
+    certificationsQuery,
+    {},
+    { next: { tags: ['certification'] } },
+  )
+}
+
+export function loadCertification(slug: string) {
+  return loadQuery<CertificationPayload | null>(
+    certificationBySlugQuery,
+    { slug },
+    { next: { tags: [`certification:${slug}`] } },
   )
 }
 

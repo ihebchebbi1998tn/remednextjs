@@ -89,6 +89,13 @@ export interface ProjectPayload {
   title?: string
 }
 
+export interface CertificationPayload {
+  coverImage?: Image
+  overview?: PortableTextBlock[]
+  title?: string
+  slug: string
+}
+
 export interface PostPayload {
   _type: string
   _id: string

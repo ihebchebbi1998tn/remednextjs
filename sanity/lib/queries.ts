@@ -98,6 +98,25 @@ export const projectsQuery = groq`
   }
 `
 
+export const certificationsQuery = groq`
+  *[_type == "certification"]{
+    _id,
+    coverImage,
+    overview,
+    title,
+    "slug": slug.current,
+  }
+`
+
+export const certificationBySlugQuery = groq`
+  *[_type == "certification" && slug.current == $slug][0] {
+    _id,
+    coverImage,
+    overview,
+    title,
+  }
+`
+
 export const postBySlugQuery = groq`
   *[_type == "post" && slug.current == $slug][0] {
     _id,
