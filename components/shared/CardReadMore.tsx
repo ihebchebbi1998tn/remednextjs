@@ -50,7 +50,7 @@ export function CardReadMore({
         </CardHeader>
       )}
       {description && (
-        <CardContent>
+        <CardContent className="hidden md:block">
           <CardDescription>{description}</CardDescription>
         </CardContent>
       )}
