@@ -8,6 +8,7 @@ import { ProjectListItem } from '@/components/pages/home/ProjectListItem'
 import BlockBenefits from '@/components/shared/BlockBenefits'
 import Bullet from '@/components/shared/Bullet'
 import { CarouselReadMore } from '@/components/shared/CarouselReadMore'
+import { CustomPortableText } from '@/components/shared/CustomPortableText'
 import { SectionBoost } from '@/components/shared/SectionBoost'
 import { SectionHero } from '@/components/shared/SectionHero'
 import { Stats } from '@/components/shared/Stats'
@@ -63,7 +64,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
 
       {/* Showcase posts */}
       {sections[1] && (
-        <CarouselReadMore title="Showcase posts" titleClassName="ml-8">
+        <CarouselReadMore title="Showcase posts">
           {sections[1]?.showcasePosts?.map((post, key) => {
             return (
               <ProjectListItem
@@ -94,7 +95,11 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
       <div className="container overflow-hidden">
         <BlockBenefits
           title={sections[3]?.title}
-          desc={toPlainText(sections[3]?.description || []) || ''}
+          desc={
+            sections[3]?.description && (
+              <CustomPortableText value={sections[3]?.description} />
+            )
+          }
           imgPos="left"
           secondaryNode={<MasonryDemo />}
         >

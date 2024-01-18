@@ -3,7 +3,7 @@ import React from 'react'
 
 interface BlockBenefitsProps {
   title?: string
-  desc?: string
+  desc?: React.ReactNode
   secondaryNode?: React.ReactNode
   imgPos?: 'left' | 'right'
   children?: React.ReactNode

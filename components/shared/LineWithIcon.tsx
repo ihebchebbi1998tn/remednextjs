@@ -20,7 +20,7 @@ export function LineWithIcon({
 
   return (
     <p
-      className={`${className} flex items-center justify-center md:justify-start`}
+      className={`${className} flex items-center justify-center md:justify-start flex-wrap`}
     >
       {icon &&
         React.cloneElement(icon as React.ReactElement, {
@@ -31,7 +31,7 @@ export function LineWithIcon({
           href={link}
           target={externalLink ? '_blank' : '_self'}
           rel={externalLink ? 'noopener noreferrer' : ''}
-          className="text-green-600 truncate dark:text-green-200 hover:underline"
+          className="text-green-600 dark:text-green-200 hover:underline"
         >
           <span className="text-green-600 dark:text-green-200">{label}</span>
         </Link>

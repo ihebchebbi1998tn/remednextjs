@@ -59,9 +59,13 @@ export function CarouselReadMore({
           loop: true,
         }}
       >
-        <div className="flex justify-between w-full py-10 ">
-          <h1 className={`text-5xl font-bold ${titleClassName}`}>{title}</h1>
-          <span className="flex items-end mr-8 space-x-2">
+        <div className="flex flex-col items-center justify-between w-full gap-4 mb-8 md:flex-row">
+          <h1
+            className={`text-3xl md:text-5xl font-bold md:ml-8 ${titleClassName}`}
+          >
+            {title}
+          </h1>
+          <span className="flex items-end space-x-2 md:mr-8">
             {Array.from({ length: React.Children.count(children) }).map(
               (_, index) => (
                 <AvailabilityBadge
