@@ -50,7 +50,11 @@ export function ContactMap({
             <h3 className="text-sm font-semibold">
               Respect Environnement Group
             </h3>
-            <p className="text-xs">Rue de la République, Sfax, Tunisie</p>
+            <p className="text-xs">
+              Ezzahra Plage, Lotissement Afh
+              <br/>
+              Ben Arous Ezzahra, Tunisie
+            </p>
           </div>
         </Popup>
       )}
