@@ -33,12 +33,10 @@ export function LineWithIcon({
           rel={externalLink ? 'noopener noreferrer' : ''}
           className="text-green-600 truncate dark:text-green-200 hover:underline"
         >
-          <span className="text-green-600 dark:text-green-200">
-            {label}
-          </span>
+          <span className="text-green-600 dark:text-green-200">{label}</span>
         </Link>
       ) : (
-        <span className="text-green-600 dark:text-green-200">{label}</span>
+        <span className="text-green-600 dark:text-green-200 ">{label}</span>
       )}
     </p>
   )

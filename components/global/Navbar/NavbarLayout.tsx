@@ -28,7 +28,7 @@ export default function Navbar(props: NavbarProps) {
             width={48}
             height={48}
           />
-          <span className="inline-block font-bold min-w-fit">
+          <span className="inline-block mr-8 font-bold min-w-fit">
             {homeItem?.title}
           </span>
         </Link>

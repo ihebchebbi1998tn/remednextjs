@@ -60,7 +60,6 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
         }
         video={sections[0]?.videoURL}
       />
-      <div className="relative w-full"></div>
 
       {/* Showcase posts */}
       {sections[1] && (
@@ -163,6 +162,8 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
           featuredTestimonial={testimonials[0]}
         />
       </div>
+
+      <div className="relative w-full"></div>
     </div>
   )
 }
