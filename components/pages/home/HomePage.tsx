@@ -124,11 +124,12 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
         }
       />
 
-      {/* StatsBlock */}
+      {/* Route expérimentale */}
       <StatsBlock
         title={sections[6]?.title}
         subtitle={sections[6]?.subtitle}
         description={toPlainText(sections[6]?.description || []) || ''}
+        video={sections[6]?.videoURL}
         stats={
           sections[6]?.blocks?.map((item) => ({
             value: item.title,
