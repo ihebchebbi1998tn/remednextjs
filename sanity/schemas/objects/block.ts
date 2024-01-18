@@ -137,6 +137,19 @@ export default defineType({
       ],
     }),
     defineField({
+      name: 'showcaseCertifications',
+      title: 'Showcase certifications',
+      description:
+        'These are the certifications that will appear first on your landing page.',
+      type: 'array',
+      of: [
+        defineArrayMember({
+          type: 'reference',
+          to: [{ type: 'certification' }],
+        }),
+      ],
+    }),
+    defineField({
       name: 'blocks',
       title: 'Blocks',
       type: 'array',

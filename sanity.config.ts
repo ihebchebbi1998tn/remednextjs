@@ -12,6 +12,7 @@ import { apiVersion, dataset, projectId, studioUrl } from '@/sanity/lib/api'
 import { locate } from '@/sanity/plugins/locate'
 import { pageStructure, singletonPlugin } from '@/sanity/plugins/settings'
 import author from '@/sanity/schemas/documents/author'
+import certification from '@/sanity/schemas/documents/certification'
 import page from '@/sanity/schemas/documents/page'
 import post from '@/sanity/schemas/documents/post'
 import project from '@/sanity/schemas/documents/project'
@@ -41,6 +42,7 @@ export default defineConfig({
       home,
       settings,
       // Documents
+      certification,
       duration,
       page,
       project,
