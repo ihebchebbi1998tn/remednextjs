@@ -1,8 +1,8 @@
 'use client'
 
 import 'mapbox-gl/dist/mapbox-gl.css'
-import { useState } from 'react'
 
+import { useState } from 'react'
 import { Map, Marker, Popup } from 'react-map-gl'
 
 export interface ContactMapProps {
