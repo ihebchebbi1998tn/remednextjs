@@ -11,6 +11,7 @@ import Lightbox from 'yet-another-react-lightbox'
 import Download from "yet-another-react-lightbox/plugins/download";
 // import optional lightbox plugins
 import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
+import Share from 'yet-another-react-lightbox/plugins/share'
 import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 
@@ -46,6 +47,11 @@ export function CertificationListPage({
               <PhotoAlbum
                 photos={data.map((certification) => ({
                   src: urlForImage(certification.coverImage)?.url() ?? '',
+                  share: {
+                    url: urlForImage(certification.coverImage)?.url() ?? '',
+                    title: certification.title,
+                    description: certification.overview,
+                  },
                   title: certification.title,
                   description: certification.overview,
                   width: 5,
@@ -66,7 +72,7 @@ export function CertificationListPage({
                 index={index}
                 close={() => setIndex(-1)}
                 // enable optional lightbox plugins
-                plugins={[Fullscreen, Download, Thumbnails, Zoom]}
+                plugins={[Fullscreen, Download, Thumbnails, Zoom, Share]}
               />
           </div>
         </div>
