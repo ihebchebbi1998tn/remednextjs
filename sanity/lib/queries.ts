@@ -137,7 +137,7 @@ export const opportunityBySlugQuery = groq`
     title,
     files[]{
       _key,
-      "url": asset._ref
+      "url": asset -> url
     },
     links[],
   }
