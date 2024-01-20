@@ -20,13 +20,13 @@ export async function generateMetadata(
   { params }: Props,
   parent: ResolvingMetadata,
 ): Promise<Metadata> {
-  const { data: project } = await loadCertification(params.slug)
-  const ogImage = urlForOpenGraphImage(project?.coverImage)
+  const { data: certification } = await loadCertification(params.slug)
+  const ogImage = urlForOpenGraphImage(certification?.coverImage)
 
   return {
-    title: project?.title,
-    description: project?.overview
-      ? toPlainText(project.overview)
+    title: certification?.title,
+    description: certification?.overview
+      ? toPlainText(certification.overview)
       : (await parent).description,
     openGraph: ogImage
       ? {
@@ -37,7 +37,7 @@ export async function generateMetadata(
 }
 
 export function generateStaticParams() {
-  return generateStaticSlugs('project')
+  return generateStaticSlugs('certification')
 }
 
 export default async function ProjectSlugRoute({ params }: Props) {

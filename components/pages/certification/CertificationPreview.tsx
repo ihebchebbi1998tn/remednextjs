@@ -6,14 +6,14 @@ import { certificationBySlugQuery } from '@/sanity/lib/queries'
 import { useQuery } from '@/sanity/loader/useQuery'
 import { CertificationPayload } from '@/types'
 
-import ProjectPage from './CertificationPage'
+import CertificationPage from './CertificationPage'
 
 type Props = {
   params: { slug: string }
   initial: QueryResponseInitial<CertificationPayload | null>
 }
 
-export default function ProjectPreview(props: Props) {
+export default function CertificationPreview(props: Props) {
   const { params, initial } = props
   const { data, encodeDataAttribute } = useQuery<CertificationPayload | null>(
     certificationBySlugQuery,
@@ -21,5 +21,7 @@ export default function ProjectPreview(props: Props) {
     { initial },
   )
 
-  return <ProjectPage data={data!} encodeDataAttribute={encodeDataAttribute} />
+  return (
+    <CertificationPage data={data!} encodeDataAttribute={encodeDataAttribute} />
+  )
 }
