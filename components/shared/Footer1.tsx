@@ -1,4 +1,4 @@
-import { LinkItem, MenuItem, SocialProfile } from '@/types'
+import { LinkItem, MenuItem, LinkType } from '@/types'
 
 import { Copyright } from './Copyright'
 import { FooterBrand } from './FooterBrand'
@@ -6,7 +6,7 @@ import { ListLineWithIcon } from './ListLineWithIcon'
 import { SocialNetworksList } from './SocialNetworksList'
 
 interface Footer1Props {
-  socialNetworks?: SocialProfile[]
+  socialNetworks?: LinkType[]
   socialNetworksTitle?: string
   usefulLinksTitle?: string
   usefulLinks?: MenuItem[]
@@ -69,10 +69,7 @@ export function Footer1({
             }))}
           />
           {/** Contact section */}
-          <ListLineWithIcon
-            title={contactTitle}
-            items={contact}
-          />
+          <ListLineWithIcon title={contactTitle} items={contact} />
         </div>
       </div>
 

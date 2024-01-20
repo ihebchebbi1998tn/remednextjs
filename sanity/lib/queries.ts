@@ -117,6 +117,32 @@ export const certificationBySlugQuery = groq`
   }
 `
 
+export const opportunitiesQuery = groq`
+  *[_type == "opportunity"]{
+    _id,
+    image,
+    duration,
+    overview,
+    title,
+    "slug": slug.current,
+  }
+`
+
+export const opportunityBySlugQuery = groq`
+  *[_type == "opportunity" && slug.current == $slug][0] {
+    _id,
+    image,
+    duration,
+    description,
+    title,
+    files[]{
+      _key,
+      "url": asset._ref
+    },
+    links[],
+  }
+`
+
 export const postBySlugQuery = groq`
   *[_type == "post" && slug.current == $slug][0] {
     _id,

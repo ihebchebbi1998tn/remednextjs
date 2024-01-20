@@ -24,7 +24,7 @@ export function MainNav(props: Props) {
   const restItems = menuItems.filter((item) => item?._type !== 'home')
 
   return (
-    <div className="hidden lg:flex">
+    <div className="hidden md:flex">
       <nav className="flex items-center gap-8 text-sm">
         {restItems.map((item, key) => {
           const href = resolveHref(item?._type, item?.slug)

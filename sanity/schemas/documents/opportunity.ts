@@ -130,10 +130,10 @@ export default defineType({
       ],
     }),
     defineField({
-      name: 'date',
-      title: 'Date',
-      type: 'datetime',
-      initialValue: () => new Date().toISOString(),
+      type: 'duration',
+      name: 'duration',
+      title: 'Duration',
+      validation: (rule) => rule.required(),
     }),
     defineField({
       name: 'files',
@@ -172,13 +172,18 @@ export default defineType({
   ],
   preview: {
     select: {
+      duration: 'duration',
       title: 'title',
-      date: 'date',
     },
-    prepare({ title, date }) {
+    prepare({ duration, title }) {
       return {
+        subtitle: [
+          duration?.start && format(parseISO(duration.start), 'MMM yyyy'),
+          duration?.end && format(parseISO(duration.end),   'MMM yyyy'),
+        ]
+          .filter(Boolean)
+          .join(' - '),
         title,
-        subtitle: format(parseISO(date), 'MMMM do, yyyy'),
       }
     },
   },

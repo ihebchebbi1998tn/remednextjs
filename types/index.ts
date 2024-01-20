@@ -1,5 +1,5 @@
 import type { PortableTextBlock } from '@portabletext/types'
-import type { Image } from 'sanity'
+import type { File, Image } from 'sanity'
 
 export interface MenuItem {
   _type: string
@@ -96,6 +96,21 @@ export interface CertificationPayload {
   slug: string
 }
 
+export interface OpportunityPayload {
+  title?: string
+  description?: PortableTextBlock[]
+  overview?: PortableTextBlock[]
+  image?: Image
+  duration?: {
+    start?: string
+    end?: string
+  }
+  slug: string
+  tags?: string[]
+  files?: File[]
+  links?: LinkType[]
+}
+
 export interface PostPayload {
   _type: string
   _id: string
@@ -117,7 +132,7 @@ export interface SettingsPayload {
   menuItems?: MenuItem[]
   socialNetworks?: {
     title?: string
-    fields?: SocialProfile[]
+    fields?: LinkType[]
   }
   contacts?: {
     title?: string
@@ -131,7 +146,7 @@ export interface Author {
   picture?: any
 }
 
-export type SocialProfile = {
+export type LinkType = {
   name: string
   link: string
 }

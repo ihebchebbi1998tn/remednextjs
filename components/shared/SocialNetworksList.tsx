@@ -1,10 +1,10 @@
-import { SocialProfile } from '@/types'
+import { LinkType } from '@/types'
 
 import { SocialNetwork } from './SocialNetwork'
 
 interface SocialNetworksListProps {
   title?: string
-  socialNetworks?: SocialProfile[]
+  socialNetworks?: LinkType[]
   className?: string
 }
 
