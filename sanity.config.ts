@@ -11,6 +11,7 @@ import { unsplashImageAsset } from 'sanity-plugin-asset-source-unsplash'
 import { apiVersion, dataset, projectId, studioUrl } from '@/sanity/lib/api'
 import { locate } from '@/sanity/plugins/locate'
 import { pageStructure, singletonPlugin } from '@/sanity/plugins/settings'
+import application from '@/sanity/schemas/documents/application'
 import author from '@/sanity/schemas/documents/author'
 import certification from '@/sanity/schemas/documents/certification'
 import opportunity from '@/sanity/schemas/documents/opportunity'
@@ -43,6 +44,7 @@ export default defineConfig({
       home,
       settings,
       // Documents
+      application,
       certification,
       opportunity,
       duration,

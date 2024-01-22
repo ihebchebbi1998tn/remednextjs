@@ -9,7 +9,7 @@ import BlockBenefits from '@/components/shared/BlockBenefits'
 import Bullet from '@/components/shared/Bullet'
 import { CarouselReadMore } from '@/components/shared/CarouselReadMore'
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
-import { SectionBoost } from '@/components/shared/SectionBoost'
+import { SectionApplication } from '@/components/shared/SectionApplication'
 import { SectionHero } from '@/components/shared/SectionHero'
 import { Stats } from '@/components/shared/Stats'
 import { StatsBlock } from '@/components/shared/StatsBlock'
@@ -30,6 +30,7 @@ export interface HomePageProps {
 export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
   // Default to an empty object to allow previews on non-existent documents
   const { sections = [] } = data ?? {}
+  console.log('sections: ', sections[5]);
   const testimonials =
     sections[8]?.blocks?.map((item) => {
       return {
@@ -140,9 +141,9 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
       />
 
       {/* Boost */}
-      <SectionBoost
+      <SectionApplication
         title={sections[5]?.title}
-        description={toPlainText(sections[5]?.description || []) || ''}
+        application={sections[5]?.showcaseApplications?.[0]}
       />
 
       {/* PostsDemo */}

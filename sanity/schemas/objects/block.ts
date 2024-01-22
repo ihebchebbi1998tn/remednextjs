@@ -149,6 +149,20 @@ export default defineType({
         }),
       ],
     }),
+    // application
+    defineField({
+      name: 'showcaseApplications',
+      title: 'Showcase applications',
+      description:
+        'These are the applications that will appear first on your landing page.',
+      type: 'array',
+      of: [
+        defineArrayMember({
+          type: 'reference',
+          to: [{ type: 'application' }],
+        }),
+      ],
+    }),
     defineField({
       name: 'blocks',
       title: 'Blocks',

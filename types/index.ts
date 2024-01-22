@@ -54,6 +54,7 @@ export interface CustomBlock {
   coverImage?: Image
   showcaseProjects?: ShowcaseProject[]
   showcasePosts?: PostPayload[]
+  showcaseApplications?: ApplicationPayload[]
   blocks?: CustomBlock[]
 }
 
@@ -87,6 +88,21 @@ export interface ProjectPayload {
   slug: string
   tags?: string[]
   title?: string
+  certifications?: CertificationPayload[]
+}
+
+export interface ApplicationPayload {
+  title?: string
+  description?: PortableTextBlock[]
+  overview?: PortableTextBlock[]
+  coverImage?: Image
+  slug: string
+  site?: string
+  android?: string
+  ios?: string
+  github?: string
+  playstore?: string
+  appstore?: string
   certifications?: CertificationPayload[]
 }
 

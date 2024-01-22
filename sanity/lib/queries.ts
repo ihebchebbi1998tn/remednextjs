@@ -32,6 +32,21 @@ export const homePageQuery = groq`
         tags,
         title,
       },
+      showcaseApplications[]->{
+        _id,
+        coverImage,
+        description,
+        "slug": slug.current,
+        tags,
+        title,
+        ios,
+        android,
+        github,
+        playstore,
+        site,
+        appstore,
+
+      },
       link->{
         _type,
         slug,
