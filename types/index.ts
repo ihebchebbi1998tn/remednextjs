@@ -147,8 +147,8 @@ export interface Author {
 }
 
 export type LinkType = {
-  name: string
-  link: string
+  title: string
+  url: string
 }
 
 export interface LinkItem {

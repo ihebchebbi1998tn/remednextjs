@@ -1,4 +1,4 @@
-import { LinkItem, MenuItem, LinkType } from '@/types'
+import { LinkItem, LinkType,MenuItem } from '@/types'
 
 import { Copyright } from './Copyright'
 import { FooterBrand } from './FooterBrand'

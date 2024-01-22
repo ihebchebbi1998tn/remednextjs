@@ -25,10 +25,7 @@ export function OpportunityPage({
       <div className="px-6 mx-auto max-w-7xl lg:px-8">
         <div className="max-w-2xl mx-auto lg:max-w-4xl">
           <AppBreadcrumb />
-          <div
-            className="relative w-full mx-auto mt-8 mb-4 max-w-screen md:mb-0"
-            style={{ height: '24em' }}
-          >
+          <div className="relative w-full mx-auto mt-8 mb-4 max-w-screen md:mb-0">
             <div className="p-4 mb-6 rounded-md bg-gray-50 dark:bg-gray-900">
               <div className="flex items-center justify-between">
                 {image && (
@@ -108,26 +105,46 @@ export function OpportunityPage({
               </p>
             </div>
             <hr className="mb-6 border-gray-200 dark:border-gray-700" />
-            <h3 className="mb-4 text-xl font-semibold text-gray-600 dark:text-gray-300">
-              Pièces jointes
-            </h3>
-            {/* list files to download */}
-            {files &&
-              files.map((file, index) => {
-                return (
-                  <div key={index}>
-                    <a
-                      href={file.url as string}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center mb-2 mr-4 text-sm text-gray-500 md:mb-0 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-100"
-                    >
-                      <Download size={16} className="mr-1" />
-                      file
-                    </a>
-                  </div>
-                )
-              })}
+            {files?.length && (
+              <h3 className="mb-4 text-xl font-semibold text-gray-600 dark:text-gray-300">
+                Pièces jointes
+              </h3>
+            )}
+            {files?.map((file, index) => {
+              return (
+                <div key={index}>
+                  <a
+                    href={file.url as string}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center mb-2 mr-4 text-sm text-gray-500 md:mb-0 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-100"
+                  >
+                    <Download size={16} className="mr-1" />
+                    file
+                  </a>
+                </div>
+              )
+            })}
+            {links?.length && (
+              <h3 className="mb-4 text-xl font-semibold text-gray-600 dark:text-gray-300">
+                Liens
+              </h3>
+            )}
+            {links?.map((link, index) => {
+              return (
+                <div key={index}>
+                  <a
+                    href={link.url as string}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center mb-2 mr-4 text-sm text-gray-500 md:mb-0 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-100"
+                  >
+                    <Download size={16} className="mr-1" />
+                    {link.title}
+                  </a>
+                </div>
+              )
+            })}
           </div>
         </div>
       </div>

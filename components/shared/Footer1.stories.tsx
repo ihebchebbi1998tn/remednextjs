@@ -24,20 +24,20 @@ export const Default: Story = {
   args: {
     socialNetworks: [
       {
-        name: 'twitter',
-        link: 'https://twitter.com',
+        title: 'twitter',
+        url: 'https://twitter.com',
       },
       {
-        name: 'facebook',
-        link: 'https://facebook.com',
+        title: 'facebook',
+        url: 'https://facebook.com',
       },
       {
-        name: 'instagram',
-        link: 'https://instagram.com',
+        title: 'instagram',
+        url: 'https://instagram.com',
       },
       {
-        name: 'youtube',
-        link: 'https://youtube.com',
+        title: 'youtube',
+        url: 'https://youtube.com',
       },
     ],
     socialNetworksTitle: 'Get connected with us on social networks:',

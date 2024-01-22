@@ -190,8 +190,8 @@ export const settingsQuery = groq`
     socialNetworks{
       title,
       fields[]->{
-        name,
-        link
+        "title": name,
+        "url": link.current,
       }
     },
     contacts{

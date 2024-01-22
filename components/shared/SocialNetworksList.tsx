@@ -26,7 +26,7 @@ export function SocialNetworksList({
       <div className="flex justify-center gap-x-2">
         {socialNetworks?.map((item) => {
           return (
-            <SocialNetwork key={item.name} name={item.name} link={item.link} />
+            <SocialNetwork key={item.title} title={item.title} url={item.url} />
           )
         })}
       </div>
