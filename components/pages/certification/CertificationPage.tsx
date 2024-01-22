@@ -14,7 +14,7 @@ export interface CertificationPageProps {
 export function CertificationPage({ data, encodeDataAttribute }: CertificationPageProps) {
   // Default to an empty object to allow previews on non-existent documents
   const {
-    coverImage,
+    url,
     overview,
     title,
   } = data ?? {}
@@ -36,8 +36,8 @@ export function CertificationPage({ data, encodeDataAttribute }: CertificationPa
               }}
             />
             <Image
-              src={urlForImage(coverImage)?.url() || ''}
-              alt=""
+              src={url ?? ''}
+              alt={title ?? ''}
               className="absolute inset-0 object-cover w-full h-full"
               layout="fill"
             />

@@ -9,6 +9,8 @@ import { urlForImage } from '@/sanity/lib/utils'
 import author from '@/sanity/schemas/documents/author'
 import type { ProjectPayload } from '@/types'
 
+import CertificationList from './CertificationList'
+
 export interface ProjectPageProps {
   data: ProjectPayload | null
   encodeDataAttribute?: EncodeDataAttributeCallback
@@ -25,6 +27,7 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
     site,
     tags,
     title,
+    certifications= [],
   } = data ?? {}
 
   return (
@@ -87,18 +90,14 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
             <div className="pb-6 mt-4 font-semibold text-gray-400 border-b-2 border-gray-200">
               {overview && <CustomPortableText value={overview} />}
             </div>
-            <div className="pb-6 mt-4 border-b-2 border-gray-200 dark:text-gray-400">
+            <div className="pb-6 mt-4 dark:text-gray-400">
               {description && <CustomPortableText value={description} />}
             </div>
-            {/* updated at */}
-            {duration && (
-              <div className="pb-6 mt-4 dark:text-gray-400">
-                <p className="text-sm font-semibold text-gray-400">
-                  {format(parseISO(duration.start || ''), 'MMMM yyyy')} -{' '}
-                  {format(parseISO(duration.end || ''), 'MMMM yyyy')}
-                </p>
-              </div>
-            )}
+            <hr className="my-6 border-b-2 border-gray-200" />
+            <CertificationList
+              certifications={certifications}
+              title="Certifications"
+            />
           </div>
         </div>
       </div>

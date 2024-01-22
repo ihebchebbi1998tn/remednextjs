@@ -1,22 +1,20 @@
 'use client'
+
 import 'yet-another-react-lightbox/styles.css'
 import "yet-another-react-lightbox/plugins/thumbnails.css";
 
 import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
-import { format, parseISO } from 'date-fns'
-import Image from 'next/image'
 import { useState } from 'react'
 import PhotoAlbum from 'react-photo-album'
 import Lightbox from 'yet-another-react-lightbox'
-import Download from "yet-another-react-lightbox/plugins/download";
 // import optional lightbox plugins
+import Download from "yet-another-react-lightbox/plugins/download";
 import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
 import Share from 'yet-another-react-lightbox/plugins/share'
 import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 
 import { AppBreadcrumb } from '@/components/demos/NextBreadcrumb'
-import { urlForImage } from '@/sanity/lib/utils'
 import type { CertificationPayload } from '@/types'
 
 export interface CertificationListPageProps {
@@ -46,9 +44,9 @@ export function CertificationListPage({
             
               <PhotoAlbum
                 photos={data.map((certification) => ({
-                  src: urlForImage(certification.coverImage)?.url() ?? '',
+                  src: certification.url ?? '',
                   share: {
-                    url: urlForImage(certification.coverImage)?.url() ?? '',
+                    url: certification.url ?? '',
                     title: certification.title,
                     description: certification.overview,
                   },
@@ -64,7 +62,7 @@ export function CertificationListPage({
 
               <Lightbox
                 slides={data.map((certification) => ({
-                  src: urlForImage(certification.coverImage)?.url() ?? '',
+                  src: certification.url ?? '',
                   title: certification.title,
                   description: certification.overview,
                 }))}

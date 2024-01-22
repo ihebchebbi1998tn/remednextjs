@@ -81,6 +81,13 @@ export const projectBySlugQuery = groq`
     "slug": slug.current,
     tags,
     title,
+    certifications[]->{
+      _id,
+      "url": coverImage.asset->url,
+      overview,
+      title,
+      "slug": slug.current,
+    },
   }
 `
 

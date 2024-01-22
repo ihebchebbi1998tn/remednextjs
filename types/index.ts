@@ -87,10 +87,11 @@ export interface ProjectPayload {
   slug: string
   tags?: string[]
   title?: string
+  certifications?: CertificationPayload[]
 }
 
 export interface CertificationPayload {
-  coverImage?: Image
+  url?: string
   overview?: PortableTextBlock[]
   title?: string
   slug: string
