@@ -65,7 +65,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
 
       {/* Showcase posts */}
       {sections[1] && (
-        <CarouselReadMore title="Showcase posts">
+        <CarouselReadMore title={sections[1]?.title}>
           {sections[1]?.showcasePosts?.map((post, key) => {
             return (
               <ProjectListItem
