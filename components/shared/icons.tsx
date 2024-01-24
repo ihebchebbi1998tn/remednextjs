@@ -13,6 +13,7 @@ import {
   Recycle,
   Twitter,
   Youtube,
+  Linkedin,
 } from 'lucide-react'
 
 export const Icons = {
@@ -20,6 +21,7 @@ export const Icons = {
   instagram: (props: LucideProps) => <Instagram {...props} />,
   youtube: (props: LucideProps) => <Youtube {...props} />,
   facebook: (props: LucideProps) => <Facebook {...props} />,
+  linkedin: (props: LucideProps) => <Linkedin {...props} />,
   home: (props: LucideProps) => <Home {...props} />,
   mapPin: (props: LucideProps) => <MapPin {...props} />,
   mail: (props: LucideProps) => <Mail {...props} />,

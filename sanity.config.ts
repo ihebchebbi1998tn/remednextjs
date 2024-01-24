@@ -53,12 +53,12 @@ export default defineConfig({
       post,
       author,
       internalLink,
+      socialNetwork,
       // Objects
       block,
       contact,
       milestone,
       timeline,
-      socialNetwork,
     ],
   },
   plugins: [
