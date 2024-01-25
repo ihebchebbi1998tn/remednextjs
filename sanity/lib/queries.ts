@@ -34,7 +34,7 @@ export const homePageQuery = groq`
       },
       showcaseApplications[]->{
         _id,
-        coverImage,
+        "coverImage": coverImage.asset->url,
         description,
         "slug": slug.current,
         tags,

@@ -102,7 +102,7 @@ export interface ApplicationPayload {
   title?: string
   description?: PortableTextBlock[]
   overview?: PortableTextBlock[]
-  coverImage?: Image
+  coverImage?: string
   slug: string
   site?: string
   android?: string

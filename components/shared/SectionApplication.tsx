@@ -1,4 +1,5 @@
 import { AppleIcon, Play } from 'lucide-react'
+import Image from 'next/image'
 import Link from 'next/link'
 
 import { ApplicationPayload } from '@/types'
@@ -21,6 +22,7 @@ export function SectionApplication({
       <div className="mx-auto max-w-7xl sm:px-6 sm:py-32 lg:px-8">
         <div className="relative px-6 py-24 overflow-hidden text-center bg-gray-900 shadow-2xl isolate sm:rounded-3xl sm:px-16">
           <h2 className="max-w-2xl mx-auto text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            <Image src={application?.coverImage || ''} width={300} height={100}  alt="cover" />
             {title}
           </h2>
           <p className="max-w-xl mx-auto mt-6 text-lg leading-8 text-gray-300">
@@ -46,6 +48,17 @@ export function SectionApplication({
                 >
                   <Play className="w-6 h-6 mr-3" />
                   <span>Play Store</span>
+                </Button>
+              </Link>
+            )}
+            {application?.site && (
+              <Link href={application?.site} target="_blank">
+                <Button
+                  className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-white bg-green-500 border border-transparent rounded-md shadow hover:bg-green-600"
+                  aria-label="Download on the App Store"
+                >
+                  <Play className="w-6 h-6 mr-3" />
+                  <span>Web</span>
                 </Button>
               </Link>
             )}
