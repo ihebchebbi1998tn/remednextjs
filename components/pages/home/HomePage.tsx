@@ -95,7 +95,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
       />
 
       {/* Benefits */}
-      <div className="container overflow-hidden">
+      {/* <div className="container overflow-hidden">
         <BlockBenefits
           title={sections[3]?.title}
           desc={
@@ -114,7 +114,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
             ))}
           </div>
         </BlockBenefits>
-      </div>
+      </div> */}
 
       {/* Stats */}
       <Stats

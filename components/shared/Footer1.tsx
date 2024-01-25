@@ -67,7 +67,7 @@ export function Footer1({
               label: item.title,
               value: item.slug,
             }))}
-            className="ml-auto"
+            className="md:ml-auto"
           />
           {/** Contact section */}
           <ListLineWithIcon
