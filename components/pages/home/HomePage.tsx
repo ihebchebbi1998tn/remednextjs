@@ -1,5 +1,6 @@
 import { toPlainText } from '@portabletext/react'
 import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
+import Image from 'next/image'
 
 import { FormContact } from '@/components/demos/FormContact'
 import { MasonryDemo } from '@/components/demos/MasonryDemo'
@@ -18,6 +19,7 @@ import type { HomePagePayload } from '@/types'
 
 import ContactMap from './ContactMap'
 import { HomePageProjects } from './HomePageProjects'
+import Partners from './Partners'
 
 const width = 550
 const height = 280
@@ -29,8 +31,8 @@ export interface HomePageProps {
 
 export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
   // Default to an empty object to allow previews on non-existent documents
-  const { sections = [] } = data ?? {}
-  console.log('sections: ', sections[5]);
+  const { sections = [], partners } = data ?? {}
+
   const testimonials =
     sections[8]?.blocks?.map((item) => {
       return {
@@ -148,6 +150,8 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
 
       {/* PostsDemo */}
       {/* <PostsDemo /> */}
+      {/* Partners */}
+      <Partners partners={partners} />
 
       {/* AccordionDemo */}
       <div className="container">
@@ -156,6 +160,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
           <FormContact className="w-full" />
         </div>
       </div>
+
 
       {/* Testimonials */}
       <div className="container">

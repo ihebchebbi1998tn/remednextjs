@@ -7,6 +7,12 @@ export interface MenuItem {
   title?: string
 }
 
+export interface PartnerPayload {
+  name?: string
+  logo?: string
+  alt?: string
+}
+
 export interface MilestoneItem {
   description?: string
   duration?: {
@@ -65,6 +71,7 @@ export interface HomePagePayload {
   title?: string
   overview?: PortableTextBlock[]
   sections?: CustomBlock[]
+  partners?: PartnerPayload[]
 }
 
 export interface PagePayload {

@@ -16,6 +16,7 @@ import author from '@/sanity/schemas/documents/author'
 import certification from '@/sanity/schemas/documents/certification'
 import opportunity from '@/sanity/schemas/documents/opportunity'
 import page from '@/sanity/schemas/documents/page'
+import partner from '@/sanity/schemas/documents/partner'
 import post from '@/sanity/schemas/documents/post'
 import project from '@/sanity/schemas/documents/project'
 import block from '@/sanity/schemas/objects/block'
@@ -54,6 +55,7 @@ export default defineConfig({
       author,
       internalLink,
       socialNetwork,
+      partner,
       // Objects
       block,
       contact,

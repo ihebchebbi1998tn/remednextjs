@@ -71,6 +71,19 @@ export default defineType({
         }),
       ],
     }),
+    defineField({
+      name: 'partners',
+      title: 'Partners',
+      description:
+        'These are the partners that will appear on your landing page.',
+      type: 'array',
+      of: [
+        defineArrayMember({
+          type: 'reference',
+          to: [{ type: 'partner' }],
+        }),
+      ],
+    }),
   ],
   preview: {
     select: {

@@ -72,6 +72,12 @@ export const homePageQuery = groq`
         },
       },
     },
+    partners[]->{
+      _id,
+      name,
+      "logo": logo.asset->url,
+      "alt": logo.alt,
+    },
   }
 `
 
@@ -213,7 +219,7 @@ export const settingsQuery = groq`
       title,
       fields[]->{
         "title": name,
-        "url": link.current,
+        "url": link,
       }
     },
     contacts{
