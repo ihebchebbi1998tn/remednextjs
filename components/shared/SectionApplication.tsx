@@ -32,11 +32,11 @@ export function SectionApplication({
           <p className="max-w-xl mx-auto mt-6 text-lg leading-8 text-gray-300">
             <CustomPortableText value={application?.description || []} />
           </p>
-          <div className="grid w-1/2 grid-cols-1 gap-4 mx-auto mt-10 sm:grid-cols-2">
+          <div className="grid w-1/2 grid-cols-1 gap-4 mx-auto mt-10 text-white sm:grid-cols-2">
             {application?.ios && (
-              <Link href={application?.ios}>
+              <Link href={application?.ios} target="_blank">
                 <Button
-                  variant="outline"
+                  variant="ghost"
                   className="mt-3 bg-transparent border border-white h-14 rounded-xl"
                 >
                   <div className="mr-3">
@@ -57,14 +57,14 @@ export function SectionApplication({
               </Link>
             )}
             {application?.android && (
-              <Link href={application?.android}>
+              <Link href={application?.android} target="_blank">
                 <Button
-                  variant="outline"
+                  variant="ghost"
                   className="mt-3 bg-transparent border border-white h-14 rounded-xl"
                 >
                   <div className="w-10">
                     <svg
-                      fill="#ffffff"
+                      fill="currentColor"
                       width="30"
                       viewBox="-1 0 24 24"
                       xmlns="http://www.w3.org/2000/svg"
