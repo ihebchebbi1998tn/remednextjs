@@ -34,7 +34,7 @@ export function Footer1({
   logo,
   slogan,
   copyright,
-  className,
+  className = '',
 }: Footer1Props) {
   return (
     <footer
