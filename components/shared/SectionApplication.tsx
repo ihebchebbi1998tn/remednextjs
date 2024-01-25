@@ -18,12 +18,12 @@ export function SectionApplication({
 }: SectionApplicationProps) {
   return (
     <div className="bg-white">
-      <div className="mx-auto max-w-7xl sm:px-6 sm:py-32 lg:px-8">
+      <div className="mx-auto max-w-7xl sm:px-6 sm:py-14 lg:px-8">
         <div className="relative px-6 py-24 overflow-hidden text-center bg-gray-900 shadow-2xl isolate sm:rounded-3xl sm:px-16">
           <h2 className="max-w-2xl mx-auto text-3xl font-bold tracking-tight text-white sm:text-4xl">
             <Image
               src={application?.coverImage || ''}
-              width={400}
+              width={300}
               height={100}
               alt="cover"
             />
@@ -35,7 +35,10 @@ export function SectionApplication({
           <div className="grid w-1/2 grid-cols-1 gap-4 mx-auto mt-10 sm:grid-cols-2">
             {application?.ios && (
               <Link href={application?.ios}>
-                <button className="flex items-center justify-center w-48 mt-3 text-white bg-transparent border border-white h-14 rounded-xl">
+                <Button
+                  variant="outline"
+                  className="mt-3 bg-transparent border border-white h-14 rounded-xl"
+                >
                   <div className="mr-3">
                     <svg viewBox="0 0 384 512" width="30">
                       <path
@@ -50,12 +53,15 @@ export function SectionApplication({
                       App Store
                     </div>
                   </div>
-                </button>
+                </Button>
               </Link>
             )}
             {application?.android && (
               <Link href={application?.android}>
-                <button className="flex items-center justify-center w-48 mt-3 text-white bg-transparent border border-white h-14 rounded-xl">
+                <Button
+                  variant="outline"
+                  className="mt-3 bg-transparent border border-white h-14 rounded-xl"
+                >
                   <div className="w-10">
                     <svg
                       fill="#ffffff"
@@ -72,7 +78,7 @@ export function SectionApplication({
                       Google Play
                     </div>
                   </div>
-                </button>
+                </Button>
               </Link>
             )}
             {application?.site && (
