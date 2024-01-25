@@ -16,7 +16,6 @@ export function SectionApplication({
   title,
   application,
 }: SectionApplicationProps) {
-  console.log('application: ', application);
   return (
     <div className="bg-white">
       <div className="mx-auto max-w-7xl sm:px-6 sm:py-32 lg:px-8">

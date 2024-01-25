@@ -151,6 +151,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
       {/* PostsDemo */}
       {/* <PostsDemo /> */}
       {/* Partners */}
+      
       <Partners partners={partners} />
 
       {/* AccordionDemo */}
