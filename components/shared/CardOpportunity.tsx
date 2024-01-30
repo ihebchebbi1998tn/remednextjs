@@ -19,7 +19,7 @@ interface CardOpportunityProps {
   startDate?: string
   endDate?: string
   image?: string
-  slug?: string
+  link?: string
   className?: string
 }
 
@@ -29,7 +29,7 @@ export function CardOpportunity({
   image,
   startDate,
   endDate,
-  slug,
+  link = '',
   className = '',
 }: CardOpportunityProps) {
   return (
@@ -100,7 +100,7 @@ export function CardOpportunity({
         {overview}
       </p>
       <div className="flex flex-wrap items-center ">
-        <Link href={`/opportunities/${slug}`} className="ml-auto">
+        <Link href={link} className="ml-auto">
           <Button variant="secondary">Voir détails</Button>
         </Link>
       </div>

@@ -14,6 +14,7 @@ import { pageStructure, singletonPlugin } from '@/sanity/plugins/settings'
 import application from '@/sanity/schemas/documents/application'
 import author from '@/sanity/schemas/documents/author'
 import certification from '@/sanity/schemas/documents/certification'
+import innovation from '@/sanity/schemas/documents/innovation'
 import opportunity from '@/sanity/schemas/documents/opportunity'
 import page from '@/sanity/schemas/documents/page'
 import partner from '@/sanity/schemas/documents/partner'
@@ -48,6 +49,7 @@ export default defineConfig({
       application,
       certification,
       opportunity,
+      innovation,
       duration,
       page,
       project,

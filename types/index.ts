@@ -135,6 +135,15 @@ export interface OpportunityPayload {
   links?: LinkType[]
 }
 
+export interface InnovationPayload {
+  title?: string
+  description?: PortableTextBlock[]
+  overview?: PortableTextBlock[]
+  images?: Image[]
+  slug: string
+  certifications?: CertificationPayload[]
+}
+
 export interface PostPayload {
   _type: string
   _id: string

@@ -8,6 +8,8 @@ import {
   certificationBySlugQuery,
   certificationsQuery,
   homePageQuery,
+  innovationBySlugQuery,
+  innovationQuery,
   opportunitiesQuery,
   opportunityBySlugQuery,
   pagesBySlugQuery,
@@ -21,6 +23,7 @@ import { token } from '@/sanity/lib/token'
 import {
   CertificationPayload,
   HomePagePayload,
+  InnovationPayload,
   OpportunityPayload,
   PagePayload,
   PostPayload,
@@ -103,6 +106,22 @@ export function loadProjects() {
     projectsQuery,
     {},
     { next: { tags: ['project'] } },
+  )
+}
+
+export function loadInnovations() {
+  return loadQuery<InnovationPayload[]>(
+    innovationQuery,
+    {},
+    { next: { tags: ['innovation'] } },
+  )
+}
+
+export function loadInnovation(slug: string) {
+  return loadQuery<InnovationPayload | null>(
+    innovationBySlugQuery,
+    { slug },
+    { next: { tags: [`innovation:${slug}`] } },
   )
 }
 

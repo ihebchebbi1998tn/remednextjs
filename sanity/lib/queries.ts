@@ -171,6 +171,35 @@ export const opportunityBySlugQuery = groq`
   }
 `
 
+export const innovationQuery = groq`
+  *[_type == "innovation"]{
+    _id,
+    title,
+    description,
+    overview,
+    images,
+    "slug": slug.current,
+  }
+`
+
+export const innovationBySlugQuery = groq`
+  *[_type == "innovation" && slug.current == $slug][0] {
+    _id,
+    title,
+    description,
+    overview,
+    images,
+    "slug": slug.current,
+    certifications[]->{
+      _id,
+      "url": coverImage.asset->url,
+      overview,
+      title,
+      "slug": slug.current,
+    },
+  }
+`
+
 export const postBySlugQuery = groq`
   *[_type == "post" && slug.current == $slug][0] {
     _id,
