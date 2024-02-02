@@ -42,8 +42,8 @@ export function FormContact({
         title: 'We received your message',
         description: (
           <p>
-            We will get back to you as soon as possible. You can also reach out
-            to us at{' '}
+            Nous vous répondrons dans les plus brefs délais. Vous pouvez
+            également contacter nous à
             <a
               href="mailto:contact@s-reg.tn"
               className="text-blue-500 hover:underline"
@@ -55,7 +55,7 @@ export function FormContact({
       })
     } catch (error) {
       toast({
-        title: 'Something went wrong',
+        title: "Quelque chose s'est mal passé",
         description: error.message,
       })
     } finally {
@@ -73,10 +73,10 @@ export function FormContact({
     >
       <div>
         <h3 className="text-lg font-medium text-muted-foreground">
-          Contact us
+          Contactez nous
         </h3>
         <p className="text-sm text-muted-foreground">
-          We will get back to you as soon as possible.
+          Nous vous répondrons dans les plus brefs délais.
         </p>
       </div>
       <Separator />
@@ -90,9 +90,9 @@ export function FormContact({
             name="fullName"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Full name</FormLabel>
+                <FormLabel>Nom complet</FormLabel>
                 <FormControl>
-                  <Input placeholder="Enter your full name" {...field} />
+                  <Input placeholder="Entrez votre nom complet" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -105,7 +105,7 @@ export function FormContact({
               <FormItem>
                 <FormLabel>Email</FormLabel>
                 <FormControl>
-                  <Input placeholder="Enter your email" {...field} />
+                  <Input placeholder="Entrer votre email" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -116,10 +116,10 @@ export function FormContact({
             name="message"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>You message</FormLabel>
+                <FormLabel>Votre message</FormLabel>
                 <FormControl>
                   <Textarea
-                    placeholder="Enter your message here..."
+                    placeholder="Entrer votre message..."
                     className="resize"
                     {...field}
                   />
@@ -130,17 +130,14 @@ export function FormContact({
           />
 
           <div className="flex justify-end">
-            <Button
-              type="submit"
-              className="bg-green-500 hover:bg-green-600"
-            >
+            <Button type="submit" className="bg-green-500 hover:bg-green-600">
               {form.formState.isSubmitting ? (
                 <>
                   <RefreshCw className="w-4 h-4 mr-2 animate-spin" />
-                  Please wait...
+                  Chargement...
                 </>
               ) : (
-                'Send message'
+                'Envoyer message'
               )}
             </Button>
           </div>

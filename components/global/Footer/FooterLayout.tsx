@@ -19,7 +19,7 @@ export default function Footer(props: FooterProps) {
       socialNetworks={data?.socialNetworks?.fields}
       socialNetworksTitle={data?.socialNetworks?.title}
       usefulLinks={menuItems.filter((item) => item?._type !== 'home')}
-      usefulLinksTitle="Useful links"
+      usefulLinksTitle="Liens utiles"
       products={[
         {
           _type: 'menuItem',

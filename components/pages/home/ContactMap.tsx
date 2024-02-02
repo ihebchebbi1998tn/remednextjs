@@ -28,6 +28,7 @@ export function ContactMap() {
       mapboxAccessToken={
         'pk.eyJ1IjoiYXJmYSIsImEiOiJjbHJpNXZtc2QwMHA4MnZxcW5sdnRuejF2In0.XlSrHkTKsLdulThl9CHFjQ'
       }
+      scrollZoom={false}
     >
       <Marker
         latitude={LOCATIONS[0].latitude}

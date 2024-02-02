@@ -1,4 +1,4 @@
-import { LinkItem, LinkType,MenuItem } from '@/types'
+import { LinkItem, LinkType, MenuItem } from '@/types'
 
 import { Copyright } from './Copyright'
 import { FooterBrand } from './FooterBrand'
@@ -60,7 +60,7 @@ export function Footer1({
               value: item.slug,
             }))}
           /> */}
-          {/** Useful links section */}
+          {/** Liens utiles section */}
           <ListLineWithIcon
             title={usefulLinksTitle}
             items={usefulLinks.map((item) => ({
