@@ -5,6 +5,26 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import React, { ReactNode } from 'react'
 
+const mapLinkToTitle = {
+  '/': 'Accueil',
+  'a-propos': 'À propos',
+  'contact': 'Contact',
+  'innovation': 'Innovation',
+  'innovation/': 'Innovation',
+  'projects': 'Projets',
+  'projects/': 'Projets',
+  'services': 'Services',
+  'services/': 'Services',
+  'politique-de-confidentialite': 'Politique de confidentialité',
+  'mentions-legales': 'Mentions légales',
+  'recherche-et-innovations': 'Recherche et innovations',
+  'recherche-et-innovations/': 'Recherche et innovations',
+  'opportunities': 'Opportunités',
+  'opportunities/': 'Opportunités',
+  'posts': 'Articles',
+  'posts/': 'Articles',
+}
+
 type NextBreadcrumbProps = {
   homeElement: ReactNode
   separator: ReactNode
@@ -33,6 +53,8 @@ export const NextBreadcrumb = ({
         </li>
         {pathNames && pathNames.length > 0 && separator}
         {pathNames?.map((link, index) => {
+          console.log('link: ', link);
+          const title = mapLinkToTitle[link]
           let href = `/${pathNames?.slice(0, index + 1).join('/')}`
               
           let itemClasses =
@@ -43,7 +65,7 @@ export const NextBreadcrumb = ({
           return (
             <React.Fragment key={index}>
               <li className={itemClasses}>
-                {index < pathNames.length - 1 ?  <Link href={href}>{itemLink}</Link> : itemLink}
+                {index < pathNames.length - 1 ?  <Link href={href}>{title}</Link> : title}
               </li>
               {pathNames?.length !== index + 1 && separator}
             </React.Fragment>
