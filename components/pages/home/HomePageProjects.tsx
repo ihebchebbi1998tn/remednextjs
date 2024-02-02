@@ -64,7 +64,7 @@ export function HomePageProjects({
               <CardNavigation
                 title={project.title}
                 description={toPlainText(project.overview as any)}
-                buttonText="Read more"
+                buttonText="En savoir plus"
                 buttonLink={`/projects/${project.slug}`}
                 active={[0, 3].includes(i)}
                 className="max-w-sm bg-opacity-90 backdrop-blur-2px"

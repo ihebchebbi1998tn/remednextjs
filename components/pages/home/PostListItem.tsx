@@ -33,7 +33,7 @@ export function PostListItem(props: PostProps) {
         post?.overview ? toPlainText(post.overview as PortableTextBlock[]) : ''
       }
       tags={post.tags}
-      readMoreLabel={readMoreLabel ?? 'Read more'}
+      readMoreLabel={readMoreLabel ?? 'Voir détails'}
       readMoreLink={href ?? `/posts/${post.slug}`}
       width={width}
       height={height}

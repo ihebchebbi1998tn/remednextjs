@@ -34,7 +34,7 @@ export function ProjectListItem(props: ProjectProps) {
           : ''
       }
       tags={project.tags}
-      readMoreLabel={readMoreLabel ?? 'Read more'}
+      readMoreLabel={readMoreLabel ?? 'Voir détails'}
       readMoreLink={href ?? `/posts/${project.slug}`}
       width={width}
       height={height}

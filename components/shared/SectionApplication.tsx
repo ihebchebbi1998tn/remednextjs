@@ -32,9 +32,9 @@ export function SectionApplication({
           <p className="max-w-xl mx-auto mt-6 text-lg leading-8 text-gray-300">
             <CustomPortableText value={application?.description || []} />
           </p>
-          <div className="grid w-1/2 grid-cols-1 gap-4 mx-auto mt-10 text-white sm:grid-cols-2">
+          <div className="flex flex-col items-center justify-center gap-3 mt-6 text-white sm:flex-row sm:gap-6">
             {application?.ios && (
-              <Link href={application?.ios} target="_blank">
+              <Link href={application?.ios} target="_blank" className="">
                 <Button
                   variant="ghost"
                   className="mt-3 bg-transparent border border-white h-14 rounded-xl"
@@ -57,7 +57,7 @@ export function SectionApplication({
               </Link>
             )}
             {application?.android && (
-              <Link href={application?.android} target="_blank">
+              <Link href={application?.android} target="_blank" className="">
                 <Button
                   variant="ghost"
                   className="mt-3 bg-transparent border border-white h-14 rounded-xl"
@@ -81,16 +81,16 @@ export function SectionApplication({
                 </Button>
               </Link>
             )}
-            {application?.site && (
-              <Link
-                href={application?.site}
-                target="_blank"
-                className="block col-span-2 mt-3 text-center text-white underline bg-transparent"
-              >
-                {application?.site}
-              </Link>
-            )}
           </div>
+          {application?.site && (
+            <Link
+              href={application?.site}
+              target="_blank"
+              className="block col-span-2 mt-3 text-center text-white underline bg-transparent"
+            >
+              {application?.site}
+            </Link>
+          )}
           <svg
             viewBox="0 0 1024 1024"
             className="absolute left-1/2 top-1/2 -z-10 h-[64rem] w-[64rem] -translate-x-1/2 [mask-image:radial-gradient(closest-side,white,transparent)]"

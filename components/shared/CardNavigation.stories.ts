@@ -26,7 +26,7 @@ export const WithIcon: Story = {
     title: 'Products',
     description:
       'Iterative approaches to corporate strategy foster collaborative thinking to further the overall.',
-    buttonText: 'Read more',
+    buttonText: 'Voir détails',
     buttonLink: 'https://www.google.com',
     icon: Instagram,
   },
@@ -38,7 +38,7 @@ export const WithSubtitle: Story = {
     description:
       'Mauris pellentesque viverra ipsum id bibendum. Nullam id tincidunt ipsum. Integer venenatis auctor nibh id sagittis. Phasellus et tincidunt leo, eu rutrum ante iaculis porttitor bibendum.',
     subtitle: 'Take the most of what nature offers',
-    buttonText: 'Read more',
+    buttonText: 'Voir détails',
     buttonLink: 'https://www.google.com',
   },
 }
