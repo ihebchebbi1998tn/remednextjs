@@ -24,14 +24,6 @@ export function StatsBlock({
   return (
     <div className="container">
       <div className="relative">
-        <video
-          className="object-cover w-full h-full bg-gray-50 lg:absolute lg:inset-y-0 lg:left-0 lg:w-1/2"
-          autoPlay
-          loop
-          muted
-        >
-          <source src={video} type="video/mp4" />
-        </video>
         <div className="grid mx-auto max-w-7xl lg:grid-cols-2">
           <div className="px-6 pt-16 pb-24 sm:pb-32 sm:pt-20 lg:col-start-2 lg:px-8 lg:pt-32">
             <div className="max-w-2xl mx-auto lg:mr-0 lg:max-w-lg">
@@ -62,6 +54,14 @@ export function StatsBlock({
             </div>
           </div>
         </div>
+        <video
+          className="object-cover w-full h-full bg-gray-50 lg:absolute lg:inset-y-0 lg:left-0 lg:w-1/2"
+          autoPlay
+          loop
+          muted
+        >
+          <source src={video} type="video/mp4" />
+        </video>
       </div>
     </div>
   )
