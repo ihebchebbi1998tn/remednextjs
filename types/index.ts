@@ -13,6 +13,12 @@ export interface PartnerPayload {
   alt?: string
 }
 
+export interface GalleryImagePayload {
+  src?: string
+  alt?: string
+  title?: string
+}
+
 export interface MilestoneItem {
   description?: string
   duration?: {
@@ -156,6 +162,7 @@ export interface PostPayload {
   slug: string
   tags?: string[]
   title?: string
+  images?: Image[]
 }
 
 export interface SettingsPayload {

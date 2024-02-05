@@ -71,6 +71,15 @@ export default defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'images',
+      title: 'Images',
+      type: 'array',
+      of: [{ type: 'image' }],
+      options: {
+        layout: 'grid',
+      },
+    }),
+    defineField({
       name: 'tags',
       title: 'Tags',
       type: 'array',

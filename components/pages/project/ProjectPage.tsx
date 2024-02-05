@@ -9,7 +9,7 @@ import { urlForImage } from '@/sanity/lib/utils'
 import author from '@/sanity/schemas/documents/author'
 import type { ProjectPayload } from '@/types'
 
-import CertificationList from './CertificationList'
+import GalleryImage from '../../shared/GalleryImage'
 
 export interface ProjectPageProps {
   data: ProjectPayload | null
@@ -27,7 +27,7 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
     site,
     tags,
     title,
-    certifications= [],
+    certifications = [],
   } = data ?? {}
 
   return (
@@ -94,8 +94,11 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
               {description && <CustomPortableText value={description} />}
             </div>
             <hr className="my-6 border-b-2 border-gray-200" />
-            <CertificationList
-              certifications={certifications}
+            <GalleryImage
+              images={certifications.map((certification) => ({
+                src: certification.url ?? '',
+                alt: certification.title,
+              })) as any}
               title="Certifications"
             />
           </div>

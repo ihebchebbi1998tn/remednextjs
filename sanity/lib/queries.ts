@@ -205,6 +205,9 @@ export const postBySlugQuery = groq`
     _id,
     client,
     coverImage,
+    images[]{
+      "url": asset -> url
+    },
     description,
     overview,
     "slug": slug.current,

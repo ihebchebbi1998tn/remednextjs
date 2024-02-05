@@ -1,14 +1,10 @@
 import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
-import { format, parseISO } from 'date-fns'
-import { Download } from 'lucide-react'
-import Image from 'next/image'
 
 import { AppBreadcrumb } from '@/components/demos/NextBreadcrumb'
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
-import { urlForImage } from '@/sanity/lib/utils'
 import type { InnovationPayload } from '@/types'
 
-import CertificationList from '../project/CertificationList'
+import GalleryImage from '../../shared/GalleryImage'
 
 export interface InnovationPageProps {
   data: InnovationPayload | null
@@ -21,7 +17,6 @@ export function InnovationPage({
 }: InnovationPageProps) {
   // Default to an empty object to allow previews on non-existent documents
   const { title, certifications, description } = data ?? {}
-  console.log('certifications: ', certifications);
 
   return (
     <div className="py-14 sm:py-22">
@@ -89,8 +84,11 @@ export function InnovationPage({
               </p>
             </div>
             <hr className="mb-6 border-gray-200 dark:border-gray-700" />
-            <CertificationList
-              certifications={certifications ?? []}
+            <GalleryImage
+              images={certifications?.map((certification) => ({
+                src: certification?.url,
+                alt: certification?.title,
+              })) as any}
               title="Certifications"
             />
           </div>

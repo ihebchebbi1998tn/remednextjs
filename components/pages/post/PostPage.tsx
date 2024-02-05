@@ -8,6 +8,8 @@ import { CustomPortableText } from '@/components/shared/CustomPortableText'
 import { urlForImage } from '@/sanity/lib/utils'
 import type { PostPayload } from '@/types'
 
+import GalleryImage from '../../shared/GalleryImage'
+
 export interface PostPageProps {
   data: PostPayload | null
   encodeDataAttribute?: EncodeDataAttributeCallback
@@ -24,7 +26,7 @@ export function PostPage({ data, encodeDataAttribute }: PostPageProps) {
     slug,
     author,
     date,
-    _updatedAt,
+    images,
   } = data ?? {}
 
   return (
@@ -92,14 +94,14 @@ export function PostPage({ data, encodeDataAttribute }: PostPageProps) {
             <div className="pb-6 mt-4 border-b-2 border-gray-200 dark:text-gray-400">
               {description && <CustomPortableText value={description} />}
             </div>
-            {/* updated at */}
-            {date && (
-              <div className="pb-6 mt-4 dark:text-gray-400">
-                <p className="text-sm font-semibold text-gray-400">
-                  Last updated: {format(parseISO(date), 'LLLL d, yyyy')}
-                </p>
-              </div>
-            )}
+            {/* Gallerie */}
+            <GalleryImage
+              images={images?.map((image) => ({
+                src: image.url,
+                alt: image?.alt,
+              })) as any}
+              title="Certifications"
+            />
           </div>
         </div>
       </div>
