@@ -4,6 +4,7 @@ import 'yet-another-react-lightbox/plugins/thumbnails.css'
 
 import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
 import { format, parseISO } from 'date-fns'
+import { fr } from 'date-fns/locale'
 
 import { AppBreadcrumb } from '@/components/demos/NextBreadcrumb'
 import { CardOpportunity } from '@/components/shared/CardOpportunity'
@@ -19,7 +20,7 @@ export interface OpportunityListPageProps {
 export function OpportunityListPage({
   data,
   encodeDataAttribute,
-}: OpportunityListPageProps) {  
+}: OpportunityListPageProps) {
   return (
     <div className="py-14 sm:py-22">
       <div className="px-6 mx-auto max-w-7xl lg:px-8">
@@ -43,13 +44,22 @@ export function OpportunityListPage({
                   opportunity?.duration?.start
                     ? format(
                         parseISO(opportunity?.duration?.start),
-                        'MMMM yyyy',
+                        'd/LL/yyyy, HH:mm',
+                        {
+                          locale: fr,
+                        },
                       )
                     : ''
                 }
                 endDate={
                   opportunity?.duration?.end
-                    ? format(parseISO(opportunity?.duration?.end), 'MMMM yyyy')
+                    ? format(
+                        parseISO(opportunity?.duration?.end),
+                        'd/LL/yyyy, HH:mm',
+                        {
+                          locale: fr,
+                        },
+                      )
                     : ''
                 }
                 image={urlForImage(opportunity.image)?.url() ?? ''}

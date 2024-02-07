@@ -1,6 +1,7 @@
 import { toPlainText } from '@portabletext/react'
 import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
 import { format, parseISO } from 'date-fns'
+import { fr } from 'date-fns/locale'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -49,7 +50,9 @@ export function PostListPage({ data, encodeDataAttribute }: PostListPageProps) {
                     <div className="flex items-center text-xs gap-x-4">
                       {post.date && (
                         <time dateTime={post.date} className="text-gray-500">
-                          {format(parseISO(post.date), 'LLL d, yyyy')}
+                          {format(parseISO(post.date), 'd/LL/yyyy, HH:mm', {
+                            locale: fr,
+                          })}
                         </time>
                       )}
                       {post.tags?.map((tag) => (

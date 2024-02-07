@@ -1,5 +1,6 @@
 import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
 import { format, parseISO } from 'date-fns'
+import { fr } from 'date-fns/locale'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -80,7 +81,9 @@ export function PostPage({ data, encodeDataAttribute }: PostPageProps) {
                   {date && (
                     <p className="text-xs font-semibold text-gray-400">
                       {' '}
-                      {format(parseISO(date), 'LLLL d, yyyy')}
+                      {format(parseISO(date), 'd/LL/yyyy, HH:mm', {
+                        locale: fr,
+                      })}
                     </p>
                   )}
                 </div>

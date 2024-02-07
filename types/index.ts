@@ -124,6 +124,7 @@ export interface CertificationPayload {
   overview?: PortableTextBlock[]
   title?: string
   slug: string
+  coverImage?: Image
 }
 
 export interface OpportunityPayload {

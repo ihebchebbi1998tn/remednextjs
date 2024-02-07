@@ -23,6 +23,8 @@ type Story = StoryObj<typeof meta>
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Default: Story = {
   args: {
-    name: 'mail'
+    title: 'SocialNetwork',
+    url: 'https://www.example.com',
+    className: 'text-gray-500 dark:text-gray-400',
   },
 }

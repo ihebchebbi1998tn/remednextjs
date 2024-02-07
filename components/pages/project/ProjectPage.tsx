@@ -1,5 +1,6 @@
 import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
 import { format, parseISO } from 'date-fns'
+import { fr } from 'date-fns/locale'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -73,8 +74,12 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
                   </p>
                   {duration && (
                     <p className="text-sm font-semibold text-gray-200">
-                      {format(parseISO(duration.start || ''), 'MMMM yyyy')} -{' '}
-                      {format(parseISO(duration.end || ''), 'MMMM yyyy')}
+                      {format(parseISO(duration.start || ''), 'd/LL/yyyy, HH:mm', {
+                        locale: fr,
+                      })}-{' '}
+                      {format(parseISO(duration.end || ''), 'd/LL/yyyy, HH:mm', {
+                        locale: fr,
+                      })}
                     </p>
                   )}
                   {site && (

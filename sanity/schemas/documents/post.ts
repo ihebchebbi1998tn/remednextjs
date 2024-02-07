@@ -1,5 +1,6 @@
 import { DocumentIcon, ImageIcon } from '@sanity/icons'
 import { format, parseISO } from 'date-fns'
+import { fr } from 'date-fns/locale'
 import { defineArrayMember, defineField, defineType } from 'sanity'
 
 import authorType from './author'
@@ -172,7 +173,10 @@ export default defineType({
     prepare({ title, media, author, date }) {
       const subtitles = [
         author && `by ${author}`,
-        date && `on ${format(parseISO(date), 'LLL d, yyyy')}`,
+        date &&
+          `on ${format(parseISO(date), 'd/LL/yyyy, HH:mm', {
+            locale: fr,
+          })}`,
       ].filter(Boolean)
 
       return { title, media, subtitle: subtitles.join(' ') }

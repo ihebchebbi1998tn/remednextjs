@@ -1,5 +1,6 @@
 import { DocumentIcon, ImageIcon } from '@sanity/icons'
 import { format, parseISO } from 'date-fns'
+import { fr } from 'date-fns/locale'
 import { defineArrayMember, defineField, defineType } from 'sanity'
 
 export default defineType({
@@ -156,7 +157,9 @@ export default defineType({
       return {
         title,
         media,
-        subtitle: format(parseISO(date), 'MMMM dd, yyyy'),
+        subtitle: format(parseISO(date), 'd/LL/yyyy, HH:mm', {
+          locale: fr,
+        }),
       }
     },
   },
