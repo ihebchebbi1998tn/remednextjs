@@ -100,7 +100,7 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
             </div>
             <hr className="my-6 border-b-2 border-gray-200" />
             <GalleryImage
-              images={certifications.map((certification) => ({
+              images={certifications?.map((certification) => ({
                 src: certification.url ?? '',
                 alt: certification.title,
               })) as any}
