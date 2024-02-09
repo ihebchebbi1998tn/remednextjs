@@ -43,7 +43,7 @@ export function Partners({ partners }: PartnersProps) {
     <Carousel
       setApi={setApi}
       plugins={[plugin.current]}
-      className={`w-full`}
+      className={`w-full bg-white dark:bg-gray-300 py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24`}
       opts={{
         align: 'center',
         loop: true,
@@ -53,7 +53,7 @@ export function Partners({ partners }: PartnersProps) {
         {partners?.map((partner, key) => {
           return (
             <CarouselItem
-              className="h-40 md:basis-1/4 basis-1/2 sm:basis-1/3 lg:basis-1/5 xl:basis-1/6"
+              className="h-26 md:basis-1/4 basis-1/2 sm:basis-1/3 lg:basis-1/5 xl:basis-1/6"
               key={key}
             >
               <Image
