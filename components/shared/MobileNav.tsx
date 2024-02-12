@@ -33,7 +33,7 @@ export default function MobileNav(props: NavbarProps) {
     <Drawer open={isDrawerOpen} onOpenChange={setIsDrawerOpen}>
       <DrawerTrigger>
         <Button
-          className="p-2 rounded-full sm:hidden"
+          className="p-2 rounded-full md:hidden"
           aria-label="Open menu"
           variant="ghost"
           onClick={() => setIsDrawerOpen(true)}
@@ -46,8 +46,9 @@ export default function MobileNav(props: NavbarProps) {
           <DrawerClose aria-label="Close menu" />
         </DrawerHeader>
         <DrawerDescription className="container flex flex-col justify-center">
-          {menuItems.filter((item) => item?._type !== 'home').map(
-            (item, key) => {
+          {menuItems
+            .filter((item) => item?._type !== 'home')
+            .map((item, key) => {
               const href = item?._type === 'home' ? '/' : `/${item?.slug}`
               return (
                 <Link
@@ -64,8 +65,12 @@ export default function MobileNav(props: NavbarProps) {
                   {item.title}
                 </Link>
               )
-            },
-          )}
+            })}
+          <Link href="/opportunities" className="inline-block text-center">
+            <button className="px-8 py-2 mt-8 font-bold text-white transition duration-200 bg-green-500 border-2 border-transparent rounded-md hover:bg-transparent hover:text-green-500 hover:border-green-500 whitespace-nowrap">
+              {`Appel d'offre`}
+            </button>
+          </Link>
         </DrawerDescription>
         <DrawerFooter>
           <div className="flex flex-col gap-y-2">

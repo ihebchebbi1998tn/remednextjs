@@ -28,22 +28,25 @@ export default function Navbar(props: NavbarProps) {
             width={48}
             height={48}
           />
-          <span className="inline-block mr-8 text-sm font-bold md:text-md min-w-fit">
+          <span className="inline-block mr-8 text-sm font-bold md:hidden lg:inline-block md:text-md min-w-fit">
             {homeItem?.title}
           </span>
         </Link>
-        <MainNav menuItems={menuItems} />
+        <MainNav menuItems={menuItems} className="hidden md:flex" />
 
         <MobileNav data={data} />
-        <div className="items-center justify-between flex-1 hidden none sm:flex gap-x-2 md:justify-end">
+        <div className="items-center justify-between flex-1 hidden md:flex gap-x-2 md:justify-end">
+          <Link href="/opportunities" className="hidden md:block">
+            <button className="px-2 py-2 font-bold text-white transition duration-200 bg-green-500 border-2 border-transparent rounded-md lg:px-8 hover:bg-transparent hover:text-green-500 hover:border-green-500 whitespace-nowrap">
+              {`Appel d'offre`}
+            </button>
+          </Link>
           <nav className="flex items-center w-auto gap-2 md:gap-8">
-            <Link href="/opportunities">
-              <button className="px-8 py-2 font-bold text-white transition duration-200 bg-green-500 border-2 border-transparent rounded-md hover:bg-white hover:text-green-500 hover:border-green-500">
-                {`Appel d'offre`}
-              </button>
-            </Link>
-            <SocialNetworksList socialNetworks={socialNetworks?.fields} />
-            <ModeToggle className="w-8 h-8" />
+            <SocialNetworksList
+              socialNetworks={socialNetworks?.fields}
+              className="hidden md:flex"
+            />
+            <ModeToggle className="hidden w-8 h-8 md:flex" />
           </nav>
         </div>
       </div>
