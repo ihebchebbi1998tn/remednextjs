@@ -49,17 +49,17 @@ export function Footer1({
 
       {/** Main container div: holds the entire content of the footer. */}
       <div className="py-10 mx-6 text-center md:text-left">
-        <div className="grid gap-8 grid-1 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-8 grid-1 md:grid-cols-2 lg:grid-cols-4">
           {/** Brand section */}
           <FooterBrand brand={brand} slogan={slogan} logo={logo} />
           {/** Products section */}
-          {/* <ListLineWithIcon
+          <ListLineWithIcon
             title={productsTitle}
             items={products.map((item) => ({
               label: item.title,
               value: item.slug,
             }))}
-          /> */}
+          />
           {/** Liens utiles section */}
           <ListLineWithIcon
             title={usefulLinksTitle}
@@ -67,13 +67,11 @@ export function Footer1({
               label: item.title,
               value: item.slug,
             }))}
-            className="md:ml-auto"
           />
           {/** Contact section */}
           <ListLineWithIcon
             title={contactTitle}
             items={contact}
-            className="lg:ml-auto lg:mr-8"
           />
         </div>
       </div>

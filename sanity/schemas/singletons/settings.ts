@@ -52,6 +52,32 @@ export default defineType({
       ],
     }),
     defineField({
+      name: 'usefulLinks',
+      title: 'Useful Links',
+      description: 'Links displayed on the footer of your site.',
+      type: 'array',
+      of: [
+        {
+          title: 'Reference',
+          type: 'reference',
+          to: [
+            {
+              type: 'home',
+            },
+            {
+              type: 'page',
+            },
+            {
+              type: 'project',
+            },
+            {
+              type: 'internalLink',
+            },
+          ],
+        },
+      ],
+    }),
+    defineField({
       name: 'footer',
       description:
         'This is a block of text that will be displayed at the bottom of the page.',

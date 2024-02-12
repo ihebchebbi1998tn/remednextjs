@@ -257,6 +257,11 @@ export const settingsQuery = groq`
       "slug": slug.current,
       title,
     },
+    usefulLinks[]->{
+      _type,
+      "slug": slug.current,
+      title,
+    },
     socialNetworks{
       title,
       fields[]->{
