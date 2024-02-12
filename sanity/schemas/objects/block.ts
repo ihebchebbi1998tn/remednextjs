@@ -1,3 +1,4 @@
+import { getExtension } from '@sanity/asset-utils'
 import { LinkIcon } from '@sanity/icons'
 import { defineArrayMember, defineField, defineType } from 'sanity'
 
@@ -85,6 +86,14 @@ export default defineType({
       },
     }),
     defineField({
+      name: 'coverImage',
+      title: 'Cover Image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+    }),
+    defineField({
       name: 'images',
       title: 'Images',
       type: 'array',
@@ -101,13 +110,17 @@ export default defineType({
       name: 'video',
       title: 'Video',
       type: 'file',
-    }),
-    defineField({
-      name: 'coverImage',
-      title: 'Cover Image',
-      type: 'image',
-      options: {
-        hotspot: true,
+      validation: (Rule) => {
+        return Rule.custom((video) => {
+          if (!video) {
+            return true
+          }
+
+          if (video && getExtension(video as any) !== 'mp4') {
+            return 'Please upload a valid mp4 file'
+          }
+          return true
+        })
       },
     }),
     defineField({

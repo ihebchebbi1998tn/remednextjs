@@ -109,6 +109,16 @@ export const projectBySlugQuery = groq`
       title,
       "slug": slug.current,
     },
+    images[]{
+      "url": asset -> url,
+      alt,
+      caption
+    },
+    videos[]{
+      "url": asset -> url,
+      alt,
+      caption
+    },
   }
 `
 

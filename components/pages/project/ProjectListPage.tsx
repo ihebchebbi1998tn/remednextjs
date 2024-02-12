@@ -28,12 +28,12 @@ export function ProjectListPage({
           <p className="mt-2 text-lg leading-8 text-gray-600">
             Apprenez-en davantage sur nos projets et collaborations.
           </p>
-          <div className="grid max-w-2xl grid-cols-1 gap-8 mx-auto mt-16 auto-rows-fr sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+          <div className="grid max-w-2xl grid-cols-1 gap-8 mx-auto mt-8 auto-rows-fr lg:mx-0 lg:max-w-none">
             {data &&
               data.map((project) => (
                 <article
                   key={project.slug}
-                  className="relative flex flex-col justify-end px-8 pb-8 overflow-hidden bg-gray-900 isolate rounded-2xl pt-80 sm:pt-48 lg:pt-80"
+                  className="relative flex flex-col justify-end px-8 pb-8 overflow-hidden bg-gray-900 isolate pt-80 sm:pt-48 lg:pt-80"
                 >
                   <Image
                     src={urlForImage(project.coverImage)?.url() ?? ''}
@@ -43,21 +43,32 @@ export function ProjectListPage({
                     height={384}
                   />
                   <div className="absolute inset-0 -z-10 bg-gradient-to-t from-gray-900 via-gray-900/40" />
-                  <div className="absolute inset-0 -z-10 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
-
+                  <div className="absolute inset-0 -z-10 ring-1 ring-inset ring-gray-900/10" />
+                  <h3 className="mt-3 text-lg font-semibold leading-6 text-white">
+                    <a href={`projects/${project.slug}`}>
+                      <span className="absolute inset-0" />
+                      {project.title}
+                    </a>
+                  </h3>
                   <div className="flex flex-wrap items-center overflow-hidden text-sm leading-6 text-gray-300 gap-y-1">
                     {project.duration?.start && project.duration?.end && (
-                      <time dateTime={project.duration?.start} className="mr-8">
-                        {format(
-                          parseISO(project.duration?.start ?? ''),
-                          'LLL d, yyyy',
-                        )}
-                        -{' '}
-                        {format(
-                          parseISO(project.duration?.end ?? ''),
-                          'LLL d, yyyy',
-                        )}
-                      </time>
+                      <div className="flex items-center gap-x-4">
+                        <time
+                          dateTime={project.duration?.start}
+                          className="mr-8"
+                        >
+                          {format(
+                            parseISO(project.duration?.start ?? ''),
+                            'dd LLL, yyyy',
+                          )}
+                        </time>
+                        <time dateTime={project.duration?.end}>
+                          {format(
+                            parseISO(project.duration?.end ?? ''),
+                            'dd LLL, yyyy',
+                          )}
+                        </time>
+                      </div>
                     )}
                     <div className="flex items-center -ml-4 gap-x-4">
                       <svg
@@ -78,12 +89,6 @@ export function ProjectListPage({
                     </div> */}
                     </div>
                   </div>
-                  <h3 className="mt-3 text-lg font-semibold leading-6 text-white">
-                    <a href={`projects/${project.slug}`}>
-                      <span className="absolute inset-0" />
-                      {project.title}
-                    </a>
-                  </h3>
                 </article>
               ))}
           </div>

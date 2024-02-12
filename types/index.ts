@@ -102,6 +102,8 @@ export interface ProjectPayload {
   tags?: string[]
   title?: string
   certifications?: CertificationPayload[]
+  images?: Image[]
+  videos?: File[]
 }
 
 export interface ApplicationPayload {
