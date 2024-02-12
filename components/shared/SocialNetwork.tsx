@@ -18,7 +18,7 @@ export function SocialNetwork({
   return (
     <Button
       variant="link"
-      className={`${className} items-center justify-center w-6 h-6 border rounded-md group text-green-600 dark:text-green-200 hover:bg-accent hover:text-accent-foreground sm:flex border-green-500 `}
+      className={`${className} items-center justify-center w-6 h-6 border rounded-md group text-green-600 dark:text-green-200 sm:flex border-green-500 `}
     >
       <Link href={url} target="_blank" rel="noopener noreferrer">
         {Icon && (

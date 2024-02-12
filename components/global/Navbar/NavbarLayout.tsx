@@ -33,9 +33,15 @@ export default function Navbar(props: NavbarProps) {
           </span>
         </Link>
         <MainNav menuItems={menuItems} />
+
         <MobileNav data={data} />
         <div className="items-center justify-between flex-1 hidden none sm:flex gap-x-2 md:justify-end">
           <nav className="flex items-center w-auto gap-2 md:gap-8">
+            <Link href="/opportunities">
+              <button className="px-8 py-2 font-bold text-white transition duration-200 bg-green-500 border-2 border-transparent rounded-md hover:bg-white hover:text-green-500 hover:border-green-500">
+                {`Appel d'offre`}
+              </button>
+            </Link>
             <SocialNetworksList socialNetworks={socialNetworks?.fields} />
             <ModeToggle className="w-8 h-8" />
           </nav>
