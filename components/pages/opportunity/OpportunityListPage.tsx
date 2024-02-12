@@ -44,7 +44,7 @@ export function OpportunityListPage({
                   opportunity?.duration?.start
                     ? format(
                         parseISO(opportunity?.duration?.start),
-                        'd/LL/yyyy, HH:mm',
+                        'dd/LL/yyyy',
                         {
                           locale: fr,
                         },
@@ -55,7 +55,7 @@ export function OpportunityListPage({
                   opportunity?.duration?.end
                     ? format(
                         parseISO(opportunity?.duration?.end),
-                        'd/LL/yyyy, HH:mm',
+                        'dd/LL/yyyy',
                         {
                           locale: fr,
                         },

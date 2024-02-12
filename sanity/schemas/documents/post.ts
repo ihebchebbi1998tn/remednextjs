@@ -174,7 +174,7 @@ export default defineType({
       const subtitles = [
         author && `by ${author}`,
         date &&
-          `on ${format(parseISO(date), 'd/LL/yyyy, HH:mm', {
+          `on ${format(parseISO(date), 'dd/LL/yyyy', {
             locale: fr,
           })}`,
       ].filter(Boolean)

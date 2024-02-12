@@ -42,7 +42,7 @@ export function OpportunityPage({
                   {[duration?.start, duration?.end]
                     .filter(Boolean)
                     .map((date) =>
-                      format(parseISO(date as string), 'd/LL/yyyy, HH:mm', {
+                      format(parseISO(date as string), 'dd/LL/yyyy', {
                         locale: fr,
                       }),
                     )

@@ -81,7 +81,7 @@ export function PostPage({ data, encodeDataAttribute }: PostPageProps) {
                   {date && (
                     <p className="text-xs font-semibold text-gray-400">
                       {' '}
-                      {format(parseISO(date), 'd/LL/yyyy, HH:mm', {
+                      {format(parseISO(date), 'dd/LL/yyyy', {
                         locale: fr,
                       })}
                     </p>
@@ -99,10 +99,12 @@ export function PostPage({ data, encodeDataAttribute }: PostPageProps) {
             </div>
             {/* Gallerie */}
             <GalleryImage
-              images={images?.map((image) => ({
-                src: image.url,
-                alt: image?.alt,
-              })) as any}
+              images={
+                images?.map((image) => ({
+                  src: image.url,
+                  alt: image?.alt,
+                })) as any
+              }
               title="Certifications"
             />
           </div>

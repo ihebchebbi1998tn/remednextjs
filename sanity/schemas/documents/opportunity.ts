@@ -179,12 +179,14 @@ export default defineType({
     prepare({ duration, title }) {
       return {
         subtitle: [
-          duration?.start && format(parseISO(duration.start), 'd/LL/yyyy, HH:mm', {
-            locale: fr,
-          }),
-          duration?.end && format(parseISO(duration.end),   'd/LL/yyyy, HH:mm', {
-            locale: fr,
-          }),
+          duration?.start &&
+            format(parseISO(duration.start), 'dd/LL/yyyy', {
+              locale: fr,
+            }),
+          duration?.end &&
+            format(parseISO(duration.end), 'dd/LL/yyyy', {
+              locale: fr,
+            }),
         ]
           .filter(Boolean)
           .join(' - '),

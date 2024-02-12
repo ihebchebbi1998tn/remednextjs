@@ -157,7 +157,7 @@ export default defineType({
       return {
         title,
         media,
-        subtitle: format(parseISO(date), 'd/LL/yyyy, HH:mm', {
+        subtitle: format(parseISO(date), 'dd/LL/yyyy', {
           locale: fr,
         }),
       }

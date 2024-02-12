@@ -32,7 +32,7 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
     images = [],
     videos = [],
   } = data ?? {}
-  
+
   return (
     <div className="py-14 sm:py-22">
       <div className="px-6 mx-auto max-w-7xl lg:px-8">
@@ -71,26 +71,15 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
               </h1>
               <div className="flex mt-3">
                 <div>
-                  <p className="text-sm font-semibold text-gray-200">
-                    {author?.name}
-                  </p>
                   {duration && (
                     <p className="text-sm font-semibold text-gray-200">
-                      {format(
-                        parseISO(duration.start || ''),
-                        'd/LL/yyyy, HH:mm',
-                        {
-                          locale: fr,
-                        },
-                      )}
+                      {format(parseISO(duration.start || ''), 'dd/LL/yyyy', {
+                        locale: fr,
+                      })}
                       -{' '}
-                      {format(
-                        parseISO(duration.end || ''),
-                        'd/LL/yyyy, HH:mm',
-                        {
-                          locale: fr,
-                        },
-                      )}
+                      {format(parseISO(duration.end || ''), 'dd/LL/yyyy', {
+                        locale: fr,
+                      })}
                     </p>
                   )}
                   {site && (
@@ -109,46 +98,58 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
             <div className="pb-6 mt-4 dark:text-gray-400">
               {description && <CustomPortableText value={description} />}
             </div>
-            <hr className="my-6 border-b-2 border-gray-200" />
-            <GalleryImage
-              images={
-                images?.map((image) => ({
-                  src: image.url ?? '',
-                  alt: image.alt ?? '',
-                })) as any
-              }
-              title="Images"
-            />
-            <hr className="my-6 border-b-2 border-gray-200" />
-            <div className="container mt-4">
-              <h2 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-300">
-                Videos
-              </h2>
-              <div className="grid gap-4 md:grid-cols-2">
-                {videos?.map((video) => (
-                  <div
-                    key={video.url as string}
-                    className="relative w-full h-96"
-                  >
-                    <video
-                      className="absolute inset-0 w-full h-full"
-                      src={video.url as string}
-                      controls
-                    />
+            {images && (
+              <>
+                <hr className="my-6 border-b-2 border-gray-200" />
+                <GalleryImage
+                  images={
+                    images?.map((image) => ({
+                      src: image.url ?? '',
+                      alt: image.alt ?? '',
+                    })) as any
+                  }
+                  title="Images"
+                />
+              </>
+            )}
+            {videos && (
+              <>
+                <hr className="my-6 border-b-2 border-gray-200" />
+                <div className="container mt-4">
+                  <h2 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-300">
+                    Videos
+                  </h2>
+                  <div className="grid gap-4 md:grid-cols-2">
+                    {videos?.map((video) => (
+                      <div
+                        key={video.url as string}
+                        className="relative w-full h-96"
+                      >
+                        <video
+                          className="absolute inset-0 w-full h-full"
+                          src={video.url as string}
+                          controls
+                        />
+                      </div>
+                    ))}
                   </div>
-                ))}
-              </div>
-            </div>
-            <hr className="my-6 border-b-2 border-gray-200" />
-            <GalleryImage
-              images={
-                certifications?.map((certification) => ({
-                  src: certification.url ?? '',
-                  alt: certification.title,
-                })) as any
-              }
-              title="Certifications"
-            />
+                </div>
+              </>
+            )}
+            {certifications && (
+              <>
+                <hr className="my-6 border-b-2 border-gray-200" />
+                <GalleryImage
+                  images={
+                    certifications?.map((certification) => ({
+                      src: certification.url ?? '',
+                      alt: certification.title,
+                    })) as any
+                  }
+                  title="Certifications"
+                />
+              </>
+            )}
           </div>
         </div>
       </div>

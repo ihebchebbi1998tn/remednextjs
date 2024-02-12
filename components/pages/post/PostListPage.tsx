@@ -28,7 +28,7 @@ export function PostListPage({ data, encodeDataAttribute }: PostListPageProps) {
           <p className="mt-2 text-lg leading-8 text-gray-600">
             Apprenez-en davantage sur nos activités et nos dernières actualités.
           </p>
-          <div className="mt-16 space-y-20 lg:mt-20 lg:space-y-20">
+          <div className="mt-8 space-y-20 lg:space-y-20">
             {data.map((post) => {
               const coverImage = urlForImage(post.coverImage)?.url()
               return (
@@ -50,7 +50,7 @@ export function PostListPage({ data, encodeDataAttribute }: PostListPageProps) {
                     <div className="flex items-center text-xs gap-x-4">
                       {post.date && (
                         <time dateTime={post.date} className="text-gray-500">
-                          {format(parseISO(post.date), 'd/LL/yyyy, HH:mm', {
+                          {format(parseISO(post.date), 'dd/LL/yyyy', {
                             locale: fr,
                           })}
                         </time>
