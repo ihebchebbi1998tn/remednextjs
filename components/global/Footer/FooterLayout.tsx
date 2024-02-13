@@ -12,7 +12,6 @@ export default function Footer(props: FooterProps) {
   const footer = data?.footer || ([] as PortableTextBlock[])
   const menuItems = data?.menuItems || []
   const usefulLinks = data?.usefulLinks || []
-  console.log('usefulLinks: ', usefulLinks);
 
   return (
     <Footer1
