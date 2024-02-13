@@ -18,7 +18,7 @@ interface Footer1Props {
   logo?: string
   brand?: string
   slogan?: string
-  copyright?: string
+  copyright?: React.ReactNode
 }
 
 export function Footer1({

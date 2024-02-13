@@ -3,7 +3,7 @@ import { Icons } from './icons'
 
 interface SectionHeroProps {
   title?: string
-  description?: string
+  description?: React.ReactNode
   video?: string
   blocks?: {
     icon: keyof typeof Icons

@@ -1,4 +1,3 @@
-import { toPlainText } from '@portabletext/react'
 import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
 import { format, parseISO } from 'date-fns'
 import fr from 'date-fns/locale/fr'
@@ -35,7 +34,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
   const testimonials =
     sections[8]?.blocks?.map((item) => {
       return {
-        body: toPlainText(item.description || []),
+        body: <CustomPortableText value={item.description ?? []} />,
         author: {
           name: item.author?.name,
           handle: item.author?.name,
@@ -48,7 +47,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
     <div className="space-y-20">
       <SectionHero
         title={sections[0]?.title}
-        description={toPlainText(sections[0]?.description || []) || ''}
+        description={<CustomPortableText value={sections[0]?.description ?? []} />}
         blocks={
           sections[0]?.blocks
             ? sections[0]?.blocks.map(
@@ -56,7 +55,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
                   ({
                     icon: block.icon,
                     title: block.title,
-                    description: toPlainText(block.description || []) || '',
+                    description: <CustomPortableText value={block.description ?? []} />,
                   }) as any,
               )
             : []
@@ -87,7 +86,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
         showcaseProjects={sections[2]?.showcaseProjects}
         title={sections[2]?.title}
         subtitle={sections[2]?.subtitle}
-        description={toPlainText(sections[2]?.description || []) || ''}
+        description={<CustomPortableText value={sections[2]?.description ?? []} />}
         coverImage={urlForImage(sections[2]?.coverImage)?.url() ?? ''}
         width={width}
         height={height}
@@ -98,7 +97,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
         stats={
           sections[4]?.blocks?.map((item) => ({
             value: item.title,
-            name: toPlainText(item.description || []),
+            name: <CustomPortableText value={item.description ?? []} />,
             unit: item.subtitle,
           })) ?? []
         }
@@ -108,12 +107,12 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
       <StatsBlock
         title={sections[6]?.title}
         subtitle={sections[6]?.subtitle}
-        description={toPlainText(sections[6]?.description || []) || ''}
+        description={<CustomPortableText value={sections[6]?.description ?? []} />}
         video={sections[6]?.videoURL}
         stats={
           sections[6]?.blocks?.map((item) => ({
             value: item.title,
-            name: toPlainText(item.description || []),
+            name: <CustomPortableText value={item.description ?? []} />,
             unit: item.subtitle,
           })) ?? []
         }

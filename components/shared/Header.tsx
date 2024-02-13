@@ -1,5 +1,4 @@
-import { toPlainText } from '@portabletext/react'
-
+import { CustomPortableText } from './CustomPortableText'
 import { FrTextStagger } from './FrTextStagger'
 
 interface HeaderProps {
@@ -28,7 +27,9 @@ export function Header(props: HeaderProps) {
       {/* Description */}
       {description && (
         <div className="mt-4 font-serif text-xl md:text-2xl">
-          {toPlainText(description)}
+          <CustomPortableText
+            value={description ?? []}
+          />
         </div>
       )}
     </div>

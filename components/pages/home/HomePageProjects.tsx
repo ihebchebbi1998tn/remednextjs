@@ -1,15 +1,15 @@
 'use client'
 
-import { toPlainText } from '@portabletext/react'
 import { motion } from 'framer-motion'
 
 import { CardNavigation } from '@/components/shared/CardNavigation'
+import { CustomPortableText } from '@/components/shared/CustomPortableText'
 import { ShowcaseProject } from '@/types'
 
 interface HomePageProjectsProps {
   title?: string
   subtitle?: string
-  description?: string
+  description?: React.ReactNode
   coverImage?: string
   showcaseProjects?: ShowcaseProject[]
   width: number
@@ -63,7 +63,9 @@ export function HomePageProjects({
             >
               <CardNavigation
                 title={project.title}
-                description={toPlainText(project.overview as any)}
+                description={
+                  <CustomPortableText value={project.overview ?? []} />
+                }
                 buttonText="En savoir plus"
                 buttonLink={`/projects/${project.slug}`}
                 active={[0, 3].includes(i)}

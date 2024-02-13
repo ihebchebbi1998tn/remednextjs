@@ -15,7 +15,7 @@ import { TitleWithLine } from './TitleWithLine'
 interface CardNavigationProps {
   title?: string
   subtitle?: string
-  description?: string
+  description?: React.ReactNode
   buttonText?: string
   buttonLink?: string
   active?: boolean

@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 
 interface Stat {
-  name?: string
+  name?: React.ReactNode
   value?: string
   unit?: string
 }
@@ -9,7 +9,7 @@ interface Stat {
 interface StatProps {
   title?: string
   subtitle?: string
-  description?: string
+  description?: React.ReactNode
   stats: Stat[]
   video?: string
 }
@@ -39,7 +39,7 @@ export function StatsBlock({
               <dl className="grid max-w-xl grid-cols-1 gap-8 mt-16 sm:mt-20 sm:grid-cols-2 xl:mt-16">
                 {stats.map((stat) => (
                   <div
-                    key={stat.name}
+                    key={stat.name as string}
                     className="flex flex-col pl-6 border-l gap-y-3 border-gray-900/20 dark:border-gray-700"
                   >
                     <dt className="text-sm leading-6 text-gray-600">

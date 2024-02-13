@@ -3,7 +3,7 @@ import Link from 'next/link'
 interface CopyrightProps {
   className?: string
   brand?: string
-  copyright?: string
+  copyright?: React.ReactNode
 }
 
 export function Copyright({
@@ -19,7 +19,7 @@ export function Copyright({
         {brand}
       </p>
       <Link
-        className="text-green-600  dark:text-green-400 hover:text-green-500"
+        className="text-green-600 dark:text-green-400 hover:text-green-500"
         href="/"
       >
         {copyright}

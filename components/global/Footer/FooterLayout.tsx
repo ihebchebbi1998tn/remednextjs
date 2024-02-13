@@ -1,6 +1,6 @@
-import { toPlainText } from '@portabletext/react'
 import type { PortableTextBlock } from '@portabletext/types'
 
+import { CustomPortableText } from '@/components/shared/CustomPortableText'
 import { Footer1 } from '@/components/shared/Footer1'
 import type { SettingsPayload } from '@/types'
 
@@ -26,7 +26,7 @@ export default function Footer(props: FooterProps) {
       productsTitle="Menu"
       contact={data?.contacts?.fields}
       contactTitle={data?.contacts?.title}
-      copyright={toPlainText(footer)}
+      copyright={<CustomPortableText value={footer} />}
     />
   )
 }

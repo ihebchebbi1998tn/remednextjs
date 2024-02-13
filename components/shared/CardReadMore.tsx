@@ -15,7 +15,7 @@ import {
 interface CardReadMoreProps {
   image: string
   title?: string
-  description?: string
+  description?: React.ReactNode
   tags?: string[]
   readMoreLabel: string
   readMoreLink: string

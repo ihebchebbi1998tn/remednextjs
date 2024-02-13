@@ -1,4 +1,3 @@
-import { toPlainText } from '@portabletext/react'
 import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
 import { format, parseISO } from 'date-fns'
 import { fr } from 'date-fns/locale'
@@ -6,6 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import { AppBreadcrumb } from '@/components/demos/NextBreadcrumb'
+import { CustomPortableText } from '@/components/shared/CustomPortableText'
 import { urlForImage } from '@/sanity/lib/utils'
 import type { PostPayload } from '@/types'
 
@@ -72,9 +72,10 @@ export function PostListPage({ data, encodeDataAttribute }: PostListPageProps) {
                           {post.title}
                         </Link>
                       </h3>
-                      <p className="mt-5 text-sm leading-6 text-gray-600">
-                        {post?.overview ? toPlainText(post?.overview) : ''}
-                      </p>
+                      <CustomPortableText
+                        paragraphClasses="mt-5 text-sm leading-6 text-gray-600"
+                        value={post?.overview ?? []}
+                      />
                     </div>
                     <div className="flex pt-6 mt-6 border-t border-gray-900/5">
                       <div className="relative flex items-center gap-x-4">

@@ -2,7 +2,7 @@
 import { cn } from '@/lib/utils'
 
 interface Testimonial {
-  body: string
+  body: React.ReactNode
   author: {
     name?: string
     handle?: string

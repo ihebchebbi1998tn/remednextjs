@@ -1,7 +1,5 @@
-import { toPlainText } from '@portabletext/react'
-import type { PortableTextBlock } from '@portabletext/types'
-
 import { CardReadMore } from '@/components/shared/CardReadMore'
+import { CustomPortableText } from '@/components/shared/CustomPortableText'
 import { resolveHref, urlForImage } from '@/sanity/lib/utils'
 import type { ShowcaseProject } from '@/types'
 
@@ -28,11 +26,7 @@ export function ProjectListItem(props: ProjectProps) {
           .url() as string
       }
       title={project.title}
-      description={
-        project?.overview
-          ? toPlainText(project.overview as PortableTextBlock[])
-          : ''
-      }
+      description={<CustomPortableText value={project?.overview ?? []} />}
       tags={project.tags}
       readMoreLabel={readMoreLabel ?? 'Voir détails'}
       readMoreLink={href ?? `/posts/${project.slug}`}

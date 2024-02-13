@@ -1,9 +1,7 @@
-import type { PortableTextBlock } from '@portabletext/types'
-
-import type { ShowcasePost } from '@/types'
-import { resolveHref, urlForImage } from '@/sanity/lib/utils'
 import { CardReadMore } from '@/components/shared/CardReadMore'
-import { toPlainText } from '@portabletext/react'
+import { CustomPortableText } from '@/components/shared/CustomPortableText'
+import { resolveHref, urlForImage } from '@/sanity/lib/utils'
+import type { ShowcasePost } from '@/types'
 
 interface PostProps {
   post: ShowcasePost
@@ -29,9 +27,7 @@ export function PostListItem(props: PostProps) {
           .url() as string
       }
       title={post.title}
-      description={
-        post?.overview ? toPlainText(post.overview as PortableTextBlock[]) : ''
-      }
+      description={<CustomPortableText value={post?.overview ?? []} />}
       tags={post.tags}
       readMoreLabel={readMoreLabel ?? 'Voir détails'}
       readMoreLink={href ?? `/posts/${post.slug}`}
