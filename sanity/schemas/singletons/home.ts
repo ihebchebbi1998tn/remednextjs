@@ -84,6 +84,22 @@ export default defineType({
         }),
       ],
     }),
+    defineField({
+      name: 'opportunity',
+      title: 'Opportunity',
+      description:
+        'This is the opportunity that will appear on your landing page.',
+      type: 'reference',
+      to: [{ type: 'opportunity' }],
+    }),
+    defineField({
+      name: 'innovation',
+      title: 'Innovation',
+      description:
+        'This is the innovation that will appear on your landing page.',
+      type: 'reference',
+      to: [{ type: 'innovation' }],
+    }),
   ],
   preview: {
     select: {

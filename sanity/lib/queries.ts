@@ -78,6 +78,21 @@ export const homePageQuery = groq`
       "logo": logo.asset->url,
       "alt": logo.alt,
     },
+    innovation->{
+      _id,
+      title,
+      overview,
+      images,
+      "slug": slug.current,
+    },
+    opportunity->{
+      _id,
+      image,
+      duration,
+      overview,
+      title,
+      "slug": slug.current,
+    },
   }
 `
 

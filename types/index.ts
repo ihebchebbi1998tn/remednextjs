@@ -78,6 +78,8 @@ export interface HomePagePayload {
   overview?: PortableTextBlock[]
   sections?: CustomBlock[]
   partners?: PartnerPayload[]
+  opportunity?: OpportunityPayload
+  innovation?: InnovationPayload
 }
 
 export interface PagePayload {

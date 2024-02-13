@@ -1,10 +1,14 @@
 import { toPlainText } from '@portabletext/react'
 import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
+import { format, parseISO } from 'date-fns'
+import fr from 'date-fns/locale/fr'
 
 import { FormContact } from '@/components/demos/FormContact'
 import { Testimonials } from '@/components/demos/Testimonials'
 import { ProjectListItem } from '@/components/pages/home/ProjectListItem'
+import { CardOpportunity } from '@/components/shared/CardOpportunity'
 import { CarouselReadMore } from '@/components/shared/CarouselReadMore'
+import { CustomPortableText } from '@/components/shared/CustomPortableText'
 import { SectionApplication } from '@/components/shared/SectionApplication'
 import { SectionHero } from '@/components/shared/SectionHero'
 import { Stats } from '@/components/shared/Stats'
@@ -26,7 +30,7 @@ export interface HomePageProps {
 
 export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
   // Default to an empty object to allow previews on non-existent documents
-  const { sections = [], partners } = data ?? {}
+  const { sections = [], partners, opportunity, innovation } = data ?? {}
 
   const testimonials =
     sections[8]?.blocks?.map((item) => {
@@ -89,28 +93,6 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
         height={height}
       />
 
-      {/* Benefits */}
-      {/* <div className="container overflow-hidden">
-        <BlockBenefits
-          title={sections[3]?.title}
-          desc={
-            sections[3]?.description && (
-              <CustomPortableText value={sections[3]?.description} />
-            )
-          }
-          imgPos="left"
-          secondaryNode={<MasonryDemo />}
-        >
-          <div className="w-full mt-5">
-            {sections[3]?.blocks?.map((item, index) => (
-              <Bullet key={index} title={item.title} icon={item.icon}>
-                {toPlainText(item.description || [])}
-              </Bullet>
-            ))}
-          </div>
-        </BlockBenefits>
-      </div> */}
-
       {/* Stats */}
       <Stats
         stats={
@@ -143,10 +125,40 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
         application={sections[5]?.showcaseApplications?.[0]}
       />
 
-      {/* PostsDemo */}
-      {/* <PostsDemo /> */}
-      {/* Partners */}
-      
+      <div className="container">
+        <div className="flex flex-col gap-8 md:flex-row">
+          <CardOpportunity
+            title={opportunity?.title}
+            overview={
+              <CustomPortableText value={opportunity?.overview ?? []} />
+            }
+            startDate={
+              opportunity?.duration?.start
+                ? format(parseISO(opportunity?.duration?.start), 'dd/LL/yyyy', {
+                    locale: fr,
+                  })
+                : ''
+            }
+            endDate={
+              opportunity?.duration?.end
+                ? format(parseISO(opportunity?.duration?.end), 'dd/LL/yyyy', {
+                    locale: fr,
+                  })
+                : ''
+            }
+            image={urlForImage(opportunity?.image)?.url() ?? ''}
+            link={`/opportunities/${opportunity?.slug}`}
+          />
+
+          <CardOpportunity
+            title={innovation?.title}
+            overview={<CustomPortableText value={innovation?.overview ?? []} />}
+            image={urlForImage(innovation?.images?.[0])?.url() ?? ''}
+            link={`/innovation/${innovation?.slug}`}
+          />
+        </div>
+      </div>
+
       <Partners partners={partners} />
 
       {/* AccordionDemo */}
@@ -156,7 +168,6 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
           <FormContact className="w-full" />
         </div>
       </div>
-
 
       {/* Testimonials */}
       <div className="container">
