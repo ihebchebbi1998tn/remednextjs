@@ -26,7 +26,7 @@ export function PostListPage({ data, encodeDataAttribute }: PostListPageProps) {
             Blog
           </h2>
           <p className="mt-2 text-lg leading-8 text-gray-600">
-            Apprenez-en davantage sur nos activités et nos dernières actualités.
+            Learn more about our activities and our latest news.
           </p>
           <div className="mt-8 space-y-20 lg:space-y-20">
             {data.map((post) => {

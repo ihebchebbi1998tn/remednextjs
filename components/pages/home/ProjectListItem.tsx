@@ -28,7 +28,7 @@ export function ProjectListItem(props: ProjectProps) {
       title={project.title}
       description={<CustomPortableText value={project?.overview ?? []} />}
       tags={project.tags}
-      readMoreLabel={readMoreLabel ?? 'Voir détails'}
+      readMoreLabel={readMoreLabel ?? 'Read more'}
       readMoreLink={href ?? `/posts/${project.slug}`}
       width={width}
       height={height}

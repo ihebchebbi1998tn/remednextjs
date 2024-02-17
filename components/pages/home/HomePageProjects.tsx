@@ -66,7 +66,7 @@ export function HomePageProjects({
                 description={
                   <CustomPortableText value={project.overview ?? []} />
                 }
-                buttonText="En savoir plus"
+                buttonText="Learn more"
                 buttonLink={`/projects/${project.slug}`}
                 active={[0, 3].includes(i)}
                 className="max-w-sm bg-opacity-90 backdrop-blur-2px"

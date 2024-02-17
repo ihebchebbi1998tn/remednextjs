@@ -68,7 +68,7 @@ export default function MobileNav(props: NavbarProps) {
             })}
           <Link href="/opportunities" className="inline-block text-center">
             <button className="px-8 py-2 mt-8 font-bold text-white transition duration-200 bg-green-500 border-2 border-transparent rounded-md hover:bg-transparent hover:text-green-500 hover:border-green-500 whitespace-nowrap">
-              {`Appel d'offre`}
+              {`Call for tender`}
             </button>
           </Link>
         </DrawerDescription>

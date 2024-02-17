@@ -60,7 +60,7 @@ export function Footer1({
               value: item.slug,
             }))}
           />
-          {/** Liens utiles section */}
+          {/** Useful links section */}
           <ListLineWithIcon
             title={usefulLinksTitle}
             items={usefulLinks.map((item) => ({
@@ -69,10 +69,7 @@ export function Footer1({
             }))}
           />
           {/** Contact section */}
-          <ListLineWithIcon
-            title={contactTitle}
-            items={contact}
-          />
+          <ListLineWithIcon title={contactTitle} items={contact} />
         </div>
       </div>
 

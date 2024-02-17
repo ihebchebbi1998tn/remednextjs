@@ -41,7 +41,7 @@ export const Default: Story = {
       },
     ],
     socialNetworksTitle: 'Get connected with us on social networks:',
-    usefulLinksTitle: 'Liens utiles',
+    usefulLinksTitle: 'Useful links',
     usefulLinks: [
       {
         _type: 'menuItem',

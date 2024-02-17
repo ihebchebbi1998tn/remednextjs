@@ -23,10 +23,10 @@ export function ProjectListPage({
         <div className="max-w-2xl mx-auto lg:max-w-4xl">
           <AppBreadcrumb />
           <h2 className="mt-8 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl dark:text-gray-300">
-            Projets
+            Projects
           </h2>
           <p className="mt-2 text-lg leading-8 text-gray-600">
-            Apprenez-en davantage sur nos projets et collaborations.
+            Learn more about our projects and collaborations.
           </p>
           <div className="grid max-w-2xl grid-cols-1 gap-8 mx-auto mt-8 auto-rows-fr lg:mx-0 lg:max-w-none">
             {data &&

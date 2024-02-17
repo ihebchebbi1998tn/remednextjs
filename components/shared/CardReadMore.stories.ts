@@ -26,7 +26,7 @@ export const Primary: Story = {
     title: 'Title',
     description: 'Description',
     readMoreLink: '#',
-    readMoreLabel: 'Voir détails',
+    readMoreLabel: 'Read more',
     tags: ['tag1', 'tag2'],
   },
 }

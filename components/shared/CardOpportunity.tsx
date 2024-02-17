@@ -50,7 +50,7 @@ export function CardOpportunity({
       </p>
       <div className="flex flex-wrap items-center ">
         <Link href={link} className="ml-auto">
-          <Button variant="secondary">Voir détails</Button>
+          <Button variant="secondary">Read more</Button>
         </Link>
       </div>
     </div>

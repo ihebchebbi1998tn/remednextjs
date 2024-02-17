@@ -56,7 +56,7 @@ export const Page: React.FC = () => {
           >
             Storybook tutorials
           </a>
-          . Voir détails in the{' '}
+          . Read more in the{' '}
           <a
             href="https://storybook.js.org/docs"
             target="_blank"

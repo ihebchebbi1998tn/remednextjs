@@ -29,7 +29,7 @@ export function PostListItem(props: PostProps) {
       title={post.title}
       description={<CustomPortableText value={post?.overview ?? []} />}
       tags={post.tags}
-      readMoreLabel={readMoreLabel ?? 'Voir détails'}
+      readMoreLabel={readMoreLabel ?? 'Read more'}
       readMoreLink={href ?? `/posts/${post.slug}`}
       width={width}
       height={height}
