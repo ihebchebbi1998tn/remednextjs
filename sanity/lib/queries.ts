@@ -272,7 +272,7 @@ export const settingsQuery = groq`
       "slug": slug.current,
       title,
     },
-    usefulLinks[]->{
+    legal[]->{
       _type,
       "slug": slug.current,
       title,

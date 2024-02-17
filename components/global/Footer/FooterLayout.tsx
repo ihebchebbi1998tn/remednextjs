@@ -11,7 +11,7 @@ export default function Footer(props: FooterProps) {
   const { data } = props
   const footer = data?.footer || ([] as PortableTextBlock[])
   const menuItems = data?.menuItems || []
-  const usefulLinks = data?.usefulLinks || []
+  const legal = data?.legal || []
 
   return (
     <Footer1
@@ -19,8 +19,8 @@ export default function Footer(props: FooterProps) {
       slogan={data?.slogan}
       socialNetworks={data?.socialNetworks?.fields}
       socialNetworksTitle={data?.socialNetworks?.title}
-      usefulLinks={usefulLinks.filter((item) => item?._type !== 'home')}
-      usefulLinksTitle="Useful links"
+      legal={legal.filter((item) => item?._type !== 'home')}
+      legalTitle="Legal"
       products={menuItems.filter((item) => item?._type !== 'home')}
       productsTitle="Menu"
       contact={data?.contacts?.fields}

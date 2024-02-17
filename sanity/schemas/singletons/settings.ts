@@ -52,8 +52,8 @@ export default defineType({
       ],
     }),
     defineField({
-      name: 'usefulLinks',
-      title: 'Useful Links',
+      name: 'legal',
+      title: 'Legal',
       description: 'Links displayed on the footer of your site.',
       type: 'array',
       of: [

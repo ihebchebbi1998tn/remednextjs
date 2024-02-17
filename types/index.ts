@@ -175,7 +175,7 @@ export interface SettingsPayload {
   slogan?: string
   footer?: PortableTextBlock[]
   menuItems?: MenuItem[]
-  usefulLinks?: MenuItem[]
+  legal?: MenuItem[]
   socialNetworks?: {
     title?: string
     fields?: LinkType[]

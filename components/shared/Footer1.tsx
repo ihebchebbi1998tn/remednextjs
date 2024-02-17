@@ -8,8 +8,8 @@ import { SocialNetworksList } from './SocialNetworksList'
 interface Footer1Props {
   socialNetworks?: LinkType[]
   socialNetworksTitle?: string
-  usefulLinksTitle?: string
-  usefulLinks?: MenuItem[]
+  legalTitle?: string
+  legal?: MenuItem[]
   productsTitle?: string
   products?: MenuItem[]
   contactTitle?: string
@@ -24,8 +24,8 @@ interface Footer1Props {
 export function Footer1({
   socialNetworks = [],
   socialNetworksTitle,
-  usefulLinksTitle,
-  usefulLinks = [],
+  legalTitle,
+  legal = [],
   contactTitle,
   contact = [],
   productsTitle,
@@ -60,10 +60,10 @@ export function Footer1({
               value: item.slug,
             }))}
           />
-          {/** Useful links section */}
+          {/** Legal section */}
           <ListLineWithIcon
-            title={usefulLinksTitle}
-            items={usefulLinks.map((item) => ({
+            title={legalTitle}
+            items={legal.map((item) => ({
               label: item.title,
               value: item.slug,
             }))}
