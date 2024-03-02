@@ -15,6 +15,7 @@ import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 
 import { AppBreadcrumb } from '@/components/demos/NextBreadcrumb'
+import { urlForImage } from '@/sanity/lib/utils';
 import type { CertificationPayload } from '@/types'
 
 export interface CertificationListPageProps {
@@ -28,6 +29,7 @@ export function CertificationListPage({
 }: CertificationListPageProps) {
   // Default to an empty object to allow previews on non-existent documents
   const [index, setIndex] = useState(-1)
+  console.log('data: ', data);
 
   return (
     <div className="py-14 sm:py-22">
@@ -44,9 +46,9 @@ export function CertificationListPage({
             
               <PhotoAlbum
                 photos={data.map((certification) => ({
-                  src: certification.url ?? '',
+                  src: urlForImage(certification.coverImage)?.url() ?? '',
                   share: {
-                    url: certification.url ?? '',
+                    url: urlForImage(certification.coverImage)?.url() ?? '',
                     title: certification.title,
                     description: certification.overview,
                   },
@@ -62,7 +64,7 @@ export function CertificationListPage({
 
               <Lightbox
                 slides={data.map((certification) => ({
-                  src: certification.url ?? '',
+                  src: urlForImage(certification.coverImage)?.url() ?? '',
                   title: certification.title,
                   description: certification.overview,
                 }))}

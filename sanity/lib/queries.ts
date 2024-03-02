@@ -164,7 +164,12 @@ export const certificationsQuery = groq`
 export const certificationBySlugQuery = groq`
   *[_type == "certification" && slug.current == $slug][0] {
     _id,
-    coverImage,
+    coverImage {
+      asset -> {
+        _id,
+        url,
+      }
+    },
     overview,
     title,
   }
