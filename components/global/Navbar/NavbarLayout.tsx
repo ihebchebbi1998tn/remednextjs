@@ -38,7 +38,7 @@ export default function Navbar(props: NavbarProps) {
         <div className="items-center justify-between flex-1 hidden md:flex gap-x-2 md:justify-end">
           <Link href="/opportunities" className="hidden md:block">
             <button className="px-2 py-2 font-bold text-white transition duration-200 bg-green-500 border-2 border-transparent rounded-md lg:px-8 hover:bg-transparent hover:text-green-500 hover:border-green-500 whitespace-nowrap">
-              {`Call for tender`}
+              {`Opportunities`}
             </button>
           </Link>
           <nav className="flex items-center w-auto gap-2 md:gap-8">

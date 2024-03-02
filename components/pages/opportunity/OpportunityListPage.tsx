@@ -27,10 +27,10 @@ export function OpportunityListPage({
         <div className="max-w-2xl mx-auto lg:max-w-4xl">
           <AppBreadcrumb />
           <h2 className="mt-8 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl dark:text-gray-300">
-            Opportunités
+            opportunities
           </h2>
           <p className="mt-2 text-lg leading-8 text-gray-600">
-            Apprenez-en davantage sur nos opportunités.
+            Learn more about our opportunities.
           </p>
           <div className="mt-16 sm:mt-20 lg:mx-0 lg:max-w-none">
             {data.map((opportunity, i) => (
