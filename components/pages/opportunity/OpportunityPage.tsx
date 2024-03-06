@@ -59,7 +59,7 @@ export function OpportunityPage({
             <hr className="mb-6 border-gray-200 dark:border-gray-700" />
             {files?.length && (
               <h3 className="mb-4 text-xl font-semibold text-gray-600 dark:text-gray-300">
-                Pièces jointes
+                Attachments
               </h3>
             )}
             {files?.map((file, index) => {
