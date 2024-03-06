@@ -50,9 +50,9 @@ export function ContactMap() {
         <div className="text-black">
           <h3 className="text-sm font-semibold">Respect Environnement Group</h3>
           <p className="text-xs">
-            Ezzahra Plage, Lotissement Afh
+            Ezzahra Beach, Afh Subdivision
             <br />
-            Ben Arous Ezzahra, Tunisie
+            Ben Arous Ezzahra, Tunisia
           </p>
         </div>
       </Popup>
@@ -68,7 +68,7 @@ export function ContactMap() {
             Respect environnement group Tunis
           </h3>
           <p className="text-xs">
-            1ére étage, Bloc A, Résidence Essalem
+            1st floor, Block A, Essalem Residence
             <br />
             Ariana 2037, Tunisia
           </p>
