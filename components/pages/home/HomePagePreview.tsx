@@ -9,12 +9,12 @@ import { HomePagePayload } from '@/types'
 import HomePage from './HomePage'
 
 type Props = {
-  initial: QueryResponseInitial<HomePagePayload | null>
+  initial: QueryResponseInitial<HomePagePayload>
 }
 
 export default function HomePagePreview(props: Props) {
   const { initial } = props
-  const { data, encodeDataAttribute } = useQuery<HomePagePayload | null>(
+  const { data, encodeDataAttribute } = useQuery<HomePagePayload>(
     homePageQuery,
     {},
     { initial },

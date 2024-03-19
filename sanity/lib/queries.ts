@@ -175,14 +175,20 @@ export const certificationBySlugQuery = groq`
   }
 `
 
-export const opportunitiesQuery = groq`
-  *[_type == "opportunity"]{
+export const opportunitiesPageQuery = groq`
+  *[_type == "opportunities_page"][0]{
     _id,
-    image,
-    duration,
-    overview,
     title,
-    "slug": slug.current,
+    overview,
+    items[]->{
+      _id,
+      image,
+      duration,
+      overview,
+      title,
+      "slug": slug.current,
+      tags,
+    },
   }
 `
 

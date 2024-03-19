@@ -4,9 +4,7 @@ import Link from 'next/link'
 
 import PostListPage from '@/components/pages/post/PostListPage'
 import { studioUrl } from '@/sanity/lib/api'
-import { homePageQuery } from '@/sanity/lib/queries'
 import { loadPosts } from '@/sanity/loader/loadQuery'
-import { useQuery } from '@/sanity/loader/useQuery'
 
 const PostListPagePreview = dynamic(
   () => import('@/components/pages/post/PostListPagePreview'),

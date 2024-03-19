@@ -10,7 +10,7 @@ import {
   homePageQuery,
   innovationBySlugQuery,
   innovationQuery,
-  opportunitiesQuery,
+  opportunitiesPageQuery,
   opportunityBySlugQuery,
   pagesBySlugQuery,
   postBySlugQuery,
@@ -24,6 +24,7 @@ import {
   CertificationPayload,
   HomePagePayload,
   InnovationPayload,
+  OpportunitiesPayload,
   OpportunityPayload,
   PagePayload,
   PostPayload,
@@ -86,7 +87,7 @@ export function loadSettings() {
 }
 
 export function loadHomePage() {
-  return loadQuery<HomePagePayload | null>(
+  return loadQuery<HomePagePayload>(
     homePageQuery,
     {},
     { next: { tags: ['home', 'project'] } },
@@ -134,10 +135,10 @@ export function loadCertifications() {
 }
 
 export function loadOpportunities() {
-  return loadQuery<OpportunityPayload[]>(
-    opportunitiesQuery,
+  return loadQuery<OpportunitiesPayload>(
+    opportunitiesPageQuery,
     {},
-    { next: { tags: ['opportunity'] } },
+    { next: { tags: ['opportunities'] } },
   )
 }
 
@@ -166,11 +167,7 @@ export function loadPost(slug: string) {
 }
 
 export function loadPosts() {
-  return loadQuery<PostPayload[]>(
-    postsQuery,
-    {},
-    { next: { tags: ['post'] } },
-  )
+  return loadQuery<PostPayload[]>(postsQuery, {}, { next: { tags: ['post'] } })
 }
 
 export function loadPage(slug: string) {

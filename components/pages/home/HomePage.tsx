@@ -21,7 +21,7 @@ const width = 550
 const height = 280
 
 export interface HomePageProps {
-  data: HomePagePayload | null
+  data: HomePagePayload
   encodeDataAttribute?: EncodeDataAttributeCallback
 }
 

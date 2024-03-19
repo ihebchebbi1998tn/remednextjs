@@ -20,8 +20,8 @@ export default async function IndexRoute() {
   if (!initial.data) {
     return (
       <div className="text-center">
-        You don&rsquo;t have a certification yet,{' '}
-        <Link href={`${studioUrl}/desk/certification`} className="underline">
+        You don&rsquo;t have an opportunity yet,{' '}
+        <Link href={`${studioUrl}/desk/opportunities`} className="underline">
           create one now
         </Link>
         !

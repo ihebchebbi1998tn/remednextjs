@@ -146,6 +146,12 @@ export interface OpportunityPayload {
   links?: LinkType[]
 }
 
+export interface OpportunitiesPayload {
+  title?: string
+  overview?: PortableTextBlock[]
+  items: OpportunityPayload[]
+}
+
 export interface InnovationPayload {
   title?: string
   description?: PortableTextBlock[]
