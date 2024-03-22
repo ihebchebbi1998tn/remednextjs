@@ -23,6 +23,8 @@ const mapLinkToTitle = {
   'opportunities/': 'opportunities',
   posts: 'Articles',
   'posts/': 'Articles',
+  'rimac-sa': 'Rimac SA',
+  'rimac-sa/': 'Rimac SA',
 }
 
 type NextBreadcrumbProps = {
