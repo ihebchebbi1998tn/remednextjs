@@ -1,9 +1,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
+import { PopoverFontSize } from '@/components/shared/ButtonFontSize'
 import MobileNav from '@/components/shared/MobileNav'
-import { ModeToggle } from '@/components/shared/mode-toggle'
-import { SocialNetworksList } from '@/components/shared/SocialNetworksList'
 import type { SettingsPayload } from '@/types'
 
 import { MainNav } from './main-nav'
@@ -41,12 +40,8 @@ export default function Navbar(props: NavbarProps) {
               {`Opportunities`}
             </button>
           </Link>
-          <nav className="flex items-center w-auto gap-2 md:gap-8">
-            <SocialNetworksList
-              socialNetworks={socialNetworks?.fields}
-              className="hidden md:flex"
-            />
-            <ModeToggle className="hidden w-8 h-8 md:flex" />
+          <nav className="flex items-center w-auto gap-1 md:gap-2">
+            <PopoverFontSize socialNetworks={socialNetworks} />
           </nav>
         </div>
       </div>

@@ -15,7 +15,7 @@ export function SocialNetworksList({
 }: SocialNetworksListProps) {
   return (
     <div
-      className={`flex items-center justify-center p-6 lg:justify-between ${className} `}
+      className={`flex items-center justify-center p-2 lg:justify-between ${className} `}
     >
       {title && (
         <div className="hidden mr-12 lg:block">
