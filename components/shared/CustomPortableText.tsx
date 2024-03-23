@@ -5,6 +5,8 @@ import { Image } from 'sanity'
 import ImageBox from '@/components/shared/ImageBox'
 import { TimelineSection } from '@/components/shared/TimelineSection'
 
+import { VideoPlayer } from './VideoPlayer'
+
 export function CustomPortableText({
   paragraphClasses,
   value,
@@ -55,6 +57,10 @@ export function CustomPortableText({
       timeline: ({ value }) => {
         const { items } = value || {}
         return <TimelineSection timelines={items} />
+      },
+      videoType: ({ value }) => {
+        const { url } = value || {}
+        return <VideoPlayer url={url} />
       },
     },
   }

@@ -111,27 +111,7 @@ export default defineType({
     defineField({
       name: 'description',
       title: 'Project Description',
-      type: 'array',
-      of: [
-        defineArrayMember({
-          type: 'block',
-          lists: [],
-          styles: [],
-          marks: {
-            annotations: [],
-            decorators: [
-              {
-                title: 'Italic',
-                value: 'em',
-              },
-              {
-                title: 'Strong',
-                value: 'strong',
-              },
-            ],
-          },
-        }),
-      ],
+      type: 'blockContent',
       validation: (rule) => rule.required(),
     }),
   ],

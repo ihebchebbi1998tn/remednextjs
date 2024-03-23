@@ -28,7 +28,7 @@ export default defineType({
           type: 'string',
           title: 'Alt text',
           description:
-            'Alternative text for screenreaders. Falls back on caption if not set',
+            'Alternative text for screen readers. Falls back on caption if not set',
         }),
       ],
       preview: {

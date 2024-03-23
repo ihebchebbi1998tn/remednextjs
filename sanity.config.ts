@@ -21,12 +21,14 @@ import partner from '@/sanity/schemas/documents/partner'
 import post from '@/sanity/schemas/documents/post'
 import project from '@/sanity/schemas/documents/project'
 import block from '@/sanity/schemas/objects/block'
+import { blockContentType } from '@/sanity/schemas/objects/blockContent'
 import contact from '@/sanity/schemas/objects/contact'
 import duration from '@/sanity/schemas/objects/duration'
 import internalLink from '@/sanity/schemas/objects/internalLink'
 import milestone from '@/sanity/schemas/objects/milestone'
 import socialNetwork from '@/sanity/schemas/objects/socialNetwork'
 import timeline from '@/sanity/schemas/objects/timeline'
+import { videoType } from '@/sanity/schemas/objects/videoType'
 import home from '@/sanity/schemas/singletons/home'
 import opportunities from '@/sanity/schemas/singletons/opportunities'
 import settings from '@/sanity/schemas/singletons/settings'
@@ -62,6 +64,8 @@ export default defineConfig({
       partner,
       // Objects
       block,
+      blockContentType,
+      videoType,
       contact,
       milestone,
       timeline,
