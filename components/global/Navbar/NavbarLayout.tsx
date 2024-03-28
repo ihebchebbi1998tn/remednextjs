@@ -1,8 +1,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { PopoverFontSize } from '@/components/shared/ButtonFontSize'
-import MobileNav from '@/components/shared/MobileNav'
+import { MobileNav } from '@/components/shared/MobileNav'
+import { PopoverSettings } from '@/components/shared/PopoverSettings'
 import type { SettingsPayload } from '@/types'
 
 import { MainNav } from './main-nav'
@@ -41,7 +41,7 @@ export default function Navbar(props: NavbarProps) {
             </button>
           </Link>
           <nav className="flex items-center w-auto gap-1 md:gap-2">
-            <PopoverFontSize socialNetworks={socialNetworks} />
+            <PopoverSettings socialNetworks={socialNetworks} />
           </nav>
         </div>
       </div>

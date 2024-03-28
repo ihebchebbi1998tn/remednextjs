@@ -19,10 +19,12 @@ import {
 import { cn } from '@/lib/utils'
 import type { SettingsPayload } from '@/types'
 
+import { PopoverSettings } from './PopoverSettings'
+
 interface NavbarProps {
   data: SettingsPayload
 }
-export default function MobileNav(props: NavbarProps) {
+export function MobileNav(props: NavbarProps) {
   const { data } = props
   const pathname = usePathname()
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
@@ -46,6 +48,7 @@ export default function MobileNav(props: NavbarProps) {
           <DrawerClose aria-label="Close menu" />
         </DrawerHeader>
         <DrawerDescription className="container flex flex-col justify-center">
+          <PopoverSettings />
           {menuItems
             .filter((item) => item?._type !== 'home')
             .map((item, key) => {
