@@ -2,11 +2,10 @@ import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
 
 import { FormContact } from '@/components/demos/FormContact'
 import { Testimonials } from '@/components/demos/Testimonials'
-import { ProjectListItem } from '@/components/pages/home/ProjectListItem'
-import { CarouselReadMore } from '@/components/shared/CarouselReadMore'
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
 import { SectionApplication } from '@/components/shared/SectionApplication'
 import { SectionHero } from '@/components/shared/SectionHero'
+import { ShowcasePosts } from '@/components/shared/ShowcasePosts'
 import { Stats } from '@/components/shared/Stats'
 import { StatsBlock } from '@/components/shared/StatsBlock'
 import { urlForImage } from '@/sanity/lib/utils'
@@ -45,7 +44,9 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
     <div className="space-y-20">
       <SectionHero
         title={sections[0]?.title}
-        description={<CustomPortableText value={sections[0]?.description ?? []} />}
+        description={
+          <CustomPortableText value={sections[0]?.description ?? []} />
+        }
         blocks={
           sections[0]?.blocks
             ? sections[0]?.blocks.map(
@@ -53,7 +54,9 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
                   ({
                     icon: block.icon,
                     title: block.title,
-                    description: <CustomPortableText value={block.description ?? []} />,
+                    description: (
+                      <CustomPortableText value={block.description ?? []} />
+                    ),
                   }) as any,
               )
             : []
@@ -62,34 +65,29 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
       />
 
       {/* Showcase posts */}
-      {sections[1] && (
-        <CarouselReadMore title={sections[1]?.title}>
-          {sections[1]?.showcasePosts?.map((post, key) => {
-            return (
-              <ProjectListItem
-                project={post}
-                odd={key % 2}
-                width={width}
-                height={height}
-                key={key}
-                className="h-full max-w-xs"
-              />
-            )
-          })}
-        </CarouselReadMore>
-      )}
+      <ShowcasePosts
+        title={sections[1]?.title}
+        blocks={sections[1]?.showcasePosts?.map((post, key) => {
+          return {
+            coverImage: urlForImage(post.coverImage)?.url() ?? '',
+            title: post.title,
+            description: <CustomPortableText value={post?.overview ?? []} />,
+          }
+        })}
+      />
 
       {/* Showcase projects */}
       <HomePageProjects
         showcaseProjects={sections[2]?.showcaseProjects}
         title={sections[2]?.title}
         subtitle={sections[2]?.subtitle}
-        description={<CustomPortableText value={sections[2]?.description ?? []} />}
+        description={
+          <CustomPortableText value={sections[2]?.description ?? []} />
+        }
         coverImage={urlForImage(sections[2]?.coverImage)?.url() ?? ''}
         width={width}
         height={height}
       />
-
       {/* Stats */}
       <Stats
         stats={
@@ -100,12 +98,13 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
           })) ?? []
         }
       />
-
       {/* Route expérimentale */}
       <StatsBlock
         title={sections[6]?.title}
         subtitle={sections[6]?.subtitle}
-        description={<CustomPortableText value={sections[6]?.description ?? []} />}
+        description={
+          <CustomPortableText value={sections[6]?.description ?? []} />
+        }
         video={sections[6]?.videoURL}
         stats={
           sections[6]?.blocks?.map((item) => ({
@@ -115,17 +114,13 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
           })) ?? []
         }
       />
-
       {/* Boost */}
       <SectionApplication
         title={sections[5]?.title}
         application={sections[5]?.showcaseApplications?.[0]}
       />
-
       <HomePageShowcases data={data} />
-
       <Partners partners={partners} />
-
       {/* AccordionDemo */}
       <div className="container">
         <div className="flex flex-col justify-between gap-8 md:flex-row">
@@ -133,7 +128,6 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
           <FormContact className="w-full" />
         </div>
       </div>
-
       {/* Testimonials */}
       <div className="container">
         <Testimonials
@@ -146,7 +140,6 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
           featuredTestimonial={testimonials[0]}
         />
       </div>
-
       <div className="relative w-full"></div>
     </div>
   )
