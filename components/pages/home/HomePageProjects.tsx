@@ -43,7 +43,7 @@ export function HomePageProjects({
           className="bg-transparent shadow-none md:w-1/2"
         />
 
-        <div className="grid grid-cols-1 gap-1 md:grid-cols-2">
+        <div className="grid grid-cols-1 gap-2 md:gap-4 md:grid-cols-2">
           {showcaseProjects?.map((project, i) => (
             <motion.div
               initial={{

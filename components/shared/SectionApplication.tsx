@@ -85,7 +85,7 @@ export function SectionApplication({
             <Link
               href={application?.site}
               target="_blank"
-              className="block col-span-2 mt-3 text-center text-white underline bg-transparent"
+              className="block col-span-2 mt-12 text-sm text-center text-white underline bg-transparent"
             >
               {application?.site}
             </Link>

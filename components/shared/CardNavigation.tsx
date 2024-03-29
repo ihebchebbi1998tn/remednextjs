@@ -44,7 +44,7 @@ export function CardNavigation({
   const Icon = icon
   return (
     <Card
-      className={`flex md:flex-col border-none rounded-none  ${
+      className={`flex md:flex-col border-none rounded-none ${
         active ? 'bg-green-500' : 'bg-white'
       } ${className}`}
     >
@@ -57,17 +57,17 @@ export function CardNavigation({
         </CardHeader>
       )}
 
-      <CardContent className="pb-3 md:p-6">
+      <CardContent className="pb-3">
         {subtitle && (
           <TitleWithLine
             text={subtitle}
             active={active}
-            className={`${subtitleClassName} pb-3`}
+            className={`${subtitleClassName}`}
           />
         )}
         {title && (
           <CardTitle
-            className={`pb-3 ${titleClassName} ${
+            className={`py-3 ${titleClassName} ${
               active ? 'text-white' : 'text-green-500'
             }`}
           >
