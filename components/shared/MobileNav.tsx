@@ -19,7 +19,7 @@ import {
 import { cn } from '@/lib/utils'
 import type { SettingsPayload } from '@/types'
 
-import { PopoverSettings } from './PopoverSettings'
+import { FontResizer } from './FontResizer'
 
 interface NavbarProps {
   data: SettingsPayload
@@ -48,7 +48,6 @@ export function MobileNav(props: NavbarProps) {
           <DrawerClose aria-label="Close menu" />
         </DrawerHeader>
         <DrawerDescription className="container flex flex-col justify-center">
-          <PopoverSettings />
           {menuItems
             .filter((item) => item?._type !== 'home')
             .map((item, key) => {
@@ -76,9 +75,12 @@ export function MobileNav(props: NavbarProps) {
           </Link>
         </DrawerDescription>
         <DrawerFooter>
-          <div className="flex flex-col gap-y-2">
+          <div className="flex flex-col gap-y-4">
             <SocialNetworksList socialNetworks={socialNetworks} />
-            <ModeToggle className="self-start" />
+            <div className="flex justify-between shrink">
+              <FontResizer />
+              <ModeToggle />
+            </div>
           </div>
         </DrawerFooter>
       </DrawerContent>
