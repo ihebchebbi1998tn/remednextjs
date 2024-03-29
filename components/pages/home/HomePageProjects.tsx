@@ -1,9 +1,11 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 
 import { CardNavigation } from '@/components/shared/CardNavigation'
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
+import { AspectRatio } from '@/components/ui/aspect-ratio'
 import { ShowcaseProject } from '@/types'
 
 interface HomePageProjectsProps {
@@ -27,11 +29,11 @@ export function HomePageProjects({
 }: HomePageProjectsProps) {
   return (
     <div
-      className={`w-full bg-reg-dark md:bg-center`}
-      style={{
-        backgroundImage: `url(${coverImage})`,
-      }}
+      className={`w-full bg-reg-dark md:bg-center relative py-8 overflow-hidden bg-gray-900 isolate sm:py-32`}
     >
+      <div className="absolute inset-0 object-cover object-right w-full h-full -z-10 md:object-center filter brightness-50">
+        <Image fill className="object-cover" src={coverImage || ''} alt="projects showcase cover" />
+      </div>
       <div className="container flex flex-col items-center justify-center gap-5 py-8 md:flex-row">
         <CardNavigation
           title={title}
