@@ -45,7 +45,7 @@ export function GalleryImage({
   return (
     <div className="container mt-4">
       {title && (
-        <h3 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-300">
+        <h3 className="mb-4 text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-300">
           {title}
         </h3>
       )}

@@ -97,17 +97,17 @@ export function PostPage({ data, encodeDataAttribute }: PostPageProps) {
             <div className="pb-6 mt-4 border-b-2 border-gray-200 dark:text-gray-400">
               {description && <CustomPortableText value={description} />}
             </div>
-            {/* Gallerie */}
-            <GalleryImage
-              images={
-                images?.map((image) => ({
-                  src: image.url,
-                  alt: image?.alt,
-                })) as any
-              }
-              title="Photos"
-            />
           </div>
+          {/* Galleries */}
+          <GalleryImage
+            images={
+              images?.map((image) => ({
+                src: image.url,
+                alt: image?.alt,
+              })) as any
+            }
+            title="Photos"
+          />
         </div>
       </div>
     </div>
