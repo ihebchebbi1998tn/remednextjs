@@ -3,6 +3,7 @@ import {
   Home,
   Instagram,
   LifeBuoyIcon,
+  Linkedin,
   LucideProps,
   Mail,
   MapPin,
@@ -13,7 +14,6 @@ import {
   Recycle,
   Twitter,
   Youtube,
-  Linkedin,
 } from 'lucide-react'
 
 export const Icons = {
@@ -51,8 +51,8 @@ export const Icons = {
       fill="none"
       height="24"
       stroke="currentColor"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinecap="round"
+      strokeLinejoin="round"
       viewBox="0 0 24 24"
       width="24"
       xmlns="http://www.w3.org/2000/svg"
