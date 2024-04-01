@@ -16,7 +16,7 @@ export function LineWithIcon({
   iconClassName = 'text-green-50',
   className = '',
 }: LineWithIconProps) {
-  const externalLink = link?.startsWith('http')
+  const externalLink = link?.startsWith('http') || link?.startsWith('mailto') || link?.startsWith('tel')
 
   return (
     <p

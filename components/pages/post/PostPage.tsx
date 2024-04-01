@@ -105,7 +105,7 @@ export function PostPage({ data, encodeDataAttribute }: PostPageProps) {
                   alt: image?.alt,
                 })) as any
               }
-              title="Certifications"
+              title="Photos"
             />
           </div>
         </div>
