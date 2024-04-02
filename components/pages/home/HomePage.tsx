@@ -69,6 +69,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
         title={sections[1]?.title}
         blocks={sections[1]?.showcasePosts?.map((post, key) => {
           return {
+            slug: post.slug ?? '',
             coverImage: urlForImage(post.coverImage)?.url() ?? '',
             title: post.title,
             description: <CustomPortableText value={post?.overview ?? []} />,
