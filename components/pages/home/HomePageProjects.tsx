@@ -1,11 +1,8 @@
-'use client'
-
-import { motion } from 'framer-motion'
 import Image from 'next/image'
 
 import { CardNavigation } from '@/components/shared/CardNavigation'
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
-import { AspectRatio } from '@/components/ui/aspect-ratio'
+import { MotionDiv } from '@/components/shared/MotionDiv'
 import { ShowcaseProject } from '@/types'
 
 interface HomePageProjectsProps {
@@ -47,7 +44,7 @@ export function HomePageProjects({
 
         <div className="grid grid-cols-1 gap-2 md:gap-4 md:grid-cols-2">
           {showcaseProjects?.map((project, i) => (
-            <motion.div
+            <MotionDiv
               initial={{
                 opacity: 0,
                 // if odd index card,slide from right instead of left
@@ -75,7 +72,7 @@ export function HomePageProjects({
                 titleClassName="text-4xl font-bold"
                 subtitleClassName="text-lg font-medium"
               />
-            </motion.div>
+            </MotionDiv>
           ))}
         </div>
       </div>

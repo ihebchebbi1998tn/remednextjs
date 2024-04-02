@@ -1,11 +1,9 @@
-'use client'
-
 import { format, parseISO } from 'date-fns'
 import fr from 'date-fns/locale/fr'
-import { motion } from 'framer-motion'
 
 import { CardOpportunity } from '@/components/shared/CardOpportunity'
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
+import { MotionDiv } from '@/components/shared/MotionDiv'
 import { urlForImage } from '@/sanity/lib/utils'
 import type { HomePagePayload } from '@/types'
 
@@ -20,7 +18,7 @@ export function HomePageShowcases({ data }: HomePageProps) {
   return (
     <div className="container">
       <div className="flex flex-col gap-8 md:flex-row">
-        <motion.div
+        <MotionDiv
           initial={{
             opacity: 0,
             y: 50,
@@ -57,8 +55,8 @@ export function HomePageShowcases({ data }: HomePageProps) {
             image={urlForImage(opportunity?.image)?.url() ?? ''}
             link={`/opportunities/${opportunity?.slug}`}
           />
-        </motion.div>
-        <motion.div
+        </MotionDiv>
+        <MotionDiv
           initial={{
             opacity: 0,
             y: 50,
@@ -79,7 +77,7 @@ export function HomePageShowcases({ data }: HomePageProps) {
             image={urlForImage(innovation?.images?.[0])?.url() ?? ''}
             link={`/innovation/${innovation?.slug}`}
           />
-        </motion.div>
+        </MotionDiv>
       </div>
     </div>
   )

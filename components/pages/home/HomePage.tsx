@@ -15,6 +15,8 @@ import ContactMap from './ContactMap'
 import { HomePageProjects } from './HomePageProjects'
 import HomePageShowcases from './HomePageShowcases'
 import Partners from './Partners'
+import { Suspense } from 'react'
+import { Skeleton } from '@/components/ui/skeleton'
 
 const width = 550
 const height = 280
@@ -125,8 +127,17 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
       {/* AccordionDemo */}
       <div className="container">
         <div className="flex flex-col justify-between gap-8 md:flex-row">
-          <ContactMap />
-          <FormContact className="w-full" />
+          <Suspense
+            fallback={
+              <>
+                <Skeleton className="h-4 sm:min-w-[340px] md:min-w-[400px] lg:min-w-[500px]" />
+                <Skeleton className="h-4 sm:min-w-[340px] md:min-w-[400px] lg:min-w-[500px]" />
+              </>
+            }
+          >
+            <ContactMap />
+            <FormContact className="w-full" />
+          </Suspense>
         </div>
       </div>
       {/* Testimonials */}
