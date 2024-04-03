@@ -1,3 +1,4 @@
+import { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import { draftMode } from 'next/headers'
 import Link from 'next/link'
@@ -5,6 +6,15 @@ import Link from 'next/link'
 import OpportunityListPage from '@/components/pages/opportunity/OpportunityListPage'
 import { studioUrl } from '@/sanity/lib/api'
 import { loadOpportunities } from '@/sanity/loader/loadQuery'
+
+export async function generateMetadata(
+
+): Promise<Metadata> {
+  return {
+    title: 'Opportunities',
+    description: 'This is where you can view all opportunities from Respect Environment Group.',
+  }
+}
 
 const OpportunityListPagePreview = dynamic(
   () => import('@/components/pages/opportunity/OpportunityListPagePreview'),
