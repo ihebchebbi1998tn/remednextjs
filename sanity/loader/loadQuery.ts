@@ -82,7 +82,7 @@ export function loadSettings() {
   return loadQuery<SettingsPayload>(
     settingsQuery,
     {},
-    { next: { tags: ['settings', 'home', 'page', 'project'] } },
+    { next: { tags: ['settings'] } },
   )
 }
 
@@ -90,7 +90,7 @@ export function loadHomePage() {
   return loadQuery<HomePagePayload>(
     homePageQuery,
     {},
-    { next: { tags: ['home', 'project'] } },
+    { next: { tags: ['home'] } },
   )
 }
 
@@ -138,7 +138,7 @@ export function loadOpportunities() {
   return loadQuery<OpportunitiesPayload>(
     opportunitiesPageQuery,
     {},
-    { next: { tags: ['opportunities'] } },
+    { next: { tags: ['opportunity'] } },
   )
 }
 
@@ -162,7 +162,7 @@ export function loadPost(slug: string) {
   return loadQuery<PostPayload | null>(
     postBySlugQuery,
     { slug },
-    { next: { tags: [`project:${slug}`] } },
+    { next: { tags: [`post:${slug}`] } },
   )
 }
 
