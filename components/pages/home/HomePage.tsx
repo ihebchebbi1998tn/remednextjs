@@ -1,4 +1,5 @@
 import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
+import { Suspense } from 'react'
 
 import { FormContact } from '@/components/demos/FormContact'
 import { Testimonials } from '@/components/demos/Testimonials'
@@ -8,6 +9,7 @@ import { SectionHero } from '@/components/shared/SectionHero'
 import { ShowcasePosts } from '@/components/shared/ShowcasePosts'
 import { Stats } from '@/components/shared/Stats'
 import { StatsBlock } from '@/components/shared/StatsBlock'
+import { Skeleton } from '@/components/ui/skeleton'
 import { urlForImage } from '@/sanity/lib/utils'
 import type { HomePagePayload } from '@/types'
 
@@ -15,8 +17,6 @@ import ContactMap from './ContactMap'
 import { HomePageProjects } from './HomePageProjects'
 import HomePageShowcases from './HomePageShowcases'
 import Partners from './Partners'
-import { Suspense } from 'react'
-import { Skeleton } from '@/components/ui/skeleton'
 
 const width = 550
 const height = 280

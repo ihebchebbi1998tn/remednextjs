@@ -1,4 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
+import { Suspense } from 'react'
+
+import { Skeleton } from '@/components/ui/skeleton'
+
 import { Icons } from './icons'
 
 interface SectionHeroProps {
@@ -20,14 +24,20 @@ export function SectionHero({
 }: SectionHeroProps) {
   return (
     <div className="relative py-8 overflow-hidden bg-gray-900 isolate sm:py-32">
-      <video
-        autoPlay
-        loop
-        muted
-        className="absolute inset-0 object-cover object-right w-full h-full -z-10 md:object-center filter brightness-50"
+      <Suspense
+        fallback={
+          <Skeleton className="absolute inset-0 object-cover object-right w-full h-full -z-10 md:object-center " />
+        }
       >
-        <source src={video} type="video/mp4" />
-      </video>
+        <video
+          autoPlay
+          loop
+          muted
+          className="absolute inset-0 object-cover object-right w-full h-full -z-10 md:object-center filter brightness-50"
+        >
+          <source src={video} type="video/mp4" />
+        </video>
+      </Suspense>
       <div className="px-6 mx-auto max-w-7xl lg:px-8">
         <div className="max-w-2xl mx-auto lg:mx-0">
           <h2 className="text-4xl font-bold tracking-tight text-white lg:text-6xl md:text-5xl">
