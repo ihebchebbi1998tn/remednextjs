@@ -7,15 +7,6 @@ import PostListPage from '@/components/pages/post/PostListPage'
 import { studioUrl } from '@/sanity/lib/api'
 import { loadPosts } from '@/sanity/loader/loadQuery'
 
-export async function generateMetadata(
-  pathname: string,
-): Promise<Metadata>{
-  return {
-    title: 'News and updates',
-    description: 'This is where you can view all the news and updates from Respect Environment Group.',
-  }
-}
-
 const PostListPagePreview = dynamic(
   () => import('@/components/pages/post/PostListPagePreview'),
 )

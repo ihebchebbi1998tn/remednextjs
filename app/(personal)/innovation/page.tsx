@@ -7,15 +7,6 @@ import InnovationListPage from '@/components/pages/innovation/InnovationListPage
 import { studioUrl } from '@/sanity/lib/api'
 import { loadInnovations } from '@/sanity/loader/loadQuery'
 
-export async function generateMetadata(
-  pathname: string,
-): Promise<Metadata> {
-  return {
-    title: 'Innovations',
-    description: 'This is where you can view all innovations from Respect Environment Group.',
-  }
-}
-
 const InnovationListPagePreview = dynamic(
   () => import('@/components/pages/innovation/InnovationListPagePreview'),
 )

@@ -7,15 +7,6 @@ import CertificationListPage from '@/components/pages/certification/Certificatio
 import { studioUrl } from '@/sanity/lib/api'
 import { loadCertifications } from '@/sanity/loader/loadQuery'
 
-export async function generateMetadata(
-  pathname: string,
-): Promise<Metadata> {
-  return {
-    title: 'Certifications',
-    description: 'This is where you can view all certifications from Respect Environment Group.',
-  }
-}
-
 const CertificationListPagePreview = dynamic(
   () => import('@/components/pages/certification/CertificationListPagePreview'),
 )

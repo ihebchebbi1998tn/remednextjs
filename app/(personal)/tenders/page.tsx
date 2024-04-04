@@ -7,15 +7,6 @@ import OpportunityListPage from '@/components/pages/opportunity/OpportunityListP
 import { studioUrl } from '@/sanity/lib/api'
 import { loadOpportunities } from '@/sanity/loader/loadQuery'
 
-export async function generateMetadata(
-
-): Promise<Metadata> {
-  return {
-    title: 'Opportunities',
-    description: 'This is where you can view all opportunities from Respect Environment Group.',
-  }
-}
-
 const OpportunityListPagePreview = dynamic(
   () => import('@/components/pages/opportunity/OpportunityListPagePreview'),
 )
