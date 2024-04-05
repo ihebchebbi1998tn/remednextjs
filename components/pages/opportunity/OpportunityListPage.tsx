@@ -61,7 +61,7 @@ export function OpportunityListPage({
                     : ''
                 }
                 image={urlForImage(opportunity.image)?.url() ?? ''}
-                link={`/opportunities/${opportunity.slug}`}
+                link={`/tenders/${opportunity.slug}`}
               />
             ))}
           </div>

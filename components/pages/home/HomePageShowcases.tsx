@@ -53,7 +53,7 @@ export function HomePageShowcases({ data }: HomePageProps) {
                 : ''
             }
             image={urlForImage(opportunity?.image)?.url() ?? ''}
-            link={`/opportunities/${opportunity?.slug}`}
+            link={`/tenders/${opportunity?.slug}`}
           />
         </MotionDiv>
         <MotionDiv
