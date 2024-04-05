@@ -49,6 +49,11 @@
       "type": "image/x-icon"
     },
     {
+      "src": "/icon.png",
+      "sizes": "any",
+      "type": "image/png"
+    },
+    {
       "src": "/icon.svg",
       "sizes": "any",
       "type": "image/svg+xml"
