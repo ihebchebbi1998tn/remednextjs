@@ -138,16 +138,21 @@ export const projectBySlugQuery = groq`
 `
 
 export const projectsQuery = groq`
-  *[_type == "project"]{
+  *[_type == "projects_page"][0]{
     _id,
-    client,
-    coverImage,
-    duration,
-    overview,
-    site,
-    "slug": slug.current,
-    tags,
     title,
+    overview,
+    items[]->{
+      _id,
+      client,
+      coverImage,
+      description,
+      duration,
+      site,
+      "slug": slug.current,
+      tags,
+      title,
+    },
   }
 `
 

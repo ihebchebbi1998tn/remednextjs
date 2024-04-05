@@ -29,7 +29,6 @@ export function CertificationListPage({
 }: CertificationListPageProps) {
   // Default to an empty object to allow previews on non-existent documents
   const [index, setIndex] = useState(-1)
-  console.log('data: ', data);
 
   return (
     <div className="py-14 sm:py-22">

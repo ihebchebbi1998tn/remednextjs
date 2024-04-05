@@ -29,6 +29,7 @@ import {
   PagePayload,
   PostPayload,
   ProjectPayload,
+  ProjectsPayload,
   SettingsPayload,
 } from '@/types'
 
@@ -95,7 +96,7 @@ export function loadHomePage() {
 }
 
 export function loadProject(slug: string) {
-  return loadQuery<ProjectPayload | null>(
+  return loadQuery<ProjectPayload>(
     projectBySlugQuery,
     { slug },
     { next: { tags: [`project:${slug}`] } },
@@ -103,7 +104,7 @@ export function loadProject(slug: string) {
 }
 
 export function loadProjects() {
-  return loadQuery<ProjectPayload[]>(
+  return loadQuery<ProjectsPayload>(
     projectsQuery,
     {},
     { next: { tags: ['project'] } },

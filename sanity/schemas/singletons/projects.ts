@@ -1,11 +1,11 @@
-import { SparklesIcon } from '@sanity/icons'
+import { PackageIcon } from '@sanity/icons'
 import { defineArrayMember, defineField, defineType } from 'sanity'
 
 export default defineType({
-  name: 'opportunities_page',
-  title: 'Opportunities Page',
+  name: 'projects_page',
+  title: 'Projects Page',
   type: 'document',
-  icon: SparklesIcon,
+  icon: PackageIcon,
   // Uncomment below to have edits publish automatically as you type
   // liveEdit: true,
   fields: [
@@ -62,12 +62,12 @@ export default defineType({
       name: 'items',
       title: 'Items',
       description:
-        'These are the sections that will appear on your opportunities page.',
+        'These are the sections that will appear on your projects page.',
       type: 'array',
       of: [
         defineArrayMember({
           type: 'reference',
-          to: [{ type: 'opportunity' }],
+          to: [{ type: 'project' }],
         }),
       ],
     }),
@@ -78,7 +78,7 @@ export default defineType({
     },
     prepare({ title }) {
       return {
-        subtitle: 'Opportunities',
+        subtitle: 'Projects',
         title,
       }
     },

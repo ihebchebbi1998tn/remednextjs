@@ -108,6 +108,12 @@ export interface ProjectPayload {
   videos?: File[]
 }
 
+export interface ProjectsPayload {
+  title?: string
+  overview?: PortableTextBlock[]
+  items: ProjectPayload[]
+}
+
 export interface ApplicationPayload {
   title?: string
   description?: PortableTextBlock[]

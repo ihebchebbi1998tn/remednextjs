@@ -3,11 +3,12 @@ import { format, parseISO } from 'date-fns'
 import Image from 'next/image'
 
 import { AppBreadcrumb } from '@/components/demos/NextBreadcrumb'
+import { CustomPortableText } from '@/components/shared/CustomPortableText'
 import { urlForImage } from '@/sanity/lib/utils'
-import type { ProjectPayload } from '@/types'
+import type { ProjectsPayload } from '@/types'
 
 export interface ProjectListPageProps {
-  data: ProjectPayload[]
+  data: ProjectsPayload
   encodeDataAttribute?: EncodeDataAttributeCallback
 }
 
@@ -23,14 +24,14 @@ export function ProjectListPage({
         <div className="max-w-2xl mx-auto lg:max-w-4xl">
           <AppBreadcrumb />
           <h2 className="mt-8 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl dark:text-gray-300">
-            Projects
+            {data.title}
           </h2>
           <p className="mt-2 text-lg leading-8 text-gray-600">
-            Learn more about our projects and collaborations.
+            {data.overview && <CustomPortableText value={data.overview} />}
           </p>
           <div className="grid max-w-2xl grid-cols-1 gap-8 mx-auto mt-8 auto-rows-fr lg:mx-0 lg:max-w-none">
             {data &&
-              data.map((project) => (
+              data.items?.map((project) => (
                 <article
                   key={project.slug}
                   className="relative flex flex-col justify-end px-8 pb-8 overflow-hidden bg-gray-900 isolate pt-80 sm:pt-48 lg:pt-80"

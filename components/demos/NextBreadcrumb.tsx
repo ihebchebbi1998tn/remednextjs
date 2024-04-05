@@ -55,7 +55,6 @@ export const NextBreadcrumb = ({
         </li>
         {pathNames && pathNames.length > 0 && separator}
         {pathNames?.map((link, index) => {
-          console.log('link: ', link);
           const title = mapLinkToTitle[link]
           let href = `/${pathNames?.slice(0, index + 1).join('/')}`
               
