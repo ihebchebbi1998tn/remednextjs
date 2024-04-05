@@ -1,17 +1,13 @@
-'use client'
-import 'yet-another-react-lightbox/styles.css'
-import 'yet-another-react-lightbox/plugins/thumbnails.css'
-
 import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
 
 import { AppBreadcrumb } from '@/components/demos/NextBreadcrumb'
 import { CardOpportunity } from '@/components/shared/CardOpportunity'
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
 import { urlForImage } from '@/sanity/lib/utils'
-import type { InnovationPayload } from '@/types'
+import type { InnovationsPayload } from '@/types'
 
 export interface InnovationListPageProps {
-  data: InnovationPayload[]
+  data: InnovationsPayload
   encodeDataAttribute?: EncodeDataAttributeCallback
 }
 
@@ -26,13 +22,13 @@ export function InnovationListPage({
         <div className="max-w-2xl mx-auto lg:max-w-4xl">
           <AppBreadcrumb />
           <h2 className="mt-8 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl dark:text-gray-300">
-            Research and Innovation
+            {data.title}
           </h2>
           <p className="mt-2 text-lg leading-8 text-gray-600">
-            Learn more about our innovations.
+            {data.overview && <CustomPortableText value={data.overview} />}
           </p>
           <div className="mt-8 lg:mx-0 lg:max-w-none">
-            {data.map((innovation, i) => (
+            {data.items?.map((innovation, i) => (
               <CardOpportunity
                 key={i}
                 title={innovation.title}

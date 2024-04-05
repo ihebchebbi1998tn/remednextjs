@@ -9,7 +9,7 @@ import {
   certificationsQuery,
   homePageQuery,
   innovationBySlugQuery,
-  innovationQuery,
+  innovationsQuery,
   opportunitiesPageQuery,
   opportunityBySlugQuery,
   pagesBySlugQuery,
@@ -24,6 +24,7 @@ import {
   CertificationPayload,
   HomePagePayload,
   InnovationPayload,
+  InnovationsPayload,
   OpportunitiesPayload,
   OpportunityPayload,
   PagePayload,
@@ -95,6 +96,14 @@ export function loadHomePage() {
   )
 }
 
+export function loadProjects() {
+  return loadQuery<ProjectsPayload>(
+    projectsQuery,
+    {},
+    { next: { tags: ['projects'] } },
+  )
+}
+
 export function loadProject(slug: string) {
   return loadQuery<ProjectPayload>(
     projectBySlugQuery,
@@ -103,19 +112,11 @@ export function loadProject(slug: string) {
   )
 }
 
-export function loadProjects() {
-  return loadQuery<ProjectsPayload>(
-    projectsQuery,
-    {},
-    { next: { tags: ['project'] } },
-  )
-}
-
 export function loadInnovations() {
-  return loadQuery<InnovationPayload[]>(
-    innovationQuery,
+  return loadQuery<InnovationsPayload>(
+    innovationsQuery,
     {},
-    { next: { tags: ['innovation'] } },
+    { next: { tags: ['innovations'] } },
   )
 }
 
@@ -131,23 +132,7 @@ export function loadCertifications() {
   return loadQuery<CertificationPayload[]>(
     certificationsQuery,
     {},
-    { next: { tags: ['certification'] } },
-  )
-}
-
-export function loadOpportunities() {
-  return loadQuery<OpportunitiesPayload>(
-    opportunitiesPageQuery,
-    {},
-    { next: { tags: ['opportunity'] } },
-  )
-}
-
-export function loadOpportunity(slug: string) {
-  return loadQuery<OpportunityPayload | null>(
-    opportunityBySlugQuery,
-    { slug },
-    { next: { tags: [`opportunity:${slug}`] } },
+    { next: { tags: ['certifications'] } },
   )
 }
 
@@ -156,6 +141,22 @@ export function loadCertification(slug: string) {
     certificationBySlugQuery,
     { slug },
     { next: { tags: [`certification:${slug}`] } },
+  )
+}
+
+export function loadOpportunities() {
+  return loadQuery<OpportunitiesPayload>(
+    opportunitiesPageQuery,
+    {},
+    { next: { tags: ['opportunities'] } },
+  )
+}
+
+export function loadOpportunity(slug: string) {
+  return loadQuery<OpportunityPayload | null>(
+    opportunityBySlugQuery,
+    { slug },
+    { next: { tags: [`opportunity:${slug}`] } },
   )
 }
 
@@ -168,7 +169,7 @@ export function loadPost(slug: string) {
 }
 
 export function loadPosts() {
-  return loadQuery<PostPayload[]>(postsQuery, {}, { next: { tags: ['post'] } })
+  return loadQuery<PostPayload[]>(postsQuery, {}, { next: { tags: ['posts'] } })
 }
 
 export function loadPage(slug: string) {

@@ -212,14 +212,17 @@ export const opportunityBySlugQuery = groq`
   }
 `
 
-export const innovationQuery = groq`
-  *[_type == "innovation"]{
+export const innovationsQuery = groq`
+  *[_type == "innovations_page"][0]{
     _id,
     title,
-    description,
     overview,
-    images,
-    "slug": slug.current,
+    items[]->{
+      _id,
+      title,
+      overview,
+      "slug": slug.current,
+    },
   }
 `
 

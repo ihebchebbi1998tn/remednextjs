@@ -2,28 +2,24 @@
 
 import { type QueryResponseInitial } from '@sanity/react-loader'
 
-import { innovationQuery } from '@/sanity/lib/queries'
+import { innovationsQuery } from '@/sanity/lib/queries'
 import { useQuery } from '@/sanity/loader/useQuery'
-import { InnovationPayload } from '@/types'
+import { InnovationsPayload } from '@/types'
 
 import InnovationListPage from './InnovationListPage'
 
-
 type Props = {
-  initial: QueryResponseInitial<InnovationPayload[]>
+  initial: QueryResponseInitial<InnovationsPayload>
 }
 
 export default function InnovationPreview(props: Props) {
   const { initial } = props
-  const { data, encodeDataAttribute } = useQuery<InnovationPayload[]>(
-    innovationQuery,
+  const { data, encodeDataAttribute } = useQuery<InnovationsPayload>(
+    innovationsQuery,
     { initial },
-  )
+    )
 
   return (
-    <InnovationListPage
-      data={data!}
-      encodeDataAttribute={encodeDataAttribute}
-    />
+    <InnovationListPage data={data} encodeDataAttribute={encodeDataAttribute} />
   )
 }

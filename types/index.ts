@@ -167,6 +167,12 @@ export interface InnovationPayload {
   certifications?: CertificationPayload[]
 }
 
+export interface InnovationsPayload {
+  title?: string
+  overview?: PortableTextBlock[]
+  items: InnovationPayload[]
+}
+
 export interface PostPayload {
   _type: string
   _id: string
