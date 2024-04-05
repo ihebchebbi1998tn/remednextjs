@@ -30,6 +30,7 @@ import socialNetwork from '@/sanity/schemas/objects/socialNetwork'
 import timeline from '@/sanity/schemas/objects/timeline'
 import { videoType } from '@/sanity/schemas/objects/videoType'
 import home from '@/sanity/schemas/singletons/home'
+import innovations from '@/sanity/schemas/singletons/innovations'
 import opportunities from '@/sanity/schemas/singletons/opportunities'
 import projects from '@/sanity/schemas/singletons/projects'
 import settings from '@/sanity/schemas/singletons/settings'
@@ -48,6 +49,7 @@ export default defineConfig({
     types: [
       // Singletons
       home,
+      innovations,
       opportunities,
       projects,
       settings,
@@ -75,7 +77,13 @@ export default defineConfig({
   },
   plugins: [
     deskTool({
-      structure: pageStructure([home, settings,projects, opportunities]),
+      structure: pageStructure([
+        home,
+        innovations, 
+        projects,
+        opportunities,
+        settings,
+      ]),
     }),
     presentationTool({
       locate,
@@ -86,7 +94,13 @@ export default defineConfig({
       },
     }),
     // Configures the global "new document" button, and document actions, to suit the Settings document singleton
-    singletonPlugin([home.name, settings.name, projects.name, opportunities.name]),
+    singletonPlugin([
+      home.name,
+      innovations.name,
+      projects.name,
+      opportunities.name,
+      settings.name,
+    ]),
     // Add an image asset source for Unsplash
     unsplashImageAsset(),
     // Vision lets you query your content with GROQ in the studio

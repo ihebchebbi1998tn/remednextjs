@@ -1,17 +1,7 @@
-import { LucideIcon } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 
 import { Button } from '@/components/ui/button'
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card'
-
-import { TitleWithLine } from './TitleWithLine'
 
 interface CardOpportunityProps {
   title?: string
