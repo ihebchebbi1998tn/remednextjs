@@ -244,6 +244,27 @@ export const innovationBySlugQuery = groq`
   }
 `
 
+export const postsQuery = groq`
+  *[_type == "posts_page"][0]{
+    _id,
+    title,
+    overview,
+    items[]->{
+      _id,
+      title,
+      overview,
+      date,
+      tags,
+      coverImage,
+      "slug": slug.current,
+      author->{
+        name,
+        picture,
+      },
+    },
+  }
+`
+
 export const postBySlugQuery = groq`
   *[_type == "post" && slug.current == $slug][0] {
     _id,
@@ -253,22 +274,6 @@ export const postBySlugQuery = groq`
       "url": asset -> url
     },
     description,
-    overview,
-    "slug": slug.current,
-    tags,
-    title,
-    author->{
-      name,
-      picture,
-    },
-    date
-  }
-`
-
-export const postsQuery = groq`
-  *[_type == "post"] {
-    _id,
-    coverImage,
     overview,
     "slug": slug.current,
     tags,

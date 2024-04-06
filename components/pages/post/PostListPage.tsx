@@ -7,10 +7,10 @@ import Link from 'next/link'
 import { AppBreadcrumb } from '@/components/demos/NextBreadcrumb'
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
 import { urlForImage } from '@/sanity/lib/utils'
-import type { PostPayload } from '@/types'
+import type { PostsPayload } from '@/types'
 
 export interface PostListPageProps {
-  data: PostPayload[]
+  data: PostsPayload
   encodeDataAttribute?: EncodeDataAttributeCallback
 }
 
@@ -23,13 +23,13 @@ export function PostListPage({ data, encodeDataAttribute }: PostListPageProps) {
         <div className="max-w-2xl mx-auto lg:max-w-4xl">
           <AppBreadcrumb />
           <h2 className="mt-8 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl dark:text-gray-300">
-            Blog
+            {data.title ?? 'Latest Posts'}
           </h2>
           <p className="mt-2 text-lg leading-8 text-gray-600">
-            Learn more about our activities and our latest news.
+            {data.overview && <CustomPortableText value={data.overview} />}
           </p>
           <div className="mt-8 space-y-20 lg:space-y-20">
-            {data.map((post) => {
+            {data.items?.map((post) => {
               const coverImage = urlForImage(post.coverImage)?.url()
               return (
                 <article

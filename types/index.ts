@@ -190,6 +190,12 @@ export interface PostPayload {
   videos?: File[]
 }
 
+export interface PostsPayload {
+  title?: string
+  overview?: PortableTextBlock[]
+  items: PostPayload[]
+}
+
 export interface SettingsPayload {
   brand?: string
   slogan?: string

@@ -32,6 +32,7 @@ import { videoType } from '@/sanity/schemas/objects/videoType'
 import home from '@/sanity/schemas/singletons/home'
 import innovations from '@/sanity/schemas/singletons/innovations'
 import opportunities from '@/sanity/schemas/singletons/opportunities'
+import posts from '@/sanity/schemas/singletons/posts'
 import projects from '@/sanity/schemas/singletons/projects'
 import settings from '@/sanity/schemas/singletons/settings'
 
@@ -51,6 +52,7 @@ export default defineConfig({
       home,
       innovations,
       opportunities,
+      posts,
       projects,
       settings,
       // Documents
@@ -80,8 +82,9 @@ export default defineConfig({
       structure: pageStructure([
         home,
         innovations, 
-        projects,
         opportunities,
+        posts,
+        projects,
         settings,
       ]),
     }),
@@ -97,8 +100,9 @@ export default defineConfig({
     singletonPlugin([
       home.name,
       innovations.name,
-      projects.name,
       opportunities.name,
+      posts.name,
+      projects.name,
       settings.name,
     ]),
     // Add an image asset source for Unsplash
