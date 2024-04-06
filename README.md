@@ -2,7 +2,7 @@
 
 > This project is developed using Sanity.io and Next.js.
 
-[Website](https://reg-website.vercel.app/) | [Studio](https://reg-website.vercel.app/studio)
+[Website](https://reg-website.vercel.app/) | [Studio](https://reg-website.vercel.app/studio) | [Storybook](https://main--65ff5460db6da88bf739e2ca.chromatic.com/)
 
 ## Project Overview
 
