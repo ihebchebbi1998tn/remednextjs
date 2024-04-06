@@ -68,10 +68,13 @@ export function MobileNav(props: NavbarProps) {
                 </Link>
               )
             })}
-          <Link href="/opportunities" className="inline-block text-center">
-            <button className="px-8 py-2 mt-8 font-bold text-white transition duration-200 bg-green-500 border-2 border-transparent rounded-md hover:bg-transparent hover:text-green-500 hover:border-green-500 whitespace-nowrap">
+          <Link href="/tenders" className="inline-block text-center">
+            <Button
+              onClick={() => setIsDrawerOpen(false)}
+              className="px-8 font-bold bg-green-500 border-2 border-transparent hover:bg-transparent hover:text-green-500 hover:border-green-500"
+            >
               {`Opportunities`}
-            </button>
+            </Button>
           </Link>
         </DrawerDescription>
         <DrawerFooter>
