@@ -13,10 +13,10 @@ import { Skeleton } from '@/components/ui/skeleton'
 import { urlForImage } from '@/sanity/lib/utils'
 import type { HomePagePayload } from '@/types'
 
-import ContactMap from './ContactMap'
-import { HomePageProjects } from './HomePageProjects'
-import HomePageShowcases from './HomePageShowcases'
-import Partners from './Partners'
+import ContactMap from './sections/ContactMap'
+import { HomePageProjects } from './sections/HomePageProjects'
+import HomePageShowcases from './sections/HomePageShowcases'
+import Partners from './sections/Partners'
 
 const width = 550
 const height = 280

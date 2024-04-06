@@ -42,7 +42,7 @@ export function FormContact({
         title: 'We received your message',
         description: (
           <p>
-            We will respond as soon as possible. You can also contact us at
+            We will respond as soon as possible. You can also contact us at {' '}
             <a
               href="mailto:contact@s-reg.tn"
               className="text-blue-500 hover:underline"

@@ -106,6 +106,26 @@ export const pagesBySlugQuery = groq`
   }
 `
 
+export const projectsQuery = groq`
+  *[_type == "projects_page"][0]{
+    _id,
+    title,
+    overview,
+    items[]->{
+      _id,
+      _type,
+      client,
+      coverImage,
+      description,
+      duration,
+      site,
+      "slug": slug.current,
+      tags,
+      title,
+    },
+  }
+`
+
 export const projectBySlugQuery = groq`
   *[_type == "project" && slug.current == $slug][0] {
     _id,
@@ -133,25 +153,6 @@ export const projectBySlugQuery = groq`
       "url": asset -> url,
       alt,
       caption
-    },
-  }
-`
-
-export const projectsQuery = groq`
-  *[_type == "projects_page"][0]{
-    _id,
-    title,
-    overview,
-    items[]->{
-      _id,
-      client,
-      coverImage,
-      description,
-      duration,
-      site,
-      "slug": slug.current,
-      tags,
-      title,
     },
   }
 `
@@ -187,6 +188,7 @@ export const opportunitiesPageQuery = groq`
     overview,
     items[]->{
       _id,
+      _type,
       image,
       duration,
       overview,
@@ -219,6 +221,7 @@ export const innovationsQuery = groq`
     overview,
     items[]->{
       _id,
+      _type,
       title,
       overview,
       "slug": slug.current,
@@ -251,6 +254,7 @@ export const postsQuery = groq`
     overview,
     items[]->{
       _id,
+      _type,
       title,
       overview,
       date,

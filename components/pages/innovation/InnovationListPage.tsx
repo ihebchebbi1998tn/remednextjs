@@ -3,7 +3,7 @@ import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
 import { AppBreadcrumb } from '@/components/demos/NextBreadcrumb'
 import { CardOpportunity } from '@/components/shared/CardOpportunity'
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
-import { urlForImage } from '@/sanity/lib/utils'
+import { resolveHref, urlForImage } from '@/sanity/lib/utils'
 import type { InnovationsPayload } from '@/types'
 
 export interface InnovationListPageProps {
@@ -28,17 +28,21 @@ export function InnovationListPage({
             {data.overview && <CustomPortableText value={data.overview} />}
           </p>
           <div className="mt-8 lg:mx-0 lg:max-w-none">
-            {data.items?.map((innovation, i) => (
-              <CardOpportunity
-                key={i}
-                title={innovation.title}
-                overview={
-                  <CustomPortableText value={innovation?.overview ?? []} />
-                }
-                image={urlForImage(innovation.images?.[0])?.url() ?? ''}
-                link={`/innovation/${innovation.slug}`}
-              />
-            ))}
+            {data.items?.map((innovation, i) => {
+              const href = resolveHref(innovation._type, innovation.slug)
+              return (
+                <CardOpportunity
+                  key={i}
+                  title={innovation.title}
+                  overview={
+                    <CustomPortableText value={innovation?.overview ?? []} />
+                  }
+                  image={urlForImage(innovation.images?.[0])?.url() ?? ''}
+                  readMoreLink={href}
+                  readMoreLabel='Read more'
+                />
+              )
+            })}
           </div>
         </div>
       </div>

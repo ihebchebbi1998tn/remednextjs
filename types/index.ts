@@ -138,6 +138,7 @@ export interface CertificationPayload {
 }
 
 export interface OpportunityPayload {
+  _type: string
   title?: string
   description?: PortableTextBlock[]
   overview?: PortableTextBlock[]
@@ -159,6 +160,7 @@ export interface OpportunitiesPayload {
 }
 
 export interface InnovationPayload {
+  _type: string
   title?: string
   description?: PortableTextBlock[]
   overview?: PortableTextBlock[]

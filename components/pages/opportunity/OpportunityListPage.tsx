@@ -7,7 +7,7 @@ import { fr } from 'date-fns/locale'
 import { AppBreadcrumb } from '@/components/demos/NextBreadcrumb'
 import { CardOpportunity } from '@/components/shared/CardOpportunity'
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
-import { urlForImage } from '@/sanity/lib/utils'
+import { resolveHref, urlForImage } from '@/sanity/lib/utils'
 import type { OpportunitiesPayload } from '@/types'
 
 export interface OpportunityListPageProps {
@@ -31,7 +31,10 @@ export function OpportunityListPage({
             {data.overview && <CustomPortableText value={data.overview} />}
           </p>
           <div className="mt-16 sm:mt-20 lg:mx-0 lg:max-w-none">
-            {data.items?.map((opportunity, i) => (
+            {data.items?.map((opportunity, i) => {
+              const href = resolveHref(opportunity._type, opportunity.slug)
+              
+              return(
               <CardOpportunity
                 key={i}
                 title={opportunity.title}
@@ -61,9 +64,10 @@ export function OpportunityListPage({
                     : ''
                 }
                 image={urlForImage(opportunity.image)?.url() ?? ''}
-                link={`/tenders/${opportunity.slug}`}
+                readMoreLink={href}
+                readMoreLabel='View Opportunity'
               />
-            ))}
+            )})}
           </div>
         </div>
       </div>

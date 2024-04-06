@@ -9,8 +9,8 @@ interface CardOpportunityProps {
   startDate?: string
   endDate?: string
   image?: string
-  link?: string
-  className?: string
+  readMoreLink?: string
+  readMoreLabel?: string
 }
 
 export function CardOpportunity({
@@ -19,8 +19,8 @@ export function CardOpportunity({
   image,
   startDate,
   endDate,
-  link = '',
-  className = '',
+  readMoreLabel = 'Read more',
+  readMoreLink = '',
 }: CardOpportunityProps) {
   return (
     <div className="p-4 mb-6 rounded-md bg-gray-50 dark:bg-gray-900">
@@ -38,10 +38,12 @@ export function CardOpportunity({
       <p className="mb-4 text-sm text-gray-500 dark:text-gray-400">
         {overview}
       </p>
-      <div className="flex flex-wrap items-center ">
-        <Link href={link} className="ml-auto">
-          <Button variant="secondary">Read more</Button>
-        </Link>
+      <div className="flex flex-wrap items-center">
+        {readMoreLink && (
+          <Link href={readMoreLink} className="ml-auto">
+            <Button variant="secondary">{readMoreLabel}</Button>
+          </Link>
+        )}
       </div>
     </div>
   )

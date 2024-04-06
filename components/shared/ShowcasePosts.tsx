@@ -54,7 +54,7 @@ export function ShowcasePosts({
                 <p className="mt-3 mb-1 text-xs font-medium text-green-500 uppercase">
                   ------------
                 </p>
-                <p className="mb-2 text-gray-600">
+                <p className="pb-6 mb-2 text-gray-600 ">
                   {blocks?.[0].description}
                   <Link
                     href={`/posts/${blocks?.[0].slug}`}
@@ -90,7 +90,7 @@ export function ShowcasePosts({
                 <p className="mt-3 mb-1 text-xs font-medium text-green-500 uppercase">
                   ------------
                 </p>
-                <p className="mb-2 text-gray-600">
+                <p className="pb-6 mb-2 text-gray-600">
                   {blocks?.[1].description}
                   <Link
                     href={`/posts/${blocks?.[1].slug}`}
@@ -128,7 +128,7 @@ export function ShowcasePosts({
                 <p className="mt-3 mb-1 text-xs font-medium text-green-400 uppercase">
                   ------------
                 </p>
-                <p className="mb-2 text-gray-600">
+                <p className="pb-6 mb-2 text-gray-600">
                   {blocks?.[2].description}
                   <Link
                     href={`/posts/${blocks?.[2].slug}`}
@@ -164,7 +164,7 @@ export function ShowcasePosts({
                 <p className="mt-3 mb-1 text-xs font-medium text-green-400 uppercase">
                   ------------
                 </p>
-                <p className="mb-2 text-gray-600">
+                <p className="pb-6 mb-2 text-gray-600">
                   {blocks?.[3].description}
                   <Link
                     href={`/posts/${blocks?.[3].slug}`}
@@ -200,7 +200,7 @@ export function ShowcasePosts({
                 <p className="mt-3 mb-1 text-xs font-medium text-green-500 uppercase">
                   ------------
                 </p>
-                <p className="mb-2 text-gray-600">
+                <p className="pb-6 mb-2 text-gray-600">
                   {blocks?.[4].description}
                   <Link
                     href={`/posts/${blocks?.[4].slug}`}

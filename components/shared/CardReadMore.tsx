@@ -17,8 +17,8 @@ interface CardReadMoreProps {
   title?: string
   description?: React.ReactNode
   tags?: string[]
-  readMoreLabel: string
-  readMoreLink: string
+  readMoreLabel?: string
+  readMoreLink?: string
   className?: string
   width?: number
   height?: number
@@ -29,20 +29,20 @@ export function CardReadMore({
   height = 250,
   className,
   image,
-  title,
+  title = '',
   description,
   tags,
-  readMoreLabel,
-
-  ...props
+  readMoreLabel = 'Read more',
+  readMoreLink = '',
 }: CardReadMoreProps) {
+  console.log('readMoreLink: ', readMoreLink);
   return (
     <Card className={`${className} overflow-hidden flex flex-col`}>
       <Image
         src={image}
         width={width}
         height={height}
-        alt={title ?? 'Cover image'}
+        alt={title}
       />
       {title && (
         <CardHeader>
@@ -67,13 +67,15 @@ export function CardReadMore({
             ))}
           </div>
         )} */}
-        <Link
-          href={props.readMoreLink}
-          className="text-sm font-medium lowercase md:text-lg"
-          aria-label="Read more"
-        >
-          <Button>{readMoreLabel}</Button>
-        </Link>
+        {readMoreLink && (
+          <Link
+            href={readMoreLink}
+            className="text-sm font-medium lowercase md:text-lg"
+            aria-label="Read more"
+          >
+            <Button>{readMoreLabel}</Button>
+          </Link>
+        )}
       </CardFooter>
     </Card>
   )

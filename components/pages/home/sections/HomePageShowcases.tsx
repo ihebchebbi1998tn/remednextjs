@@ -53,7 +53,7 @@ export function HomePageShowcases({ data }: HomePageProps) {
                 : ''
             }
             image={urlForImage(opportunity?.image)?.url() ?? ''}
-            link={`/tenders/${opportunity?.slug}`}
+            readMoreLink={`/tenders/${opportunity?.slug}`}
           />
         </MotionDiv>
         <MotionDiv
@@ -75,7 +75,7 @@ export function HomePageShowcases({ data }: HomePageProps) {
             title={innovation?.title}
             overview={<CustomPortableText value={innovation?.overview ?? []} />}
             image={urlForImage(innovation?.images?.[0])?.url() ?? ''}
-            link={`/innovation/${innovation?.slug}`}
+            readMoreLink={`/innovations/${innovation?.slug}`}
           />
         </MotionDiv>
       </div>

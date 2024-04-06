@@ -22,7 +22,7 @@ export default async function IndexRoute() {
     return (
       <div className="text-center">
         You don&rsquo;t have a innovation yet,{' '}
-        <Link href={`${studioUrl}/desk/innovation`} className="underline">
+        <Link href={`${studioUrl}/desk/innovations`} className="underline">
           create one now
         </Link>
         !

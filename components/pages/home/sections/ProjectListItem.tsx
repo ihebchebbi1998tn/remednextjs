@@ -5,7 +5,6 @@ import type { ShowcaseProject } from '@/types'
 
 interface ProjectProps {
   project: ShowcaseProject
-  odd: number
   width: number
   height: number
   readMoreLabel?: string
@@ -13,7 +12,7 @@ interface ProjectProps {
 }
 
 export function ProjectListItem(props: ProjectProps) {
-  const { project, odd, width, height, readMoreLabel, className } = props
+  const { project, width, height, readMoreLabel, className } = props
   const href = resolveHref(project._type, project.slug)
 
   return (
@@ -28,8 +27,8 @@ export function ProjectListItem(props: ProjectProps) {
       title={project.title}
       description={<CustomPortableText value={project?.overview ?? []} />}
       tags={project.tags}
-      readMoreLabel={readMoreLabel ?? 'Read more'}
-      readMoreLink={href ?? `/posts/${project.slug}`}
+      readMoreLabel={readMoreLabel}
+      readMoreLink={href}
       width={width}
       height={height}
       className={className}

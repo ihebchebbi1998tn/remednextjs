@@ -36,7 +36,6 @@ export function HomePageFramer({
         >
           <ProjectListItem
             project={project}
-            odd={i % 2}
             width={width}
             height={height}
             key={i}

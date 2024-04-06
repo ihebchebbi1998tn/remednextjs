@@ -1,4 +1,3 @@
-
 'use client'
 
 import Autoplay from 'embla-carousel-autoplay'
@@ -7,7 +6,6 @@ import * as React from 'react'
 
 import {
   Carousel,
-  type CarouselApi,
   CarouselContent,
   CarouselItem,
 } from '@/components/ui/carousel'
@@ -17,31 +15,12 @@ export interface PartnersProps {
 }
 
 export function Partners({ partners }: PartnersProps) {
-
   const plugin = React.useRef(
     Autoplay({ delay: 2000, stopOnInteraction: true }),
   )
 
-  const [api, setApi] = React.useState<CarouselApi>()
-  const [current, setCurrent] = React.useState(0)
-  const [count, setCount] = React.useState(0)
-
-  React.useEffect(() => {
-    if (!api) {
-      return
-    }
-
-    setCount(api.scrollSnapList().length)
-    setCurrent(api.selectedScrollSnap() + 1)
-
-    api.on('select', () => {
-      setCurrent(api.selectedScrollSnap() + 1)
-    })
-  }, [api])
-
   return (
     <Carousel
-      setApi={setApi}
       plugins={[plugin.current]}
       className={`w-full bg-white dark:bg-gray-300 py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24`}
       opts={{
