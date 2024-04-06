@@ -185,7 +185,9 @@ export interface PostPayload {
   slug: string
   tags?: string[]
   title?: string
+  certifications?: CertificationPayload[]
   images?: Image[]
+  videos?: File[]
 }
 
 export interface SettingsPayload {
