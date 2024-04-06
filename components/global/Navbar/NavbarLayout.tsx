@@ -37,7 +37,7 @@ export default function Navbar(props: NavbarProps) {
         <MobileNav data={data} />
         <div className="items-center justify-between flex-1 hidden md:flex gap-x-2 md:justify-end">
           <Link href="/tenders" className="hidden md:block">
-            <Button className="px-8 font-bold bg-green-500 border-2 border-transparent hover:bg-transparent hover:text-green-500 hover:border-green-500">
+            <Button className="px-8 font-bold text-white bg-green-500 border-2 border-transparent hover:bg-transparent hover:text-green-500 hover:border-green-500">
               {`Opportunities`}
             </Button>
           </Link>

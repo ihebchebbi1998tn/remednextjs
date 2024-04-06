@@ -71,7 +71,7 @@ export function MobileNav(props: NavbarProps) {
           <Link href="/tenders" className="inline-block text-center">
             <Button
               onClick={() => setIsDrawerOpen(false)}
-              className="px-8 font-bold bg-green-500 border-2 border-transparent hover:bg-transparent hover:text-green-500 hover:border-green-500"
+              className="px-8 font-bold text-white bg-green-500 border-2 border-transparent hover:bg-transparent hover:text-green-500 hover:border-green-500"
             >
               {`Opportunities`}
             </Button>
