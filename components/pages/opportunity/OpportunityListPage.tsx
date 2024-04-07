@@ -33,41 +33,42 @@ export function OpportunityListPage({
           <div className="mt-16 sm:mt-20 lg:mx-0 lg:max-w-none">
             {data.items?.map((opportunity, i) => {
               const href = resolveHref(opportunity._type, opportunity.slug)
-              
-              return(
-              <CardOpportunity
-                key={i}
-                title={opportunity.title}
-                overview={
-                  <CustomPortableText value={opportunity?.overview ?? []} />
-                }
-                startDate={
-                  opportunity?.duration?.start
-                    ? format(
-                        parseISO(opportunity?.duration?.start),
-                        'dd/LL/yyyy',
-                        {
-                          locale: fr,
-                        },
-                      )
-                    : ''
-                }
-                endDate={
-                  opportunity?.duration?.end
-                    ? format(
-                        parseISO(opportunity?.duration?.end),
-                        'dd/LL/yyyy',
-                        {
-                          locale: fr,
-                        },
-                      )
-                    : ''
-                }
-                image={urlForImage(opportunity.image)?.url() ?? ''}
-                readMoreLink={href}
-                readMoreLabel='View Opportunity'
-              />
-            )})}
+
+              return (
+                <CardOpportunity
+                  key={i}
+                  title={opportunity.title}
+                  overview={
+                    <CustomPortableText value={opportunity?.overview ?? []} />
+                  }
+                  startDate={
+                    opportunity?.duration?.start
+                      ? format(
+                          parseISO(opportunity?.duration?.start),
+                          'dd/LL/yyyy',
+                          {
+                            locale: fr,
+                          },
+                        )
+                      : ''
+                  }
+                  endDate={
+                    opportunity?.duration?.end
+                      ? format(
+                          parseISO(opportunity?.duration?.end),
+                          'dd/LL/yyyy',
+                          {
+                            locale: fr,
+                          },
+                        )
+                      : ''
+                  }
+                  image={urlForImage(opportunity.image)?.url() ?? ''}
+                  readMoreLink={href}
+                  readMoreLabel="View Opportunity"
+                />
+              )
+            })}
           </div>
         </div>
       </div>

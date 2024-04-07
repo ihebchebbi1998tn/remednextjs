@@ -15,12 +15,11 @@ import {
   FormMessage,
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
+import { Separator } from '@/components/ui/separator'
 import { Textarea } from '@/components/ui/textarea'
 import { toast } from '@/components/ui/use-toast'
 import { sendEmail } from '@/lib/send-email'
 import { ContactFormSchema } from '@/types/zod'
-
-import { Separator } from '../ui/separator'
 
 interface FormContactProps {
   className?: string
@@ -42,7 +41,7 @@ export function FormContact({
         title: 'We received your message',
         description: (
           <p>
-            We will respond as soon as possible. You can also contact us at {' '}
+            We will respond as soon as possible. You can also contact us at{' '}
             <a
               href="mailto:contact@s-reg.tn"
               className="text-blue-500 hover:underline"
@@ -145,3 +144,5 @@ export function FormContact({
     </div>
   )
 }
+
+export default FormContact

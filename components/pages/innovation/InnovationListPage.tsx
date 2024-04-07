@@ -15,7 +15,6 @@ export function InnovationListPage({
   data,
   encodeDataAttribute,
 }: InnovationListPageProps) {
-
   return (
     <div className="py-14 sm:py-22">
       <div className="px-6 mx-auto max-w-7xl lg:px-8">
@@ -39,7 +38,7 @@ export function InnovationListPage({
                   }
                   image={urlForImage(innovation.images?.[0])?.url() ?? ''}
                   readMoreLink={href}
-                  readMoreLabel='Read more'
+                  readMoreLabel="Read more"
                 />
               )
             })}

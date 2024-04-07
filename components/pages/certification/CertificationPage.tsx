@@ -11,13 +11,12 @@ export interface CertificationPageProps {
   encodeDataAttribute?: EncodeDataAttributeCallback
 }
 
-export function CertificationPage({ data, encodeDataAttribute }: CertificationPageProps) {
+export function CertificationPage({
+  data,
+  encodeDataAttribute,
+}: CertificationPageProps) {
   // Default to an empty object to allow previews on non-existent documents
-  const {
-    url,
-    overview,
-    title,
-  } = data ?? {}
+  const { url, overview, title } = data ?? {}
 
   return (
     <div className="py-14 sm:py-22">

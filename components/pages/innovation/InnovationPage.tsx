@@ -34,10 +34,12 @@ export function InnovationPage({
             </div>
             <hr className="mb-6 border-gray-200 dark:border-gray-700" />
             <GalleryImage
-              images={certifications?.map((certification) => ({
-                src: certification?.url,
-                alt: certification?.title,
-              })) as any}
+              images={
+                certifications?.map((certification) => ({
+                  src: certification?.url,
+                  alt: certification?.title,
+                })) as any
+              }
               title="Certifications"
             />
           </div>

@@ -1,7 +1,6 @@
 import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
-import { Suspense } from 'react'
+import dynamic from 'next/dynamic'
 
-import { FormContact } from '@/components/demos/FormContact'
 import { Testimonials } from '@/components/demos/Testimonials'
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
 import { SectionApplication } from '@/components/shared/SectionApplication'
@@ -13,10 +12,20 @@ import { Skeleton } from '@/components/ui/skeleton'
 import { urlForImage } from '@/sanity/lib/utils'
 import type { HomePagePayload } from '@/types'
 
-import ContactMap from './sections/ContactMap'
 import { HomePageProjects } from './sections/HomePageProjects'
 import HomePageShowcases from './sections/HomePageShowcases'
 import Partners from './sections/Partners'
+
+const ContactMap = dynamic(() => import('./sections/ContactMap'), {
+  loading: () => (
+    <Skeleton className="h-4 sm:min-w-[340px] md:min-w-[400px] lg:min-w-[500px]" />
+  ),
+})
+const FormContact = dynamic(() => import('./sections/FormContact'), {
+  loading: () => (
+    <Skeleton className="h-4 sm:min-w-[340px] md:min-w-[400px] lg:min-w-[500px]" />
+  ),
+})
 
 const width = 550
 const height = 280
@@ -124,24 +133,19 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
         title={sections[5]?.title}
         application={sections[5]?.showcaseApplications?.[0]}
       />
+      
       <HomePageShowcases data={data} />
+      
       <Partners partners={partners} />
-      {/* AccordionDemo */}
+      
+      {/* Contact form */}
       <div className="container">
         <div className="flex flex-col justify-between gap-8 md:flex-row">
-          <Suspense
-            fallback={
-              <>
-                <Skeleton className="h-4 sm:min-w-[340px] md:min-w-[400px] lg:min-w-[500px]" />
-                <Skeleton className="h-4 sm:min-w-[340px] md:min-w-[400px] lg:min-w-[500px]" />
-              </>
-            }
-          >
-            <ContactMap mapboxAccessToken={MAPBOX_ACCESS_TOKEN as string} />
-            <FormContact className="w-full" />
-          </Suspense>
+          <ContactMap mapboxAccessToken={MAPBOX_ACCESS_TOKEN as string} />
+          <FormContact className="w-full" />
         </div>
       </div>
+      
       {/* Testimonials */}
       <div className="container">
         <Testimonials
@@ -154,7 +158,6 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
           featuredTestimonial={testimonials[0]}
         />
       </div>
-      <div className="relative w-full"></div>
     </div>
   )
 }
