@@ -291,9 +291,6 @@ export const postBySlugQuery = groq`
     _id,
     client,
     coverImage,
-    images[]{
-      "url": asset -> url
-    },
     description,
     overview,
     "slug": slug.current,
@@ -303,7 +300,24 @@ export const postBySlugQuery = groq`
       name,
       picture,
     },
-    date
+    date,
+    certifications[]->{
+      _id,
+      "url": coverImage.asset->url,
+      overview,
+      title,
+      "slug": slug.current,
+    },
+    images[]{
+      "url": asset -> url,
+      alt,
+      caption
+    },
+    videos[]{
+      "url": asset -> url,
+      alt,
+      caption
+    },
   }
 `
 
