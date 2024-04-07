@@ -37,7 +37,7 @@ export function MainNav(props: Props) {
               href={href}
               className={cn(
                 'transition-colors hover:text-green-500 no-wrap',
-                pathname === href
+                pathname?.startsWith(href)
                   ? 'text-green-500 font-bold'
                   : 'text-foreground',
               )}
