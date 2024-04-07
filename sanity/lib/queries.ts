@@ -102,6 +102,9 @@ export const pagesBySlugQuery = groq`
     body,
     overview,
     title,
+    images, 
+    videos, 
+    certifications,
     "slug": slug.current,
   }
 `

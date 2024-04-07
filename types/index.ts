@@ -88,6 +88,9 @@ export interface PagePayload {
   overview?: PortableTextBlock[]
   title?: string
   slug?: string
+  images: Image[]
+  videos: File[]
+  certifications: CertificationPayload[]
 }
 
 export interface ProjectPayload {

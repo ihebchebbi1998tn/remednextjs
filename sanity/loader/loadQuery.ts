@@ -104,7 +104,7 @@ export function loadProjects() {
   )
 }
 
-export function loadProject(slug: string) {
+export function loadProjectBySlug(slug: string) {
   return loadQuery<ProjectPayload>(
     projectBySlugQuery,
     { slug },
@@ -120,7 +120,7 @@ export function loadInnovations() {
   )
 }
 
-export function loadInnovation(slug: string) {
+export function loadInnovationBySlug(slug: string) {
   return loadQuery<InnovationPayload | null>(
     innovationBySlugQuery,
     { slug },
@@ -136,7 +136,7 @@ export function loadCertifications() {
   )
 }
 
-export function loadCertification(slug: string) {
+export function loadCertificationBySlug(slug: string) {
   return loadQuery<CertificationPayload | null>(
     certificationBySlugQuery,
     { slug },
@@ -152,7 +152,7 @@ export function loadOpportunities() {
   )
 }
 
-export function loadOpportunity(slug: string) {
+export function loadOpportunityBySlug(slug: string) {
   return loadQuery<OpportunityPayload | null>(
     opportunityBySlugQuery,
     { slug },
@@ -160,16 +160,16 @@ export function loadOpportunity(slug: string) {
   )
 }
 
-export function loadPost(slug: string) {
+export function loadPosts() {
+  return loadQuery<PostPayload[]>(postsQuery, {}, { next: { tags: ['posts'] } })
+}
+
+export function loadPostBySlug(slug: string) {
   return loadQuery<PostPayload | null>(
     postBySlugQuery,
     { slug },
     { next: { tags: [`post:${slug}`] } },
   )
-}
-
-export function loadPosts() {
-  return loadQuery<PostPayload[]>(postsQuery, {}, { next: { tags: ['posts'] } })
 }
 
 export function loadPage(slug: string) {
