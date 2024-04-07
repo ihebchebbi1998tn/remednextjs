@@ -63,46 +63,19 @@ export default defineType({
       type: 'blockContent',
     }),
     defineField({
+      type: 'images',
       name: 'images',
       title: 'Images',
-      description:
-        'These images will be used as the cover image for your innovation.',
-      type: 'array',
-      of: [
-        {
-          type: 'image',
-          options: {
-            hotspot: true,
-          },
-          fields: [
-            defineField({
-              title: 'Caption',
-              name: 'caption',
-              type: 'string',
-            }),
-            defineField({
-              name: 'alt',
-              type: 'string',
-              title: 'Alt text',
-              description:
-                'Alternative text for screen readers. Falls back on caption if not set',
-            }),
-          ],
-        },
-      ],
     }),
     defineField({
+      type: 'videos',
+      name: 'videos',
+      title: 'Videos',
+    }),
+    defineField({
+      type: 'certifications',
       name: 'certifications',
       title: 'Certifications',
-      description:
-        'This field is used to display the certification for the project.',
-      type: 'array',
-      of: [
-        defineArrayMember({
-          type: 'reference',
-          to: [{ type: 'certification' }],
-        }),
-      ],
     }),
   ],
   preview: {
