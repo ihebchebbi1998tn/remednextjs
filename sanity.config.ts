@@ -22,12 +22,15 @@ import post from '@/sanity/schemas/documents/post'
 import project from '@/sanity/schemas/documents/project'
 import block from '@/sanity/schemas/objects/block'
 import { blockContentType } from '@/sanity/schemas/objects/blockContent'
+import { certifications } from '@/sanity/schemas/objects/certifications'
 import contact from '@/sanity/schemas/objects/contact'
 import duration from '@/sanity/schemas/objects/duration'
+import { images } from '@/sanity/schemas/objects/images'
 import internalLink from '@/sanity/schemas/objects/internalLink'
 import milestone from '@/sanity/schemas/objects/milestone'
 import socialNetwork from '@/sanity/schemas/objects/socialNetwork'
 import timeline from '@/sanity/schemas/objects/timeline'
+import { videos } from '@/sanity/schemas/objects/videos'
 import { videoType } from '@/sanity/schemas/objects/videoType'
 import home from '@/sanity/schemas/singletons/home'
 import innovations from '@/sanity/schemas/singletons/innovations'
@@ -71,6 +74,9 @@ export default defineConfig({
       // Objects
       block,
       blockContentType,
+      certifications,
+      images,
+      videos,
       videoType,
       contact,
       milestone,
