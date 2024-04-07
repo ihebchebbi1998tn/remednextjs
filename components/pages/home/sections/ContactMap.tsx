@@ -15,7 +15,11 @@ const LOCATIONS = [
   },
 ]
 
-export function ContactMap() {
+interface ContactMapProps {
+  mapboxAccessToken: string
+}
+
+export function ContactMap({ mapboxAccessToken }: ContactMapProps) {
   return (
     <Map
       initialViewState={{
@@ -25,9 +29,7 @@ export function ContactMap() {
       }}
       style={{ minWidth: 300, height: 480 }}
       mapStyle="mapbox://styles/mapbox/streets-v9"
-      mapboxAccessToken={
-        'pk.eyJ1IjoiYXJmYSIsImEiOiJjbHJpNXZtc2QwMHA4MnZxcW5sdnRuejF2In0.XlSrHkTKsLdulThl9CHFjQ'
-      }
+      mapboxAccessToken={mapboxAccessToken}
       scrollZoom={false}
     >
       <Marker

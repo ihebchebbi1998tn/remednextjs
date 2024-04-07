@@ -21,6 +21,8 @@ import Partners from './sections/Partners'
 const width = 550
 const height = 280
 
+const MAPBOX_ACCESS_TOKEN = process.env.MAPBOX_ACCESS_TOKEN
+
 export interface HomePageProps {
   data: HomePagePayload
   encodeDataAttribute?: EncodeDataAttributeCallback
@@ -135,7 +137,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
               </>
             }
           >
-            <ContactMap />
+            <ContactMap mapboxAccessToken={MAPBOX_ACCESS_TOKEN as string} />
             <FormContact className="w-full" />
           </Suspense>
         </div>

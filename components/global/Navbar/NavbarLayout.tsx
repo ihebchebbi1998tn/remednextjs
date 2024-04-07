@@ -3,10 +3,10 @@ import Link from 'next/link'
 
 import { MobileNav } from '@/components/shared/MobileNav'
 import { PopoverSettings } from '@/components/shared/PopoverSettings'
+import { Button } from '@/components/ui/button'
 import type { SettingsPayload } from '@/types'
 
 import { MainNav } from './main-nav'
-import { Button } from '@/components/ui/button'
 
 interface NavbarProps {
   data: SettingsPayload
