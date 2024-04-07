@@ -7,7 +7,7 @@ import { notFound } from 'next/navigation'
 import { InnovationPage } from '@/components/pages/innovation/InnovationPage'
 import { urlForOpenGraphImage } from '@/sanity/lib/utils'
 import { generateStaticSlugs } from '@/sanity/loader/generateStaticSlugs'
-import { loadInnovation } from '@/sanity/loader/loadQuery'
+import { loadInnovationBySlug } from '@/sanity/loader/loadQuery'
 const InnovationPreview = dynamic(
   () => import('@/components/pages/innovation/InnovationPreview'),
 )
@@ -20,7 +20,7 @@ export async function generateMetadata(
   { params }: Props,
   parent: ResolvingMetadata,
 ): Promise<Metadata> {
-  const { data: innovation } = await loadInnovation(params.slug)
+  const { data: innovation } = await loadInnovationBySlug(params.slug)
   const ogImage = urlForOpenGraphImage(innovation?.images?.[0])
 
   return {
@@ -41,7 +41,7 @@ export function generateStaticParams() {
 }
 
 export default async function InnovationSlugRoute({ params }: Props) {
-  const initial = await loadInnovation(params.slug)
+  const initial = await loadInnovationBySlug(params.slug)
 
   if (draftMode().isEnabled) {
     return <InnovationPreview params={params} initial={initial} />

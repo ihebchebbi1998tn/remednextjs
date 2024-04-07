@@ -7,7 +7,7 @@ import { notFound } from 'next/navigation'
 import { ProjectPage } from '@/components/pages/project/ProjectPage'
 import { urlForOpenGraphImage } from '@/sanity/lib/utils'
 import { generateStaticSlugs } from '@/sanity/loader/generateStaticSlugs'
-import { loadProject } from '@/sanity/loader/loadQuery'
+import { loadProjectBySlug } from '@/sanity/loader/loadQuery'
 const ProjectPreview = dynamic(
   () => import('@/components/pages/project/ProjectPreview'),
 )
@@ -20,7 +20,7 @@ export async function generateMetadata(
   { params }: Props,
   parent: ResolvingMetadata,
 ): Promise<Metadata> {
-  const { data: project } = await loadProject(params.slug)
+  const { data: project } = await loadProjectBySlug(params.slug)
   const ogImage = urlForOpenGraphImage(project?.coverImage)
 
   return {
@@ -41,7 +41,7 @@ export function generateStaticParams() {
 }
 
 export default async function ProjectSlugRoute({ params }: Props) {
-  const initial = await loadProject(params.slug)
+  const initial = await loadProjectBySlug(params.slug)
 
   if (draftMode().isEnabled) {
     return <ProjectPreview params={params} initial={initial} />

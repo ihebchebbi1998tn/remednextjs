@@ -1,5 +1,5 @@
 import { ImageIcon } from 'lucide-react'
-import { defineArrayMember,defineField,defineType } from 'sanity'
+import { defineArrayMember, defineField, defineType } from 'sanity'
 
 export const blockContentType = defineType({
   name: 'blockContent',
@@ -41,7 +41,7 @@ export const blockContentType = defineType({
           type: 'string',
           title: 'Alt text',
           description:
-            'Alternative text for screenreaders. Falls back on caption if not set',
+            'Alternative text for screen readers. Falls back on caption if not set',
         }),
       ],
     }),

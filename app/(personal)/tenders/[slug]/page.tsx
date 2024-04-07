@@ -7,7 +7,7 @@ import { notFound } from 'next/navigation'
 import { OpportunityPage } from '@/components/pages/opportunity/OpportunityPage'
 import { urlForOpenGraphImage } from '@/sanity/lib/utils'
 import { generateStaticSlugs } from '@/sanity/loader/generateStaticSlugs'
-import { loadOpportunity } from '@/sanity/loader/loadQuery'
+import { loadOpportunityBySlug } from '@/sanity/loader/loadQuery'
 const OpportunityPreview = dynamic(
   () => import('@/components/pages/opportunity/OpportunityPreview'),
 )
@@ -20,7 +20,7 @@ export async function generateMetadata(
   { params }: Props,
   parent: ResolvingMetadata,
 ): Promise<Metadata> {
-  const { data: opportunity } = await loadOpportunity(params.slug)
+  const { data: opportunity } = await loadOpportunityBySlug(params.slug)
   const ogImage = urlForOpenGraphImage(opportunity?.image)
 
   return {
@@ -41,7 +41,7 @@ export function generateStaticParams() {
 }
 
 export default async function OpportunitySlugRoute({ params }: Props) {
-  const initial = await loadOpportunity(params.slug)
+  const initial = await loadOpportunityBySlug(params.slug)
 
   if (draftMode().isEnabled) {
     return <OpportunityPreview params={params} initial={initial} />

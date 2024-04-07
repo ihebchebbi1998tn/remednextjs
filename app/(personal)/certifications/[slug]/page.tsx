@@ -7,7 +7,7 @@ import { notFound } from 'next/navigation'
 import { CertificationPage } from '@/components/pages/certification/CertificationPage'
 import { urlForOpenGraphImage } from '@/sanity/lib/utils'
 import { generateStaticSlugs } from '@/sanity/loader/generateStaticSlugs'
-import { loadCertification } from '@/sanity/loader/loadQuery'
+import { loadCertificationBySlug } from '@/sanity/loader/loadQuery'
 const CertificationPreview = dynamic(
   () => import('@/components/pages/certification/CertificationPreview'),
 )
@@ -20,7 +20,7 @@ export async function generateMetadata(
   { params }: Props,
   parent: ResolvingMetadata,
 ): Promise<Metadata> {
-  const { data: certification } = await loadCertification(params.slug)
+  const { data: certification } = await loadCertificationBySlug(params.slug)
   const ogImage = urlForOpenGraphImage(certification?.coverImage)
 
   return {
@@ -41,7 +41,7 @@ export function generateStaticParams() {
 }
 
 export default async function ProjectSlugRoute({ params }: Props) {
-  const initial = await loadCertification(params.slug)
+  const initial = await loadCertificationBySlug(params.slug)
 
   if (draftMode().isEnabled) {
     return <CertificationPreview params={params} initial={initial} />
