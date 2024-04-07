@@ -17,13 +17,12 @@ import HomePageShowcases from './sections/HomePageShowcases'
 import Partners from './sections/Partners'
 
 const ContactMap = dynamic(() => import('./sections/ContactMap'), {
-  loading: () => (
-    <Skeleton className="h-4 sm:min-w-[340px] md:min-w-[400px] lg:min-w-[500px]" />
-  ),
+  loading: () => <Skeleton className="w-full" />,
+  ssr: false,
 })
 const FormContact = dynamic(() => import('./sections/FormContact'), {
   loading: () => (
-    <Skeleton className="h-4 sm:min-w-[340px] md:min-w-[400px] lg:min-w-[500px]" />
+    <Skeleton className="sm:min-w-[340px] md:min-w-[400px] lg:min-w-[500px]" />
   ),
 })
 
@@ -133,19 +132,19 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
         title={sections[5]?.title}
         application={sections[5]?.showcaseApplications?.[0]}
       />
-      
+
       <HomePageShowcases data={data} />
-      
+
       <Partners partners={partners} />
-      
+
       {/* Contact form */}
       <div className="container">
         <div className="flex flex-col justify-between gap-8 md:flex-row">
           <ContactMap mapboxAccessToken={MAPBOX_ACCESS_TOKEN as string} />
-          <FormContact className="w-full" />
+          <FormContact />
         </div>
       </div>
-      
+
       {/* Testimonials */}
       <div className="container">
         <Testimonials
