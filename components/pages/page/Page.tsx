@@ -10,6 +10,7 @@ export interface PageProps {
 export function Page({ data }: PageProps) {
   // Default to an empty object to allow previews on non-existent documents
   const { body, overview, title, images, videos, certifications } = data ?? {}
+  console.log('videos: ', videos);
 
   return (
     <div className="py-14 sm:py-22">

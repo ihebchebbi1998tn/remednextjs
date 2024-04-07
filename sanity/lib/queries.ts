@@ -102,9 +102,23 @@ export const pagesBySlugQuery = groq`
     body,
     overview,
     title,
-    images, 
-    videos, 
-    certifications,
+    certifications[]->{
+      _id,
+      "url": coverImage.asset->url,
+      overview,
+      title,
+      "slug": slug.current,
+    },
+    images[]{
+      "url": asset -> url,
+      alt,
+      caption
+    },
+    videos[]{
+      "url": asset -> url,
+      alt,
+      caption
+    },
     "slug": slug.current,
   }
 `

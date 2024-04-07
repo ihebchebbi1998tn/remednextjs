@@ -24,7 +24,6 @@ export const NextBreadcrumb = ({
 }: NextBreadcrumbProps) => {
   const paths = usePathname()
   const pathNames = paths?.split('/').filter((path) => path)
-  console.log('pathNames: ', pathNames)
 
   return (
     <div>
