@@ -41,13 +41,7 @@ export function PostPage({ data, encodeDataAttribute }: PostPageProps) {
             className="relative w-full mx-auto mt-8 mb-4 max-w-screen md:mb-0"
             style={{ height: '24em' }}
           >
-            <div
-              className="absolute bottom-0 left-0 z-10 w-full h-full"
-              style={{
-                backgroundImage:
-                  'linear-gradient(180deg,transparent,rgba(0,0,0,.7))',
-              }}
-            />
+            <div className="absolute bottom-0 left-0 z-10 w-full h-full bg-gradient-to-t from-zinc-900 to-transparent" />
             <Image
               src={urlForImage(coverImage)?.url() || ''}
               alt=""

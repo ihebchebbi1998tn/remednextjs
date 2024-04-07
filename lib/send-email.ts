@@ -2,8 +2,7 @@ import * as z from 'zod'
 
 import { ContactFormSchema } from '@/types/zod'
 
-
-export function sendEmail(data: z.infer<typeof ContactFormSchema>) {
+export async function sendEmail(data: z.infer<typeof ContactFormSchema>) {
   const apiEndpoint = '/api/email'
 
   return fetch(apiEndpoint, {
