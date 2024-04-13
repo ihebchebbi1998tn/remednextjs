@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { BentoGrid, BentoGridItem } from './BentoGrid'
 import { items } from '@/lib/data'
+
+import { BentoGrid, BentoGridItem } from './BentoGrid'
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {

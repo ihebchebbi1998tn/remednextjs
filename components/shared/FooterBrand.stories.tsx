@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { Icons } from './icons'
 import { FooterBrand } from './FooterBrand'
+import { Icons } from './icons'
 
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export

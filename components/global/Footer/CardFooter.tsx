@@ -2,10 +2,10 @@ import * as React from 'react'
 
 import {
   Card,
-  CardHeader,
-  CardTitle,
   CardContent,
   CardDescription,
+  CardHeader,
+  CardTitle,
 } from '@/components/ui/card'
 
 interface CardReadMoreProps {

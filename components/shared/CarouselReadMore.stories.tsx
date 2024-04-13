@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { CarouselReadMore } from './CarouselReadMore'
 import { Card } from '../ui/card'
+import { CarouselReadMore } from './CarouselReadMore'
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
