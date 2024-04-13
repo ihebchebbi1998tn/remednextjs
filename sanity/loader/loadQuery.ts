@@ -29,6 +29,7 @@ import {
   OpportunityPayload,
   PagePayload,
   PostPayload,
+  PostsPayload,
   ProjectPayload,
   ProjectsPayload,
   SettingsPayload,
@@ -161,7 +162,7 @@ export function loadOpportunityBySlug(slug: string) {
 }
 
 export function loadPosts() {
-  return loadQuery<PostPayload[]>(postsQuery, {}, { next: { tags: ['posts'] } })
+  return loadQuery<PostsPayload>(postsQuery, {}, { next: { tags: ['posts'] } })
 }
 
 export function loadPostBySlug(slug: string) {
