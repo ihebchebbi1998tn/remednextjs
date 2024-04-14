@@ -131,16 +131,17 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
           }
         />
       </div>
+
+      <div className="px-4">
+        <HomePageShowcases data={data} />
+      </div>
+
       {/* Boost */}
       <div className="container">
         <SectionApplication
           title={sections[5]?.title}
           application={sections[5]?.showcaseApplications?.[0]}
         />
-      </div>
-
-      <div className="container">
-        <HomePageShowcases data={data} />
       </div>
 
       <Partners partners={partners} />
