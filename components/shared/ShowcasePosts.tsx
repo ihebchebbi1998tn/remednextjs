@@ -25,7 +25,7 @@ export function ShowcasePosts({
   blocks,
 }: ShowcasePostsProps) {
   return (
-    <div className="container relative flex flex-col justify-between h-full max-w-6xl px-10 mx-auto mt-5 xl:px-0">
+    <div className="relative max-w-6xl px-10 mx-auto mt-5  xl:px-0">
       <h2 className="mt-2 mb-1 text-3xl font-bold leading-tight tracking-tight text-gray-800 sm:text-4xl dark:text-gray-200">
         {title}
       </h2>

@@ -53,7 +53,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
     }) ?? []
 
   return (
-    <div className="space-y-20">
+    <div className="space-y-10">
       <SectionHero
         title={sections[0]?.title}
         description={
@@ -77,17 +77,19 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
       />
 
       {/* Showcase posts */}
-      <ShowcasePosts
-        title={sections[1]?.title}
-        blocks={sections[1]?.showcasePosts?.map((post, key) => {
-          return {
-            slug: post.slug ?? '',
-            coverImage: urlForImage(post.coverImage)?.url() ?? '',
-            title: post.title,
-            description: <CustomPortableText value={post?.overview ?? []} />,
-          }
-        })}
-      />
+      <div className="container">
+        <ShowcasePosts
+          title={sections[1]?.title}
+          blocks={sections[1]?.showcasePosts?.map((post, key) => {
+            return {
+              slug: post.slug ?? '',
+              coverImage: urlForImage(post.coverImage)?.url() ?? '',
+              title: post.title,
+              description: <CustomPortableText value={post?.overview ?? []} />,
+            }
+          })}
+        />
+      </div>
 
       {/* Showcase projects */}
       <HomePageProjects
@@ -112,28 +114,34 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
         }
       />
       {/* Route expérimentale */}
-      <StatsBlock
-        title={sections[6]?.title}
-        subtitle={sections[6]?.subtitle}
-        description={
-          <CustomPortableText value={sections[6]?.description ?? []} />
-        }
-        video={sections[6]?.videoURL}
-        stats={
-          sections[6]?.blocks?.map((item) => ({
-            value: item.title,
-            name: <CustomPortableText value={item.description ?? []} />,
-            unit: item.subtitle,
-          })) ?? []
-        }
-      />
+      <div className="container">
+        <StatsBlock
+          title={sections[6]?.title}
+          subtitle={sections[6]?.subtitle}
+          description={
+            <CustomPortableText value={sections[6]?.description ?? []} />
+          }
+          video={sections[6]?.videoURL}
+          stats={
+            sections[6]?.blocks?.map((item) => ({
+              value: item.title,
+              name: <CustomPortableText value={item.description ?? []} />,
+              unit: item.subtitle,
+            })) ?? []
+          }
+        />
+      </div>
       {/* Boost */}
-      <SectionApplication
-        title={sections[5]?.title}
-        application={sections[5]?.showcaseApplications?.[0]}
-      />
+      <div className="container">
+        <SectionApplication
+          title={sections[5]?.title}
+          application={sections[5]?.showcaseApplications?.[0]}
+        />
+      </div>
 
-      <HomePageShowcases data={data} />
+      <div className="container">
+        <HomePageShowcases data={data} />
+      </div>
 
       <Partners partners={partners} />
 
