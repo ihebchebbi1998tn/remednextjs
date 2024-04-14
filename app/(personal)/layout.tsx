@@ -1,4 +1,5 @@
 import { toPlainText } from '@portabletext/react'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import { Metadata, Viewport } from 'next'
 import dynamic from 'next/dynamic'
 import { draftMode } from 'next/headers'
@@ -65,6 +66,7 @@ export default async function IndexRoute({
         </Suspense>
         <Toaster />
         <ScrollToTop />
+        <SpeedInsights />
       </div>
       {draftMode().isEnabled && <VisualEditing />}
     </ThemeProvider>
