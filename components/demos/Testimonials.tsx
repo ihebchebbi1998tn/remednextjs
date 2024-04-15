@@ -1,4 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
+import Image from 'next/image'
+
 import { cn } from '@/lib/utils'
 
 interface Testimonial {
@@ -64,10 +66,12 @@ export function Testimonials({
               <p>{featuredTestimonial?.body}</p>
             </blockquote>
             <figcaption className="flex flex-wrap items-center px-6 py-4 border-t gap-x-4 gap-y-4 border-gray-900/10 sm:flex-nowrap">
-              <img
+              <Image
                 className="flex-none w-10 h-10 rounded-full bg-gray-50"
                 src={featuredTestimonial.author.imageUrl}
                 alt=""
+                width={40}
+                height={40}
               />
               <div className="flex-auto">
                 <div className="font-semibold">
@@ -75,11 +79,6 @@ export function Testimonials({
                 </div>
                 <div className="text-gray-600">{`@${featuredTestimonial.author.handle}`}</div>
               </div>
-              {/* <img
-                className="flex-none w-auto h-10"
-                src={featuredTestimonial.author.logoUrl}
-                alt=""
-              /> */}
             </figcaption>
           </figure>
           {testimonials.map((columnGroup, columnGroupIdx) => (
@@ -108,10 +107,12 @@ export function Testimonials({
                         <p>{testimonial?.body}</p>
                       </blockquote>
                       <figcaption className="flex items-center mt-6 gap-x-4">
-                        <img
+                        <Image
                           className="w-10 h-10 rounded-full bg-gray-50"
                           src={testimonial?.author?.imageUrl}
                           alt=""
+                          width={40}
+                          height={40}
                         />
                         <div>
                           <div className="font-semibold">
