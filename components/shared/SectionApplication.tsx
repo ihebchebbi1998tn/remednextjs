@@ -16,7 +16,7 @@ export function SectionApplication({
   application,
 }: SectionApplicationProps) {
   return (
-        <div className="relative px-6 py-24 overflow-hidden text-center bg-gray-900 shadow-2xl isolate sm:rounded-3xl sm:px-16">
+        <div className="relative px-6 py-24 overflow-hidden text-center bg-gray-900 shadow-lg isolate sm:rounded-3xl sm:px-16">
           <h2 className="max-w-2xl mx-auto text-3xl font-bold tracking-tight text-white sm:text-4xl">
             <Image
               src={application?.coverImage || ''}
