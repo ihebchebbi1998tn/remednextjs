@@ -43,7 +43,7 @@ export function HomePageShowcases({ data }: HomePageProps) {
               height={100}
             />
             <div className="flex flex-row gap-4">
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-row gap-2">
                 <h3 className="text-lg font-bold">Start Date</h3>
                 <p>
                   {opportunity?.duration?.start
@@ -57,7 +57,7 @@ export function HomePageShowcases({ data }: HomePageProps) {
                     : ''}
                 </p>
               </div>
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-row gap-2">
                 <h3 className="text-lg font-bold">End Date</h3>
                 <p>
                   {opportunity?.duration?.end
