@@ -34,7 +34,7 @@ export function HomePageShowcases({ data }: HomePageProps) {
         viewport={{ once: true }}
         className="w-full md:w-1/2"
       >
-        <div className="flex flex-col w-full gap-4 p-4 shadow-lg rounded-2xl ring-1 ring-gray-900/5">
+        <div className="flex flex-col w-full gap-4 p-4 text-white shadow-lg rounded-2xl ring-1 ring-gray-900/5 bg-gradient-to-r from-green-600 to-green-500">
           <div className="flex flex-col gap-4">
             <Image
               src={urlForImage(opportunity?.image)?.url() ?? ''}
@@ -74,7 +74,7 @@ export function HomePageShowcases({ data }: HomePageProps) {
             </div>
           </div>
           <div className="flex flex-col gap-2">
-            <h3 className="text-lg font-bold">Overview</h3>
+            <h3 className="text-lg font-bold">{opportunity?.title}</h3>
             <CustomPortableText value={opportunity?.overview ?? []} />
           </div>
           <div className="flex flex-col self-end gap-2 mr-6">
@@ -103,7 +103,7 @@ export function HomePageShowcases({ data }: HomePageProps) {
         viewport={{ once: true }}
         className="w-full md:w-1/2"
       >
-        <div className="flex flex-col w-full h-full gap-4 p-4 text-white shadow-lg bg-gradient-to-r from-green-600 to-green-500 rounded-2xl ring-1 ring-gray-900/5">
+        <div className="flex flex-col w-full h-full gap-4 p-4 shadow-lg rounded-2xl ring-1 ring-gray-900/5">
           <h3 className="text-lg font-bold">{innovation?.title}</h3>
           <CustomPortableText value={innovation?.overview ?? []} />
           <div className="flex flex-col self-end gap-2 mr-6">
