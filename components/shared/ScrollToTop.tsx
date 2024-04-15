@@ -65,6 +65,7 @@ export const ScrollToTop = () => {
       <Button
         className="flex items-center justify-center p-2 bg-green-500 rounded-full shadow-sm focus:ring-green-500 hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2"
         onClick={scrollToTop}
+        aria-label="scroll-to-top"
       >
         <ChevronUp className="text-white " />
       </Button>

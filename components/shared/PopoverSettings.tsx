@@ -26,7 +26,7 @@ export function PopoverSettings({ socialNetworks }: PopoverSettingsProps) {
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <Button variant="ghost" size={'icon'}>
+        <Button variant="ghost" size={'icon'} aria-label="settings">
           <Settings />
         </Button>
       </PopoverTrigger>
