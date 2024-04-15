@@ -1,9 +1,11 @@
 import { format, parseISO } from 'date-fns'
 import fr from 'date-fns/locale/fr'
+import Image from 'next/image'
+import Link from 'next/link'
 
-import { CardOpportunity } from '@/components/shared/CardOpportunity'
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
 import { MotionDiv } from '@/components/shared/MotionDiv'
+import { AspectRatio } from '@/components/ui/aspect-ratio'
 import { urlForImage } from '@/sanity/lib/utils'
 import type { HomePagePayload } from '@/types'
 
@@ -16,7 +18,7 @@ export function HomePageShowcases({ data }: HomePageProps) {
   const { opportunity, innovation } = data ?? {}
 
   return (
-    <div className="flex flex-col gap-8 md:flex-row">
+    <div className="flex flex-col gap-8 p-20 md:flex-row">
       <MotionDiv
         initial={{
           opacity: 0,
@@ -32,26 +34,59 @@ export function HomePageShowcases({ data }: HomePageProps) {
         viewport={{ once: true }}
         className="w-full md:w-1/2"
       >
-        <CardOpportunity
-          title={opportunity?.title}
-          overview={<CustomPortableText value={opportunity?.overview ?? []} />}
-          startDate={
-            opportunity?.duration?.start
-              ? format(parseISO(opportunity?.duration?.start), 'dd/LL/yyyy', {
-                  locale: fr,
-                })
-              : ''
-          }
-          endDate={
-            opportunity?.duration?.end
-              ? format(parseISO(opportunity?.duration?.end), 'dd/LL/yyyy', {
-                  locale: fr,
-                })
-              : ''
-          }
-          image={urlForImage(opportunity?.image)?.url() ?? ''}
-          readMoreLink={`/tenders/${opportunity?.slug}`}
-        />
+        <div className="flex flex-col w-full gap-4 p-4 shadow-lg rounded-2xl ring-1 ring-gray-900/5">
+          <div className="flex flex-col gap-4">
+            <Image
+              src={urlForImage(opportunity?.image)?.url() ?? ''}
+              alt={opportunity?.title ?? ''}
+              width={300}
+              height={100}
+            />
+            <div className="flex flex-row gap-4">
+              <div className="flex flex-col gap-2">
+                <h3 className="text-lg font-bold">Start Date</h3>
+                <p>
+                  {opportunity?.duration?.start
+                    ? format(
+                        parseISO(opportunity?.duration?.start),
+                        'dd/LL/yyyy',
+                        {
+                          locale: fr,
+                        },
+                      )
+                    : ''}
+                </p>
+              </div>
+              <div className="flex flex-col gap-2">
+                <h3 className="text-lg font-bold">End Date</h3>
+                <p>
+                  {opportunity?.duration?.end
+                    ? format(
+                        parseISO(opportunity?.duration?.end),
+                        'dd/LL/yyyy',
+                        {
+                          locale: fr,
+                        },
+                      )
+                    : ''}
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="flex flex-col gap-2">
+            <h3 className="text-lg font-bold">Overview</h3>
+            <CustomPortableText value={opportunity?.overview ?? []} />
+          </div>
+          <div className="flex flex-col self-end gap-2 mr-6">
+            <Link
+              href={`/tenders/${opportunity?.slug}`}
+              className="underline "
+              aria-label="Read more"
+            >
+              Read more
+            </Link>
+          </div>
+        </div>
       </MotionDiv>
       <MotionDiv
         initial={{
@@ -68,12 +103,19 @@ export function HomePageShowcases({ data }: HomePageProps) {
         viewport={{ once: true }}
         className="w-full md:w-1/2"
       >
-        <CardOpportunity
-          title={innovation?.title}
-          overview={<CustomPortableText value={innovation?.overview ?? []} />}
-          image={urlForImage(innovation?.images?.[0])?.url() ?? ''}
-          readMoreLink={`/innovations/${innovation?.slug}`}
-        />
+        <div className="flex flex-col w-full h-full gap-4 p-4 text-white shadow-lg bg-gradient-to-r from-green-600 to-green-500 rounded-2xl ring-1 ring-gray-900/5">
+          <h3 className="text-lg font-bold">{innovation?.title}</h3>
+          <CustomPortableText value={innovation?.overview ?? []} />
+          <div className="flex flex-col self-end gap-2 mr-6">
+            <Link
+              href={`/innovations/${innovation?.slug}`}
+              className="underline"
+              aria-label="Read more"
+            >
+              Read more
+            </Link>
+          </div>
+        </div>
       </MotionDiv>
     </div>
   )
