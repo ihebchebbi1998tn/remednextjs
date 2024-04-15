@@ -35,6 +35,57 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       images: ogImage ? [ogImage] : [],
     },
+
+    metadataBase: new URL('https://www.s-reg.tn/metadata'),
+    appleWebApp: {
+      capable: true,
+      title: homePage.title,
+      statusBarStyle: 'black-translucent',
+    },
+    icons: [
+      {
+        rel: 'icon',
+        url: 'https://www.s-reg.tn/metadata/favicon-32x32.png',
+      },
+      {
+        rel: 'icon',
+        url: 'https://www.s-reg.tn/metadata/favicon-16x16.png',
+      },
+      {
+        rel: 'apple-touch-icon',
+        url: 'https://www.s-reg.tn/metadata/apple-touch-icon.png',
+      },
+      {
+        rel: 'mask-icon',
+        url: 'https://www.s-reg.tn/metadata/safari-pinned-tab.svg',
+        color: '#1e9146',
+      },
+      {
+        rel: 'shortcut icon',
+        url: 'https://www.s-reg.tn/metadata/favicon.ico',
+      },
+    ],
+    manifest: 'https://www.s-reg.tn/manifest.json',
+    robots: 'index, follow',
+    abstract: homePage?.overview ? toPlainText(homePage.overview) : undefined,
+    applicationName: homePage?.title,
+    authors: [{ name: homePage?.title, url: 'https://www.s-reg.tn' }],
+    category: 'Services for renewable energy',
+    classification:
+      "Join REG in revolutionizing recycling and demolition practices across Tunisia! Let's build a greener, cleaner future together. #RecycleSmart #SustainableDemolition",
+    creator: 'Arfacod',
+    generator: 'Next.js',
+    publisher: 'Vercel',
+    keywords: ['Recycle Smart', 'Sustainable Demolition'],
+    referrer: 'origin',
+
+    other: {
+      'og:image:alt': 'My Website',
+      'apple-mobile-web-app-title': 'Respect Environment Group',
+      'application-name': 'Respect Environment Group',
+      'msapplication-TileColor': '#1e9146',
+      'theme-color': '#ffffff',
+    },
   }
 }
 
@@ -58,7 +109,7 @@ export default async function IndexRoute({
         <Suspense>
           <Navbar />
         </Suspense>
-          <Suspense>{children}</Suspense>
+        <Suspense>{children}</Suspense>
         <Suspense>
           <Footer />
         </Suspense>
