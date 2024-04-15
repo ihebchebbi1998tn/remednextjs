@@ -33,7 +33,9 @@ export function SectionHero({
           autoPlay
           loop
           muted
-          className="absolute inset-0 object-cover object-right w-full h-full -z-10 md:object-center filter brightness-50"
+          playsInline
+          tabIndex={-1}
+          className="absolute inset-0 object-cover object-right w-full h-full -z-10 md:object-center"
         >
           <source src={video} type="video/mp4" />
         </video>

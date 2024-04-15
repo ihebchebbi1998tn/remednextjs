@@ -58,6 +58,8 @@ export function StatsBlock({
         autoPlay
         loop
         muted
+        playsInline
+        tabIndex={-1}
       >
         <source src={video} type="video/mp4" />
       </video>
