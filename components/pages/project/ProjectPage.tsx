@@ -42,7 +42,6 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
             className="relative w-full mx-auto mt-8 mb-4 max-w-screen md:mb-0"
             style={{ height: '24em' }}
           >
-            <div className="absolute bottom-0 left-0 z-10 w-full h-full bg-gradient-to-t from-zinc-900 to-transparent" />
             <Image
               src={urlForImage(coverImage)?.url() || ''}
               alt=""
