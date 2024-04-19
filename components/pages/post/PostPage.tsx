@@ -47,7 +47,9 @@ export function PostPage({ data, encodeDataAttribute }: PostPageProps) {
               className="absolute inset-0 object-cover w-full h-full"
               layout="fill"
             />
-            <div className="absolute bottom-0 left-0 z-20 p-4 ">
+          </div>
+          <div className="container">
+            <div className="mt-4">
               <h1 className="text-2xl font-semibold leading-tight text-gray-100 md:text-4xl">
                 {title}
               </h1>
@@ -74,8 +76,6 @@ export function PostPage({ data, encodeDataAttribute }: PostPageProps) {
                 </div>
               </div>
             </div>
-          </div>
-          <div className="container">
             <div className="pb-6 mt-4 font-semibold text-gray-400 border-b-2 border-gray-200">
               <p>{overview && <CustomPortableText value={overview} />}</p>
               {tags &&
