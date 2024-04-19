@@ -55,7 +55,7 @@ export function PostListPage({ data, encodeDataAttribute }: PostListPageProps) {
                           })}
                         </time>
                       )}
-                      {post.tags?.map((tag) => (
+                      {/* {post.tags?.map((tag) => (
                         <Link
                           key={tag}
                           href={post.slug}
@@ -63,7 +63,7 @@ export function PostListPage({ data, encodeDataAttribute }: PostListPageProps) {
                         >
                           {tag}
                         </Link>
-                      ))}
+                      ))} */}
                     </div>
                     <div className="relative max-w-xl group">
                       <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 dark:text-gray-300 group-hover:text-gray-600">
