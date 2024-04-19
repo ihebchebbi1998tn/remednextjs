@@ -48,16 +48,6 @@ export function PostPage({ data, encodeDataAttribute }: PostPageProps) {
               layout="fill"
             />
             <div className="absolute bottom-0 left-0 z-20 p-4 ">
-              {/* {tags &&
-                tags.map((tag) => (
-                  <Link
-                    href="#"
-                    className="inline-flex items-center justify-center px-4 py-1 mb-2 text-gray-200 bg-green-500 rounded-full dark:bg-green-500 dark:text-gray-200"
-                    key={tag}
-                  >
-                    {tag}
-                  </Link>
-                ))} */}
               <h1 className="text-2xl font-semibold leading-tight text-gray-100 md:text-4xl">
                 {title}
               </h1>
@@ -87,7 +77,17 @@ export function PostPage({ data, encodeDataAttribute }: PostPageProps) {
           </div>
           <div className="container">
             <div className="pb-6 mt-4 font-semibold text-gray-400 border-b-2 border-gray-200">
-              {overview && <CustomPortableText value={overview} />}
+              <p>{overview && <CustomPortableText value={overview} />}</p>
+              {tags &&
+                tags.map((tag) => (
+                  <Link
+                    href="#"
+                    className="inline-flex items-center justify-center px-4 py-1 m-1 text-gray-200 bg-green-500 rounded-full dark:bg-green-500 dark:text-gray-200"
+                    key={tag}
+                  >
+                    {tag}
+                  </Link>
+                ))}
             </div>
             <div className="pb-6 mt-4 border-b-2 border-gray-200 dark:text-gray-400">
               {description && <CustomPortableText value={description} />}
