@@ -49,7 +49,7 @@ export function PostPage({ data, encodeDataAttribute }: PostPageProps) {
               layout="fill"
             />
             <div className="absolute bottom-0 left-0 z-20 p-4 ">
-              {tags &&
+              {/* {tags &&
                 tags.map((tag) => (
                   <Link
                     href="#"
@@ -58,7 +58,7 @@ export function PostPage({ data, encodeDataAttribute }: PostPageProps) {
                   >
                     {tag}
                   </Link>
-                ))}
+                ))} */}
               <h1 className="text-2xl font-semibold leading-tight text-gray-100 md:text-4xl">
                 {title}
               </h1>
