@@ -2,7 +2,7 @@
 
 import { type QueryResponseInitial } from '@sanity/react-loader'
 
-import { projectBySlugQuery } from '@/sanity/lib/queries'
+import { postBySlugQuery } from '@/sanity/lib/queries'
 import { useQuery } from '@/sanity/loader/useQuery'
 import { PostPayload } from '@/types'
 
@@ -16,7 +16,7 @@ type Props = {
 export default function ProjectPreview(props: Props) {
   const { params, initial } = props
   const { data, encodeDataAttribute } = useQuery<PostPayload | null>(
-    projectBySlugQuery,
+    postBySlugQuery,
     params,
     { initial },
   )
