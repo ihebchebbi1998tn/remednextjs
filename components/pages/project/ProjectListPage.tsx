@@ -43,8 +43,6 @@ export function ProjectListPage({
                     width={384}
                     height={384}
                   />
-                  <div className="absolute inset-0 -z-10 bg-gradient-to-t from-gray-900 via-gray-900/40" />
-                  <div className="absolute inset-0 -z-10 ring-1 ring-inset ring-gray-900/10" />
                   <h3 className="mt-3 text-lg font-semibold leading-6 text-white">
                     <a href={`projects/${project.slug}`}>
                       <span className="absolute inset-0" />
