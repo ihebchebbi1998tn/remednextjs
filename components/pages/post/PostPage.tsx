@@ -50,7 +50,7 @@ export function PostPage({ data, encodeDataAttribute }: PostPageProps) {
           </div>
           <div className="container">
             <div className="mt-4">
-              <h1 className="text-2xl font-semibold leading-tight text-gray-100 md:text-4xl">
+              <h1 className="text-2xl font-semibold leading-tight dark:text-gray-200 md:text-4xl">
                 {title}
               </h1>
               <div className="flex mt-3">
@@ -62,7 +62,7 @@ export function PostPage({ data, encodeDataAttribute }: PostPageProps) {
                   height="40"
                 />
                 <div>
-                  <p className="text-sm font-semibold text-gray-200">
+                  <p className="text-sm font-semibold dark:text-gray-200">
                     {author?.name}
                   </p>
                   {date && (
@@ -89,7 +89,7 @@ export function PostPage({ data, encodeDataAttribute }: PostPageProps) {
                   </Link>
                 ))}
             </div>
-            <div className="pb-6 mt-4 border-b-2 border-gray-200 dark:text-gray-400">
+            <div className="pb-6 mt-4 border-b-2 border-gray-200 dark:text-gray-200">
               {description && <CustomPortableText value={description} />}
             </div>
           </div>
