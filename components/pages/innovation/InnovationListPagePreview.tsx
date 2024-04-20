@@ -16,8 +16,9 @@ export default function InnovationPreview(props: Props) {
   const { initial } = props
   const { data, encodeDataAttribute } = useQuery<InnovationsPayload>(
     innovationsQuery,
+    {},
     { initial },
-    )
+  )
 
   return (
     <InnovationListPage data={data} encodeDataAttribute={encodeDataAttribute} />
