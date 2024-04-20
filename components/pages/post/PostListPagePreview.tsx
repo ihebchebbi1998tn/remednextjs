@@ -14,9 +14,13 @@ type Props = {
 
 export default function PostListPagePreview(props: Props) {
   const { initial } = props
-  const { data, encodeDataAttribute } = useQuery<PostsPayload>(postsQuery, {
-    initial,
-  })
+  const { data, encodeDataAttribute } = useQuery<PostsPayload>(
+    postsQuery,
+    {},
+    {
+      initial,
+    },
+  )
 
   return <PostListPage data={data!} encodeDataAttribute={encodeDataAttribute} />
 }
