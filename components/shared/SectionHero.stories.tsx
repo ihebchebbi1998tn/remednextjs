@@ -23,28 +23,33 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     title: 'Respect Environment Group',
-    description: 'We are a group of people who care about the environment and want to make a difference.',
+    description:
+      'We are a group of people who care about the environment and want to make a difference.',
     video: '/videos/hero.mp4',
     blocks: [
       {
         icon: 'home',
         title: 'We care',
-        description: 'We care about the environment and want to make a difference.',
+        description:
+          'We care about the environment and want to make a difference.',
       },
       {
         icon: 'mail',
         title: 'We are passionate',
-        description: 'We are passionate about the environment and want to make a difference.',
+        description:
+          'We are passionate about the environment and want to make a difference.',
       },
       {
         icon: 'phoneCall',
         title: 'We are worldwide',
-        description: 'We are worldwide about the environment and want to make a difference.',
+        description:
+          'We are worldwide about the environment and want to make a difference.',
       },
       {
         icon: 'printer',
         title: 'We are identity',
-        description: 'We are identity about the environment and want to make a difference.',
+        description:
+          'We are identity about the environment and want to make a difference.',
       },
     ],
   },

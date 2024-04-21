@@ -74,7 +74,6 @@ export function CarouselReadMore({
                   onClick={() => {
                     setCurrent(index + 1)
                     api?.scrollTo(index)
-                    
                   }}
                 />
               ),

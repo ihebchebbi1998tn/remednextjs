@@ -1,11 +1,11 @@
-'use client';
+'use client'
 
 import 'yet-another-react-lightbox/styles.css'
 import 'yet-another-react-lightbox/plugins/thumbnails.css'
 
-import { useCallback,useState } from 'react'
-import PhotoAlbum, {PhotoAlbumProps} from 'react-photo-album'
-import Lightbox, {LightboxProps} from 'yet-another-react-lightbox'
+import { useCallback, useState } from 'react'
+import PhotoAlbum, { PhotoAlbumProps } from 'react-photo-album'
+import Lightbox, { LightboxProps } from 'yet-another-react-lightbox'
 // import optional lightbox plugins
 import Download from 'yet-another-react-lightbox/plugins/download'
 import Fullscreen from 'yet-another-react-lightbox/plugins/fullscreen'
@@ -19,7 +19,10 @@ export interface GalleryImageProps {
   images: GalleryImagePayload[]
   title?: string
   photoAlbumProps?: Omit<PhotoAlbumProps, 'photos' | 'layout'>
-  lightboxProps?: Omit<LightboxProps, 'slides' | 'open' | 'index' | 'close' | 'plugins'>
+  lightboxProps?: Omit<
+    LightboxProps,
+    'slides' | 'open' | 'index' | 'close' | 'plugins'
+  >
 }
 
 export function GalleryImage({
@@ -34,9 +37,10 @@ export function GalleryImage({
   const onImageClick = useCallback(
     (index: number, photo: any, event: any) => {
       setIndex(index)
-      photoAlbumProps?.onClick?.({index, photo, event})
-    }
-  , [photoAlbumProps])
+      photoAlbumProps?.onClick?.({ index, photo, event })
+    },
+    [photoAlbumProps],
+  )
 
   if (!images?.length) {
     return null

@@ -52,7 +52,7 @@ export const Default: Story = {
               end: '2022/12/31',
             },
             tags: ['tag1', 'tag2'],
-          }
+          },
         ],
       },
     ],

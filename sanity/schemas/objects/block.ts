@@ -30,7 +30,7 @@ export default defineType({
       name: 'description',
       description: 'Block content',
       title: 'Overview',
-      type: 'blockContent'
+      type: 'blockContent',
     }),
     defineField({
       name: 'cta',

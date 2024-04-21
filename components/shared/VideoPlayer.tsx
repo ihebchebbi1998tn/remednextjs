@@ -6,7 +6,5 @@ interface VideoPlayerProps {
 }
 
 export function VideoPlayer({ url }: VideoPlayerProps) {
-  return (
-      <ReactPlayer url={url} />
-  )
+  return <ReactPlayer url={url} />
 }

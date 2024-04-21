@@ -19,5 +19,7 @@ export default function CertificationPreview(props: Props) {
     { initial },
   )
 
-  return <Certification data={data!} encodeDataAttribute={encodeDataAttribute} />
+  return (
+    <Certification data={data!} encodeDataAttribute={encodeDataAttribute} />
+  )
 }

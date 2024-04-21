@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from '@storybook/react'
 
 import { ShowcasePosts } from './ShowcasePosts'
 
-
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
   title: 'shared/ShowcasePosts',
@@ -61,7 +60,7 @@ export const Default: Story = {
         description: 'Description',
         coverImage: 'https://source.unsplash.com/random/800x600',
         slug: '#',
-      }
+      },
     ],
   },
 }

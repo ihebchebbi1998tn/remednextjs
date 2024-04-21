@@ -16,7 +16,6 @@ export function ListLineWithIcon({
   items = [],
   className = '',
 }: ListLineWithIconProps) {
-  
   return (
     <div className={`${className}`}>
       {title && (
@@ -24,7 +23,7 @@ export function ListLineWithIcon({
           {title}
         </h6>
       )}
-      {items && 
+      {items &&
         items.map((item, index) => {
           const Icon = item.icon ? Icons[item.icon] : null
           return (

@@ -27,8 +27,6 @@ export const Default: Story = {
     available: true,
   },
   render: (args) => {
-    return (
-      <AvailabilityBadge {...args} />
-    )
+    return <AvailabilityBadge {...args} />
   },
 }

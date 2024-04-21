@@ -1,4 +1,10 @@
-import { ArrowBigDown, ClipboardCopy, File, FileSignature, Table } from 'lucide-react'
+import {
+  ArrowBigDown,
+  ClipboardCopy,
+  File,
+  FileSignature,
+  Table,
+} from 'lucide-react'
 
 import { cn } from './utils'
 
@@ -259,4 +265,3 @@ export const items = [
     icon: <ArrowBigDown className="w-4 h-4 text-green-500" />,
   },
 ]
-

@@ -3,7 +3,6 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { Icons } from './icons'
 import { LineWithIcon } from './LineWithIcon'
 
-
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
   title: 'shared/LineWithIcon',
@@ -30,16 +29,16 @@ export const Default: Story = {
     className: '',
   },
   render: (args) => {
-  const { label, link, iconClassName, className } = args  
-  const Icon = Icons['mail']
-  return (
-    <LineWithIcon
-      label={label}
-      link={link}
-      iconClassName={iconClassName}
-      className={className}
-      icon={<Icon />}
-    />
-  )
+    const { label, link, iconClassName, className } = args
+    const Icon = Icons['mail']
+    return (
+      <LineWithIcon
+        label={label}
+        link={link}
+        iconClassName={iconClassName}
+        className={className}
+        icon={<Icon />}
+      />
+    )
   },
 }

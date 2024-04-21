@@ -9,7 +9,7 @@ interface FrCounterProps {
   className?: string
 }
 
-export function FrCounter({ start = 0, className, max =50 }: FrCounterProps) {
+export function FrCounter({ start = 0, className, max = 50 }: FrCounterProps) {
   const count = useMotionValue(start)
   const rounded = useTransform(count, Math.round)
 

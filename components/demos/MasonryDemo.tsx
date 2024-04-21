@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
 
-
 export function MasonryDemo() {
   return (
     <div className="flex justify-end gap-8 -ml-28 mt-14 sm:-mt-44 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0 md:ml-0">

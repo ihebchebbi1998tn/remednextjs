@@ -1,7 +1,7 @@
 // ./schemaTypes/youTubeType/index.ts
 
 import { PlayIcon } from '@sanity/icons'
-import { defineField,defineType } from 'sanity'
+import { defineField, defineType } from 'sanity'
 
 import { videoTypePreview } from './videoTypePreview'
 

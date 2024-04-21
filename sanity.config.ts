@@ -87,7 +87,7 @@ export default defineConfig({
     deskTool({
       structure: pageStructure([
         home,
-        innovations, 
+        innovations,
         opportunities,
         posts,
         projects,

@@ -81,7 +81,7 @@ export default defineType({
     defineField({
       name: 'description',
       title: 'Project Description',
-      type: 'blockContent'
+      type: 'blockContent',
     }),
     defineField({
       name: 'date',

@@ -11,7 +11,6 @@ export function AvailabilityBadge({
   available = false,
   onClick,
 }: AvailabilityBadgeProps) {
-  
   return (
     <Badge
       variant="outline"

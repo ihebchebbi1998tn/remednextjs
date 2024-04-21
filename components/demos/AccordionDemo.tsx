@@ -12,7 +12,6 @@ interface AccordionDemoProps {
   }[]
 }
 
-
 export function AccordionDemo({ data }: AccordionDemoProps) {
   return (
     <Accordion type="single" collapsible className="w-full">
@@ -22,8 +21,8 @@ export function AccordionDemo({ data }: AccordionDemoProps) {
             <AccordionTrigger>{item.title}</AccordionTrigger>
             <AccordionContent>{item.description}</AccordionContent>
           </AccordionItem>
-        )})
-      }
+        )
+      })}
     </Accordion>
   )
 }

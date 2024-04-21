@@ -32,7 +32,7 @@ export const Default: Story = {
       },
       {
         text: 'Group',
-      }
+      },
     ],
   },
 }

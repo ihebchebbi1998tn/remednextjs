@@ -10,7 +10,6 @@ import React, { useState } from 'react'
 
 import { cn } from '@/lib/utils'
 
-
 export const FloatingNav = ({
   navItems,
   className,

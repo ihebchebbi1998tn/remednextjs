@@ -15,7 +15,6 @@ interface Footer3Props {
   copyright?: string
 }
 
-
 export function Footer3({
   className = '',
   main = [],
@@ -47,16 +46,17 @@ export function Footer3({
             <div className="flex space-x-6">
               {social.map((item) => {
                 const Icon = item.icon ? Icons[item.icon] : null
-                return(
-                <a
-                  key={item.label}
-                  href={item.value}
-                  className="text-gray-400 hover:text-gray-500"
-                >
-                  <span className="sr-only">{item.label}</span>
-                  {Icon && <Icon className="w-6 h-6" aria-hidden="true" />}
-                </a>
-              )})}
+                return (
+                  <a
+                    key={item.label}
+                    href={item.value}
+                    className="text-gray-400 hover:text-gray-500"
+                  >
+                    <span className="sr-only">{item.label}</span>
+                    {Icon && <Icon className="w-6 h-6" aria-hidden="true" />}
+                  </a>
+                )
+              })}
             </div>
           </div>
           <div className="grid grid-cols-2 gap-8 mt-16 xl:col-span-2 xl:mt-0">
@@ -67,16 +67,17 @@ export function Footer3({
                 </h3>
                 <ul role="list" className="mt-6 space-y-4">
                   {main.map((item) => {
-                    return(
-                    <li key={item.label}>
-                      <a
-                        href={item.value}
-                        className="text-sm leading-6 text-gray-600 hover:text-gray-900"
-                      >
-                        {item.label}
-                      </a>
-                    </li>
-                  )})}
+                    return (
+                      <li key={item.label}>
+                        <a
+                          href={item.value}
+                          className="text-sm leading-6 text-gray-600 hover:text-gray-900"
+                        >
+                          {item.label}
+                        </a>
+                      </li>
+                    )
+                  })}
                 </ul>
               </div>
               <div className="mt-10 md:mt-0">
@@ -136,9 +137,7 @@ export function Footer3({
           </div>
         </div>
         <div className="pt-8 mt-16 border-t border-gray-900/10 sm:mt-20 lg:mt-24">
-          <p className="text-xs leading-5 text-gray-500">
-            {copyright}
-          </p>
+          <p className="text-xs leading-5 text-gray-500">{copyright}</p>
         </div>
       </div>
     </footer>

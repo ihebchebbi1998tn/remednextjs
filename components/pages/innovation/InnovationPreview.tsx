@@ -21,5 +21,7 @@ export default function ProjectPreview(props: Props) {
     { initial },
   )
 
-  return <InnovationPage data={data!} encodeDataAttribute={encodeDataAttribute} />
+  return (
+    <InnovationPage data={data!} encodeDataAttribute={encodeDataAttribute} />
+  )
 }

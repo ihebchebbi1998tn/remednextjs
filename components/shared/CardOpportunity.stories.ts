@@ -25,7 +25,8 @@ export const Primary: Story = {
     image: 'https://source.unsplash.com/random/800x600',
     title: 'Title',
     endDate: '2022/12/31',
-    overview: 'lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
+    overview:
+      'lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
     readMoreLink: '#',
     readMoreLabel: 'Read more',
     startDate: '2022/01/01',

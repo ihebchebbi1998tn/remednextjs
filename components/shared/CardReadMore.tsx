@@ -35,15 +35,10 @@ export function CardReadMore({
   readMoreLabel = 'Read more',
   readMoreLink = '',
 }: CardReadMoreProps) {
-  console.log('readMoreLink: ', readMoreLink);
+  console.log('readMoreLink: ', readMoreLink)
   return (
     <Card className={`${className} overflow-hidden flex flex-col`}>
-      <Image
-        src={image}
-        width={width}
-        height={height}
-        alt={title}
-      />
+      <Image src={image} width={width} height={height} alt={title} />
       {title && (
         <CardHeader>
           <CardTitle className="font-normal text-md">{title}</CardTitle>

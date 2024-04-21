@@ -3,7 +3,6 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { FooterBrand } from './FooterBrand'
 import { Icons } from './icons'
 
-
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
   title: 'shared/FooterBrand',
@@ -25,7 +24,8 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     brand: 'Respect Environment Group',
-    slogan: 'Making the world a better place through constructing elegant hierarchies.',
+    slogan:
+      'Making the world a better place through constructing elegant hierarchies.',
     logo: 'https://via.placeholder.com/150',
   },
 }

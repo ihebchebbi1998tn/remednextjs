@@ -6,11 +6,9 @@
 
 ## Project Overview
 
-| [Personal Website](https://reg-website.vercel.app/)                                                | [Studio](https://reg-website.vercel.app/studio)                                                 |
+| [Personal Website](https://reg-website.vercel.app/)                                                                       | [Studio](https://reg-website.vercel.app/studio)                                                                        |
 | ------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
 | ![Personal Website](https://user-images.githubusercontent.com/6951139/206395107-e58a796d-13a9-400a-94b6-31cb5df054ab.png) | ![Sanity Studio](https://user-images.githubusercontent.com/6951139/206395521-8a5f103d-4a0c-4da8-aff5-d2a1961fb2c0.png) |
-
-
 
 ## Configuration
 
@@ -38,6 +36,6 @@ npm install && npm run dev
 
 When you run this development server, the changes you make in your frontend and studio configuration will be applied live using hot reloading.
 
-The website should be up and running on [http://localhost:3000](http://localhost:3000) 
+The website should be up and running on [http://localhost:3000](http://localhost:3000)
 
 You can create and edit content on [http://localhost:3000/studio](http://localhost:3000/studio).
