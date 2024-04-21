@@ -26,7 +26,7 @@ export function Testimonials({
   featuredTestimonial,
 }: TestimonialDemoProps) {
   return (
-    <div className="px-6 mx-auto max-w-7xl lg:px-8">
+    <div className="px-6 py-8 mx-auto max-w-7xl lg:px-8">
       <div className="max-w-xl mx-auto text-center">
         <h2 className="text-lg font-semibold leading-8 tracking-tight text-green-600">
           {title}
