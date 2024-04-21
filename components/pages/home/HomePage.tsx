@@ -41,7 +41,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
   const { sections = [], partners } = data ?? {}
 
   const testimonials =
-    sections[8]?.blocks?.map((item) => {
+    sections[6]?.blocks?.map((item) => {
       return {
         body: <CustomPortableText value={item.description ?? []} />,
         author: {
@@ -106,7 +106,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
       {/* Stats */}
       <Stats
         stats={
-          sections[4]?.blocks?.map((item) => ({
+          sections[3]?.blocks?.map((item) => ({
             value: item.title,
             name: <CustomPortableText value={item.description ?? []} />,
             unit: item.subtitle,
@@ -116,14 +116,14 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
       {/* Route expérimentale */}
       <div className="container">
         <StatsBlock
-          title={sections[6]?.title}
-          subtitle={sections[6]?.subtitle}
+          title={sections[4]?.title}
+          subtitle={sections[4]?.subtitle}
           description={
-            <CustomPortableText value={sections[6]?.description ?? []} />
+            <CustomPortableText value={sections[4]?.description ?? []} />
           }
-          video={sections[6]?.videoURL}
+          video={sections[4]?.videoURL}
           stats={
-            sections[6]?.blocks?.map((item) => ({
+            sections[4]?.blocks?.map((item) => ({
               value: item.title,
               name: <CustomPortableText value={item.description ?? []} />,
               unit: item.subtitle,
@@ -157,8 +157,8 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
       {/* Testimonials */}
       <div className="container">
         <Testimonials
-          title={sections[8]?.title}
-          description={sections[8]?.subtitle}
+          title={sections[6]?.title}
+          description={sections[6]?.subtitle}
           testimonials={[
             [[testimonials[1]], [testimonials[2]]],
             [[testimonials[3]], [testimonials[4]]],
