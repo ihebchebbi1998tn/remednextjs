@@ -13,7 +13,8 @@ import {
   Text,
 } from '@react-email/components'
 
-interface ContactEmailProps {
+interface ReactEmailProps {
+  logoUrl?: string
   fullName?: string
   email?: string
   message?: string
@@ -21,11 +22,12 @@ interface ContactEmailProps {
 
 const baseUrl = process.env.VERCEL_URL
 
-export const ContactEmail = ({
+export const ReactEmail = ({
+  logoUrl = `${baseUrl}/images/logo.png`,
   fullName = '',
   email = '',
   message = '',
-}: ContactEmailProps) => {
+}: ReactEmailProps) => {
   const previewText = `Message from ${fullName}`
 
   return (
@@ -37,7 +39,7 @@ export const ContactEmail = ({
           <Container className="border border-solid border-[#eaeaea] rounded my-[40px] mx-auto p-[20px] w-[465px]">
             <Section className="mt-[32px]">
               <Img
-                src={`${baseUrl}/images/logo.png`}
+                src={logoUrl}
                 width="70"
                 height="70"
                 alt="Respect Environnement Group"
@@ -79,4 +81,4 @@ export const ContactEmail = ({
   )
 }
 
-export default ContactEmail
+export default ReactEmail

@@ -1,9 +1,9 @@
-import { render } from '@react-email/render';
+import { render } from '@react-email/render'
 import { type NextRequest, NextResponse } from 'next/server'
 import nodemailer from 'nodemailer'
 import Mail from 'nodemailer/lib/mailer'
 
-import { ContactEmail } from '@/components/shared/ContactEmail';
+import { ReactEmail } from '@/components/shared/ReactEmail'
 
 export async function POST(request: NextRequest) {
   const { email, fullName, message } = await request.json()
@@ -32,7 +32,9 @@ export async function POST(request: NextRequest) {
     to: process.env.NODEMAILER_EMAIL,
     // cc: email, (uncomment this line if you want to send a copy to the sender)
     subject: `[contact] ${fullName}`,
-    html: render(<ContactEmail fullName={fullName} email={email} message={message} />),
+    html: render(
+      <ReactEmail fullName={fullName} email={email} message={message} />,
+    ),
   }
 
   const sendMailPromise = () =>

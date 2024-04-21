@@ -4,7 +4,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion'
-import { CustomBlock } from '@/types'
 
 interface AccordionDemoProps {
   data?: {

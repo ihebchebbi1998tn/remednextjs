@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { SectionApplication } from './SectionApplication'
+import { VideoPlayer } from './VideoPlayer'
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: 'shared/SectionBoost',
-  component: SectionApplication,
+  title: 'shared/VideoPlayer',
+  component: VideoPlayer,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
     layout: 'centered',
@@ -14,10 +14,14 @@ const meta = {
   tags: ['autodocs'],
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {},
-} satisfies Meta<typeof SectionApplication>
+} satisfies Meta<typeof VideoPlayer>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const Default: Story = {}
+export const Primary: Story = {
+  args: {
+    url: 'https://www.youtube.com/watch?v=6n3pFFPSlW4',
+  },
+}
