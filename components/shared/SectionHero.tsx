@@ -42,9 +42,9 @@ export function SectionHero({
       </Suspense>
       <div className="px-6 mx-auto max-w-7xl lg:px-8">
         <div className="max-w-2xl mx-auto lg:mx-0">
-          <h2 className="text-4xl font-bold tracking-tight text-white lg:text-6xl md:text-5xl">
+          <h1 className="text-4xl font-bold tracking-tight text-white lg:text-6xl md:text-5xl">
             {title}
-          </h2>
+          </h1>
           {description && (
             <p className="mt-6 text-lg leading-8 text-gray-300">
               {description}
