@@ -103,16 +103,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
         width={width}
         height={height}
       />
-      {/* Stats */}
-      <Stats
-        stats={
-          sections[3]?.blocks?.map((item) => ({
-            value: item.title,
-            name: <CustomPortableText value={item.description ?? []} />,
-            unit: item.subtitle,
-          })) ?? []
-        }
-      />
+
       {/* Route expérimentale */}
       <div className="container">
         <StatsBlock
@@ -131,8 +122,19 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
           }
         />
       </div>
-
-      <div className="px-4">
+      
+      {/* Stats */}
+      <Stats
+        stats={
+          sections[3]?.blocks?.map((item) => ({
+            value: item.title,
+            name: <CustomPortableText value={item.description ?? []} />,
+            unit: item.subtitle,
+          })) ?? []
+        }
+      />
+      
+      <div className="container">
         <HomePageShowcases data={data} />
       </div>
 
