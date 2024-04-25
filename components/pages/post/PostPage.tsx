@@ -78,7 +78,7 @@ export function PostPage({ data, encodeDataAttribute }: PostPageProps) {
             </div>
             <div className="pb-6 mt-4 font-semibold text-gray-400 border-b-2 border-gray-200">
               <p>{overview && <CustomPortableText value={overview} />}</p>
-              {tags &&
+              {/* {tags &&
                 tags.map((tag) => (
                   <Link
                     href="#"
@@ -87,7 +87,7 @@ export function PostPage({ data, encodeDataAttribute }: PostPageProps) {
                   >
                     {tag}
                   </Link>
-                ))}
+                ))} */}
             </div>
             <div className="pb-6 mt-4 border-b-2 border-gray-200 dark:text-gray-200">
               {description && <CustomPortableText value={description} />}
