@@ -44,7 +44,7 @@ export function Testimonials({
             <Image
               className="flex-none w-10 h-10 rounded-full bg-gray-50"
               src={featuredTestimonial.author.imageUrl}
-              alt=""
+              alt={featuredTestimonial.author.name || ''}
               width={40}
               height={40}
             />
@@ -85,7 +85,7 @@ export function Testimonials({
                       <Image
                         className="w-10 h-10 rounded-full bg-gray-50"
                         src={testimonial?.author?.imageUrl}
-                        alt=""
+                        alt={testimonial?.author?.name || ''}
                         width={40}
                         height={40}
                       />

@@ -43,7 +43,7 @@ export function PostPage({ data, encodeDataAttribute }: PostPageProps) {
           >
             <Image
               src={urlForImage(coverImage)?.url() || ''}
-              alt=""
+              alt={title ?? ''}
               className="absolute inset-0 object-cover w-full h-full"
               layout="fill"
             />
@@ -57,7 +57,7 @@ export function PostPage({ data, encodeDataAttribute }: PostPageProps) {
                 <Image
                   src={urlForImage(author?.picture)?.url() || ''}
                   className="object-cover w-10 h-10 mr-2 rounded-full"
-                  alt=""
+                  alt={author?.name ?? ''}
                   width="40"
                   height="40"
                 />

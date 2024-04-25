@@ -22,7 +22,7 @@ export function SectionApplication({
           src={application?.coverImage || ''}
           width={300}
           height={100}
-          alt="cover"
+          alt="application partners"
         />
         {title}
       </h2>

@@ -32,7 +32,7 @@ export function OpportunityPage({
                 {image && (
                   <Image
                     src={urlForImage(image)?.url() ?? ''}
-                    alt=""
+                    alt={title ?? ''}
                     width={100}
                     height={100}
                     className="mb-2"

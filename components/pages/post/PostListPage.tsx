@@ -39,7 +39,7 @@ export function PostListPage({ data, encodeDataAttribute }: PostListPageProps) {
                   <div className="relative aspect-[16/9] sm:aspect-[2/1] lg:aspect-square lg:w-64 lg:shrink-0">
                     <Image
                       src={coverImage || ''}
-                      alt=""
+                      alt={post.title || ''}
                       className="absolute inset-0 object-cover w-full h-full rounded-2xl bg-gray-50"
                       width={384}
                       height={384}

@@ -38,7 +38,7 @@ export function ProjectListPage({
                 >
                   <Image
                     src={urlForImage(project.coverImage)?.url() ?? ''}
-                    alt=""
+                    alt={project.title}
                     className="absolute inset-0 object-cover w-full h-full -z-10"
                     width={384}
                     height={384}
@@ -79,7 +79,7 @@ export function ProjectListPage({
                       {/* <div className="flex gap-x-2.5">
                       <Image
                         src={project.author.imageUrl}
-                        alt=""
+                        alt={project.author.name}
                         className="flex-none w-6 h-6 rounded-full bg-white/10"
                         width={24}
                         height={24}

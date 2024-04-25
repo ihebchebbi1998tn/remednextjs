@@ -26,7 +26,13 @@ export function CardOpportunity({
     <div className="p-4 mb-6 rounded-md bg-gray-50 dark:bg-gray-900">
       <div className="flex items-center justify-between">
         {image && (
-          <Image src={image} alt="" width={100} height={100} className="mb-2" />
+          <Image
+            src={image}
+            alt={title ?? ''}
+            width={100}
+            height={100}
+            className="mb-2"
+          />
         )}
         <span className="mb-2 ml-auto text-xs text-gray-500 dark:text-gray-400">
           {[startDate, endDate].filter(Boolean).join(' - ')}

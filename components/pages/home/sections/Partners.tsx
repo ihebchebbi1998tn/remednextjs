@@ -38,7 +38,7 @@ export function Partners({ partners }: PartnersProps) {
               <Image
                 src={partner.logo || ''}
                 key={partner.name}
-                alt={partner.alt || ''}
+                alt={partner.alt || partner.name || ''}
                 width={150}
                 height={100}
                 style={{ height: '100px', objectFit: 'contain' }}

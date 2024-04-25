@@ -44,7 +44,7 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
           >
             <Image
               src={urlForImage(coverImage)?.url() || ''}
-              alt=""
+              alt={title ?? ''}
               className="absolute inset-0 object-cover w-full h-full"
               layout="fill"
             />
