@@ -64,7 +64,7 @@ export function SectionHero({
                   aria-hidden="true"
                 />
                 <div className="text-sm sm:leading-7 sm:text-base">
-                  <h3 className="font-semibold text-white">{card.title}</h3>
+                  <h2 className="font-semibold text-white">{card.title}</h2>
                   <p className="mt-2 text-gray-300">{card.description}</p>
                 </div>
               </div>
