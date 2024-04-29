@@ -59,6 +59,7 @@ export function ShowcasePosts({
                   <Link
                     href={`/posts/${blocks?.[0].slug}`}
                     className="absolute bottom-4 right-4"
+                    aria-description={blocks?.[0].title}
                   >
                     <Button variant={'link'} className="text-green-500">
                       Read more
