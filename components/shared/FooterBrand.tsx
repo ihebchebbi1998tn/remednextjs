@@ -15,7 +15,7 @@ export function FooterBrand({
 }: FooterBrandProps) {
   return (
     <div className="">
-      <h6 className="flex items-center justify-center mb-4 font-semibold uppercase md:justify-start">
+      <p className="flex items-center justify-center mb-4 font-semibold uppercase md:justify-start">
         {logo && (
           <Image
             src={logo}
@@ -26,7 +26,7 @@ export function FooterBrand({
           />
         )}
         {brand}
-      </h6>
+      </p>
       {slogan && <p>{slogan}</p>}
     </div>
   )

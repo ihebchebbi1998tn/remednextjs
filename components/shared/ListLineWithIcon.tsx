@@ -19,9 +19,9 @@ export function ListLineWithIcon({
   return (
     <div className={`${className}`}>
       {title && (
-        <h6 className="flex justify-center mb-4 font-semibold uppercase md:justify-start">
+        <h1 className="flex justify-center mb-4 font-semibold uppercase md:justify-start">
           {title}
-        </h6>
+        </h1>
       )}
       {items &&
         items.map((item, index) => {

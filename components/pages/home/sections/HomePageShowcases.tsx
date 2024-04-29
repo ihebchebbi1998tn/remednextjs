@@ -44,8 +44,8 @@ export function HomePageShowcases({ data }: HomePageProps) {
             />
             <div className="flex flex-row gap-4">
               <div className="flex flex-col gap-2 md:flex-row">
-                <h3 className="text-lg font-bold">Start Date</h3>
-                <p>
+                <span className="text-lg font-bold">Start Date</span>
+                <span>
                   {opportunity?.duration?.start
                     ? format(
                         parseISO(opportunity?.duration?.start),
@@ -55,11 +55,11 @@ export function HomePageShowcases({ data }: HomePageProps) {
                         },
                       )
                     : ''}
-                </p>
+                </span>
               </div>
               <div className="flex flex-col gap-2 md:flex-row">
-                <h3 className="text-lg font-bold">End Date</h3>
-                <p>
+                <span className="text-lg font-bold">End Date</span>
+                <span>
                   {opportunity?.duration?.end
                     ? format(
                         parseISO(opportunity?.duration?.end),
@@ -69,12 +69,12 @@ export function HomePageShowcases({ data }: HomePageProps) {
                         },
                       )
                     : ''}
-                </p>
+                </span>
               </div>
             </div>
           </div>
           <div className="flex flex-col gap-2">
-            <h3 className="text-lg font-bold">{opportunity?.title}</h3>
+            <h1 className="text-lg font-bold">{opportunity?.title}</h1>
             <CustomPortableText value={opportunity?.overview ?? []} />
           </div>
           <div className="flex flex-col self-end gap-2 mr-6">
@@ -104,7 +104,7 @@ export function HomePageShowcases({ data }: HomePageProps) {
         className="w-full md:w-1/2"
       >
         <div className="flex flex-col w-full h-full gap-4 p-4 shadow-lg rounded-2xl ring-1 ring-gray-900/5">
-          <h3 className="text-lg font-bold">{innovation?.title}</h3>
+          <h1 className="text-lg font-bold">{innovation?.title}</h1>
           <CustomPortableText value={innovation?.overview ?? []} />
           <div className="flex flex-col self-end gap-2 mr-6">
             <Link
