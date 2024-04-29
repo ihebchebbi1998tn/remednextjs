@@ -48,7 +48,12 @@ export function ShowcasePosts({
                 </div>
                 <div className="flex items-center ">
                   <h3 className="my-2 ml-3 text-lg font-bold text-gray-800">
-                    {blocks?.[0].title}
+                    <Link
+                      href={`/posts/${blocks?.[0].slug}`}
+                      aria-description={blocks?.[0].title}
+                    >
+                      {blocks?.[0].title}
+                    </Link>
                   </h3>
                 </div>
                 <p className="mt-3 mb-1 text-xs font-medium text-green-500 uppercase">
@@ -56,15 +61,6 @@ export function ShowcasePosts({
                 </p>
                 <p className="pb-6 mb-2 text-gray-600 ">
                   {blocks?.[0].description}
-                  <Link
-                    href={`/posts/${blocks?.[0].slug}`}
-                    className="absolute bottom-4 right-4"
-                    aria-description={blocks?.[0].title}
-                  >
-                    <Button variant={'link'} className="text-green-500">
-                      Read more
-                    </Button>
-                  </Link>
                 </p>
               </div>
             </div>
@@ -85,7 +81,9 @@ export function ShowcasePosts({
                 </div>
                 <div className="flex items-center ">
                   <h3 className="my-2 ml-3 text-lg font-bold text-gray-800">
-                    {blocks?.[1].title}
+                    <Link href={`/posts/${blocks?.[1].slug}`}>
+                      {blocks?.[1].title}
+                    </Link>
                   </h3>
                 </div>
                 <p className="mt-3 mb-1 text-xs font-medium text-green-500 uppercase">
@@ -93,14 +91,6 @@ export function ShowcasePosts({
                 </p>
                 <p className="pb-6 mb-2 text-gray-600">
                   {blocks?.[1].description}
-                  <Link
-                    href={`/posts/${blocks?.[1].slug}`}
-                    className="absolute bottom-4 right-4"
-                  >
-                    <Button variant={'link'} className="text-green-500">
-                      Read more
-                    </Button>
-                  </Link>
                 </p>
               </div>
             </div>
@@ -123,7 +113,9 @@ export function ShowcasePosts({
                 </div>
                 <div className="flex items-center ">
                   <h3 className="my-2 ml-3 text-lg font-bold text-gray-800">
-                    {blocks?.[2].title}
+                    <Link href={`/posts/${blocks?.[2].slug}`}>
+                      {blocks?.[2].title}
+                    </Link>
                   </h3>
                 </div>
                 <p className="mt-3 mb-1 text-xs font-medium text-green-400 uppercase">
@@ -131,14 +123,6 @@ export function ShowcasePosts({
                 </p>
                 <p className="pb-6 mb-2 text-gray-600">
                   {blocks?.[2].description}
-                  <Link
-                    href={`/posts/${blocks?.[2].slug}`}
-                    className="absolute bottom-4 right-4"
-                  >
-                    <Button variant={'link'} className="text-green-500">
-                      Read more
-                    </Button>
-                  </Link>
                 </p>
               </div>
             </div>
@@ -159,7 +143,9 @@ export function ShowcasePosts({
                 </div>
                 <div className="flex items-center ">
                   <h3 className="my-2 ml-3 text-lg font-bold text-gray-800">
-                    {blocks?.[3].title}
+                    <Link href={`/posts/${blocks?.[3].slug}`}>
+                      {blocks?.[3].title}
+                    </Link>
                   </h3>
                 </div>
                 <p className="mt-3 mb-1 text-xs font-medium text-green-400 uppercase">
@@ -167,14 +153,6 @@ export function ShowcasePosts({
                 </p>
                 <p className="pb-6 mb-2 text-gray-600">
                   {blocks?.[3].description}
-                  <Link
-                    href={`/posts/${blocks?.[3].slug}`}
-                    className="absolute bottom-4 right-4"
-                  >
-                    <Button variant={'link'} className="text-green-500">
-                      Read more
-                    </Button>
-                  </Link>
                 </p>
               </div>
             </div>
@@ -195,7 +173,9 @@ export function ShowcasePosts({
                 </div>
                 <div className="flex items-center ">
                   <h3 className="my-2 ml-3 text-lg font-bold text-gray-800">
-                    {blocks?.[4].title}
+                    <Link href={`/posts/${blocks?.[4].slug}`}>
+                      {blocks?.[4].title}
+                    </Link>
                   </h3>
                 </div>
                 <p className="mt-3 mb-1 text-xs font-medium text-green-500 uppercase">
@@ -203,14 +183,6 @@ export function ShowcasePosts({
                 </p>
                 <p className="pb-6 mb-2 text-gray-600">
                   {blocks?.[4].description}
-                  <Link
-                    href={`/posts/${blocks?.[4].slug}`}
-                    className="absolute bottom-4 right-4"
-                  >
-                    <Button variant={'link'} className="text-green-500">
-                      Read more
-                    </Button>
-                  </Link>
                 </p>
               </div>
             </div>
