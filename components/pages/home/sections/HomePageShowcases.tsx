@@ -74,7 +74,7 @@ export function HomePageShowcases({ data }: HomePageProps) {
             </div>
           </div>
           <div className="flex flex-col gap-2">
-            <h1 className="text-lg font-bold">{opportunity?.title}</h1>
+            <h2 className="text-lg font-bold">{opportunity?.title}</h2>
             <CustomPortableText value={opportunity?.overview ?? []} />
           </div>
           <div className="flex flex-col self-end gap-2 mr-6">
@@ -104,7 +104,7 @@ export function HomePageShowcases({ data }: HomePageProps) {
         className="w-full md:w-1/2"
       >
         <div className="flex flex-col w-full h-full gap-4 p-4 shadow-lg rounded-2xl ring-1 ring-gray-900/5">
-          <h1 className="text-lg font-bold">{innovation?.title}</h1>
+          <h2 className="text-lg font-bold">{innovation?.title}</h2>
           <CustomPortableText value={innovation?.overview ?? []} />
           <div className="flex flex-col self-end gap-2 mr-6">
             <Link
