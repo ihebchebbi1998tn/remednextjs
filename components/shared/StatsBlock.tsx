@@ -1,4 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
+'use client'
+import { useRef } from "react"
+import { useInView, useMotionValue, useSpring } from 'framer-motion'
 
 interface Stat {
   name?: React.ReactNode
@@ -21,6 +24,8 @@ export function StatsBlock({
   stats,
   video,
 }: StatProps) {
+  const ref = useRef<HTMLVideoElement>(null)
+  const isInView = useInView(ref, { once: true, margin: '-100px' })
   return (
     <div className="relative">
       <div className="grid mx-auto max-w-7xl lg:grid-cols-2">
@@ -54,8 +59,10 @@ export function StatsBlock({
         </div>
       </div>
       <video
+        ref={ref}
         className="object-cover w-full h-full bg-gray-50 lg:absolute lg:inset-y-0 lg:left-0 lg:w-1/2"
-        autoPlay
+        preload={isInView ? 'auto' : 'none'}
+        autoPlay={isInView}
         loop
         muted
         playsInline
