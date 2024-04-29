@@ -6,7 +6,7 @@ import { useEffect, useRef } from 'react'
  * @param root0
  * @param root0.value
  */
-export default function Counter({
+export function FramerCounter({
   value,
   direction = 'up',
 }: {
@@ -41,3 +41,5 @@ export default function Counter({
 
   return <span ref={ref} />
 }
+
+export default FramerCounter
