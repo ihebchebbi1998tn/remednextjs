@@ -1,5 +1,6 @@
 import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
 import dynamic from 'next/dynamic'
+import { toPlainText } from 'next-sanity'
 
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
 import { SectionApplication } from '@/components/shared/SectionApplication'
@@ -52,6 +53,14 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
       }
     }) ?? []
 
+  const jsonLd =
+    sections[0]?.blocks?.map((block) => ({
+      '@context': 'http://schema.org',
+      '@type': 'Product',
+      name: block.title,
+      description: toPlainText(block?.description ?? []),
+    })) ?? []
+
   return (
     <div className="space-y-10">
       <SectionHero
@@ -60,18 +69,16 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
           <CustomPortableText value={sections[0]?.description ?? []} />
         }
         blocks={
-          sections[0]?.blocks
-            ? sections[0]?.blocks.map(
-                (block) =>
-                  ({
-                    icon: block.icon,
-                    title: block.title,
-                    description: (
-                      <CustomPortableText value={block.description ?? []} />
-                    ),
-                  }) as any,
-              )
-            : []
+          sections[0]?.blocks?.map(
+            (block) =>
+              ({
+                icon: block.icon,
+                title: block.title,
+                description: (
+                  <CustomPortableText value={block.description ?? []} />
+                ),
+              }) as any,
+          ) ?? []
         }
         video={sections[0]?.videoURL}
       />
@@ -122,7 +129,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
           }
         />
       </div>
-      
+
       {/* Stats */}
       <Stats
         stats={
@@ -133,7 +140,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
           })) ?? []
         }
       />
-      
+
       <div className="container">
         <HomePageShowcases data={data} />
       </div>
@@ -168,6 +175,10 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
           featuredTestimonial={testimonials[0]}
         />
       </div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
     </div>
   )
 }
