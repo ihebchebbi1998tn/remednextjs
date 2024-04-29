@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 'use client'
+import { useInView } from 'framer-motion'
 import { useRef } from "react"
-import { useInView, useMotionValue, useSpring } from 'framer-motion'
 
 interface Stat {
   name?: React.ReactNode

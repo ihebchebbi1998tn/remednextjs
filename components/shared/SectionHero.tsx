@@ -42,28 +42,28 @@ export function SectionHero({
       </Suspense>
       <div className="px-6 mx-auto max-w-7xl lg:px-8">
         <div className="max-w-2xl mx-auto lg:mx-0">
-          <h1 className="text-4xl font-bold tracking-tight text-white lg:text-6xl md:text-5xl">
+          <h1 className="text-2xl font-bold tracking-tight text-white sm:text-4xl lg:text-6xl md:text-5xl">
             {title}
           </h1>
           {description && (
-            <p className="mt-6 text-lg leading-8 text-gray-300">
+            <p className="mt-2 text-lg leading-8 text-gray-300 sm:mt-6">
               {description}
             </p>
           )}
         </div>
-        <div className="grid max-w-2xl grid-cols-1 gap-6 mx-auto mt-16 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8">
+        <div className="grid max-w-2xl grid-cols-1 gap-2 mx-auto mt-8 sm:gap-6 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8">
           {blocks?.map((card) => {
             const Icon = Icons[card.icon]
             return (
               <div
                 key={card.title}
-                className="flex p-6 bg-green-500 gap-x-4 rounded-xl ring-1 ring-inset ring-white/10 bg-opacity-80 backdrop-blur-2px"
+                className="flex p-2 bg-green-500 sm:p-6 gap-x-4 rounded-xl ring-1 ring-inset ring-white/10 bg-opacity-80 backdrop-blur-2px"
               >
                 <Icon
-                  className="flex-none w-8 h-8 text-yellow-400"
+                  className="flex-none w-6 h-6 text-yellow-400 sm:h-8 sm:w-8"
                   aria-hidden="true"
                 />
-                <div className="text-base leading-7">
+                <div className="text-sm sm:leading-7 sm:text-base">
                   <h3 className="font-semibold text-white">{card.title}</h3>
                   <p className="mt-2 text-gray-300">{card.description}</p>
                 </div>
