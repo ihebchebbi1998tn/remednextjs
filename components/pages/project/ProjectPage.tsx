@@ -11,6 +11,7 @@ import author from '@/sanity/schemas/documents/author'
 import type { ProjectPayload } from '@/types'
 
 import GalleryImage from '../../shared/GalleryImage'
+import { VideoInView } from '@/components/shared/VideoInView'
 
 export interface ProjectPageProps {
   data: ProjectPayload | null
@@ -114,9 +115,9 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
                     key={video.url as string}
                     className="relative w-full h-96"
                   >
-                    <video
+                    <VideoInView
+                      video={video.url as string}
                       className="absolute inset-0 w-full h-full"
-                      src={video.url as string}
                       controls
                     />
                   </div>

@@ -6,25 +6,38 @@ import { useRef } from 'react'
 
 interface StatProps {
   video?: string
+  className?: string
+  loop?: boolean
+  muted?: boolean
+  playsInline?: boolean
+  tabIndex?: number
+  controls?: boolean
 }
 
-export function VideoInView({ video }: StatProps) {
+export function VideoInView({
+  video,
+  className,
+  loop = true,
+  muted = true,
+  playsInline = true,
+  tabIndex = -1,
+  controls = false,
+}: StatProps) {
   const ref = useRef<HTMLVideoElement>(null)
   const isInView = useInView(ref, { once: true, margin: '-100px' })
   return (
-    <div className="relative">
-      <video
-        ref={ref}
-        className="object-cover w-full h-full bg-gray-50 lg:absolute lg:inset-y-0 lg:left-0 lg:w-1/2"
-        preload={isInView ? 'auto' : 'none'}
-        autoPlay={isInView}
-        loop
-        muted
-        playsInline
-        tabIndex={-1}
-      >
-        <source src={video} type="video/mp4" />
-      </video>
-    </div>
+    <video
+      ref={ref}
+      className={`${className}`}
+      preload={isInView ? 'auto' : 'none'}
+      autoPlay={isInView}
+      controls={controls}
+      loop={loop}
+      muted={muted}
+      playsInline={playsInline}
+      tabIndex={tabIndex}
+    >
+      <source src={video} type="video/mp4" />
+    </video>
   )
 }

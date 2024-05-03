@@ -2,10 +2,10 @@ import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
 import { format, parseISO } from 'date-fns'
 import { fr } from 'date-fns/locale'
 import Image from 'next/image'
-import Link from 'next/link'
 
 import { AppBreadcrumb } from '@/components/demos/NextBreadcrumb'
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
+import { VideoInView } from '@/components/shared/VideoInView'
 import { urlForImage } from '@/sanity/lib/utils'
 import type { PostPayload } from '@/types'
 
@@ -22,9 +22,7 @@ export function PostPage({ data, encodeDataAttribute }: PostPageProps) {
     coverImage,
     description,
     overview,
-    tags,
     title,
-    slug,
     author,
     date,
     images,
@@ -115,9 +113,9 @@ export function PostPage({ data, encodeDataAttribute }: PostPageProps) {
                     key={video.url as string}
                     className="relative w-full h-96"
                   >
-                    <video
+                    <VideoInView
+                      video={video.url as string}
                       className="absolute inset-0 w-full h-full"
-                      src={video.url as string}
                       controls
                     />
                   </div>

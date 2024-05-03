@@ -1,6 +1,7 @@
 import { AppBreadcrumb } from '@/components/demos/NextBreadcrumb'
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
 import GalleryImage from '@/components/shared/GalleryImage'
+import { VideoInView } from '@/components/shared/VideoInView'
 import type { PagePayload } from '@/types'
 
 export interface PageProps {
@@ -54,9 +55,9 @@ export function Page({ data }: PageProps) {
                       key={video.url as string}
                       className="relative w-full h-96"
                     >
-                      <video
+                      <VideoInView
+                        video={video.url as string}
                         className="absolute inset-0 w-full h-full"
-                        src={video.url as string}
                         controls
                       />
                     </div>
