@@ -3,10 +3,11 @@ import { Download } from 'lucide-react'
 
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
 import { AppBreadcrumb } from '@/components/shared/NextBreadcrumb'
+import { VideoInView } from '@/components/shared/VideoInView'
 import type { InnovationPayload } from '@/types'
 
-import GalleryImage from '../../shared/GalleryImage'
 import WebAnalytics from '../../global/WebAnalytics'
+import GalleryImage from '../../shared/GalleryImage'
 
 export interface InnovationPageProps {
   data: InnovationPayload | null
@@ -18,7 +19,14 @@ export function InnovationPage({
   encodeDataAttribute,
 }: InnovationPageProps) {
   // Default to an empty object to allow previews on non-existent documents
-  const { title, certifications, description, files } = data ?? {}
+  const {
+    title,
+    description,
+    certifications = [],
+    images = [],
+    videos = [],
+    files = [],
+  } = data ?? {}
 
   return (
     <div className="py-14 sm:py-22">
@@ -36,15 +44,49 @@ export function InnovationPage({
               </p>
             </div>
             <hr className="mb-6 border-gray-200 dark:border-gray-700" />
-            <GalleryImage
-              images={
-                certifications?.map((certification) => ({
-                  src: certification?.url,
-                  alt: certification?.title,
-                })) as any
-              }
-              title="Certifications"
-            />
+            {images && (
+              <GalleryImage
+                images={
+                  images?.map((image) => ({
+                    src: image.url ?? '',
+                    alt: image.alt ?? '',
+                  })) as any
+                }
+                title="Images"
+              />
+            )}
+            {videos && (
+              <div className="container mt-4">
+                <h2 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-300">
+                  Videos
+                </h2>
+                <div className="grid gap-4 md:grid-cols-2">
+                  {videos?.map((video) => (
+                    <div
+                      key={video.url as string}
+                      className="relative w-full h-96"
+                    >
+                      <VideoInView
+                        video={video.url as string}
+                        className="absolute inset-0 w-full h-full"
+                        controls
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+            {certifications && (
+              <GalleryImage
+                images={
+                  certifications?.map((certification) => ({
+                    src: certification.url ?? '',
+                    alt: certification.title,
+                  })) as any
+                }
+                title="Certifications"
+              />
+            )}
             {files?.length && (
               <h3 className="mb-4 text-xl font-semibold text-gray-600 dark:text-gray-300">
                 Attachments

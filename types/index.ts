@@ -169,9 +169,10 @@ export interface InnovationPayload {
   title?: string
   description?: PortableTextBlock[]
   overview?: PortableTextBlock[]
-  images?: Image[]
   slug: string
   certifications?: CertificationPayload[]
+  images?: Image[]
+  videos?: File[]
   files?: File[]
 }
 

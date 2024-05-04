@@ -271,6 +271,16 @@ export const innovationBySlugQuery = groq`
       title,
       "slug": slug.current,
     },
+    images[]{
+      "url": asset -> url,
+      alt,
+      caption
+    },
+    videos[]{
+      "url": asset -> url,
+      alt,
+      caption
+    },
     files[]{
       _key,
       "url": asset -> url
