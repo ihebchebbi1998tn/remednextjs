@@ -7,7 +7,7 @@ import { Download } from 'lucide-react'
 import Image from 'next/image'
 import { useEffect } from 'react'
 
-import { AppBreadcrumb } from '@/components/demos/NextBreadcrumb'
+import { AppBreadcrumb } from '@/components/shared/NextBreadcrumb'
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
 import { VideoInView } from '@/components/shared/VideoInView'
 import { urlForImage } from '@/sanity/lib/utils'

@@ -4,7 +4,7 @@ import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
 import { Download } from 'lucide-react'
 import { useEffect } from 'react'
 
-import { AppBreadcrumb } from '@/components/demos/NextBreadcrumb'
+import { AppBreadcrumb } from '@/components/shared/NextBreadcrumb'
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
 import type { InnovationPayload } from '@/types'
 

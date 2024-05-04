@@ -1,6 +1,6 @@
 import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
 
-import { AppBreadcrumb } from '@/components/demos/NextBreadcrumb'
+import { AppBreadcrumb } from '@/components/shared/NextBreadcrumb'
 import GalleryImage from '@/components/shared/GalleryImage'
 import { urlForImage } from '@/sanity/lib/utils'
 import type { CertificationPayload } from '@/types'

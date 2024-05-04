@@ -4,7 +4,7 @@ import { fr } from 'date-fns/locale'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { AppBreadcrumb } from '@/components/demos/NextBreadcrumb'
+import { AppBreadcrumb } from '@/components/shared/NextBreadcrumb'
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
 import { urlForImage } from '@/sanity/lib/utils'
 import type { PostsPayload } from '@/types'

@@ -4,7 +4,7 @@ import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
 import { format, parseISO } from 'date-fns'
 import { fr } from 'date-fns/locale'
 
-import { AppBreadcrumb } from '@/components/demos/NextBreadcrumb'
+import { AppBreadcrumb } from '@/components/shared/NextBreadcrumb'
 import { CardOpportunity } from '@/components/shared/CardOpportunity'
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
 import { resolveHref, urlForImage } from '@/sanity/lib/utils'

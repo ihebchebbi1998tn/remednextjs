@@ -2,7 +2,7 @@ import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
 import { format, parseISO } from 'date-fns'
 import Image from 'next/image'
 
-import { AppBreadcrumb } from '@/components/demos/NextBreadcrumb'
+import { AppBreadcrumb } from '@/components/shared/NextBreadcrumb'
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
 import { urlForImage } from '@/sanity/lib/utils'
 import type { ProjectsPayload } from '@/types'

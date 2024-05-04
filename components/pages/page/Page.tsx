@@ -3,7 +3,7 @@ import { sendGTMEvent } from '@next/third-parties/google'
 import { Download } from 'lucide-react'
 import { useEffect } from 'react'
 
-import { AppBreadcrumb } from '@/components/demos/NextBreadcrumb'
+import { AppBreadcrumb } from '@/components/shared/NextBreadcrumb'
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
 import GalleryImage from '@/components/shared/GalleryImage'
 import { VideoInView } from '@/components/shared/VideoInView'
