@@ -1,5 +1,6 @@
 import { GoogleTagManager } from '@next/third-parties/google'
 import { toPlainText } from '@portabletext/react'
+import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { Metadata, Viewport } from 'next'
 import dynamic from 'next/dynamic'
@@ -120,6 +121,7 @@ export default async function IndexRoute({
         <Toaster />
         <ScrollToTop />
         <SpeedInsights />
+        <Analytics />
         <GoogleTagManager gtmId={GOOGLE_TAG_MANAGER_ID as string} />
       </div>
       {draftMode().isEnabled && <VisualEditing />}
