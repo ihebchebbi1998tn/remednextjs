@@ -82,101 +82,65 @@ export const loadQuery = ((query, params = {}, options = {}) => {
  */
 
 export function loadSettings() {
-  return loadQuery<SettingsPayload>(
-    settingsQuery,
-    {},
-    { next: { tags: ['settings'] } },
-  )
+  return loadQuery<SettingsPayload>(settingsQuery, {}, {})
 }
 
 export function loadHomePage() {
-  return loadQuery<HomePagePayload>(
-    homePageQuery,
-    {},
-    { next: { tags: ['home'] } },
-  )
+  return loadQuery<HomePagePayload>(homePageQuery, {}, {})
 }
 
 export function loadProjects() {
-  return loadQuery<ProjectsPayload>(
-    projectsQuery,
-    {},
-    { next: { tags: ['projects'] } },
-  )
+  return loadQuery<ProjectsPayload>(projectsQuery, {}, {})
 }
 
 export function loadProjectBySlug(slug: string) {
-  return loadQuery<ProjectPayload>(
-    projectBySlugQuery,
-    { slug },
-    { next: { tags: [`project:${slug}`] } },
-  )
+  return loadQuery<ProjectPayload>(projectBySlugQuery, { slug }, {})
 }
 
 export function loadInnovations() {
-  return loadQuery<InnovationsPayload>(
-    innovationsQuery,
-    {},
-    { next: { tags: ['innovations'] } },
-  )
+  return loadQuery<InnovationsPayload>(innovationsQuery, {}, {})
 }
 
 export function loadInnovationBySlug(slug: string) {
   return loadQuery<InnovationPayload | null>(
     innovationBySlugQuery,
     { slug },
-    { next: { tags: [`innovation:${slug}`] } },
+    {},
   )
 }
 
 export function loadCertifications() {
-  return loadQuery<CertificationPayload[]>(
-    certificationsQuery,
-    {},
-    { next: { tags: ['certifications'] } },
-  )
+  return loadQuery<CertificationPayload[]>(certificationsQuery, {}, {})
 }
 
 export function loadCertificationBySlug(slug: string) {
   return loadQuery<CertificationPayload | null>(
     certificationBySlugQuery,
     { slug },
-    { next: { tags: [`certification:${slug}`] } },
+    {},
   )
 }
 
 export function loadOpportunities() {
-  return loadQuery<OpportunitiesPayload>(
-    opportunitiesPageQuery,
-    {},
-    { next: { tags: ['opportunities'] } },
-  )
+  return loadQuery<OpportunitiesPayload>(opportunitiesPageQuery, {}, {})
 }
 
 export function loadOpportunityBySlug(slug: string) {
   return loadQuery<OpportunityPayload | null>(
     opportunityBySlugQuery,
     { slug },
-    { next: { tags: [`opportunity:${slug}`] } },
+    {},
   )
 }
 
 export function loadPosts() {
-  return loadQuery<PostsPayload>(postsQuery, {}, { next: { tags: ['posts'] } })
+  return loadQuery<PostsPayload>(postsQuery, {}, {})
 }
 
 export function loadPostBySlug(slug: string) {
-  return loadQuery<PostPayload | null>(
-    postBySlugQuery,
-    { slug },
-    { next: { tags: [`post:${slug}`] } },
-  )
+  return loadQuery<PostPayload | null>(postBySlugQuery, { slug }, {})
 }
 
 export function loadPage(slug: string) {
-  return loadQuery<PagePayload | null>(
-    pagesBySlugQuery,
-    { slug },
-    { next: { tags: [`page:${slug}`] } },
-  )
+  return loadQuery<PagePayload | null>(pagesBySlugQuery, { slug }, {})
 }
