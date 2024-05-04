@@ -1,13 +1,12 @@
-'use client'
-import { sendGTMEvent } from '@next/third-parties/google'
 import { Download } from 'lucide-react'
-import { useEffect } from 'react'
 
-import { AppBreadcrumb } from '@/components/shared/NextBreadcrumb'
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
 import GalleryImage from '@/components/shared/GalleryImage'
+import { AppBreadcrumb } from '@/components/shared/NextBreadcrumb'
 import { VideoInView } from '@/components/shared/VideoInView'
 import type { PagePayload } from '@/types'
+
+import WebAnalytics from '../../global/WebAnalytics'
 
 export interface PageProps {
   data: PagePayload | null
@@ -18,12 +17,9 @@ export function Page({ data }: PageProps) {
   const { body, overview, title, images, videos, certifications, files } =
     data ?? {}
 
-  useEffect(() => {
-    sendGTMEvent({ event: 'Pageview', value: 'page type' })
-  }, [])
-
   return (
     <div className="py-14 sm:py-22">
+      <WebAnalytics value="/page" event="Pageview" />
       <div className="px-6 mx-auto max-w-7xl lg:px-8">
         <div className="max-w-2xl mx-auto lg:max-w-4xl">
           <AppBreadcrumb />

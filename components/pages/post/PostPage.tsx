@@ -1,19 +1,17 @@
-'use client'
-import { sendGTMEvent } from '@next/third-parties/google'
 import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
 import { format, parseISO } from 'date-fns'
 import { fr } from 'date-fns/locale'
 import { Download } from 'lucide-react'
 import Image from 'next/image'
-import { useEffect } from 'react'
 
-import { AppBreadcrumb } from '@/components/shared/NextBreadcrumb'
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
+import { AppBreadcrumb } from '@/components/shared/NextBreadcrumb'
 import { VideoInView } from '@/components/shared/VideoInView'
 import { urlForImage } from '@/sanity/lib/utils'
 import type { PostPayload } from '@/types'
 
 import GalleryImage from '../../shared/GalleryImage'
+import WebAnalytics from '../../global/WebAnalytics'
 
 export interface PostPageProps {
   data: PostPayload | null
@@ -35,12 +33,9 @@ export function PostPage({ data, encodeDataAttribute }: PostPageProps) {
     files,
   } = data ?? {}
 
-  useEffect(() => {
-    sendGTMEvent({ event: 'Pageview', value: 'post' })
-  }, [])
-
   return (
     <div className="py-14 sm:py-22">
+      <WebAnalytics value="/post" event="Pageview" />
       <div className="px-6 mx-auto max-w-7xl lg:px-8">
         <div className="max-w-2xl mx-auto lg:max-w-4xl">
           <AppBreadcrumb />

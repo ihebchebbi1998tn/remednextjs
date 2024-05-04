@@ -1,13 +1,11 @@
-'use client'
-import { sendGTMEvent } from '@next/third-parties/google'
 import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
 import Image from 'next/image'
-import { useEffect } from 'react'
 
-import { AppBreadcrumb } from '@/components/shared/NextBreadcrumb'
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
-import { urlForImage } from '@/sanity/lib/utils'
+import { AppBreadcrumb } from '@/components/shared/NextBreadcrumb'
 import type { CertificationPayload } from '@/types'
+
+import WebAnalytics from '../../global/WebAnalytics'
 
 export interface CertificationPageProps {
   data: CertificationPayload | null
@@ -21,12 +19,10 @@ export function CertificationPage({
   // Default to an empty object to allow previews on non-existent documents
   const { url, overview, title } = data ?? {}
 
-  useEffect(() => {
-    sendGTMEvent({ event: 'Pageview', value: 'certification' })
-  }, [])
-
   return (
     <div className="py-14 sm:py-22">
+      <WebAnalytics value="/certification" event="Pageview" />
+
       <div className="px-6 mx-auto max-w-7xl lg:px-8">
         <div className="max-w-2xl mx-auto lg:max-w-4xl">
           <AppBreadcrumb />

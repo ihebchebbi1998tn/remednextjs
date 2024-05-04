@@ -1,9 +1,6 @@
-'use client'
-import { sendGTMEvent } from '@next/third-parties/google'
 import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
 import dynamic from 'next/dynamic'
 import { toPlainText } from 'next-sanity'
-import { useEffect } from 'react'
 
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
 import { SectionApplication } from '@/components/shared/SectionApplication'
@@ -19,6 +16,7 @@ import type { HomePagePayload } from '@/types'
 import { HomePageProjects } from './sections/HomePageProjects'
 import HomePageShowcases from './sections/HomePageShowcases'
 import Partners from './sections/Partners'
+import WebAnalytics from '../../global/WebAnalytics'
 
 const ContactMap = dynamic(() => import('./sections/ContactMap'), {
   loading: () => <Skeleton className="w-full" />,
@@ -44,10 +42,6 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
   // Default to an empty object to allow previews on non-existent documents
   const { sections = [], partners } = data ?? {}
 
-  useEffect(() => {
-      sendGTMEvent({ event: 'Pageview', value: '/' })
-  }, [])
-
   const testimonials =
     sections[6]?.blocks?.map((item) => {
       return {
@@ -70,6 +64,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
 
   return (
     <div className="space-y-10">
+      <WebAnalytics value="/" event="Pageview" />
       <SectionHero
         title={sections[0]?.title}
         description={

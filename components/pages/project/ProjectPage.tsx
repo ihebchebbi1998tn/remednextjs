@@ -1,20 +1,18 @@
-'use client'
-import { sendGTMEvent } from '@next/third-parties/google'
 import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
 import { format, parseISO } from 'date-fns'
 import { fr } from 'date-fns/locale'
 import { Download } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useEffect } from 'react'
 
-import { AppBreadcrumb } from '@/components/shared/NextBreadcrumb'
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
+import { AppBreadcrumb } from '@/components/shared/NextBreadcrumb'
 import { VideoInView } from '@/components/shared/VideoInView'
 import { urlForImage } from '@/sanity/lib/utils'
 import type { ProjectPayload } from '@/types'
 
 import GalleryImage from '../../shared/GalleryImage'
+import WebAnalytics from '../../global/WebAnalytics'
 
 export interface ProjectPageProps {
   data: ProjectPayload | null
@@ -38,12 +36,9 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
     files = [],
   } = data ?? {}
 
-  useEffect(() => {
-    sendGTMEvent({ event: 'Pageview', value: 'project' })
-  }, [])
-
   return (
     <div className="py-14 sm:py-22">
+      <WebAnalytics value="/project" event="Pageview" />
       <div className="px-6 mx-auto max-w-7xl lg:px-8">
         <div className="max-w-2xl mx-auto lg:max-w-4xl">
           <AppBreadcrumb />
