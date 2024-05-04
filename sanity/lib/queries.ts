@@ -121,6 +121,10 @@ export const pagesBySlugQuery = groq`
       alt,
       caption
     },
+    files[]{
+      _key,
+      "url": asset -> url
+    },
     "slug": slug.current,
   }
 `
@@ -172,6 +176,10 @@ export const projectBySlugQuery = groq`
       "url": asset -> url,
       alt,
       caption
+    },
+    files[]{
+      _key,
+      "url": asset -> url
     },
   }
 `
@@ -263,6 +271,10 @@ export const innovationBySlugQuery = groq`
       title,
       "slug": slug.current,
     },
+    files[]{
+      _key,
+      "url": asset -> url
+    },
   }
 `
 
@@ -319,6 +331,10 @@ export const postBySlugQuery = groq`
       "url": asset -> url,
       alt,
       caption
+    },
+    files[]{
+      _key,
+      "url": asset -> url
     },
   }
 `

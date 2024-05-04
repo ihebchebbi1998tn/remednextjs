@@ -73,34 +73,14 @@ export default defineType({
       },
     }),
     defineField({
+      type: 'images',
       name: 'images',
       title: 'Images',
-      type: 'array',
-      of: [
-        defineArrayMember({
-          type: 'image',
-          options: {
-            hotspot: true,
-          },
-        }),
-      ],
     }),
     defineField({
-      name: 'video',
-      title: 'Video',
-      type: 'file',
-      validation: (Rule) => {
-        return Rule.custom((video) => {
-          if (!video) {
-            return true
-          }
-
-          if (video && getExtension(video as any) !== 'mp4') {
-            return 'Please upload a valid mp4 file'
-          }
-          return true
-        })
-      },
+      type: 'videos',
+      name: 'videos',
+      title: 'Videos',
     }),
     defineField({
       name: 'showcaseProjects',

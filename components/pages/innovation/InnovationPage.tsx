@@ -1,4 +1,5 @@
 import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
+import { Download } from 'lucide-react'
 
 import { AppBreadcrumb } from '@/components/demos/NextBreadcrumb'
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
@@ -16,7 +17,7 @@ export function InnovationPage({
   encodeDataAttribute,
 }: InnovationPageProps) {
   // Default to an empty object to allow previews on non-existent documents
-  const { title, certifications, description } = data ?? {}
+  const { title, certifications, description, files } = data ?? {}
 
   return (
     <div className="py-14 sm:py-22">
@@ -42,6 +43,26 @@ export function InnovationPage({
               }
               title="Certifications"
             />
+            {files?.length && (
+              <h3 className="mb-4 text-xl font-semibold text-gray-600 dark:text-gray-300">
+                Attachments
+              </h3>
+            )}
+            {files?.map((file, index) => {
+              return (
+                <div key={index}>
+                  <a
+                    href={file.url as string}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center mb-2 mr-4 text-sm text-gray-500 md:mb-0 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-100"
+                  >
+                    <Download size={16} className="mr-1" />
+                    file
+                  </a>
+                </div>
+              )
+            })}
           </div>
         </div>
       </div>

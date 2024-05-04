@@ -77,6 +77,17 @@ export default defineType({
       name: 'certifications',
       title: 'Certifications',
     }),
+    defineField({
+      name: 'files',
+      title: 'Files',
+      type: 'array',
+      of: [
+        {
+          type: 'file',
+          title: 'File',
+        },
+      ],
+    }),
   ],
   preview: {
     select: {

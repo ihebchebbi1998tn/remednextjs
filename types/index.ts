@@ -91,6 +91,7 @@ export interface PagePayload {
   images: Image[]
   videos: File[]
   certifications: CertificationPayload[]
+  files: File[]
 }
 
 export interface ProjectPayload {
@@ -109,6 +110,7 @@ export interface ProjectPayload {
   certifications?: CertificationPayload[]
   images?: Image[]
   videos?: File[]
+  files?: File[]
 }
 
 export interface ProjectsPayload {
@@ -170,6 +172,7 @@ export interface InnovationPayload {
   images?: Image[]
   slug: string
   certifications?: CertificationPayload[]
+  files?: File[]
 }
 
 export interface InnovationsPayload {
@@ -193,6 +196,7 @@ export interface PostPayload {
   certifications?: CertificationPayload[]
   images?: Image[]
   videos?: File[]
+  files?: File[]
 }
 
 export interface PostsPayload {
