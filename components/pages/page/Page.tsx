@@ -83,7 +83,7 @@ export function Page({ data }: PageProps) {
               />
             )}
             {files?.length && (
-              <h3 className="mb-4 text-xl font-semibold text-gray-600 dark:text-gray-300">
+              <h3 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-300">
                 Attachments
               </h3>
             )}
