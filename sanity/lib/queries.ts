@@ -47,7 +47,6 @@ export const homePageQuery = groq`
         playstore,
         site,
         appstore,
-
       },
       link->{
         _type,
@@ -63,7 +62,7 @@ export const homePageQuery = groq`
         },
         caption,
       },
-      'videoURL': video.asset->url,
+      'videoURL': videos[0].asset->url,
       blocks[]{
         ...,
         title,
