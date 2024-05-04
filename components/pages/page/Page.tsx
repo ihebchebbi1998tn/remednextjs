@@ -1,4 +1,7 @@
+'use client'
+import { sendGTMEvent } from '@next/third-parties/google'
 import { Download } from 'lucide-react'
+import { useEffect } from 'react'
 
 import { AppBreadcrumb } from '@/components/demos/NextBreadcrumb'
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
@@ -12,7 +15,12 @@ export interface PageProps {
 
 export function Page({ data }: PageProps) {
   // Default to an empty object to allow previews on non-existent documents
-  const { body, overview, title, images, videos, certifications, files } = data ?? {}
+  const { body, overview, title, images, videos, certifications, files } =
+    data ?? {}
+
+  useEffect(() => {
+    sendGTMEvent({ event: 'Pageview', value: 'page type' })
+  }, [])
 
   return (
     <div className="py-14 sm:py-22">

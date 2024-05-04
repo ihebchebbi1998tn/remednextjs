@@ -1,8 +1,11 @@
+'use client'
+import { sendGTMEvent } from '@next/third-parties/google'
 import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
 import { format, parseISO } from 'date-fns'
 import { fr } from 'date-fns/locale'
 import { Download } from 'lucide-react'
 import Image from 'next/image'
+import { useEffect } from 'react'
 
 import { AppBreadcrumb } from '@/components/demos/NextBreadcrumb'
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
@@ -31,6 +34,10 @@ export function PostPage({ data, encodeDataAttribute }: PostPageProps) {
     certifications,
     files,
   } = data ?? {}
+
+  useEffect(() => {
+    sendGTMEvent({ event: 'Pageview', value: 'post' })
+  }, [])
 
   return (
     <div className="py-14 sm:py-22">

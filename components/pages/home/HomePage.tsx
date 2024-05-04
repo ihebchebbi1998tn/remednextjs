@@ -1,6 +1,9 @@
+'use client'
+import { sendGTMEvent } from '@next/third-parties/google'
 import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
 import dynamic from 'next/dynamic'
 import { toPlainText } from 'next-sanity'
+import { useEffect } from 'react'
 
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
 import { SectionApplication } from '@/components/shared/SectionApplication'
@@ -40,6 +43,10 @@ export interface HomePageProps {
 export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
   // Default to an empty object to allow previews on non-existent documents
   const { sections = [], partners } = data ?? {}
+
+  useEffect(() => {
+      sendGTMEvent({ event: 'Pageview', value: '/' })
+  }, [])
 
   const testimonials =
     sections[6]?.blocks?.map((item) => {

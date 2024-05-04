@@ -1,3 +1,4 @@
+import { GoogleTagManager } from '@next/third-parties/google'
 import { toPlainText } from '@portabletext/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { Metadata, Viewport } from 'next'
@@ -89,6 +90,9 @@ export async function generateMetadata(): Promise<Metadata> {
   }
 }
 
+const GOOGLE_TAG_MANAGER_ID = process.env.GOOGLE_TAG_MANAGER_ID
+
+
 export const viewport: Viewport = {
   themeColor: '#000',
 }
@@ -116,6 +120,7 @@ export default async function IndexRoute({
         <Toaster />
         <ScrollToTop />
         <SpeedInsights />
+        <GoogleTagManager gtmId={GOOGLE_TAG_MANAGER_ID as string} />
       </div>
       {draftMode().isEnabled && <VisualEditing />}
     </ThemeProvider>

@@ -1,5 +1,8 @@
+'use client'
+import { sendGTMEvent } from '@next/third-parties/google'
 import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
 import { Download } from 'lucide-react'
+import { useEffect } from 'react'
 
 import { AppBreadcrumb } from '@/components/demos/NextBreadcrumb'
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
@@ -18,6 +21,10 @@ export function InnovationPage({
 }: InnovationPageProps) {
   // Default to an empty object to allow previews on non-existent documents
   const { title, certifications, description, files } = data ?? {}
+
+  useEffect(() => {
+    sendGTMEvent({ event: 'Pageview', value: 'innovations' })
+  }, [])
 
   return (
     <div className="py-14 sm:py-22">

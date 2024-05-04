@@ -1,5 +1,8 @@
+'use client'
+import { sendGTMEvent } from '@next/third-parties/google'
 import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
 import Image from 'next/image'
+import { useEffect } from 'react'
 
 import { AppBreadcrumb } from '@/components/demos/NextBreadcrumb'
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
@@ -17,6 +20,10 @@ export function CertificationPage({
 }: CertificationPageProps) {
   // Default to an empty object to allow previews on non-existent documents
   const { url, overview, title } = data ?? {}
+
+  useEffect(() => {
+    sendGTMEvent({ event: 'Pageview', value: 'certification' })
+  }, [])
 
   return (
     <div className="py-14 sm:py-22">
