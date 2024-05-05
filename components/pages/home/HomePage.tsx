@@ -13,10 +13,10 @@ import { Skeleton } from '@/components/ui/skeleton'
 import { urlForImage } from '@/sanity/lib/utils'
 import type { HomePagePayload } from '@/types'
 
+import WebAnalytics from '../../global/WebAnalytics'
 import { HomePageProjects } from './sections/HomePageProjects'
 import HomePageShowcases from './sections/HomePageShowcases'
 import Partners from './sections/Partners'
-import WebAnalytics from '../../global/WebAnalytics'
 
 const ContactMap = dynamic(() => import('./sections/ContactMap'), {
   loading: () => <Skeleton className="w-full" />,

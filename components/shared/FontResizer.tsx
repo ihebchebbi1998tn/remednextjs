@@ -9,38 +9,21 @@ import { SettingsPayload } from '@/types'
 
 import { Button } from '../ui/button'
 
-const fontSizes = [
-  'text-xs',
-  'text-sm',
-  'text-base',
-  'text-lg',
-  /* 'text-xl',
-  'text-2xl',
-  'text-3xl',
-  'text-4xl',
-  'text-5xl',
-  'text-6xl',
-  'text-7xl',
-  'text-8xl',
-  'text-9xl', */
-]
+type FontResizerProps = {
+  onIncrease?: () => void
+  onDecrease?: () => void
+  setTextSizeIndex: (value: number) => void
+  textSizeIndex: number
+  fontSizes: string[]
+}
 
-export function FontResizer() {
-  const [textSizeIndex, setTextSizeIndex] = useState<number>(2)
-  const { setTheme, theme } = useTheme()
-
-  useEffect(() => {
-    document.documentElement.className = `${theme} ${fontSizes[textSizeIndex]}`
-  }, [textSizeIndex, theme])
-
-  const onIncrease = useCallback(() => {
-    setTextSizeIndex((prev) => Math.min(fontSizes.length - 1, prev + 1))
-  }, [setTextSizeIndex])
-
-  const onDecrease = useCallback(() => {
-    setTextSizeIndex((prev) => Math.max(0, prev - 1))
-  }, [setTextSizeIndex])
-
+export function FontResizer({
+  onIncrease,
+  onDecrease,
+  setTextSizeIndex,
+  textSizeIndex,
+  fontSizes,
+}: FontResizerProps) {
   return (
     <div className="flex flex-row gap-2 grow">
       <Button
