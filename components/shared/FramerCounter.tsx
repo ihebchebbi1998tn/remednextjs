@@ -26,7 +26,7 @@ export function FramerCounter({
     if (isInView) {
       motionValue.set(direction === 'down' ? 0 : value)
     }
-  }, [motionValue, isInView])
+  }, [motionValue, isInView, direction, value])
 
   useEffect(
     () =>

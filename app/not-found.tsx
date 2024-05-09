@@ -7,8 +7,8 @@ import { Suspense } from 'react'
 import { Footer } from '@/components/global/Footer'
 import { Navbar } from '@/components/global/Navbar'
 import { ThemeProvider } from '@/components/global/theme-provider'
-import { Button } from '@/components/ui/button'
 import { BackButton } from '@/components/shared/BackButton'
+import { Button } from '@/components/ui/button'
 
 export default async function NotFound() {
   return (
@@ -40,7 +40,7 @@ export default async function NotFound() {
                 <div className="flex items-center mt-6 gap-x-3">
                   <BackButton>Go back</BackButton>
                   <Link href="/" className="w-1/2">
-                    <Button className="text-sm tracking-wide text-white transition-colors duration-200 bg-green-500  shrink-0 sm:w-auto hover:bg-green-600 dark:hover:bg-green-500 dark:bg-green-600">
+                    <Button className="text-sm tracking-wide text-white transition-colors duration-200 bg-green-500 shrink-0 sm:w-auto hover:bg-green-600 dark:hover:bg-green-500 dark:bg-green-600">
                       Take me home
                     </Button>
                   </Link>

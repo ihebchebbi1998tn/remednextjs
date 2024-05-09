@@ -2,8 +2,8 @@ import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
 import { format, parseISO } from 'date-fns'
 import Image from 'next/image'
 
-import { AppBreadcrumb } from '@/components/shared/NextBreadcrumb'
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
+import { AppBreadcrumb } from '@/components/shared/NextBreadcrumb'
 import { urlForImage } from '@/sanity/lib/utils'
 import type { ProjectsPayload } from '@/types'
 
@@ -38,7 +38,7 @@ export function ProjectListPage({
                 >
                   <Image
                     src={urlForImage(project.coverImage)?.url() ?? ''}
-                    alt={project.title}
+                    alt={project.title ?? ''}
                     className="absolute inset-0 object-cover w-full h-full -z-10"
                     width={384}
                     height={384}

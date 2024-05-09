@@ -11,8 +11,8 @@ import { VideoInView } from '@/components/shared/VideoInView'
 import { urlForImage } from '@/sanity/lib/utils'
 import type { ProjectPayload } from '@/types'
 
-import GalleryImage from '../../shared/GalleryImage'
 import WebAnalytics from '../../global/WebAnalytics'
+import GalleryImage from '../../shared/GalleryImage'
 
 export interface ProjectPageProps {
   data: ProjectPayload | null

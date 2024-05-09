@@ -1,8 +1,8 @@
 import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
 
-import { AppBreadcrumb } from '@/components/shared/NextBreadcrumb'
 import { CardOpportunity } from '@/components/shared/CardOpportunity'
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
+import { AppBreadcrumb } from '@/components/shared/NextBreadcrumb'
 import { resolveHref, urlForImage } from '@/sanity/lib/utils'
 import type { InnovationsPayload } from '@/types'
 
