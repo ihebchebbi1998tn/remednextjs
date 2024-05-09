@@ -189,8 +189,8 @@ export interface PostPayload {
   _updatedAt?: string
   author?: Author
   coverImage?: Image
-  description?: PortableTextBlock[]
-  overview?: PortableTextBlock[]
+  description: PortableTextBlock[]
+  overview: PortableTextBlock[]
   slug: string
   tags?: string[]
   title?: string

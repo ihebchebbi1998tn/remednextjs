@@ -297,6 +297,7 @@ export const postsQuery = groq`
       _type,
       title,
       overview,
+      description,
       date,
       tags,
       coverImage,

@@ -3,6 +3,8 @@ import { format, parseISO } from 'date-fns'
 import { fr } from 'date-fns/locale'
 import { Download } from 'lucide-react'
 import Image from 'next/image'
+import { toPlainText } from 'next-sanity'
+import readingTime from 'reading-time'
 
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
 import { AppBreadcrumb } from '@/components/shared/NextBreadcrumb'
@@ -10,8 +12,8 @@ import { VideoInView } from '@/components/shared/VideoInView'
 import { urlForImage } from '@/sanity/lib/utils'
 import type { PostPayload } from '@/types'
 
-import GalleryImage from '../../shared/GalleryImage'
 import WebAnalytics from '../../global/WebAnalytics'
+import GalleryImage from '../../shared/GalleryImage'
 
 export interface PostPageProps {
   data: PostPayload | null
@@ -32,6 +34,8 @@ export function PostPage({ data, encodeDataAttribute }: PostPageProps) {
     certifications,
     files,
   } = data ?? {}
+
+  const stats = readingTime(toPlainText(description ?? []))
 
   return (
     <div className="py-14 sm:py-22">
@@ -55,27 +59,32 @@ export function PostPage({ data, encodeDataAttribute }: PostPageProps) {
               <h1 className="text-2xl font-semibold leading-tight dark:text-gray-200 md:text-4xl">
                 {title}
               </h1>
-              <div className="flex mt-3">
-                <Image
-                  src={urlForImage(author?.picture)?.url() || ''}
-                  className="object-cover w-10 h-10 mr-2 rounded-full"
-                  alt={author?.name ?? ''}
-                  width="40"
-                  height="40"
-                />
-                <div>
-                  <p className="text-sm font-semibold dark:text-gray-200">
-                    {author?.name}
-                  </p>
-                  {date && (
-                    <p className="text-xs font-semibold text-gray-400">
-                      {' '}
-                      {format(parseISO(date), 'dd/LL/yyyy', {
-                        locale: fr,
-                      })}
+              <div className="flex justify-between mt-3">
+                <div className="flex">
+                  <Image
+                    src={urlForImage(author?.picture)?.url() || ''}
+                    className="object-cover w-10 h-10 mr-2 rounded-full"
+                    alt={author?.name ?? ''}
+                    width="40"
+                    height="40"
+                  />
+                  <div>
+                    <p className="text-sm font-semibold dark:text-gray-200">
+                      {author?.name}
                     </p>
-                  )}
+                    {date && (
+                      <p className="text-xs font-semibold text-gray-400">
+                        {' '}
+                        {format(parseISO(date), 'dd/LL/yyyy', {
+                          locale: fr,
+                        })}
+                      </p>
+                    )}
+                  </div>
                 </div>
+                <p className="text-sm font-semibold text-gray-400 dark:text-gray-200">
+                  {stats.words} words - {stats.text}
+                </p>
               </div>
             </div>
             <div className="pb-6 mt-4 font-semibold text-gray-400 border-b-2 border-gray-200">

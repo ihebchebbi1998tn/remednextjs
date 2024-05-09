@@ -3,9 +3,11 @@ import { format, parseISO } from 'date-fns'
 import { fr } from 'date-fns/locale'
 import Image from 'next/image'
 import Link from 'next/link'
+import { toPlainText } from 'next-sanity'
+import readingTime from 'reading-time'
 
-import { AppBreadcrumb } from '@/components/shared/NextBreadcrumb'
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
+import { AppBreadcrumb } from '@/components/shared/NextBreadcrumb'
 import { urlForImage } from '@/sanity/lib/utils'
 import type { PostsPayload } from '@/types'
 
@@ -31,6 +33,8 @@ export function PostListPage({ data, encodeDataAttribute }: PostListPageProps) {
           <div className="mt-8 space-y-20 lg:space-y-20">
             {data.items?.map((post) => {
               const coverImage = urlForImage(post.coverImage)?.url()
+              const stats = readingTime(toPlainText(post.description))
+
               return (
                 <article
                   key={post._id}
@@ -46,7 +50,7 @@ export function PostListPage({ data, encodeDataAttribute }: PostListPageProps) {
                     />
                     <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
                   </div>
-                  <div>
+                  <div className="w-full">
                     <div className="flex items-center text-xs gap-x-4">
                       {post.date && (
                         <time dateTime={post.date} className="text-gray-500">
@@ -77,7 +81,7 @@ export function PostListPage({ data, encodeDataAttribute }: PostListPageProps) {
                         value={post?.overview ?? []}
                       />
                     </div>
-                    <div className="flex pt-6 mt-6 border-t border-gray-900/5">
+                    <div className="flex justify-between pt-6 mt-6 border-t border-gray-900/5">
                       <div className="relative flex items-center gap-x-4">
                         <Image
                           src={urlForImage(post?.author?.picture)?.url() || ''}
@@ -96,6 +100,9 @@ export function PostListPage({ data, encodeDataAttribute }: PostListPageProps) {
                           <p className="text-gray-600">{post?.author?.name}</p>
                         </div>
                       </div>
+                      <p className="text-xs font-semibold text-gray-400 dark:text-gray-200">
+                        {stats.words} words - {stats.text}
+                      </p>
                     </div>
                   </div>
                 </article>
