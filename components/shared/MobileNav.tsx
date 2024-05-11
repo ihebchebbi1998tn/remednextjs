@@ -1,8 +1,10 @@
 'use client'
+import Cookies from 'js-cookie'
 import { Menu } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useState } from 'react'
+import { useTheme } from 'next-themes'
+import { useCallback, useEffect, useState } from 'react'
 
 import { ModeToggle } from '@/components/shared/mode-toggle'
 import { SocialNetworksList } from '@/components/shared/SocialNetworksList'
@@ -21,6 +23,8 @@ import type { SettingsPayload } from '@/types'
 
 import { FontResizer } from './FontResizer'
 
+const fontSizes = ['text-xs', 'text-sm', 'text-base', 'text-lg']
+
 interface NavbarProps {
   data: SettingsPayload
 }
@@ -30,6 +34,33 @@ export function MobileNav(props: NavbarProps) {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
   const menuItems = data?.menuItems || []
   const socialNetworks = data?.socialNetworks?.fields || []
+
+  /* FontResizer */
+  const textSizeIndexCookie = Cookies.get('textSizeIndex') || 2
+  const [textSizeIndex, setTextSizeIndex] = useState<number>(
+    Number(textSizeIndexCookie),
+  )
+  const { setTheme, theme } = useTheme()
+
+  useEffect(() => {
+    document.documentElement.className = `${theme} ${fontSizes[textSizeIndex]}`
+  }, [textSizeIndex, theme])
+
+  const onIncrease = useCallback(() => {
+    setTextSizeIndex((prev) => {
+      const value = Math.min(fontSizes.length - 1, prev + 1)
+      Cookies.set('textSizeIndex', value.toString())
+      return value
+    })
+  }, [setTextSizeIndex])
+
+  const onDecrease = useCallback(() => {
+    setTextSizeIndex((prev) => {
+      const value = Math.max(0, prev - 1)
+      Cookies.set('textSizeIndex', value.toString())
+      return value
+    })
+  }, [setTextSizeIndex])
 
   return (
     <Drawer open={isDrawerOpen} onOpenChange={setIsDrawerOpen}>
@@ -81,7 +112,13 @@ export function MobileNav(props: NavbarProps) {
           <div className="flex flex-col gap-y-4">
             <SocialNetworksList socialNetworks={socialNetworks} />
             <div className="flex justify-between shrink">
-              <FontResizer />
+              <FontResizer
+                onIncrease={onIncrease}
+                onDecrease={onDecrease}
+                textSizeIndex={textSizeIndex}
+                fontSizes={fontSizes}
+                setTextSizeIndex={setTextSizeIndex}
+              />
               <ModeToggle />
             </div>
           </div>

@@ -1,11 +1,8 @@
 'use client'
 
 import { AArrowDown, AArrowUp } from 'lucide-react'
-import { useTheme } from 'next-themes'
-import { useCallback, useEffect, useState } from 'react'
 
 import { Slider } from '@/components/ui/slider'
-import { SettingsPayload } from '@/types'
 
 import { Button } from '../ui/button'
 
