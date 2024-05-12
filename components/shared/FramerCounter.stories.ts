@@ -32,3 +32,20 @@ export const Down: Story = {
     direction: 'down',
   },
 }
+
+export const Suffix: Story = {
+  args: {
+    value: 100,
+    suffix: 'K',
+    pxPerDigit: 7,
+  },
+}
+
+export const Fixed: Story = {
+  args: {
+    value: 100.64,
+    suffix: 'K',
+    pxPerDigit: 7,
+    toFixed: 2,
+  },
+}

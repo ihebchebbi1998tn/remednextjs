@@ -10,17 +10,27 @@ import { useEffect, useRef } from 'react'
 export function FramerCounter({
   value,
   direction = 'up',
+  toFixed = 0,
+  damping = 100,
+  stiffness = 100,
+  pxPerDigit = 25,
+  suffix,
 }: {
   value: number
   direction?: 'up' | 'down'
+  toFixed?: number
+  damping?: number
+  stiffness?: number
+  pxPerDigit?: number
+  suffix?: string
 }) {
   const ref = useRef<HTMLSpanElement>(null)
   const motionValue = useMotionValue(direction === 'down' ? value : 0)
   const springValue = useSpring(motionValue, {
-    damping: 100,
-    stiffness: 100,
+    damping,
+    stiffness,
   })
-  const isInView = useInView(ref, { once: true, margin: '-100px' })
+  const isInView = useInView(ref, { once: true })
 
   useEffect(() => {
     if (isInView) {
@@ -33,14 +43,21 @@ export function FramerCounter({
       springValue.on('change', (latest) => {
         if (ref.current) {
           ref.current.textContent = Intl.NumberFormat('en-US').format(
-            latest.toFixed(0),
+            latest.toFixed(toFixed),
           )
         }
       }),
-    [springValue],
+    [springValue, toFixed],
   )
 
-  return <span ref={ref} />
+  return (
+    <div className={`flex gap-x-2`}>
+      <span ref={ref} className={` inline-block`} 
+      style={{width: `${value.toString().length * pxPerDigit}px`}}
+      />
+      {suffix && <span>{suffix}</span>}
+    </div>
+  )
 }
 
 export default FramerCounter
