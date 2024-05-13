@@ -104,7 +104,8 @@ export function HomePageShowcases({ data }: HomePageProps) {
         className="w-full md:w-1/2"
       >
         <div className="flex flex-col w-full h-full gap-4 p-4 shadow-lg rounded-2xl ring-1 ring-gray-900/5">
-          <h2 className="text-lg font-bold">{innovation?.title}</h2>
+          <h2 className="text-xl font-bold text-green-500">Research and Innovation</h2>
+          <h3 className="font-bold text-md">{innovation?.title}</h3>
           <CustomPortableText value={innovation?.overview ?? []} />
           <div className="flex flex-col self-end gap-2 mr-6">
             <Link
