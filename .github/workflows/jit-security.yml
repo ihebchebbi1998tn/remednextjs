@@ -3,9 +3,9 @@ run-name: ${{fromJSON(github.event.inputs.client_payload).payload.job_title}}
 on:
   workflow_dispatch:
     inputs:
-      client_payload:
-        description: The Client payload
-        required: true
+       client_payload:
+          description: The Client payload
+          required: true
 
 permissions:
   contents: read
@@ -14,21 +14,22 @@ permissions:
 jobs:
   enrich:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'enrich' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-enrichment-code'
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     timeout-minutes: 60
     steps:
-      - name: enrichment
-        uses: jitsecurity-controls/jit-github-action@v4.2.1
-        with:
-          security_control: registry.jit.io/control-enrichment-slim:latest
-
+    - name: enrichment
+      uses: jitsecurity-controls/jit-github-action@v4.2.2
+      with:
+        security_control: registry.jit.io/control-enrichment-slim:latest
+        
   software-bill-of-materials:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'software-bill-of-materials' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-sbom'
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     timeout-minutes: 60
     steps:
-      - name: syft
-        uses: jitsecurity-controls/jit-github-action@v4.2.1
-        with:
-          security_control: registry.jit.io/control-syft-alpine:latest
-          fail_if_cannot_checkout: false
+    - name: syft
+      uses: jitsecurity-controls/jit-github-action@v4.2.2
+      with:
+        security_control: registry.jit.io/control-syft-alpine:latest
+        fail_if_cannot_checkout: false
+        
