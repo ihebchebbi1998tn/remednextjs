@@ -32,8 +32,9 @@ export default function Navbar({ data }: NavbarProps) {
     return null;
   }
 
+  // Cycle through 'en', 'ar', and 'fr'
   const toggleLanguage = () => {
-    const newLocale = language === 'en' ? 'ar' : 'en';
+    const newLocale = language === 'en' ? 'ar' : language === 'ar' ? 'fr' : 'en';
     i18n.changeLanguage(newLocale); 
     setLanguage(newLocale); 
   };
@@ -70,8 +71,16 @@ export default function Navbar({ data }: NavbarProps) {
               aria-label="Toggle Language"
             >
               <Image
-                src={i18n.language === "en" ? "/images/en.png" : "/images/ar.png"}
-                alt={i18n.language === "en" ? "Switch to Arabic" : "Switch to English"}
+                src={
+                  i18n.language === "en" ? "/images/en.png" :
+                  i18n.language === "ar" ? "/images/ar.png" :
+                  "/images/fr.png" // French flag icon
+                }
+                alt={
+                  i18n.language === "en" ? "Switch to Arabic" :
+                  i18n.language === "ar" ? "Switch to French" :
+                  "Switch to English"
+                }
                 width={24}
                 height={24}
               />
