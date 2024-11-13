@@ -64,11 +64,11 @@ export function MobileNav(props: NavbarProps) {
     });
   }, [setTextSizeIndex]);
 
-  // Function to toggle language
-  const toggleLanguage = () => {
-    const newLanguage = language === 'en' ? 'ar' : 'en';
-    setLanguage(newLanguage);
-  };
+const toggleLanguage = () => {
+  const newLanguage = language === 'en' ? 'ar' : language === 'ar' ? 'fr' : 'en';
+  setLanguage(newLanguage);
+};
+
 
   return (
     <Drawer open={isDrawerOpen} onOpenChange={setIsDrawerOpen}>
@@ -126,16 +126,27 @@ export function MobileNav(props: NavbarProps) {
                 setTextSizeIndex={setTextSizeIndex}
               />
               <ModeToggle />
-
-              {/* Language toggle button with flag images */}
-              <button onClick={toggleLanguage} className="flex items-center gap-2">
-                <Image
-                  src={language === 'en' ? '/images/en.png' : '/images/ar.png'}
-                  alt={language === 'en' ? 'Switch to Arabic' : 'Switch to English'}
-                  width={24}
-                  height={24}
-                />
-              </button>
+{/* Language toggle button with flag images */}
+            <button onClick={toggleLanguage} className="flex items-center gap-2">
+              <Image
+                src={
+                  language === 'en'
+                    ? '/images/en.png'
+                    : language === 'ar'
+                    ? '/images/ar.png'
+                    : '/images/fr.png'
+                }
+                alt={
+                  language === 'en'
+                    ? 'Switch to Arabic'
+                    : language === 'ar'
+                    ? 'Switch to French'
+                    : 'Switch to English'
+                }
+                width={24}
+                height={24}
+              />
+            </button>
             </div>
           </div>
         </DrawerFooter>
