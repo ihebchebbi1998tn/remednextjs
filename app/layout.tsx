@@ -40,7 +40,7 @@ function InnerRootLayout({ children }: { children: React.ReactNode }) {
 
     window.googleTranslateElementInit = () => {
       new window.google.translate.TranslateElement(
-        { pageLanguage: 'en' },
+        { pageLanguage: 'ar' },
         'google_translate_element'
       );
       setTranslateLoaded(true);
