@@ -2,7 +2,7 @@
   incoming-hooks = ["Sanity"]
 
 [template.environment]
-  NEXT_PUBLIC_SANITY_PROJECT_ID="Your Sanity Project Id"
-  NEXT_PUBLIC_SANITY_DATASET="Your Sanity Dataset"
-  SANITY_API_WRITE_TOKEN="Your Sanity API Write Token"
-  SANITY_API_READ_TOKEN="Your Sanity API Read Token"
+  NEXT_PUBLIC_SANITY_PROJECT_ID="1vde8zeh"
+  NEXT_PUBLIC_SANITY_DATASET="production"
+  SANITY_API_WRITE_TOKEN="skMZuXNpeg3Luc8Z8li3GHDXvlS7RPh9XLaqytMiXBhXzongbf2mGIkAuK0XxUwM9eesmdwtdLQpygBC6Xc4NBLIbBPBLbF4RCkITGf3kbqOcWY5yfy64T8EDdx18QKPVEmQkRBerqRy7SIcvQQrh33xrxco5KiMrNzpWqUhcKW86Jju2OXC"
+  SANITY_API_READ_TOKEN="skFgo3LoJjE3kuiefJUNSTF8fUlGI9XdDF3glcvnb13MhfPN9MXgRZeoZpETQrmmZ3QxZeGtuX5LETKqRG3mhcFtOsUMWwRUkxYVKpIazumOhaA44x3e8MtVZeOgNTYmYwoD3rJaEUlNM7rIeeavhUFknBc2OtrttTOmObHu2oMEroctUv2G"

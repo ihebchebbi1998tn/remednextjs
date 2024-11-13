@@ -1,3 +1,5 @@
+import nextI18NextConfig from './next-i18next.config.mjs'; // Correct import for ES Module
+
 /** @type {import('next').NextConfig} */
 const config = {
   images: {
@@ -8,11 +10,9 @@ const config = {
     ],
   },
   typescript: {
-    // Set this to false if you want production builds to abort if there's type errors
     ignoreBuildErrors: process.env.VERCEL_ENV === 'production',
   },
   eslint: {
-    /// Set this to false if you want production builds to abort if there's lint errors
     ignoreDuringBuilds: process.env.VERCEL_ENV === 'production',
   },
   logging: {
@@ -23,6 +23,8 @@ const config = {
   experimental: {
     taint: true,
   },
-}
+  // Spread the next-i18next config
+  ...nextI18NextConfig,  // Merge i18n config into Next.js config
+};
 
-export default config
+export default config;

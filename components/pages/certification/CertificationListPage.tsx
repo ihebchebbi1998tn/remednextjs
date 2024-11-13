@@ -1,5 +1,6 @@
 import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
 
+import { useTranslation } from 'next-i18next'; 
 import GalleryImage from '@/components/shared/GalleryImage'
 import { AppBreadcrumb } from '@/components/shared/NextBreadcrumb'
 import { urlForImage } from '@/sanity/lib/utils'
@@ -15,6 +16,7 @@ export function CertificationListPage({
   encodeDataAttribute,
 }: CertificationListPageProps) {
   // Default to an empty object to allow previews on non-existent documents
+  const { t } = useTranslation(); 
 
   return (
     <div className="py-14 sm:py-22">
@@ -25,7 +27,7 @@ export function CertificationListPage({
             Certifications
           </h2>
           <p className="mt-2 text-lg leading-8 text-gray-600">
-            Learn more about our certifications and collaborations.
+           Learn more about our certifications and collaborations.
           </p>
           <div className="mt-16 sm:mt-20 lg:mx-0 lg:max-w-none">
             <GalleryImage
