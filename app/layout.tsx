@@ -70,10 +70,18 @@ function InnerRootLayout({ children }: { children: React.ReactNode }) {
     if (language === 'en' || language === 'ar') {
       translateLanguage(language);
     }
+
+    // Change page direction based on language
+    const htmlElement = document.documentElement;
+    if (language === 'ar') {
+      htmlElement.setAttribute('dir', 'rtl');
+    } else {
+      htmlElement.setAttribute('dir', 'ltr');
+    }
   }, [language]);
 
   return (
-    <html lang="en" suppressHydrationWarning className="text-inherit">
+    <html lang={language} suppressHydrationWarning className="text-inherit">
       <body
         className={cn(
           'min-h-screen bg-background font-sans antialiased',
