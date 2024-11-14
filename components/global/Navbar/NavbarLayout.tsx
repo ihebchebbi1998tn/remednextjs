@@ -32,9 +32,9 @@ export default function Navbar({ data }: NavbarProps) {
     return null;
   }
 
-  // Cycle through 'en', 'ar', and 'fr'
+  // Cycle through 'en', 'ar', 'fr', and 'it'
   const toggleLanguage = () => {
-    const newLocale = language === 'en' ? 'ar' : language === 'ar' ? 'fr' : 'en';
+    const newLocale = language === 'en' ? 'ar' : language === 'ar' ? 'fr' : language === 'fr' ? 'it' : 'en';
     i18n.changeLanguage(newLocale); 
     setLanguage(newLocale); 
   };
@@ -74,11 +74,13 @@ export default function Navbar({ data }: NavbarProps) {
                 src={
                   i18n.language === "en" ? "/images/en.png" :
                   i18n.language === "ar" ? "/images/ar.png" :
-                  "/images/fr.png" // French flag icon
+                  i18n.language === "fr" ? "/images/fr.png" : 
+                  "/images/it.png" // Italian flag icon
                 }
                 alt={
                   i18n.language === "en" ? "Switch to Arabic" :
                   i18n.language === "ar" ? "Switch to French" :
+                  i18n.language === "fr" ? "Switch to Italian" :
                   "Switch to English"
                 }
                 width={24}
