@@ -102,10 +102,9 @@ export default function Navbar({ data }: NavbarProps) {
                       <Image 
                         src={lang.icon} 
                         alt={lang.label} 
-                        width={32}   // Increase the width for larger icons
-                        height={32}  // Increase the height for larger icons
+                        width={30}   // Increase the width for larger icons
+                        height={30}  // Increase the height for larger icons
                       />
-                      <span>{lang.label}</span>
                     </button>
                   ))}
                 </div>
