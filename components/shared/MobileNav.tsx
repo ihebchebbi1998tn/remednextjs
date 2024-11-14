@@ -171,7 +171,6 @@ export function MobileNav(props: NavbarProps) {
                         className="flex items-center gap-2 p-2 hover:bg-gray-100"
                       >
                         <Image src={lang.icon} alt={lang.label} width={32} height={32} />
-                        <span>{lang.label}</span>
                       </button>
                     ))}
                   </div>
