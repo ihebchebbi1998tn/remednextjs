@@ -51,7 +51,8 @@ export function MobileNav(props: NavbarProps) {
 
   useEffect(() => {
     document.documentElement.className = `${theme} ${fontSizes[textSizeIndex]}`;
-  }, [textSizeIndex, theme]);
+    document.documentElement.dir = i18n.language === "ar" ? "rtl" : "ltr"; // Set direction based on language
+  }, [textSizeIndex, theme, i18n.language]);
 
   const onIncrease = useCallback(() => {
     setTextSizeIndex((prev) => {
@@ -80,10 +81,10 @@ export function MobileNav(props: NavbarProps) {
   };
 
   const languageOptions = [
-    { code: "en", label: "English", icon: "/images/en.png" },
-    { code: "ar", label: "Arabic", icon: "/images/ar.png" },
-    { code: "fr", label: "French", icon: "/images/fr.png" },
-    { code: "it", label: "Italian", icon: "/images/it.png" },
+    { code: "en", icon: "/images/en.png" },
+    { code: "ar", icon: "/images/ar.png" },
+    { code: "fr", icon: "/images/fr.png" },
+    { code: "it", icon: "/images/it.png" },
   ];
 
   const currentLanguage = languageOptions.find(
@@ -163,7 +164,7 @@ export function MobileNav(props: NavbarProps) {
                   />
                 </button>
                 {isDropdownOpen && (
-                  <div className="absolute bottom-full mb-2 right-0 bg-white border border-gray-200 rounded shadow-md w-40">
+                  <div className={`absolute bottom-full mb-2 ${i18n.language === "ar" ? "left-0" : "right-0"} bg-white border border-gray-200 rounded shadow-md w-40`}>
                     {languageOptions.map((lang) => (
                       <button
                         key={lang.code}
