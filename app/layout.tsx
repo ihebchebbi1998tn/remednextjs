@@ -70,7 +70,7 @@ function InnerRootLayout({ children }: { children: React.ReactNode }) {
 
   // Trigger translation when `language` changes and adjust page direction
   useEffect(() => {
-    if (isTranslateLoaded && (language === 'en' || language === 'ar' || language === 'fr')) {
+    if (isTranslateLoaded && (language === 'en' || language === 'ar' || language === 'fr' || language === 'it' )) {
       translateLanguage(language);
     }
 
