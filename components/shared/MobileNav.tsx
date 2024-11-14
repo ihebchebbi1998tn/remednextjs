@@ -7,7 +7,7 @@ import { usePathname } from 'next/navigation';
 import { useTheme } from 'next-themes';
 import { useCallback, useEffect, useState } from 'react';
 import Image from 'next/image';
-
+import { useTranslation } from 'next-i18next';  // Correctly import useTranslation
 import { ModeToggle } from '@/components/shared/mode-toggle';
 import { SocialNetworksList } from '@/components/shared/SocialNetworksList';
 import { Button } from '@/components/ui/button';
