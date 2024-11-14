@@ -132,16 +132,18 @@ export function MobileNav(props: NavbarProps) {
               {/* Language toggle button with flag images */}
               <button onClick={toggleLanguage} className="flex items-center gap-2">
                 <Image
-                  src={
-                    language === 'en'
-                      ? '/images/en.png'
-                      : language === 'ar'
-                      ? '/images/ar.png'
-                      : language === 'fr'
-                      ? '/images/fr.png'
-                      : '/images/it.png' // Italian flag
-                  }
-                  alt="Language"
+                    src={
+                  i18n.language === "en" ? "/images/en.png" :
+                  i18n.language === "ar" ? "/images/ar.png" :
+                  i18n.language === "fr" ? "/images/fr.png" : 
+                  "/images/it.png" // Italian flag icon
+                }
+                alt={
+                  i18n.language === "en" ? "Switch to Arabic" :
+                  i18n.language === "ar" ? "Switch to French" :
+                  i18n.language === "fr" ? "Switch to Italian" :
+                  "Switch to English"
+                }
                   width={24}
                   height={24}
                 />
