@@ -1,3 +1,7 @@
+// components/global/Navbar/NavbarLayout.tsx
+
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
@@ -31,7 +35,6 @@ export default function Navbar({ data }: NavbarProps) {
     return null;
   }
 
-  // Available language options
   const languageOptions = [
     { code: "en", label: "English", icon: "/images/en.png" },
     { code: "ar", label: "Arabic", icon: "/images/ar.png" },
@@ -41,10 +44,8 @@ export default function Navbar({ data }: NavbarProps) {
 
   const currentLanguage = languageOptions.find(lang => lang.code === i18n.language);
 
-  // Toggle the language dropdown
   const toggleDropdown = () => setDropdownOpen(prev => !prev);
 
-  // Change language
   const changeLanguage = (langCode: string) => {
     i18n.changeLanguage(langCode); 
     setLanguage(langCode);
