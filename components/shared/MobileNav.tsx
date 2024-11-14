@@ -64,11 +64,10 @@ export function MobileNav(props: NavbarProps) {
     });
   }, [setTextSizeIndex]);
 
-const toggleLanguage = () => {
-  const newLanguage = language === 'en' ? 'ar' : language === 'ar' ? 'fr' : 'en';
-  setLanguage(newLanguage);
-};
-
+  const toggleLanguage = () => {
+    const newLanguage = language === 'en' ? 'ar' : language === 'ar' ? 'fr' : language === 'fr' ? 'it' : 'en';
+    setLanguage(newLanguage);
+  };
 
   return (
     <Drawer open={isDrawerOpen} onOpenChange={setIsDrawerOpen}>
@@ -110,7 +109,7 @@ const toggleLanguage = () => {
               onClick={() => setIsDrawerOpen(false)}
               className="px-8 font-bold text-white bg-green-500 border-2 border-transparent hover:bg-transparent hover:text-green-500 hover:border-green-500"
             >
-              {`Opportunities`}
+             Opportunities
             </Button>
           </Link>
         </DrawerDescription>
@@ -126,27 +125,23 @@ const toggleLanguage = () => {
                 setTextSizeIndex={setTextSizeIndex}
               />
               <ModeToggle />
-{/* Language toggle button with flag images */}
-            <button onClick={toggleLanguage} className="flex items-center gap-2">
-              <Image
-                src={
-                  language === 'en'
-                    ? '/images/en.png'
-                    : language === 'ar'
-                    ? '/images/ar.png'
-                    : '/images/fr.png'
-                }
-                alt={
-                  language === 'en'
-                    ? 'Switch to Arabic'
-                    : language === 'ar'
-                    ? 'Switch to French'
-                    : 'Switch to English'
-                }
-                width={24}
-                height={24}
-              />
-            </button>
+              {/* Language toggle button with flag images */}
+              <button onClick={toggleLanguage} className="flex items-center gap-2">
+                <Image
+                  src={
+                    language === 'en'
+                      ? '/images/en.png'
+                      : language === 'ar'
+                      ? '/images/ar.png'
+                      : language === 'fr'
+                      ? '/images/fr.png'
+                      : '/images/it.png' // Italian flag
+                  }
+                  alt="Language"
+                  width={24}
+                  height={24}
+                />
+              </button>
             </div>
           </div>
         </DrawerFooter>
