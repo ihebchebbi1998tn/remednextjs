@@ -151,32 +151,32 @@ export function MobileNav(props: NavbarProps) {
               <ModeToggle />
 
               {/* Language selection with icons only */}
-              <div className="relative">
-                <button
-                  onClick={toggleLanguageDropdown}
-                  className="flex items-center gap-2"
-                >
-                  <Image
-                    src={currentLanguage?.icon || "/images/en.png"}
-                    alt={`Current Language`}
-                    width={24}
-                    height={24}
-                  />
-                </button>
-                {isDropdownOpen && (
-                  <div className={`absolute bottom-full mb-2 ${i18n.language === "ar" ? "left-0" : "right-0"} bg-white border border-gray-200 rounded shadow-md w-40`}>
-                    {languageOptions.map((lang) => (
-                      <button
-                        key={lang.code}
-                        onClick={() => changeLanguage(lang.code)}
-                        className="flex items-center gap-2 p-2 hover:bg-gray-100"
-                      >
-                        <Image src={lang.icon} alt={lang.code} width={32} height={32} />
-                      </button>
-                    ))}
-                  </div>
-                )}
-              </div>
+            <div className="relative">
+  <button
+    onClick={toggleLanguageDropdown}
+    className="flex items-center gap-0" // Removed 'gap-2' to ensure no space between icon and button
+  >
+    <Image
+      src={currentLanguage?.icon || "/images/en.png"}
+      alt={`Current Language`}
+      width={24}
+      height={24}
+    />
+  </button>
+  {isDropdownOpen && (
+    <div className={`absolute bottom-full mb-2 ${i18n.language === "ar" ? "left-0" : "right-0"} bg-white border border-gray-200 rounded shadow-md w-40`}>
+      {languageOptions.map((lang) => (
+        <button
+          key={lang.code}
+          onClick={() => changeLanguage(lang.code)}
+          className="flex items-center justify-center gap-0 p-2 hover:bg-gray-100 w-full" // Ensure no gap and full width button
+        >
+          <Image src={lang.icon} alt={lang.code} width={32} height={32} />
+        </button>
+      ))}
+    </div>
+  )}
+</div>
             </div>
           </div>
         </DrawerFooter>
