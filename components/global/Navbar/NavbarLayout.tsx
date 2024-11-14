@@ -1,5 +1,3 @@
-'use client';
-
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
@@ -20,10 +18,11 @@ export default function Navbar({ data }: NavbarProps) {
   const socialNetworks = data?.socialNetworks;
   const homeItem = menuItems.find((item) => item?._type === "home");
   const { language, setLanguage } = useLanguage();  
-
   const { t, i18n } = useTranslation();  
 
   const [isMounted, setIsMounted] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
   useEffect(() => {
     setIsMounted(true);
   }, []);
@@ -32,11 +31,24 @@ export default function Navbar({ data }: NavbarProps) {
     return null;
   }
 
-  // Cycle through 'en', 'ar', 'fr', and 'it'
-  const toggleLanguage = () => {
-    const newLocale = language === 'en' ? 'ar' : language === 'ar' ? 'fr' : language === 'fr' ? 'it' : 'en';
-    i18n.changeLanguage(newLocale); 
-    setLanguage(newLocale); 
+  // Available language options
+  const languageOptions = [
+    { code: "en", label: "English", icon: "/images/en.png" },
+    { code: "ar", label: "Arabic", icon: "/images/ar.png" },
+    { code: "fr", label: "French", icon: "/images/fr.png" },
+    { code: "it", label: "Italian", icon: "/images/it.png" },
+  ];
+
+  const currentLanguage = languageOptions.find(lang => lang.code === i18n.language);
+
+  // Toggle the language dropdown
+  const toggleDropdown = () => setDropdownOpen(prev => !prev);
+
+  // Change language
+  const changeLanguage = (langCode: string) => {
+    i18n.changeLanguage(langCode); 
+    setLanguage(langCode);
+    setDropdownOpen(false);
   };
 
   return (
@@ -65,28 +77,34 @@ export default function Navbar({ data }: NavbarProps) {
           </Link>
           <nav className="flex items-center w-auto gap-1 md:gap-2">
             <PopoverSettings socialNetworks={socialNetworks} />
-            <button
-              onClick={toggleLanguage}
-              className="flex items-center gap-2"
-              aria-label="Toggle Language"
-            >
-              <Image
-                src={
-                  i18n.language === "en" ? "/images/en.png" :
-                  i18n.language === "ar" ? "/images/ar.png" :
-                  i18n.language === "fr" ? "/images/fr.png" : 
-                  "/images/it.png" // Italian flag icon
-                }
-                alt={
-                  i18n.language === "en" ? "Switch to Arabic" :
-                  i18n.language === "ar" ? "Switch to French" :
-                  i18n.language === "fr" ? "Switch to Italian" :
-                  "Switch to English"
-                }
-                width={24}
-                height={24}
-              />
-            </button>
+            <div className="relative">
+              <button
+                onClick={toggleDropdown}
+                className="flex items-center gap-2"
+                aria-label="Toggle Language"
+              >
+                <Image
+                  src={currentLanguage?.icon || "/images/en.png"}
+                  alt={`Current Language: ${currentLanguage?.label || "English"}`}
+                  width={24}
+                  height={24}
+                />
+              </button>
+              {dropdownOpen && (
+                <div className="absolute right-0 mt-2 bg-white border border-gray-200 rounded shadow-md">
+                  {languageOptions.map((lang) => (
+                    <button
+                      key={lang.code}
+                      onClick={() => changeLanguage(lang.code)}
+                      className="flex items-center gap-2 p-2 hover:bg-gray-100"
+                    >
+                      <Image src={lang.icon} alt={lang.label} width={20} height={20} />
+                      <span>{lang.label}</span>
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
           </nav>
         </div>
       </div>
