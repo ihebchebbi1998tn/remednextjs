@@ -36,10 +36,10 @@ export default function Navbar({ data }: NavbarProps) {
   }
 
   const languageOptions = [
-    { code: "en", label: "English", icon: "/images/en.png" },
-    { code: "ar", label: "Arabic", icon: "/images/ar.png" },
-    { code: "fr", label: "French", icon: "/images/fr.png" },
-    { code: "it", label: "Italian", icon: "/images/it.png" },
+    { code: "en", icon: "/images/en.png" },
+    { code: "ar", icon: "/images/ar.png" },
+    { code: "fr", icon: "/images/fr.png" },
+    { code: "it", icon: "/images/it.png" },
   ];
 
   const currentLanguage = languageOptions.find(lang => lang.code === i18n.language);
@@ -86,13 +86,17 @@ export default function Navbar({ data }: NavbarProps) {
               >
                 <Image
                   src={currentLanguage?.icon || "/images/en.png"}
-                  alt={`Current Language: ${currentLanguage?.label || "English"}`}
-                  width={24}
-                  height={24}
+                  alt={`Current Language`}
+                  width={30}  // Standardized size
+                  height={30}
                 />
               </button>
               {dropdownOpen && (
-                <div className="absolute right-0 mt-2 bg-white border border-gray-200 rounded shadow-md">
+                <div 
+                  className={`absolute mt-2 bg-white border border-gray-200 rounded shadow-md ${
+                    i18n.language === "ar" ? "left-0" : "right-0"
+                  }`}
+                >
                   {languageOptions.map((lang) => (
                     <button
                       key={lang.code}
@@ -101,9 +105,9 @@ export default function Navbar({ data }: NavbarProps) {
                     >
                       <Image 
                         src={lang.icon} 
-                        alt={lang.label} 
-                        width={30}   // Increase the width for larger icons
-                        height={30}  // Increase the height for larger icons
+                        alt={`Select Language`} 
+                        width={30}  // Standardized size for dropdown
+                        height={30}
                       />
                     </button>
                   ))}
