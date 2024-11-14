@@ -1,16 +1,16 @@
-'use client';
+"use client";
 
-import Cookies from 'js-cookie';
-import { Menu } from 'lucide-react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { useTheme } from 'next-themes';
-import { useCallback, useEffect, useState } from 'react';
-import Image from 'next/image';
-import { useTranslation } from 'next-i18next';  // Correctly import useTranslation
-import { ModeToggle } from '@/components/shared/mode-toggle';
-import { SocialNetworksList } from '@/components/shared/SocialNetworksList';
-import { Button } from '@/components/ui/button';
+import Cookies from "js-cookie";
+import { Menu } from "lucide-react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useTheme } from "next-themes";
+import { useCallback, useEffect, useState } from "react";
+import Image from "next/image";
+import { useTranslation } from "next-i18next";
+import { ModeToggle } from "@/components/shared/mode-toggle";
+import { SocialNetworksList } from "@/components/shared/SocialNetworksList";
+import { Button } from "@/components/ui/button";
 import {
   Drawer,
   DrawerClose,
@@ -19,14 +19,14 @@ import {
   DrawerFooter,
   DrawerHeader,
   DrawerTrigger,
-} from '@/components/ui/drawer';
-import { cn } from '@/lib/utils';
-import { useLanguage } from '@/components/LanguageProvider';
-import type { SettingsPayload } from '@/types';
+} from "@/components/ui/drawer";
+import { cn } from "@/lib/utils";
+import { useLanguage } from "@/components/LanguageProvider";
+import type { SettingsPayload } from "@/types";
 
-import { FontResizer } from './FontResizer';
+import { FontResizer } from "./FontResizer";
 
-const fontSizes = ['text-xs', 'text-sm', 'text-base', 'text-lg'];
+const fontSizes = ["text-xs", "text-sm", "text-base", "text-lg"];
 
 interface NavbarProps {
   data: SettingsPayload;
@@ -36,15 +36,18 @@ export function MobileNav(props: NavbarProps) {
   const { data } = props;
   const pathname = usePathname();
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false); // State for dropdown
   const menuItems = data?.menuItems || [];
   const socialNetworks = data?.socialNetworks?.fields || [];
 
-  const textSizeIndexCookie = Cookies.get('textSizeIndex') || 2;
-  const [textSizeIndex, setTextSizeIndex] = useState<number>(Number(textSizeIndexCookie));
+  const textSizeIndexCookie = Cookies.get("textSizeIndex") || 2;
+  const [textSizeIndex, setTextSizeIndex] = useState<number>(
+    Number(textSizeIndexCookie)
+  );
   const { setTheme, theme } = useTheme();
-   const { language, setLanguage } = useLanguage();  
+  const { language, setLanguage } = useLanguage();
 
-  const { t, i18n } = useTranslation();  
+  const { t, i18n } = useTranslation();
 
   useEffect(() => {
     document.documentElement.className = `${theme} ${fontSizes[textSizeIndex]}`;
@@ -53,7 +56,7 @@ export function MobileNav(props: NavbarProps) {
   const onIncrease = useCallback(() => {
     setTextSizeIndex((prev) => {
       const value = Math.min(fontSizes.length - 1, prev + 1);
-      Cookies.set('textSizeIndex', value.toString());
+      Cookies.set("textSizeIndex", value.toString());
       return value;
     });
   }, [setTextSizeIndex]);
@@ -61,17 +64,31 @@ export function MobileNav(props: NavbarProps) {
   const onDecrease = useCallback(() => {
     setTextSizeIndex((prev) => {
       const value = Math.max(0, prev - 1);
-      Cookies.set('textSizeIndex', value.toString());
+      Cookies.set("textSizeIndex", value.toString());
       return value;
     });
   }, [setTextSizeIndex]);
 
-   // Cycle through 'en', 'ar', 'fr', and 'it'
-  const toggleLanguage = () => {
-    const newLocale = language === 'en' ? 'ar' : language === 'ar' ? 'fr' : language === 'fr' ? 'it' : 'en';
-    i18n.changeLanguage(newLocale); 
-    setLanguage(newLocale); 
+  const toggleLanguageDropdown = () => {
+    setIsDropdownOpen((prev) => !prev);
   };
+
+  const changeLanguage = (langCode: string) => {
+    i18n.changeLanguage(langCode);
+    setLanguage(langCode);
+    setIsDropdownOpen(false); // Close dropdown after selection
+  };
+
+  const languageOptions = [
+    { code: "en", label: "English", icon: "/images/en.png" },
+    { code: "ar", label: "Arabic", icon: "/images/ar.png" },
+    { code: "fr", label: "French", icon: "/images/fr.png" },
+    { code: "it", label: "Italian", icon: "/images/it.png" },
+  ];
+
+  const currentLanguage = languageOptions.find(
+    (lang) => lang.code === i18n.language
+  );
 
   return (
     <Drawer open={isDrawerOpen} onOpenChange={setIsDrawerOpen}>
@@ -91,16 +108,18 @@ export function MobileNav(props: NavbarProps) {
         </DrawerHeader>
         <DrawerDescription className="container flex flex-col justify-center">
           {menuItems
-            .filter((item) => item?._type !== 'home')
+            .filter((item) => item?._type !== "home")
             .map((item, key) => {
-              const href = item?._type === 'home' ? '/' : `/${item?.slug}`;
+              const href = item?._type === "home" ? "/" : `/${item?.slug}`;
               return (
                 <Link
                   key={key}
                   href={href}
                   className={cn(
-                    'py-2 text-lg font-bold text-center transition-colors hover:text-foreground',
-                    pathname === href ? 'text-foreground' : 'text-foreground/60'
+                    "py-2 text-lg font-bold text-center transition-colors hover:text-foreground",
+                    pathname === href
+                      ? "text-foreground"
+                      : "text-foreground/60"
                   )}
                   onClick={() => setIsDrawerOpen(false)}
                 >
@@ -113,7 +132,7 @@ export function MobileNav(props: NavbarProps) {
               onClick={() => setIsDrawerOpen(false)}
               className="px-8 font-bold text-white bg-green-500 border-2 border-transparent hover:bg-transparent hover:text-green-500 hover:border-green-500"
             >
-             Opportunities
+              Opportunities
             </Button>
           </Link>
         </DrawerDescription>
@@ -129,25 +148,35 @@ export function MobileNav(props: NavbarProps) {
                 setTextSizeIndex={setTextSizeIndex}
               />
               <ModeToggle />
-              {/* Language toggle button with flag images */}
-              <button onClick={toggleLanguage} className="flex items-center gap-2">
-                <Image
-                    src={
-                  i18n.language === "en" ? "/images/en.png" :
-                  i18n.language === "ar" ? "/images/ar.png" :
-                  i18n.language === "fr" ? "/images/fr.png" : 
-                  "/images/it.png" // Italian flag icon
-                }
-                alt={
-                  i18n.language === "en" ? "Switch to Arabic" :
-                  i18n.language === "ar" ? "Switch to French" :
-                  i18n.language === "fr" ? "Switch to Italian" :
-                  "Switch to English"
-                }
-                  width={24}
-                  height={24}
-                />
-              </button>
+
+              {/* Language selection with dropdown */}
+              <div className="relative">
+                <button
+                  onClick={toggleLanguageDropdown}
+                  className="flex items-center gap-2"
+                >
+                  <Image
+                    src={currentLanguage?.icon || "/images/en.png"}
+                    alt={`Current Language: ${currentLanguage?.label || "English"}`}
+                    width={24}
+                    height={24}
+                  />
+                </button>
+                {isDropdownOpen && (
+                  <div className="absolute bottom-full mb-2 right-0 bg-white border border-gray-200 rounded shadow-md w-40">
+                    {languageOptions.map((lang) => (
+                      <button
+                        key={lang.code}
+                        onClick={() => changeLanguage(lang.code)}
+                        className="flex items-center gap-2 p-2 hover:bg-gray-100"
+                      >
+                        <Image src={lang.icon} alt={lang.label} width={32} height={32} />
+                        <span>{lang.label}</span>
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </DrawerFooter>
