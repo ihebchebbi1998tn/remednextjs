@@ -42,7 +42,9 @@ export function MobileNav(props: NavbarProps) {
   const textSizeIndexCookie = Cookies.get('textSizeIndex') || 2;
   const [textSizeIndex, setTextSizeIndex] = useState<number>(Number(textSizeIndexCookie));
   const { setTheme, theme } = useTheme();
-  const { language, setLanguage } = useLanguage();
+   const { language, setLanguage } = useLanguage();  
+
+  const { t, i18n } = useTranslation();  
 
   useEffect(() => {
     document.documentElement.className = `${theme} ${fontSizes[textSizeIndex]}`;
@@ -64,9 +66,11 @@ export function MobileNav(props: NavbarProps) {
     });
   }, [setTextSizeIndex]);
 
+   // Cycle through 'en', 'ar', 'fr', and 'it'
   const toggleLanguage = () => {
-    const newLanguage = language === 'en' ? 'ar' : language === 'ar' ? 'fr' : language === 'fr' ? 'it' : 'en';
-    setLanguage(newLanguage);
+    const newLocale = language === 'en' ? 'ar' : language === 'ar' ? 'fr' : language === 'fr' ? 'it' : 'en';
+    i18n.changeLanguage(newLocale); 
+    setLanguage(newLocale); 
   };
 
   return (
