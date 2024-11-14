@@ -150,7 +150,7 @@ export function MobileNav(props: NavbarProps) {
               />
               <ModeToggle />
 
-              {/* Language selection with dropdown */}
+              {/* Language selection with icons only */}
               <div className="relative">
                 <button
                   onClick={toggleLanguageDropdown}
@@ -158,7 +158,7 @@ export function MobileNav(props: NavbarProps) {
                 >
                   <Image
                     src={currentLanguage?.icon || "/images/en.png"}
-                    alt={`Current Language: ${currentLanguage?.label || "English"}`}
+                    alt={`Current Language`}
                     width={24}
                     height={24}
                   />
@@ -171,7 +171,7 @@ export function MobileNav(props: NavbarProps) {
                         onClick={() => changeLanguage(lang.code)}
                         className="flex items-center gap-2 p-2 hover:bg-gray-100"
                       >
-                        <Image src={lang.icon} alt={lang.label} width={32} height={32} />
+                        <Image src={lang.icon} alt={lang.code} width={32} height={32} />
                       </button>
                     ))}
                   </div>
