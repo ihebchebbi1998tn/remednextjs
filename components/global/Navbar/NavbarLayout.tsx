@@ -99,7 +99,13 @@ export default function Navbar({ data }: NavbarProps) {
                       onClick={() => changeLanguage(lang.code)}
                       className="flex items-center gap-2 p-2 hover:bg-gray-100"
                     >
-                      <Image src={lang.icon} alt={lang.label} width={20} height={20} />
+                      <Image 
+                        src={lang.icon} 
+                        alt={lang.label} 
+                        width={32}   // Increase the width for larger icons
+                        height={32}  // Increase the height for larger icons
+                      />
+                      <span>{lang.label}</span>
                     </button>
                   ))}
                 </div>
