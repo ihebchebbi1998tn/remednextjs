@@ -108,6 +108,8 @@ export default function Navbar({ data }: NavbarProps) {
                         alt={`Select Language`} 
                         width={30}  // Standardized size for dropdown
                         height={30}
+                        style={{ objectFit: "contain" }} // Ensure the image fits correctly
+
                       />
                     </button>
                   ))}
