@@ -38,8 +38,8 @@ export default function Navbar({ data }: NavbarProps) {
   const languageOptions = [
     { code: "en", icon: "/images/en.png" },
     { code: "ar", icon: "/images/ar.png" },
-    { code: "fr", icon: "/images/fr.png" },
     { code: "it", icon: "/images/it.png" },
+    { code: "fr", icon: "/images/fr.png" },
   ];
 
   const currentLanguage = languageOptions.find(lang => lang.code === i18n.language);
@@ -108,7 +108,6 @@ export default function Navbar({ data }: NavbarProps) {
                         alt={`Select Language`} 
                         width={30}  // Standardized size for dropdown
                         height={30}
-                        style={{ objectFit: "contain" }} // Ensure the image fits correctly
 
                       />
                     </button>
