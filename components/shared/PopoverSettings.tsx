@@ -25,7 +25,7 @@ type PopoverSettingsProps = {
 }
 
 export function PopoverSettings({ socialNetworks }: PopoverSettingsProps) {
-  const textSizeIndexCookie = Cookies.get('textSizeIndex') || 0 // Default to smallest size (text-xs)
+  const textSizeIndexCookie = Cookies.get('textSizeIndex') || 1 // Default to smallest size (text-xs)
   const [textSizeIndex, setTextSizeIndex] = useState<number>(Number(textSizeIndexCookie))
   const { setTheme, theme } = useTheme()
 
