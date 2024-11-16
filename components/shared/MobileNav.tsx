@@ -84,7 +84,7 @@ export function MobileNav(props: NavbarProps) {
     { code: "en", icon: "/images/en.png" },
     { code: "ar", icon: "/images/ar.png" },
     { code: "fr", icon: "/images/fr.png" },
-    { code: "it", icon: "/images/it.png" },
+    { code: "it", icon: "/images/ita.png" },
   ];
 
   const currentLanguage = languageOptions.find(

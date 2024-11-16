@@ -38,7 +38,7 @@ export default function Navbar({ data }: NavbarProps) {
   const languageOptions = [
     { code: "en", icon: "/images/en.png" },
     { code: "ar", icon: "/images/ar.png" },
-    { code: "it", icon: "/images/it.png" },
+    { code: "it", icon: "/images/ita.png" },
     { code: "fr", icon: "/images/fr.png" },
   ];
 
