@@ -25,7 +25,7 @@ type PopoverSettingsProps = {
 }
 
 export function PopoverSettings({ socialNetworks }: PopoverSettingsProps) {
-  const textSizeIndexCookie = Cookies.get('textSizeIndex') || 2
+  const textSizeIndexCookie = Cookies.get('textSizeIndex') || 0 // Default to smallest size (text-xs)
   const [textSizeIndex, setTextSizeIndex] = useState<number>(Number(textSizeIndexCookie))
   const { setTheme, theme } = useTheme()
 
@@ -38,8 +38,7 @@ export function PopoverSettings({ socialNetworks }: PopoverSettingsProps) {
       const value = Math.min(fontSizes.length - 1, prev + 1)
       Cookies.set('textSizeIndex', value.toString())
       return value
-    }
-    )
+    })
   }, [setTextSizeIndex])
 
   const onDecrease = useCallback(() => {
