@@ -103,13 +103,14 @@ export default function Navbar({ data }: NavbarProps) {
                       onClick={() => changeLanguage(lang.code)}
                       className="flex items-center gap-2 p-2 hover:bg-gray-100"
                     >
-                      <Image 
-                        src={lang.icon} 
-                        alt={`Select Language`} 
-                        width={30}  // Standardized size for dropdown
-                        height={30}
+                     <Image
+  src={lang.icon}
+  alt={`Select Language`}
+  width={64}
+  height={64}
+  unoptimized
+/>
 
-                      />
                     </button>
                   ))}
                 </div>
