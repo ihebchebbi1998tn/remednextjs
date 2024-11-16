@@ -79,40 +79,38 @@ export default function Navbar({ data }: NavbarProps) {
           <nav className="flex items-center w-auto gap-1 md:gap-2">
             <PopoverSettings socialNetworks={socialNetworks} />
             <div className="relative">
-              <button
-                onClick={toggleDropdown}
-                className="flex items-center gap-2"
-                aria-label="Toggle Language"
-              >
-                <Image
-                  src={currentLanguage?.icon || "/images/en.png"}
-                  alt={`Current Language`}
-                  width={30}  // Standardized size
-                  height={30}
-                />
-              </button>
-              {dropdownOpen && (
-                <div 
-                  className={`absolute mt-2 bg-white border border-gray-200 rounded shadow-md ${
-                    i18n.language === "ar" ? "left-0" : "right-0"
-                  }`}
-                >
-                  {languageOptions.map((lang) => (
-                    <button
-                      key={lang.code}
-                      onClick={() => changeLanguage(lang.code)}
-                      className="flex items-center gap-2 p-2 hover:bg-gray-100"
-                    >
-                     <Image
-  src={lang.icon}
-  alt={`Select Language`}
-  width={64}
-  height={64}
-  unoptimized
-/>
-
-                    </button>
-                  ))}
+            <button
+  onClick={toggleDropdown}
+  className="flex items-center gap-2"
+  aria-label="Toggle Language"
+>
+  <Image
+    src={currentLanguage?.icon || "/images/en.png"}
+    alt={`Current Language`}
+    width={40} // Set a consistent size
+    height={40}
+  />
+</button>
+{dropdownOpen && (
+  <div 
+    className={`absolute mt-2 bg-white border border-gray-200 rounded shadow-md ${
+      i18n.language === "ar" ? "left-0" : "right-0"
+    }`}
+  >
+    {languageOptions.map((lang) => (
+      <button
+        key={lang.code}
+        onClick={() => changeLanguage(lang.code)}
+        className="flex items-center gap-2 p-2 hover:bg-gray-100"
+      >
+        <Image
+          src={lang.icon}
+          alt={`Select Language`}
+          width={40}  // Use the same size here
+          height={40}
+        />
+      </button>
+    ))}
                 </div>
               )}
             </div>
